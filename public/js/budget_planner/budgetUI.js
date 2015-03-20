@@ -44,11 +44,10 @@ function drawUI(){
 			});
 			
 			$('button[data-target="#calculate"]').on('show.bs.tab', function (e) {
-					//alert('onshow');
+					//validate
 			});
 			
 			$('button[data-target="#calculate"]').on('shown.bs.tab', function (e) {
-				//alert('onshown');
 				$(e.relatedTarget).find('td.tenPersent:eq(1) img').attr('src','images/budget_planner/arrow_close.png');
 				$("div.panel-heading").find("td.tenPersent:eq(1) img").attr('src','images/budget_planner/arrow_up.png');
 				var idPrev = $(e.relatedTarget).attr('id');
