@@ -107,7 +107,9 @@ var fakewaffle = ( function ( $, fakewaffle ) {
 								$( '<button>', {
 									'id'          :idA,
 									'class'       : newLinkClass,
-									'href'        : '#' + newHash,
+									'data-toggle' : 'collapse',
+									'data-target' : '#collapse-calculate',
+									'data-parent' : '#collapse-' + $tabGroup.attr( 'id' ),
 									'html'        : $this.html()
 								} )
 							)
@@ -225,23 +227,19 @@ var fakewaffle = ( function ( $, fakewaffle ) {
 				var $previous = $( e.relatedTarget.hash.replace( /#/, '#collapse-' ) );
 				$previous.collapse( 'hide' );
 				$previous.closest('div.panel-default').find('a').addClass('collapsed');
+				
 			}
 		} );
+	
 
 		// Toggle the tab when the associated panel is toggled
 		collapse.on( 'shown.bs.collapse', function ( e ) {
-
 			// Activate current tabs
 			var current = $( e.target ).context.id.replace( /collapse-/g, '#' );
 			$( 'a[href="' + current + '"]' ).tab( 'show' );
-			
 			// Update the content with active
 			var panelGroup = $( e.currentTarget ).closest( '.panel-group.responsive' );
 			$( panelGroup ).find( '.panel-body' ).removeClass( 'active' );
-			var allImage = $( panelGroup ).find('.panel-heading td.tenPersent:eq(1) img');
-			$.each(allImage,function(){
-				$(this).attr('src','images/budget_planner/arrow_down.png');
-			})
 			$( e.currentTarget ).find( '.panel-body' ).addClass( 'active' );
 		} );
 		

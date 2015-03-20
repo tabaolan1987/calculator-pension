@@ -82,11 +82,29 @@ function checkNumeric(checkThis) {
 function updateNumberToArray(name, total){
 	totalsArray[name] = total;
 }
+
+function nextTab(n){
+	if(fakewaffle.currentPosition == "tabs"){
+		if(n < getSizeArray()){
+			var tmp = n +1;
+			$('ul li #a'+tmp).trigger('click');
+		}else{
+			$('ul li button#btnCalculate').trigger('click');
+		}
+	}else{
+		if(n < getSizeArray()){
+			var tmp = n+1;
+			$('.panel-default .panel-heading #a'+tmp).trigger('click');
+		}else{
+			$('.panel-default .panel-heading #a'+n).trigger('click');
+			$('.panel-default .panel-heading button#btnCalculate').trigger('click');
+		}
+	}
+	
+}
 /*----------------------------------------------------------END----------------------------------------*/
 
 /*this function below will handle the calculate*/
-var onLoadFunction = true;
-
 function calculate(){
 	var myPie;
 	var showPopup = false;
@@ -103,15 +121,16 @@ function calculate(){
 	}
 	
 	if(onLoadFunction){
-	$('a[href="#calculate"]').on('show.bs.tab', function (e) {
-		//check if any value is null will be alert.	
+	$('button[href="#calculate"]').on('show.bs.tab', function (e) {
+		//check if any value is null will be alert.
+			alert('yaya');
 		try{
 			$('#chart-area').remove();
 		}catch(e){
 			console.log(e);
 		}
 	});
-	$('a[href="#calculate"]').on('shown.bs.tab', function (e) {
+	$('button[href="#calculate"]').on('shown.bs.tab', function (e) {
 		var html="<canvas id='chart-area' ></canvas>";
 		$('#holder-canvas').append(html);
 		var ctx = document.getElementById("chart-area").getContext("2d");

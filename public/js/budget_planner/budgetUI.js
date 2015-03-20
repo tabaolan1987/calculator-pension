@@ -19,9 +19,7 @@ function drawUI(){
 				drawTab(index,colorTab,tabTitle,items);
 				totalsArray["tab"+index] = 0;
 				tabColor["tab"+index] = colorCategory;
-				console.log('tab color ' + index +' : ' + tabColor['tab'+index]);
 				tabName["tab"+index] = name;
-				console.log('tabName ' + index +' : ' + tabName['tab'+index]);
 			});
 			drawCalculateButton();
 			drawCalculateTab();
@@ -34,17 +32,29 @@ function drawUI(){
 				var imgActive = $($(e.relatedTarget).find('td.tenPersent:eq(1) img'));
 				imgActive.attr('src','images/budget_planner/arrow_close.png');
 			});
-			$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-				var imgActive = $($(e.target).find('td.tenPersent:eq(1) img'));
-				imgActive.attr('src','images/budget_planner/arrow_open.png');
-				var imgActive = $($(e.relatedTarget).find('td.tenPersent:eq(1) img'));
-				imgActive.attr('src','images/budget_planner/arrow_close.png');
-			});
 			
 			$('div.panel-collapse').on('shown.bs.collapse', function () {
-				
+				var id = $(this).attr('id');
+				$("div.panel-heading").find("a[href='#"+id+"']").find("td.tenPersent:eq(1) img").attr('src','images/budget_planner/arrow_down.png');
 			});
 			
+			$('div.panel-collapse').on('hidden.bs.collapse', function () {
+				var id = $(this).attr('id');
+				$("div.panel-heading").find("a[href='#"+id+"']").find("td.tenPersent:eq(1) img").attr('src','images/budget_planner/arrow_up.png');
+			});
+			
+			$('button[data-target="#calculate"]').on('show.bs.tab', function (e) {
+					//alert('onshow');
+			});
+			
+			$('button[data-target="#calculate"]').on('shown.bs.tab', function (e) {
+				//alert('onshown');
+				$(e.relatedTarget).find('td.tenPersent:eq(1) img').attr('src','images/budget_planner/arrow_close.png');
+				$("div.panel-heading").find("td.tenPersent:eq(1) img").attr('src','images/budget_planner/arrow_up.png');
+				var idPrev = $(e.relatedTarget).attr('id');
+				$('.panel-default .panel-heading #'+idPrev).closest('.panel-heading').closest('.panel-default').find('.panel-collapse').collapse('hide');
+				$('div#collapse-calculate').collapse('show');
+			});
 			console.log( "attact ready!" );
         },
         error: function() {
@@ -121,10 +131,10 @@ function drawTab(index,colorTab,titleTab,items){
 	html=html+"</div>";
 	html=html+"</div>";
 	$('#containerTab').append(html);
-	drawLastElementInTab(idTab);
+	drawLastElementInTab(idTab,index);
 }
 
-function drawLastElementInTab(idTab){
+function drawLastElementInTab(idTab,index){
 	var html="<div class='row' style='margin:10px 0px 0px 0px;background-color : white'>";
 	html=html+"<div>";
 	html=html+"<table class='table totalCal'>";
@@ -139,7 +149,7 @@ function drawLastElementInTab(idTab){
 	html=html+"<tr>";
 	html=html+"<td style='width:50%'></td>";
 	html=html+"<td style='width:24%'></td>";
-	html=html+"<td style='width:8%'><button class='btn btn-default'>Next</button></td>";
+	html=html+"<td style='width:8%'><button onclick='nextTab("+index+");' class='btn btn-default'>Next</button></td>";
 	html=html+"<td></td>";
 	html=html+"</tr>";
 	html=html+"</table>";
@@ -152,17 +162,7 @@ function drawLastElementInTab(idTab){
 
 function drawCalculateButton(){
 	var html="<li style='text-align:center'>";
-	/*html=html+"<a id='aCalculate' data-target='#calculate' role='tab' data-toggle='tab' href='#calculate'>";
-	html=html+"<div>";
-	html=html+"<table class='table-responsive'>";
-	html=html+"<tr>";
-	html=html+"<td style='text-align:center'>";*/
-	html=html+"<button id='btnCalculate' onclick='calculate();' class='btn calculate'>Calculate</button>";
-	/*html=html+"</td>";
-	html=html+"</tr>";
-	html=html+"</table>";
-	html=html+"</div>";
-	html=html+"</a>";*/
+	html=html+"<button data-toggle='tab' data-target='#calculate' role='tab' id='btnCalculate' class='btn calculate'>Calculate</button>";
 	html=html+"</li>";
 	$('#myTab').append(html);
 }
