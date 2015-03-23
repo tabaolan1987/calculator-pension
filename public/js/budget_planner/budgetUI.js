@@ -60,6 +60,7 @@ function drawUI(){
 				
 			});
 			$('button[data-target="#calculate"]').on('show.bs.tab', function (e) {
+				disableCalculateBtn();
 				checkTotalOutcome();
 			});
 			$('button[data-target="#calculate"]').on('shown.bs.tab', function (e) {
@@ -285,7 +286,7 @@ function drawChart(data) {
 				width = 16;
 			}
 			var src = 'images/budget_planner/'+label;
-			return '<img class="img-responsive" src="'+ src + '" />';
+			return '<img class="img-responsive" width="'+width+'" src="'+ src + '" />';
 		} else 
 			return '';
 	}
