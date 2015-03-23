@@ -24,6 +24,7 @@ function calculateInput(e){
         $(e).css('color', '#000000');
         $(e).closest('tr').find('.monthly').html(0);
     }
+	eneableCalculateBtn();
 	updateTotal(e);
 }
 
@@ -102,88 +103,15 @@ function nextTab(n){
 	}
 	
 }
+
+function disableCalculateBtn(){
+	$('li #btnCalculate').prop('disabled', true);
+	$('.panel-default #btnCalculate').prop('disabled', true);
+}
+
+function eneableCalculateBtn(){
+	$('li #btnCalculate').prop('disabled', false);
+	$('.panel-default #btnCalculate').prop('disabled', false);
+}
 /*----------------------------------------------------------END----------------------------------------*/
 
-/*this function below will handle the calculate*/
-function calculate(){
-	var myPie;
-	var showPopup = false;
-	for(var i = 1; i <= getSizeArray();i++){
-			var vl = totalsArray['tab'+i];
-			if(vl==0){
-				//show modal
-				showPopup = true;
-				break;
-		}
-	}
-	if(showPopup){
-		$('#myModal').modal('show');
-	}
-	
-	if(onLoadFunction){
-	$('button[href="#calculate"]').on('show.bs.tab', function (e) {
-		//check if any value is null will be alert.
-			alert('yaya');
-		try{
-			$('#chart-area').remove();
-		}catch(e){
-			console.log(e);
-		}
-	});
-	$('button[href="#calculate"]').on('shown.bs.tab', function (e) {
-		var html="<canvas id='chart-area' ></canvas>";
-		$('#holder-canvas').append(html);
-		var ctx = document.getElementById("chart-area").getContext("2d");
-		var totalIncome = getTotalIncome();
-		var totalOutcome = getTotalOutcome();
-		var pieData = [{}];
-		if(totalIncome > totalOutcome){
-			var savings = totalIncome- totalOutcome;
-			pieData[0] = {
-				label : "income",
-				value : getPersent(totalIncome,savings),
-				color : tabColor["tab1"]
-			}
-			var index_data = 1;
-			for(var i = 2; i <= getSizeArray();i++){
-				pieData[index_data] = {
-					label : tabName["tab"+i],
-					value : getPersent(totalIncome,totalsArray["tab"+i]),
-					color : tabColor["tab"+i]
-				}
-				index_data++;
-			}
-			myPie = new Chart(ctx).Doughnut(pieData,{responsive:true,maintainAspectRatio: false});
-			
-			}else{
-				//will be alert to user.and show only 
-				var index_data = 0;
-				for(var i = 2; i <= getSizeArray();i++){
-					var name = tabName['tab'+i];
-					var vl = getPersent(totalIncome,totalsArray["tab"+i]);
-					var cl = tabColor["tab"+i];
-					if(vl >= 100){
-						pieData[index_data] = {
-							label : name,
-							value : vl,
-							color : cl
-						}
-						break;
-					}else{
-						pieData[index_data] = {
-							label : name,
-							value : vl,
-							color : cl
-						}
-						console.log(pieData[index_data]);
-						index_data++;
-					}
-				}
-				myPie = new Chart(ctx).Doughnut(pieData,{responsive:true,maintainAspectRatio: false});
-			}
-			
-		});
-		onLoadFunction = false;
-	}
-
-}

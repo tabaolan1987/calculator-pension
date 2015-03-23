@@ -4,7 +4,7 @@
 <type>0</type>
 <name>Income</name>
 <color-category>#53565A</color-category>
-<image-category>icn-pound.png</image-category>
+<image-category>income.gif</image-category>
 <color-tab>#96989a</color-tab>
 <title-tab>Record your regular income</title-tab>
 <item>Salary (after tax)</item>
@@ -19,7 +19,7 @@
 <type>1</type>
 <name>Household bills</name>
 <color-category>#FF8200</color-category>
-<image-category>icn-house.png</image-category>
+<image-category>income.gif</image-category>
 <color-tab>#feb264</color-tab>
 <title-tab>Record your household bill</title-tab>
 <items>
@@ -35,8 +35,8 @@
 <category>
 <type>1</type>
 <name>Living costs</name>
-<color-category>#BBA600</color-category>
-<image-category>icn-living.png</image-category>
+<color-category>#BBA610</color-category>
+<image-category>income.gif</image-category>
 <color-tab>#d5c864</color-tab>
 <title-tab>Record your Living costs</title-tab>
 <item>Grocery shopping</item>

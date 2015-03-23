@@ -219,7 +219,7 @@ var fakewaffle = ( function ( $, fakewaffle ) {
 		var tabs     = $( '.nav-tabs.responsive' ).find( 'li a' );
 		var collapse = $( '.panel-group.responsive' ).find( '.panel-collapse' );
 		// Toggle the panels when the associated tab is toggled
-		tabs.on( 'shown.bs.tab', function ( e ) {
+		tabs.on('shown.bs.tab', function ( e ) {
 			var $current  = $( e.currentTarget.hash.replace( /#/, '#collapse-' ) );
 			$current.collapse( 'show' );
 			$current.closest('div.panel-default').find('a').removeClass('collapsed');
@@ -230,10 +230,8 @@ var fakewaffle = ( function ( $, fakewaffle ) {
 				
 			}
 		} );
-	
-
 		// Toggle the tab when the associated panel is toggled
-		collapse.on( 'shown.bs.collapse', function ( e ) {
+		collapse.on('shown.bs.collapse', function ( e ) {
 			// Activate current tabs
 			var current = $( e.target ).context.id.replace( /collapse-/g, '#' );
 			$( 'a[href="' + current + '"]' ).tab( 'show' );

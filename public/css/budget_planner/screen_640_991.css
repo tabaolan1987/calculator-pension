@@ -1,0 +1,79 @@
+@media (min-width: 640px) and (max-width: 991px){
+	table.table-responsive > tbody> tr> td.tenPersent {
+		width : 10% !important;
+		padding-left : 10px !important;
+	}
+	table.table-responsive > tbody >tr > td.forty{
+		width : 37% !important;
+	}
+	
+	table.table-responsive > tbody >tr > td.aquarter{
+		width : 21% !important;
+	}
+
+	.panel-default>.panel-heading{
+		background-color: transparent;
+		border-radius : 25px !important;
+		padding : 0px !important;
+	}
+	
+	.row-containTblInput{
+		margin:15px 0px 0px 0px;
+		height:310px;
+		overflow-x:hidden;
+		overflow-y:auto;
+	}
+	
+	div.panel-group{
+		width : 490px;
+	}
+	
+	div.panel-default{
+		border-color: transparent;
+		margin-bottom : 10px;
+	}
+
+	.table-responsive {
+		margin-bottom:0 !important;
+		border : 0 !important;
+	}
+	
+	.panel-group .panel-heading+.panel-collapse>.panel-body{
+		padding:0px;
+		border: 1px solid;
+		border-top: transparent;
+		border-radius: 25px;
+		border-left-color: #ddd;
+		border-right-color: #ddd;
+		border-bottom-color: #ddd;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;
+	}
+	
+	div.row-heading{
+		max-height : 48px;
+		min-height : 48px;
+		padding-top : 13px;
+		margin-left:0px !important;
+		margin-right:0px !important;
+		border : 1px solid;
+		border-color : #ddd;
+		border-radius : 20px;
+		-webkit-transition: all ease-in-out .3s;
+		-moz-transition: all ease-in-out .3s;
+		-ms-transition: all ease-in-out .3s;
+		-o-transition: all ease-in-out .3s;
+		transition: all ease-in-out .3s;
+	}
+	
+	table.totalCal td.one{
+		width : 50%;	
+	}
+	table.totalCal td.two{
+		width : 24%;
+	}
+	
+	table.totalCall td.three{
+		width : 8%
+	}
+}

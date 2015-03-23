@@ -1,5 +1,7 @@
 var tabColor = new Array();
 var tabName = new Array();
+var totalsArray = new Array();
+var ImageArray = new Array();
 function drawUI(){
 	var index = 0
 	$.ajax({
@@ -20,6 +22,7 @@ function drawUI(){
 				totalsArray["tab"+index] = 0;
 				tabColor["tab"+index] = colorCategory;
 				tabName["tab"+index] = name;
+				ImageArray[index] = imagePath;
 			});
 			drawCalculateButton();
 			drawCalculateTab();
@@ -43,24 +46,71 @@ function drawUI(){
 				$("div.panel-heading").find("a[href='#"+id+"']").find("td.tenPersent:eq(1) img").attr('src','images/budget_planner/arrow_up.png');
 			});
 			
-			$('button[data-target="#calculate"]').on('show.bs.tab', function (e) {
-					//validate
+			$('button[data-target="#calculate"]').click(function(){
+				var warning = checkZero();
+				if(warning){
+					$('#myModal').modal('show');
+					return false;
+				}
 			});
-			
+			$('#myModal .modal-footer button').click(function(){
+				$('#myModal').modal('hide');
+				$('button[data-target="#calculate"]').tab('show');
+				disableCalculateBtn();
+				
+			});
+			$('button[data-target="#calculate"]').on('show.bs.tab', function (e) {
+				checkTotalOutcome();
+			});
 			$('button[data-target="#calculate"]').on('shown.bs.tab', function (e) {
 				$(e.relatedTarget).find('td.tenPersent:eq(1) img').attr('src','images/budget_planner/arrow_close.png');
 				$("div.panel-heading").find("td.tenPersent:eq(1) img").attr('src','images/budget_planner/arrow_up.png');
 				var idPrev = $(e.relatedTarget).attr('id');
 				$('.panel-default .panel-heading #'+idPrev).closest('.panel-heading').closest('.panel-default').find('.panel-collapse').collapse('hide');
 				$('div#collapse-calculate').collapse('show');
+				drawFlotJs();
 			});
-			console.log( "attact ready!" );
         },
         error: function() {
           alert("An error occurred while processing XML file.");
         }
+    });	
+}
+
+function loadWarning(){
+$.ajax({
+        type: "GET",
+        url: "xml/budget_planner/budget_warning_message.xml",
+        dataType: "xml",
+        success: function(xml){
+			$(xml).find('popup').each(function(){
+				var type = parseInt($(this).find('type').text());
+				if(type == 1){
+					$('#myModal .modal-body').html($(this).find('message').text());
+					$('#myModal .modal-body').css('color', $(this).find('color-message').text());
+				}else if(type == 2){
+					$('#myModal2 .modal-body').html($(this).find('message').text());
+					$('#myModal2 .modal-body').css('color', $(this).find('color-message').text());
+				}
+			});
+			console.log( "modal already!" );
+        },
+        error: function() {
+          alert("An error occurred while processing XML file Modal.");
+        }
     });
-	
+
+}
+
+function resizeTotal(){
+	var index = 0;
+	var $td = $('.containInput tr:eq(1) td');
+	$.each($td,function(){
+	  var width = $(this).width();
+	  console.log(width);
+	  $(".totalCal tr:eq(0) td:eq("+index+")").css('width',width);
+	  index++;		
+	});
 }
 
 function drawCategory(name, colorCategory,index,imagePath,colorTab){
@@ -130,25 +180,25 @@ function drawTab(index,colorTab,titleTab,items){
 	html=html+"</div>";
 	html=html+"</div>";
 	$('#containerTab').append(html);
-	drawLastElementInTab(idTab,index);
+	drawLastElementInTab(idTab,index,colorTab);
 }
 
-function drawLastElementInTab(idTab,index){
+function drawLastElementInTab(idTab,index,colorTab){
 	var html="<div class='row' style='margin:10px 0px 0px 0px;background-color : white'>";
 	html=html+"<div>";
 	html=html+"<table class='table totalCal'>";
 	html=html+"<tr>";
-	html=html+"<td style='width:50%'></td>";
-	html=html+"<td style='width:24%'><span>Total</span></td>";
-	html=html+"<td style='width:8%'><span>£</span></td>";
+	html=html+"<td class='one'></td>";
+	html=html+"<td class='two'><span>Total</span></td>";
+	html=html+"<td class='money'><span>£</span></td>";
 	html=html+"<td><span class='totalMonthly' style='font-weight:bold'>0</span></td>";
 	html=html+"</tr>";
 	html=html+"</table>";
 	html=html+"<table class='table totalCal'>";
 	html=html+"<tr>";
-	html=html+"<td style='width:50%'></td>";
-	html=html+"<td style='width:24%'></td>";
-	html=html+"<td style='width:8%'><button onclick='nextTab("+index+");' class='btn btn-default'>Next</button></td>";
+	html=html+"<td class='one'></td>";
+	html=html+"<td class='two'></td>";
+	html=html+"<td class='money'><button style='font-weight:bold;background-color:"+colorTab+"' onclick='nextTab("+index+");' class='btn btn-default'>Next</button></td>";
 	html=html+"<td></td>";
 	html=html+"</tr>";
 	html=html+"</table>";
@@ -156,8 +206,6 @@ function drawLastElementInTab(idTab,index){
 	html=html+"</div>";
 	$('#'+idTab).append(html);
 }
-
-
 
 function drawCalculateButton(){
 	var html="<li style='text-align:center'>";
@@ -176,6 +224,8 @@ function drawCalculateTab(){
 	html=html+"<div class='row' style='margin:15px 0px 0px 0px'>";
 	html=html+"<div class='col-md-12 col-sm-12 col-xs-12' style='text-align:center;'>";
 	html=html+"<div id='holder-canvas' style='min-height:360px'>";	
+	html=html+'<div id="placeholder" class="demo-placeholder"></div>';
+	html=html+'<div class="labelChart">Total monthly disposable income</div>';
 	html=html+"</div>";	
 	html=html+"</div>";	
 	html=html+"</div>";		
@@ -187,4 +237,56 @@ function setActive(){
 	$('#myTab').find('li:eq(0)').attr('class','active');
 	var imgActive = $($("#a1").find('td.tenPersent:eq(1) img'));
 	imgActive.attr('src','images/budget_planner/arrow_open.png');
+}
+
+
+function drawChart(data) {
+	var placeholder = $("#placeholder");
+	var index=1;
+	placeholder.unbind();
+	$.plot(placeholder, data, {
+			series: {
+				pie: { 
+					innerRadius: 0.5,
+					show: true,
+					label: {
+						show: true,
+						radius: 0.6,
+						formatter: labelFormatter,
+						background: {
+							opacity: 0
+						}
+					}
+				}
+			},
+			legend: {
+				show: false
+			},
+			grid: {
+				hoverable: false,
+				borderColor : "#ddd"
+			},
+			tooltip: false,
+			tooltipOpts: {
+				content: function(name,x,y){
+                    return name;
+                },
+				shifts: {
+				  x: 20,
+				  y: 0
+				},
+				defaultTheme: false
+			}
+	});
+	function labelFormatter(label, series) {
+		if(series.percent > 5){
+			var width = 32;
+			if(series.percent < 7){
+				width = 16;
+			}
+			var src = 'images/budget_planner/'+label;
+			return '<img class="img-responsive" src="'+ src + '" />';
+		} else 
+			return '';
+	}
 }

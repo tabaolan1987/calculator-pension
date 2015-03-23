@@ -12,50 +12,106 @@ var Monthly_multiplicand = 1;
 var Yearly_multiplicand = 0.08333333333;
 /*-----end-------------------------------*/
 
-function round(number){
-	var n = parseFloat(number); 
-	return Math.round(n * 100)/100; 
+function round(number) {
+    var n = parseFloat(number);
+    return Math.round(n * 100) / 100;
 }
 
-function calculateInputBaseOnType(data,type){
-	var output = 0;
-	if(type == Weekly_Type){
-		var temp = (data * Weekly_multiplicand);
-		output = round(temp);
-	}else if(type == Fortnightly_Type){
-		var temp = (data * Fortnightly_multiplicand);
-		output = round(temp);
-	}else if(type == Monthly_Type){
-		output = data;
-	}else if(type == Yearly_Type){
-		var temp = data*Yearly_multiplicand;
-		output = round(temp);
-	}
-	return output;
+function calculateInputBaseOnType(data, type) {
+    var output = 0;
+    if (type == Weekly_Type) {
+        var temp = (data * Weekly_multiplicand);
+        output = round(temp);
+    } else if (type == Fortnightly_Type) {
+        var temp = (data * Fortnightly_multiplicand);
+        output = round(temp);
+    } else if (type == Monthly_Type) {
+        output = data;
+    } else if (type == Yearly_Type) {
+        var temp = data * Yearly_multiplicand;
+        output = round(temp);
+    }
+    return output;
 }
 
 /*all function below calculate number for draw chart*/
- var totalsArray = new Array();
- 
- function getTotalIncome(){
-	var income = totalsArray['tab1'];
-	return income;
- }
- 
- function getTotalOutcome(){
-	var totalOutcome = 0;
-	for(var i = 2;i <= getSizeArray(); i++){
-		totalOutcome = totalOutcome + totalsArray['tab'+i];
-	}
-	return totalOutcome;
- }
- 
- function getPersent(totalIncome,outcome){
-	var persent = (outcome/totalIncome)*100;
-	persent = round(persent);
-	return persent;
- }
-function getSizeArray(){
-	var size = $('.row-heading').size();
-	return size;
+var totalsArray = new Array();
+
+function getTotalIncome() {
+    var income = totalsArray['tab1'];
+    return income;
 }
+
+function getTotalOutcome() {
+    var totalOutcome = 0;
+    for (var i = 2; i <= getSizeArray(); i++) {
+        totalOutcome = totalOutcome + totalsArray['tab' + i];
+    }
+    return totalOutcome;
+}
+
+function getPersent(totalIncome, outcome) {
+    var persent = (outcome / totalIncome) * 100;
+    persent = round(persent);
+    return persent;
+}
+
+function getSizeArray() {
+    var size = $('.row-heading').size();
+    return size;
+}
+
+function checkZero() {
+/* check tab have a total zero then we will popup notifi*/
+	var showPopUP = false;
+	for(var i = 1; i <= getSizeArray(); i++){
+		if(totalsArray['tab'+i]==0){
+			showPopUp= true;
+			return showPopUp;
+		}
+	}
+	return showPopUP;
+}
+
+function checkTotalOutcome(){
+	var totalIncome = getTotalIncome();
+    var totalOutcome = getTotalOutcome();
+	if(totalOutcome > totalIncome){
+		$('#myModal2').modal('show');
+	}
+}
+
+function drawFlotJs(){
+	var data=[];
+	var totalIncome = getTotalIncome();
+    var totalOutcome = getTotalOutcome();
+
+    if (totalIncome > totalOutcome) {
+        var savings = totalIncome - totalOutcome;
+		var tooltip = tabName["tab1"] + ":" +totalsArray["tab1"];
+        data[0] = {
+            label: ImageArray[1],
+            data: getPersent(totalIncome, savings),
+            color: tabColor["tab1"],
+			name : tooltip
+        }
+        var index_data = 1;
+        for (var i = 2; i <= getSizeArray(); i++) {
+			var tooltip = tabName["tab"+i] + ":" + totalsArray["tab"+i];
+            data[index_data] = {
+                label: ImageArray[i],
+                data : getPersent(totalIncome, totalsArray["tab" + i]),
+                color: tabColor["tab" + i],
+				name : tooltip
+            }
+            index_data++;
+        }
+		
+		drawChart(data);
+    } else {
+        //will be alert to user.and show only 
+        
+    }
+
+}
+

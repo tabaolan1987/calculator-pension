@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<holder>
+<popup>
+<type>1</type>
+<description>not complete all field</description>
+<color-message>red</color-message>
+<message>
+not complete all field
+</message>
+</popup>
+<popup>
+<type>2</type>
+<description>outcome exceed income</description>
+<color-message>red</color-message>
+<message>
+outcome exceed income
+</message>
+</popup>
+</holder>

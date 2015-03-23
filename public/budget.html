@@ -6,10 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/budget_planner/calculation.css">
+	<link rel="stylesheet" href="css/budget_planner/screen_320_480.css">
+	<link rel="stylesheet" href="css/budget_planner/screen_480_640.css">
+	<link rel="stylesheet" href="css/budget_planner/screen_640_991.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/budget_planner/responsive-tabs.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<script src="js/budget_planner/Chart.js"></script>
+	<script language="javascript" type="text/javascript" src="js/budget_planner/jquery.flot.js"></script>
+	<script src="js/budget_planner/jquery.flot.js"></script>
+	<script src="js/budget_planner/jquery.flot.pie.js"></script>
+	<script src="js/budget_planner/jquery.flot.resize.js"></script>
+	<script src="js/budget_planner/jquery.flot.tooltip.js"></script>
 	<script src="js/budget_planner/budget_formula.js"></script>
 	<script src="js/budget_planner/budgetAction.js"></script>
 	<script src="js/budget_planner/budgetUI.js"></script>
@@ -42,14 +49,31 @@
 			<div class="modal-content">
 			  <div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+				<h4 class="modal-title" id="myModalLabel"></h4>
+			  </div>
+			  <div class="modal-body">
+			  </div>
+			  <div class="modal-footer">
+				<table class="table">
+					<tr>
+						<td><a class="btn pull-left" data-dismiss="modal">No, continue edit</a></td>
+						<td><button type="button" class="btn">Yes, calculate now</button></td>
+					</tr>
+				</table>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		
+		<div class="modal fade bs-example-modal-sm" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-sm">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h4 class="modal-title"></h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			  </div>
 			  <div class="modal-body">
 				...
-			  </div>
-			  <div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>
 			  </div>
 			</div>
 		  </div>
@@ -58,11 +82,11 @@
     <script type="text/javascript">
       (function($) {
 		   console.log( "ready!" );
-         
       })(jQuery);
 	  $(document).ready(function(){
 			drawUI();
-			   console.log( "document ready!" );
+			loadWarning();
+			console.log( "document ready!" );
 	  });
      
     </script>
