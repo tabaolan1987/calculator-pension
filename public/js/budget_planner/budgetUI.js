@@ -57,7 +57,6 @@ function drawUI(){
 				$('#myModal').modal('hide');
 				$('button[data-target="#calculate"]').tab('show');
 				disableCalculateBtn();
-				
 			});
 			$('button[data-target="#calculate"]').on('show.bs.tab', function (e) {
 				disableCalculateBtn();
@@ -185,7 +184,7 @@ function drawTab(index,colorTab,titleTab,items){
 }
 
 function drawLastElementInTab(idTab,index,colorTab){
-	var html="<div class='row' style='margin:10px 0px 0px 0px;background-color : white'>";
+	var html="<div class='row' style='margin:10px 0px 0px 0px;background-color : white;border-top: 1px dashed #ddd'>";
 	html=html+"<div>";
 	html=html+"<table class='table totalCal'>";
 	html=html+"<tr>";
@@ -195,7 +194,7 @@ function drawLastElementInTab(idTab,index,colorTab){
 	html=html+"<td><span class='totalMonthly' style='font-weight:bold'>0</span></td>";
 	html=html+"</tr>";
 	html=html+"</table>";
-	html=html+"<table class='table totalCal'>";
+	html=html+"<table class='table next'>";
 	html=html+"<tr>";
 	html=html+"<td class='one'></td>";
 	html=html+"<td class='two'></td>";
@@ -283,7 +282,7 @@ function drawChart(data) {
 		if(series.percent > 5){
 			var width = 32;
 			if(series.percent < 7){
-				width = 16;
+				width = 25;
 			}
 			var src = 'images/budget_planner/'+label;
 			return '<img class="img-responsive" width="'+width+'" src="'+ src + '" />';

@@ -14,7 +14,9 @@ var Yearly_multiplicand = 0.08333333333;
 
 function round(number) {
     var n = parseFloat(number);
-    return Math.round(n * 100) / 100;
+    n =  Math.round(n * 100) / 100;
+	var newnumber = new Number(n).toFixed(0);
+	return newnumber;
 }
 
 function calculateInputBaseOnType(data, type) {
@@ -106,12 +108,25 @@ function drawFlotJs(){
             }
             index_data++;
         }
-		
 		drawChart(data);
-    } else {
-        //will be alert to user.and show only 
-        
-    }
+		$('.labelChart').html('Total monthly disposable income <p>£' + savings +'</p>');
+    } else if(totalIncome == totalOutcome){
+        var index_data = 0;
+        for (var i = 2; i <= getSizeArray(); i++) {
+			var tooltip = tabName["tab"+i] + ":" + totalsArray["tab"+i];
+            data[index_data] = {
+                label: ImageArray[i],
+                data : getPersent(totalIncome, totalsArray["tab" + i]),
+                color: tabColor["tab" + i],
+				name : tooltip
+            }
+            index_data++;
+        }
+		drawChart(data);
+		$('.labelChart').html('Total monthly disposable income <p>£' + 0 + '</p>');
+    }else{
+	
+	}
 
 }
 

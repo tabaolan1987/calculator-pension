@@ -19,7 +19,7 @@
 <type>1</type>
 <name>Household bills</name>
 <color-category>#FF8200</color-category>
-<image-category>income.gif</image-category>
+<image-category>Household_bills.gif</image-category>
 <color-tab>#feb264</color-tab>
 <title-tab>Record your household bill</title-tab>
 <items>
@@ -36,16 +36,10 @@
 <type>1</type>
 <name>Living costs</name>
 <color-category>#BBA610</color-category>
-<image-category>income.gif</image-category>
+<image-category>Living_costs.gif</image-category>
 <color-tab>#d5c864</color-tab>
 <title-tab>Record your Living costs</title-tab>
 <item>Grocery shopping</item>
 <item>Clothes</item>
-<item>Child care</item>
-<item>Pocket Money</item>
-<item>Pets</item>
-<item>Eating out</item>
-<item>Toiletries/make up</item>
-<item>Prescription/medicine</item>
 </category>
 </categories>
