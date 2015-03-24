@@ -9,6 +9,7 @@ function drawUI(){
         url: "xml/budget_planner/budget_planner.xml",
         dataType: "xml",
         success: function(xml){
+			var size = $(xml).find('category').length;
 			$(xml).find('category').each(function(){
 				index++;
 				var name = $(this).find('name').text();
@@ -18,7 +19,11 @@ function drawUI(){
 				var items = $(this).find('item');
 				var imagePath = $(this).find('image-category').text();
 				drawCategory(name,colorCategory,index,imagePath,colorTab);
-				drawTab(index,colorTab,tabTitle,items);
+				var isLast = false;
+				if(index == size){
+					isLast = true;
+				}
+				drawTab(index,colorTab,tabTitle,items,isLast);
 				totalsArray["tab"+index] = 0;
 				tabColor["tab"+index] = colorCategory;
 				tabName["tab"+index] = name;
@@ -28,6 +33,7 @@ function drawUI(){
 			drawCalculateTab();
 			setActive();
 			fakewaffle.responsiveTabs(['xs','sm']);
+			disableCalculateBtn();
 			console.log( "function ready!" );
 			$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 				var imgActive = $($(e.target).find('td.tenPersent:eq(1) img'));
@@ -53,8 +59,17 @@ function drawUI(){
 					return false;
 				}
 			});
+			$('button[data-target="#collapse-calculate"]').click(function(){
+				var warning = checkZero();
+				if(warning){
+					$('#myModal').modal('show');
+					return false;
+				}
+			});
+			
 			$('#myModal .modal-footer button').click(function(){
 				$('#myModal').modal('hide');
+				$('button[data-target="#collapse-calculate"]').tab('show');
 				$('button[data-target="#calculate"]').tab('show');
 				disableCalculateBtn();
 			});
@@ -70,6 +85,20 @@ function drawUI(){
 				$('div#collapse-calculate').collapse('show');
 				drawFlotJs();
 			});
+			
+			$('button[data-target="#collapse-calculate"]').on('show.bs.tab', function (e) {
+				disableCalculateBtn();
+				checkTotalOutcome();
+			});
+			$('button[data-target="#collapse-calculate"]').on('shown.bs.tab', function (e) {
+				$(e.relatedTarget).find('td.tenPersent:eq(1) img').attr('src','images/budget_planner/arrow_close.png');
+				$("div.panel-heading").find("td.tenPersent:eq(1) img").attr('src','images/budget_planner/arrow_up.png');
+				var idPrev = $(e.relatedTarget).attr('id');
+				$('.panel-default .panel-heading #'+idPrev).closest('.panel-heading').closest('.panel-default').find('.panel-collapse').collapse('hide');
+				$('div#collapse-calculate').collapse('show');
+				drawFlotJs();
+			});
+			
         },
         error: function() {
           alert("An error occurred while processing XML file.");
@@ -147,7 +176,7 @@ function drawCategory(name, colorCategory,index,imagePath,colorTab){
 }
 
 
-function drawTab(index,colorTab,titleTab,items){
+function drawTab(index,colorTab,titleTab,items,isLast){
 	var idTab = "tab"+index;
 	var html="<div class='tab-pane' id='"+idTab+"'>";
 	html=html+"<div class='row row-heading' style='background-color:"+colorTab+"'>";
@@ -180,10 +209,10 @@ function drawTab(index,colorTab,titleTab,items){
 	html=html+"</div>";
 	html=html+"</div>";
 	$('#containerTab').append(html);
-	drawLastElementInTab(idTab,index,colorTab);
+	drawLastElementInTab(idTab,index,colorTab,isLast);
 }
 
-function drawLastElementInTab(idTab,index,colorTab){
+function drawLastElementInTab(idTab,index,colorTab,isLast){
 	var html="<div class='row' style='margin:10px 0px 0px 0px;background-color : white;border-top: 1px dashed #ddd'>";
 	html=html+"<div>";
 	html=html+"<table class='table totalCal'>";
@@ -196,9 +225,15 @@ function drawLastElementInTab(idTab,index,colorTab){
 	html=html+"</table>";
 	html=html+"<table class='table next'>";
 	html=html+"<tr>";
-	html=html+"<td class='one'></td>";
-	html=html+"<td class='two'></td>";
-	html=html+"<td class='money'><button style='font-weight:bold;background-color:"+colorTab+"' onclick='nextTab("+index+");' class='btn btn-default'>Next</button></td>";
+	if(isLast){
+		html=html+"<td colspan='2'>Select your 'Calculate' to see your results or click on any section to change the value</td>";
+		html=html+"<td class='money'><button id='lastBtn' style='font-weight:bold;background-color:"+colorTab+"' onclick='nextTab("+index+");' class='btn btn-default'>Calculate</button></td>";
+	}else{
+		html=html+"<td class='one'></td>";
+		html=html+"<td class='two'></td>";
+		html=html+"<td class='money'><button style='font-weight:bold;background-color:"+colorTab+"' onclick='nextTab("+index+");' class='btn btn-default'>Next</button></td>";
+	}	
+	
 	html=html+"<td></td>";
 	html=html+"</tr>";
 	html=html+"</table>";

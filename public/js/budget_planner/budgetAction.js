@@ -24,7 +24,6 @@ function calculateInput(e){
         $(e).css('color', '#000000');
         $(e).closest('tr').find('.monthly').html(0);
     }
-	eneableCalculateBtn();
 	updateTotal(e);
 }
 
@@ -64,6 +63,8 @@ function updateTotal(e){
 			updateNumberToArray(idArray,total);
 		}
 	}
+		eneableCalculateBtn();
+	
 }
 
 function getTotalInput(table){
@@ -107,11 +108,20 @@ function nextTab(n){
 function disableCalculateBtn(){
 	$('li #btnCalculate').prop('disabled', true);
 	$('.panel-default #btnCalculate').prop('disabled', true);
+	$('#lastBtn').prop('disabled',true);
 }
 
 function eneableCalculateBtn(){
-	$('li #btnCalculate').prop('disabled', false);
-	$('.panel-default #btnCalculate').prop('disabled', false);
+	var totalIncome = getTotalIncome();
+    var totalOutcome = getTotalOutcome();
+	alert(totalIncome + '-' + totalOutcome);
+	if(totalIncome > 0 & totalOutcome > 0){
+		$('li #btnCalculate').prop('disabled', false);
+		$('.panel-default #btnCalculate').prop('disabled', false);
+		$('#lastBtn').prop('disabled',false);
+	}else{
+		disableCalculateBtn();
+	}
 }
 /*----------------------------------------------------------END----------------------------------------*/
 

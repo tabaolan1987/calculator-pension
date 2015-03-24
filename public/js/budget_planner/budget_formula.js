@@ -109,7 +109,7 @@ function drawFlotJs(){
             index_data++;
         }
 		drawChart(data);
-		$('.labelChart').html('Total monthly disposable income <p>£' + savings +'</p>');
+		$('.labelChart').html('<span class="total">Total monthly disposable income</span> <p>£' + savings +'</p>');
     } else if(totalIncome == totalOutcome){
         var index_data = 0;
         for (var i = 2; i <= getSizeArray(); i++) {

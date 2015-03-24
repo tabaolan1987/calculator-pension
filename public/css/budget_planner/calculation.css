@@ -106,7 +106,7 @@
 	
 	div.tab-pane{
 		font-size : 16px;
-		height : 530px;
+		height : 540px;
 		width : 450px;
 		border: 1px solid;
 		border-bottom-left-radius : 8px;
@@ -190,16 +190,26 @@
 	.labelChart{
 		position:absolute;
 		width:190px;
-		left:50%;
-		top:50%;
+		left:51%;
+		top:40%;
 		margin-top:-30px;
 		margin-left:-100px;
 		text-align:center;
 		font-weight:bold;
 	}
+	
+	div.labelChart span{
+		color : #06038d;
+	}
+	
+	div.labelChart p{
+		color : #5fc2eb;
+	}
+	
 	#placeholder {
-		width: 100%;
-		height:100%;
+		width:100%;
+		height:400px;
+		margin:0 auto;
 	}
 	
 	#holder-canvas{
