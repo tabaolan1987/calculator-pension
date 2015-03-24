@@ -59,18 +59,15 @@ function drawUI(){
 					return false;
 				}
 			});
-			$('button[data-target="#collapse-calculate"]').click(function(){
-				var warning = checkZero();
-				if(warning){
-					$('#myModal').modal('show');
-					return false;
-				}
-			});
+			
 			
 			$('#myModal .modal-footer button').click(function(){
 				$('#myModal').modal('hide');
-				$('button[data-target="#collapse-calculate"]').tab('show');
-				$('button[data-target="#calculate"]').tab('show');
+				if(fakewaffle.currentPosition == "tabs"){
+					$('button[data-target="#calculate"]').tab('show');
+				}else{
+					$('#collapse-calculate').collapse('show');
+				}
 				disableCalculateBtn();
 			});
 			$('button[data-target="#calculate"]').on('show.bs.tab', function (e) {
@@ -86,16 +83,19 @@ function drawUI(){
 				drawFlotJs();
 			});
 			
-			$('button[data-target="#collapse-calculate"]').on('show.bs.tab', function (e) {
+			$('button[data-target="#collapse-calculate"]').click(function(){
+				var warning = checkZero();
+				if(warning){
+					$('#myModal').modal('show');
+					return false;
+				}
+			});
+			$('#collapse-calculate').on('show.bs.collapse', function (e) {
 				disableCalculateBtn();
 				checkTotalOutcome();
 			});
-			$('button[data-target="#collapse-calculate"]').on('shown.bs.tab', function (e) {
-				$(e.relatedTarget).find('td.tenPersent:eq(1) img').attr('src','images/budget_planner/arrow_close.png');
-				$("div.panel-heading").find("td.tenPersent:eq(1) img").attr('src','images/budget_planner/arrow_up.png');
-				var idPrev = $(e.relatedTarget).attr('id');
-				$('.panel-default .panel-heading #'+idPrev).closest('.panel-heading').closest('.panel-default').find('.panel-collapse').collapse('hide');
-				$('div#collapse-calculate').collapse('show');
+			$('#collapse-calculate').on('shown.bs.collapse', function (e) {
+				hideAllPanel();
 				drawFlotJs();
 			});
 			
@@ -131,15 +131,11 @@ $.ajax({
 
 }
 
-function resizeTotal(){
-	var index = 0;
-	var $td = $('.containInput tr:eq(1) td');
-	$.each($td,function(){
-	  var width = $(this).width();
-	  console.log(width);
-	  $(".totalCal tr:eq(0) td:eq("+index+")").css('width',width);
-	  index++;		
-	});
+function hideAllPanel(){
+	for (var i = 1; i <= getSizeArray(); i++) {
+		$('#collapse-tab' +i).collapse('hide');	
+		$('li #a'+i).find('td.tenPersent:eq(1) img').attr('src','images/budget_planner/arrow_close.png');
+	}
 }
 
 function drawCategory(name, colorCategory,index,imagePath,colorTab){
@@ -255,8 +251,6 @@ function drawCalculateTab(){
 	html=html+"<div class='col-md-12 col-sm-12 col-xs-12' style='text-align:center;color:#06038d'>";
 	html=html+"<h4 style='font-weight:bolder'>How are you spending your money?</h4>";
 	html=html+"</div>";
-	html=html+"</div>";
-	html=html+"<div class='row' style='margin:15px 0px 0px 0px'>";
 	html=html+"<div class='col-md-12 col-sm-12 col-xs-12' style='text-align:center;'>";
 	html=html+"<div id='holder-canvas' style='min-height:360px'>";	
 	html=html+'<div id="placeholder" class="demo-placeholder"></div>';
@@ -286,7 +280,7 @@ function drawChart(data) {
 					show: true,
 					label: {
 						show: true,
-						radius: 0.6,
+						radius: 0.64,
 						formatter: labelFormatter,
 						background: {
 							opacity: 0
@@ -298,13 +292,12 @@ function drawChart(data) {
 				show: false
 			},
 			grid: {
-				hoverable: false,
-				borderColor : "#ddd"
+				hoverable: true
 			},
-			tooltip: false,
+			tooltip: true,
 			tooltipOpts: {
-				content: function(name,x,y){
-                    return name;
+				content: function(label,x,y){
+                    return label;
                 },
 				shifts: {
 				  x: 20,

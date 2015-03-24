@@ -123,10 +123,42 @@ function drawFlotJs(){
             index_data++;
         }
 		drawChart(data);
-		$('.labelChart').html('Total monthly disposable income <p>£' + 0 + '</p>');
-    }else{
-	
+		$('.labelChart').html('<span class="total">Total monthly disposable income</span> <p>£' + 0 + '</p>');
+    }else if(totalIncome < totalOutcome){
+		//case 1 : once of category outcome exceed income so we will draw chart for only this
+		if(checkOutcomeExceedTotalIncome()){
+			for (var i = 2; i <= getSizeArray(); i++) {
+				var value = totalsArray['tab'+i];
+				if(value > totalIncome){
+					data[0] = {
+						label: ImageArray[i],
+						data : 100,
+						color: tabColor["tab" + i],
+						name : tooltip
+					}
+					drawChart(data);
+					var exceed = value - totalIncome;
+					$('.labelChart').html('<span class="total">Total monthly disposable income</span> <p class="exceed">£ -' + exceed + '</p>');				
+					break;
+				}
+			}
+		}else{
+		
+		}
+		//case 2 : overlap
 	}
 
 }
 
+
+function checkOutcomeExceedTotalIncome(){
+	 var totalIncome = totalsArray['tab1'];
+	 for (var i = 2; i <= getSizeArray(); i++) {
+		var value = totalsArray['tab'+i];
+		if(value > totalIncome){
+			return true;
+		}
+	 }
+	 return false;
+	 
+}

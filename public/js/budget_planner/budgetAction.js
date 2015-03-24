@@ -114,7 +114,6 @@ function disableCalculateBtn(){
 function eneableCalculateBtn(){
 	var totalIncome = getTotalIncome();
     var totalOutcome = getTotalOutcome();
-	alert(totalIncome + '-' + totalOutcome);
 	if(totalIncome > 0 & totalOutcome > 0){
 		$('li #btnCalculate').prop('disabled', false);
 		$('.panel-default #btnCalculate').prop('disabled', false);
