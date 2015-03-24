@@ -90,21 +90,19 @@ function drawFlotJs(){
 
     if (totalIncome > totalOutcome) {
         var savings = totalIncome - totalOutcome;
-		var tooltip = tabName["tab1"] + ":" +totalsArray["tab1"];
+		var tooltip = ImageArray[1]+ "||" + tabName["tab1"] + "</br>£" +totalsArray["tab1"];
         data[0] = {
-            label: ImageArray[1],
+            label: tooltip,
             data: getPersent(totalIncome, savings),
-            color: tabColor["tab1"],
-			name : tooltip
+            color: tabColor["tab1"]
         }
         var index_data = 1;
         for (var i = 2; i <= getSizeArray(); i++) {
-			var tooltip = tabName["tab"+i] + ":" + totalsArray["tab"+i];
+			var tooltip = ImageArray[i] + "||" +tabName["tab"+i] + "</br>£" + totalsArray["tab"+i];
             data[index_data] = {
-                label: ImageArray[i],
+                label: tooltip,
                 data : getPersent(totalIncome, totalsArray["tab" + i]),
-                color: tabColor["tab" + i],
-				name : tooltip
+                color: tabColor["tab" + i]
             }
             index_data++;
         }
@@ -113,12 +111,11 @@ function drawFlotJs(){
     } else if(totalIncome == totalOutcome){
         var index_data = 0;
         for (var i = 2; i <= getSizeArray(); i++) {
-			var tooltip = tabName["tab"+i] + ":" + totalsArray["tab"+i];
+			var tooltip = ImageArray[i] + "||" + tabName["tab"+i] + "</br>£" + totalsArray["tab"+i];
             data[index_data] = {
-                label: ImageArray[i],
+                label: tooltip,
                 data : getPersent(totalIncome, totalsArray["tab" + i]),
-                color: tabColor["tab" + i],
-				name : tooltip
+                color: tabColor["tab" + i]
             }
             index_data++;
         }
@@ -129,23 +126,24 @@ function drawFlotJs(){
 		if(checkOutcomeExceedTotalIncome()){
 			for (var i = 2; i <= getSizeArray(); i++) {
 				var value = totalsArray['tab'+i];
-				if(value > totalIncome){
+				if(value >= totalIncome){
+					var tooltip = ImageArray[i] + "||" + tabName["tab"+i] + "</br>£" + totalsArray["tab"+i];
 					data[0] = {
-						label: ImageArray[i],
+						label: tooltip,
 						data : 100,
-						color: tabColor["tab" + i],
-						name : tooltip
+						color: tabColor["tab" + i]
 					}
-					drawChart(data);
-					var exceed = value - totalIncome;
-					$('.labelChart').html('<span class="total">Total monthly disposable income</span> <p class="exceed">£ -' + exceed + '</p>');				
 					break;
 				}
 			}
+			drawChart(data);
+			var exceed = value - totalIncome;
+			$('.labelChart').html('<span class="total">Total monthly disposable income</span> <p class="exceed">£ -' + exceed + '</p>');				
 		}else{
-		
+			//case 2 : overlap
+			alert('still wait for requirement');
 		}
-		//case 2 : overlap
+		
 	}
 
 }
@@ -155,7 +153,7 @@ function checkOutcomeExceedTotalIncome(){
 	 var totalIncome = totalsArray['tab1'];
 	 for (var i = 2; i <= getSizeArray(); i++) {
 		var value = totalsArray['tab'+i];
-		if(value > totalIncome){
+		if(value >= totalIncome){
 			return true;
 		}
 	 }

@@ -40,6 +40,7 @@
 	
 	.panel-group .panel-heading+.panel-collapse>.panel-body{
 		padding:0px;
+		
 		border: 1px solid;
 		border-top: transparent;
 		border-radius: 25px;
@@ -51,6 +52,7 @@
 	}
 	
 	div.row-heading{
+		height : 54px;
 		margin-left:0px !important;
 		margin-right:0px !important;
 		border : 1px solid;
@@ -62,15 +64,39 @@
 		-o-transition: all ease-in-out .3s;
 		transition: all ease-in-out .3s;
 	}
-	
+	table.containInput{
+		width : 465px;
+	}
+	table.totalCal{
+		width : 465px;
+	}
 	table.totalCal td.one{
-		width : 50%;	
+		width : 45%;	
 	}
 	table.totalCal td.two{
-		width : 24%;
+		width : 35%;
 	}
 	
-	table.totalCall td.three{
-		width : 8%
+	table.totalCal td.three{
+		width : 8%;
+	}
+	
+	table.totalCal td.money {
+		padding-left : 6px;
+	}
+	
+	table.totalCal td.moneyTotal{
+		padding-right : 18px !important;
+	}
+	
+	table.next td.one{
+		width : 53% !important;	
+	}
+	table.next td.two{
+		width : 26%  !important;
+	}
+	
+	table.next td.money{
+		width : 8% !important;
 	}
 }

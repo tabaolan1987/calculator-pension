@@ -1,4 +1,7 @@
 @media (min-width: 480px) and (max-width: 640px){
+	span{
+		font-size : 14px !important;
+	}
 	table.table-responsive > tbody> tr> td.tenPersent {
 		width : 10% !important;
 		padding-left : 10px !important;
@@ -17,6 +20,8 @@
 		overflow-x:hidden;
 		overflow-y:auto;
 	}
+	
+	
 	
 	.panel-default>.panel-heading{
 		background-color: transparent;
@@ -54,6 +59,7 @@
 		border-bottom-right-radius: 0px;
 	}
 	div.row-heading{
+		height : 48px;
 		min-height : 45px;
 		padding-top : 14px;
 		margin-left:0px !important;
@@ -67,15 +73,44 @@
 		-o-transition: all ease-in-out .3s;
 		transition: all ease-in-out .3s;
 	}
+	table.containInput{
+		width : 400px;
+	}
+	table.containInput td.first{
+		width : 45%;
+	}
 	
+	table.containInput td.second{
+		width : 30%;
+	}
+	table.containInput td.three{
+		width : 7%;
+	}
+	
+	table.totalCal{
+		width : 390px;
+	}
 	table.totalCal td.one{
-		width : 45%;	
+		width : 50%;	
 	}
 	table.totalCal td.two{
 		width : 26%;
 	}
 	
-	table.totalCall td.three{
+	table.totalCal td.three{
 		width : 8%
+	}
+	
+	table.totalCal td.money{
+		width : 8% !important;
+		padding-left : 12px;
+	}
+	
+	table.totalCal td.moneyTotal{
+		padding-left : 7px !important;
+	}
+	
+	table.next td.one{
+		width : 42% !important;
 	}
 }

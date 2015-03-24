@@ -150,6 +150,23 @@
 		border-top : 0px !important;
 		vertical-align:middle;
 	}
+	
+	table.containInput td.first{
+		width : 50%;
+	}
+	
+	table.containInput td.second{
+		width : 45%;
+	}
+	table.containInput td.three{
+		width : 9%;
+	}
+	
+	table.containInput td.tdMonthly{
+		float:right;
+		padding-top : 10px;
+		padding-right:18px;
+	}
 	table.totalCal {
 		margin-bottom : 0px;
 		width : 422px;
@@ -162,11 +179,15 @@
 		width : 50%;	
 	}
 	table.totalCal td.two{
-		width : 26%;
+		width : 28%;
 	}
 	
 	table.totalCal td.money{
 		width : 8% !important;
+	}
+	
+	table.totalCal td.moneyTotal{
+		float : right;
 	}
 	table.next{
 		width : 100%;
@@ -263,7 +284,20 @@
 	.table-responsive .img-responsive{
 		max-width : 70%;
 		max-height : 70%;
-		
+	}
+	
+	#flotTip{
+		border: 2px solid #4572A7!important;
+        padding : 2px !important;     
+        size: 10 !important;  
+        border-radius: 6px 6px 6px 6px !important;
+        background-color: #fff !important;
+        opacity: 0.80 !important;
+	}
+	
+	.dataInput {
+		//background: url("../../images/budget_planner/pound.png") no-repeat scroll left center ;
+		//padding-left: 30px;
 	}
 	
 	

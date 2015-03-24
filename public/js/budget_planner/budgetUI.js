@@ -72,15 +72,16 @@ function drawUI(){
 			});
 			$('button[data-target="#calculate"]').on('show.bs.tab', function (e) {
 				disableCalculateBtn();
-				checkTotalOutcome();
+				
 			});
 			$('button[data-target="#calculate"]').on('shown.bs.tab', function (e) {
+				checkTotalOutcome();
 				$(e.relatedTarget).find('td.tenPersent:eq(1) img').attr('src','images/budget_planner/arrow_close.png');
 				$("div.panel-heading").find("td.tenPersent:eq(1) img").attr('src','images/budget_planner/arrow_up.png');
 				var idPrev = $(e.relatedTarget).attr('id');
 				$('.panel-default .panel-heading #'+idPrev).closest('.panel-heading').closest('.panel-default').find('.panel-collapse').collapse('hide');
-				$('div#collapse-calculate').collapse('show');
 				drawFlotJs();
+				$('.panel-default div#collapse-calculate').collapse('show');
 			});
 			
 			$('button[data-target="#collapse-calculate"]').click(function(){
@@ -91,12 +92,17 @@ function drawUI(){
 				}
 			});
 			$('#collapse-calculate').on('show.bs.collapse', function (e) {
-				disableCalculateBtn();
-				checkTotalOutcome();
+				if(fakewaffle.currentPosition == "panel"){
+					disableCalculateBtn();
+					checkTotalOutcome();
+				}
+			
 			});
 			$('#collapse-calculate').on('shown.bs.collapse', function (e) {
-				hideAllPanel();
-				drawFlotJs();
+				if(fakewaffle.currentPosition == "panel"){
+					hideAllPanel();
+					drawFlotJs();
+				}
 			});
 			
         },
@@ -184,13 +190,13 @@ function drawTab(index,colorTab,titleTab,items,isLast){
 	html=html+"<div>";
 	html=html+"<table class='table containInput'>";
 	html=html+"<tr>";
-	html=html+"<td style='width:50%'></td>";
-	html=html+"<td style='width:35%'>";
+	html=html+"<td class='first'></td>";
+	html=html+"<td class='second'>";
 	html=html+"<select onchange='updateWhenChangeType(this);' style='font-weight:bold;width:100%'>";
 	html=html+"<option value='1'>Weekly</option><option value='2'>Fortnightly</option><option selected value='3'>Monthly</option><option value='4'>Yearly</option>";
 	html=html+"</select>";
 	html=html+"</td>";
-	html=html+"<td style='width:9%'></td>";
+	html=html+"<td class='three'></td>";
 	html=html+"<td><span style='font-weight : bold'>Monthly</span></td>";
 	html=html+"</tr>";
 	$.each(items,function(){
@@ -198,7 +204,7 @@ function drawTab(index,colorTab,titleTab,items,isLast){
 		html=html+"<td><span style='padding-left:10px'>"+$(this).text()+"</span></td>";
 		html=html+"<td><input placeholder='£ 0.00' type='text' class='dataInput' onblur='calculateInput(this);' style='width:100%'></td>";
 		html=html+"<td><span>£</span></td>";
-		html=html+"<td><span class='monthly'>0</span></td>";
+		html=html+"<td class='tdMonthly'><span class='monthly'>0</span></td>";
 		html=html+"</tr>";
 	});
 	html=html+"</table>";
@@ -216,7 +222,7 @@ function drawLastElementInTab(idTab,index,colorTab,isLast){
 	html=html+"<td class='one'></td>";
 	html=html+"<td class='two'><span>Total</span></td>";
 	html=html+"<td class='money'><span>£</span></td>";
-	html=html+"<td><span class='totalMonthly' style='font-weight:bold'>0</span></td>";
+	html=html+"<td class='moneyTotal'><span class='totalMonthly' style='font-weight:bold'>0</span></td>";
 	html=html+"</tr>";
 	html=html+"</table>";
 	html=html+"<table class='table next'>";
@@ -296,9 +302,10 @@ function drawChart(data) {
 			},
 			tooltip: true,
 			tooltipOpts: {
-				content: function(label,x,y){
-                    return label;
-                },
+				content: function(label, xval, yval, flotItem){
+					return  label.split("||")[1];
+				}
+				,
 				shifts: {
 				  x: 20,
 				  y: 0
@@ -312,7 +319,8 @@ function drawChart(data) {
 			if(series.percent < 7){
 				width = 25;
 			}
-			var src = 'images/budget_planner/'+label;
+			var path = label.split("||")[0];
+			var src = 'images/budget_planner/'+path;
 			return '<img class="img-responsive" width="'+width+'" src="'+ src + '" />';
 		} else 
 			return '';
