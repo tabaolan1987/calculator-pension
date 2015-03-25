@@ -320,7 +320,7 @@ function drawChart(data) {
 function tooltip() {
     $("#placeholder").bind("plothover", function(event, pos, item) {
 			if (item) {
-				//$("#tooltip").hide();
+				$("#tooltip").hide();
                 var x = item.datapoint[0],
                 y = item.datapoint[1];
                 showTooltip(pos.pageX, pos.pageY, item.series.label);
@@ -340,9 +340,9 @@ function showTooltip(x, y, contents) {
     $('#tooltip').css({
         position: 'absolute',
         display: 'none',
-        top: y -80,
+        top: y -110,
         left: x -60,
-		'padding-top':'13px'
+		'padding-top':'20px'
     });
 	 $('#tooltip').show();
 }
