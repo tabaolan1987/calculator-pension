@@ -42,4 +42,14 @@
 <item>Grocery shopping</item>
 <item>Clothes</item>
 </category>
+<category>
+<type>1</type>
+<name>Travel</name>
+<color-category>red</color-category>
+<image-category>Living_costs.gif</image-category>
+<color-tab>blue</color-tab>
+<title-tab>Record your Travel</title-tab>
+<item>Grocery shopping</item>
+<item>Clothes</item>
+</category>
 </categories>

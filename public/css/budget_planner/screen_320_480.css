@@ -1,17 +1,6 @@
 @media (min-width: 320px) and (max-width: 480px){
-	span{
-		font-size : 12px;
-	}
-	table.table-responsive > tbody> tr> td.tenPersent {
-		width : 10% !important;
-		padding-left : 10px !important;
-	}
-	table.table-responsive > tbody >tr > td.forty{
-		width : 37% !important;
-	}
-	
-	table.table-responsive > tbody >tr > td.aquarter{
-		width : 21% !important;
+	span,select,button,input{
+		font-size : 10px !important;
 	}
 	
 	
@@ -30,7 +19,7 @@
 	}
 
 	div.panel-group{
-		width : 360px;
+		width : 320px;
 	}
 	
 	div.panel-default{
@@ -39,7 +28,16 @@
 		/*font-size : xx-small !important;*/
 	}
 	
+	.table-responsive .img-responsive{
+		width : 50%;
+		height : 50%;
+	}
 	
+	.tenPersent .img-responsive{
+		width : 80%;
+		height : 30%;
+	}
+
 	.table-responsive {
 		margin-bottom:0 !important;
 		border : 0 !important;
@@ -58,9 +56,9 @@
 		border-bottom-right-radius: 0px;
 	}
 	div.row-heading{
-		max-height : 30px;
+		height : 48px;
 		min-height : 30px;
-		padding-top : 10px;
+		padding-top : 13px;
 		margin-left:0px !important;
 		margin-right:0px !important;
 		border : 1px solid;
@@ -73,11 +71,29 @@
 		transition: all ease-in-out .3s;
 	}
 	
+	table.containInput{
+		width :307px;
+	}
+	table.containInput td.tdMonthly{
+		padding-right : 15px;
+	}
+	
+	table.table-responsive > tbody >tr > td.forty{
+		width : 45%;
+		padding-bottom : 5px;
+		padding-top : 5px;
+	}
+	
+	
+	table.totalCal{
+		width : 300px;
+	}
+	
 	table.totalCal td.one{
-		width : 50%;	
+		width : 48%;	
 	}
 	table.totalCal td.two{
-		width : 21%;
+		width : 29%;
 	}
 	
 	table.totalCall td.three{

@@ -1,4 +1,7 @@
-    .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{
+    span,input,button{
+		font-size :16px;
+	}
+	.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{
 		background-color : transparent;
 		cursor : pointer;
 		border: 0px
@@ -282,8 +285,13 @@
 	}
 	
 	.table-responsive .img-responsive{
-		max-width : 70%;
-		max-height : 70%;
+		width : 55%;
+		height : 55%;
+	}
+	
+	.tenPersent .img-responsive{
+		width : 80%;
+		height : 30%;
 	}
 	
 	#flotTip{

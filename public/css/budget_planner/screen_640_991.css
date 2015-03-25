@@ -10,6 +10,16 @@
 	table.table-responsive > tbody >tr > td.aquarter{
 		width : 21% !important;
 	}
+	
+	.table-responsive .img-responsive{
+		width : 50%;
+		height : 50%;
+	}
+	
+	.tenPersent .img-responsive{
+		width : 80%;
+		height : 30%;
+	}
 
 	.panel-default>.panel-heading{
 		background-color: transparent;
