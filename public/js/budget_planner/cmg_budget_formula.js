@@ -90,7 +90,7 @@ function drawFlotJs(){
 
     if (totalIncome > totalOutcome) {
         var savings = totalIncome - totalOutcome;
-		var tooltip = ImageArray[1]+ "||" + tabName["tab1"] + "</br>£" +totalsArray["tab1"];
+		var tooltip = combineToToolTip(1);
         data[0] = {
             label: tooltip,
             data: getPersent(totalIncome, savings),
@@ -98,7 +98,7 @@ function drawFlotJs(){
         }
         var index_data = 1;
         for (var i = 2; i <= getSizeArray(); i++) {
-			var tooltip = ImageArray[i] + "||" +tabName["tab"+i] + "</br>£" + totalsArray["tab"+i];
+			var tooltip = combineToToolTip(i);
             data[index_data] = {
                 label: tooltip,
                 data : getPersent(totalIncome, totalsArray["tab" + i]),
@@ -111,7 +111,7 @@ function drawFlotJs(){
     } else if(totalIncome == totalOutcome){
         var index_data = 0;
         for (var i = 2; i <= getSizeArray(); i++) {
-			var tooltip = ImageArray[i] + "||" + tabName["tab"+i] + "</br>£" + totalsArray["tab"+i];
+			var tooltip = combineToToolTip(i);
             data[index_data] = {
                 label: tooltip,
                 data : getPersent(totalIncome, totalsArray["tab" + i]),
@@ -127,7 +127,7 @@ function drawFlotJs(){
 			for (var i = 2; i <= getSizeArray(); i++) {
 				var value = totalsArray['tab'+i];
 				if(value >= totalIncome){
-					var tooltip = ImageArray[i] + "||" + tabName["tab"+i] + "</br>£" + totalsArray["tab"+i];
+					var tooltip = combineToToolTip(i);
 					data[0] = {
 						label: tooltip,
 						data : 100,
@@ -168,7 +168,7 @@ function getDataSpecialCase(){
 	for(var j=index;j > 1;j--){
 		var per = parseInt(getPersent(totalIncome, totalsArray["tab" + j]));
 		if(totalPie > per){
-			var tooltip = ImageArray[j] + "||" + tabName["tab"+j] + "</br>£" + totalsArray["tab"+j];
+			var tooltip = combineToToolTip(j);
 			data[number] = {
 				label: tooltip,
 				data : per,
@@ -177,7 +177,7 @@ function getDataSpecialCase(){
 			totalPie = totalPie - per;
 			number++;
 		}else if(totalPie == per){
-			var tooltip = ImageArray[j] + "||" + tabName["tab"+j] + "</br>£" + totalsArray["tab"+j];
+			var tooltip = combineToToolTip(j);
 			data[number] = {
 				label: tooltip,
 				data : per,
@@ -185,7 +185,7 @@ function getDataSpecialCase(){
 			}
 			return data;
 		}else if(totalPie < per){
-			var tooltip = ImageArray[j] + "||" + tabName["tab"+j] + "</br>£" + totalsArray["tab"+j];
+			var tooltip = combineToToolTip(j);
 			data[number] = {
 				label: tooltip,
 				data : totalPie,
@@ -196,7 +196,10 @@ function getDataSpecialCase(){
 	}
 	
 }
-
+function combineToToolTip(index){
+	var tooltip = ImageArray[index] + "||" + tabName["tab"+index] + ":£" + totalsArray["tab"+index];
+	return tooltip;
+}
 function checkOutcomeExceedTotalIncome(){
 	 var totalIncome = totalsArray['tab1'];
 	 for (var i = 2; i <= getSizeArray(); i++) {

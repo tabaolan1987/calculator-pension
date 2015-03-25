@@ -1,6 +1,9 @@
     span,input,button{
 		font-size :16px;
 	}
+	input{
+		//text-align : right;
+	}
 	.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{
 		background-color : transparent;
 		cursor : pointer;
@@ -166,8 +169,7 @@
 	}
 	
 	table.containInput td.tdMonthly{
-		float:right;
-		padding-top : 10px;
+		text-align : right;
 		padding-right:18px;
 	}
 	table.totalCal {
@@ -179,14 +181,15 @@
 	}
 	
 	table.totalCal td.one{
-		width : 50%;	
+		width : 47%;	
 	}
 	table.totalCal td.two{
-		width : 28%;
+		width : 31%;
 	}
 	
 	table.totalCal td.money{
 		width : 8% !important;
+		
 	}
 	
 	table.totalCal td.moneyTotal{
@@ -205,7 +208,13 @@
 	}
 	
 	table.next td.money{
-		width : 8% !important;
+		padding-left : 342px;
+		padding-top : 10px;
+	}
+	
+	table.next td.money button{
+		width : 80px;
+		height : 35px;
 	}
 	table.next td{
 		border-top : 1px dashed #ddd !important;
@@ -263,6 +272,10 @@
 		color : #060392;
 	}
 	
+	.close{
+		opacity : 1;
+	}
+	
 	.modal-footer{
 		padding:10px;
 		border-top : transparent;
@@ -295,12 +308,12 @@
 	}
 	
 	#flotTip{
-		border: 2px solid #4572A7!important;
+		border: 1px solid #ddd!important;
         padding : 2px !important;     
         size: 10 !important;  
-        border-radius: 6px 6px 6px 6px !important;
+        border-radius: 1px !important;
         background-color: #fff !important;
-        opacity: 0.80 !important;
+        opacity: 0.6 !important;
 	}
 	
 	.dataInput {

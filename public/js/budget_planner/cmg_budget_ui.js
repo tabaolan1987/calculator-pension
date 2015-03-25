@@ -34,6 +34,7 @@ function drawUI(){
 			setActive();
 			fakewaffle.responsiveTabs(['xs','sm']);
 			disableCalculateBtn();
+			
 			console.log( "function ready!" );
 			$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 				var imgActive = $($(e.target).find('td.tenPersent:eq(1) img'));
@@ -121,10 +122,10 @@ $.ajax({
 			$(xml).find('popup').each(function(){
 				var type = parseInt($(this).find('type').text());
 				if(type == 1){
-					$('#myModal .modal-body').html($(this).find('message').text());
+					$('#myModal .modal-body').html($(this).find('message').html());
 					$('#myModal .modal-body').css('color', $(this).find('color-message').text());
 				}else if(type == 2){
-					$('#myModal2 .modal-body').html($(this).find('message').text());
+					$('#myModal2 .modal-body').html($(this).find('message').html());
 					$('#myModal2 .modal-body').css('color', $(this).find('color-message').text());
 				}
 			});
@@ -158,7 +159,7 @@ function drawCategory(name, colorCategory,index,imagePath,colorTab){
 	html=html+"<table class='table table-nonborder'>";
 	html=html+"<tr>";
 	html=html+"<td><span>"+name+"</span></td>";
-	html=html+"<td><span style='float:right'></span></td>";
+	html=html+"<td style='text-align:right'><span></span></td>";
 	html=html+"</tr>";
 	html=html+"</table>";
 	html=html+"</div>";
@@ -202,7 +203,7 @@ function drawTab(index,colorTab,titleTab,items,isLast){
 	$.each(items,function(){
 		html=html+"<tr>";
 		html=html+"<td><span style='padding-left:10px'>"+$(this).text()+"</span></td>";
-		html=html+"<td><input placeholder='£ 0.00' type='text' class='dataInput' onblur='calculateInput(this);' style='width:100%'></td>";
+		html=html+"<td><input placeholder='£ 0.00' type='text' class='dataInput' oninput='calculateInput(this)' style='width:100%'></td>";
 		html=html+"<td><span>£</span></td>";
 		html=html+"<td class='tdMonthly'><span class='monthly'>0</span></td>";
 		html=html+"</tr>";
@@ -229,11 +230,9 @@ function drawLastElementInTab(idTab,index,colorTab,isLast){
 	html=html+"<tr>";
 	if(isLast){
 		html=html+"<td colspan='2'>Select your 'Calculate' to see your results or click on any section to change the value</td>";
-		html=html+"<td class='money'><button id='lastBtn' style='font-weight:bold;background-color:"+colorTab+"' onclick='nextTab("+index+");' class='btn btn-default'>Calculate</button></td>";
+		html=html+"<td class=''><button id='lastBtn' style='font-weight:bold;background-color:"+colorTab+"' onclick='nextTab("+index+");' class='btn btn-default'>Calculate</button></td>";
 	}else{
-		html=html+"<td class='one'></td>";
-		html=html+"<td class='two'></td>";
-		html=html+"<td class='money'><button style='font-weight:bold;background-color:"+colorTab+"' onclick='nextTab("+index+");' class='btn btn-default'>Next</button></td>";
+		html=html+"<td colspan='3' class='money'><button style='font-weight:bold;background-color:"+colorTab+"' onclick='nextTab("+index+");' class='btn btn-default'>Next</button></td>";
 	}	
 	
 	html=html+"<td></td>";
@@ -303,7 +302,8 @@ function drawChart(data) {
 			tooltip: true,
 			tooltipOpts: {
 				content: function(label, xval, yval, flotItem){
-					return  label.split("||")[1];
+					var vl =  label.split("||")[1];
+					return vl;
 				}
 				,
 				shifts: {

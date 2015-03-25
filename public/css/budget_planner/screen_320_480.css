@@ -1,6 +1,6 @@
 @media (min-width: 320px) and (max-width: 480px){
 	span,select,button,input{
-		font-size : 10px !important;
+		font-size : 12px !important;
 	}
 	
 	
@@ -29,7 +29,7 @@
 	}
 	
 	.table-responsive .img-responsive{
-		width : 50%;
+		width : 60%;
 		height : 50%;
 	}
 	
@@ -93,11 +93,28 @@
 		width : 48%;	
 	}
 	table.totalCal td.two{
-		width : 29%;
+		width : 26%;
 	}
 	
 	table.totalCall td.three{
 		width : 8%
+	}
+	table.totalCal td.money{
+		padding-left : 10px;
+	}
+	
+	table.next{
+		width : 320px !important
+	}
+	
+	table.next td.money{
+		padding-left : 216px;
+	}
+	
+	.labelChart{
+		width : 135px;
+		left : 60%;
+	
 	}
 }
 
