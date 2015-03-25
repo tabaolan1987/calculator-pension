@@ -224,7 +224,7 @@
 		position:absolute;
 		width:190px;
 		left:51%;
-		top:40%;
+		top:38%;
 		margin-top:-30px;
 		margin-left:-100px;
 		text-align:center;
@@ -237,6 +237,7 @@
 	
 	div.labelChart p{
 		color : #5fc2eb;
+		font-size : 35px;
 	}
 	
 	div.labelChart p.exceed{
@@ -311,10 +312,18 @@
         padding : 2px !important;     
         size: 10 !important;  
         opacity: 0.6 !important;
+	}
+	
+	
+	
+	#tooltip{
 		background-image : url("../../images/budget_planner/tooltip.gif");
 		width : 120px;
 		height : 99px;
 	}
+	
+	
+
 	
 	.dataInput {
 		//background: url("../../images/budget_planner/pound.png") no-repeat scroll left center ;
