@@ -307,13 +307,13 @@
 		height : 30%;
 	}
 	
-	#flotTip{
-		border: 1px solid #ddd!important;
+	#flotTip{	
         padding : 2px !important;     
         size: 10 !important;  
-        border-radius: 1px !important;
-        background-color: #fff !important;
         opacity: 0.6 !important;
+		background-image : url("../../images/budget_planner/tooltip.gif");
+		width : 120px;
+		height : 99px;
 	}
 	
 	.dataInput {
