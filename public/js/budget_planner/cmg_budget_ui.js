@@ -2,7 +2,7 @@ var tabColor = new Array();
 var tabName = new Array();
 var totalsArray = new Array();
 var ImageArray = new Array();
-
+var chartExist = false;
 function drawUI() {
     var index = 0
     $.ajax({
@@ -15,11 +15,13 @@ function drawUI() {
                 index++;
                 var name = $(this).find('name').text();
                 var colorCategory = $(this).find('color-category').text();
+				var secondColorCategory = $(this).find('second-color-category').text();
+				var colorText = $(this).find('color-text-category').text();
                 var tabTitle = $(this).find('title-tab').text();
                 var colorTab = $(this).find('color-tab').text();
                 var items = $(this).find('item');
                 var imagePath = $(this).find('image-category').text();
-                drawCategory(name, colorCategory, index, imagePath, colorTab);
+                drawCategory(name, colorCategory, index, imagePath, secondColorCategory, colorText);
                 var isLast = false;
                 if (index == size) {
                     isLast = true;
@@ -35,18 +37,25 @@ function drawUI() {
             setActive();
             fakewaffle.responsiveTabs(['xs', 'sm']);
             disableCalculateBtn();
-            tooltip();
             console.log("function ready!");
             $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
                 var imgActive = $($(e.target).find('td.tenPersent:eq(1) img'));
                 imgActive.attr('src', 'images/budget_planner/arrow_open.png');
                 var imgActive = $($(e.relatedTarget).find('td.tenPersent:eq(1) img'));
                 imgActive.attr('src', 'images/budget_planner/arrow_close.png');
+				if(chartExist){
+					eneableCalculateBtn();
+				}
             });
-
+			 $('a[data-toggle="tab"]').on('hide.bs.tab', function(e) {
+				
+			 });
             $('div.panel-collapse').on('shown.bs.collapse', function() {
                 var id = $(this).attr('id');
                 $("div.panel-heading").find("a[href='#" + id + "']").find("td.tenPersent:eq(1) img").attr('src', 'images/budget_planner/arrow_down.png');
+				if(chartExist){
+					eneableCalculateBtn();
+				}
             });
 
             $('div.panel-collapse').on('hidden.bs.collapse', function() {
@@ -68,6 +77,7 @@ function drawUI() {
                 if (fakewaffle.currentPosition == "tabs") {
                     $('button[data-target="#calculate"]').tab('show');
                 } else {
+					hideAllPanel();
                     $('#collapse-calculate').collapse('show');
                 }
                 disableCalculateBtn();
@@ -139,14 +149,7 @@ function loadWarning() {
 
 }
 
-function hideAllPanel() {
-    for (var i = 1; i <= getSizeArray(); i++) {
-        $('#collapse-tab' + i).collapse('hide');
-        $('li #a' + i).find('td.tenPersent:eq(1) img').attr('src', 'images/budget_planner/arrow_close.png');
-    }
-}
-
-function drawCategory(name, colorCategory, index, imagePath, colorTab) {
+function drawCategory(name, colorCategory, index, imagePath, secondColorCategory, colorText) {
     var html = "<li style='background-color :" + colorCategory + "'>";
     html = html + "<a id='a" + index + "' data-target='#tab" + index + "' href='#tab" + index + "' role='tab' data-toggle='tab'>";
     html = html + "<div>";
@@ -156,10 +159,10 @@ function drawCategory(name, colorCategory, index, imagePath, colorTab) {
     html = html + "<img class='img-responsive' src='images/budget_planner/" + imagePath + "'/>";
     html = html + "</td>";
     html = html + "<td class='forty'>";
-    html = html + "<div class='col-md-12 col-xs-12 col-sm-12 inform' style='background-color:" + colorTab + "'>";
+    html = html + "<div class='col-md-12 col-xs-12 col-sm-12 inform' style='background-color:" + secondColorCategory + "'>";
     html = html + "<table class='table table-nonborder'>";
     html = html + "<tr>";
-    html = html + "<td><span>" + name + "</span></td>";
+    html = html + "<td style='color:"+colorText+"'><span>" + name + "</span></td>";
     html = html + "<td style='text-align:right'><span></span></td>";
     html = html + "</tr>";
     html = html + "</table>";
@@ -204,7 +207,7 @@ function drawTab(index, colorTab, titleTab, items, isLast) {
     $.each(items, function() {
         html = html + "<tr>";
         html = html + "<td><span style='padding-left:10px'>" + $(this).text() + "</span></td>";
-        html = html + "<td><input placeholder='£ 0.00' type='text' class='dataInput' oninput='calculateInput(this)' style='width:100%'></td>";
+        html = html + "<td><input placeholder='£ 0.00' type='text' class='dataInput' oninput='calculateInput(this)' onkeypress='return isNumberKey(this);' style='width:100%'></td>";
         html = html + "<td><span>£</span></td>";
         html = html + "<td class='tdMonthly'><span class='monthly'>0</span></td>";
         html = html + "</tr>";
@@ -270,24 +273,41 @@ function drawCalculateTab() {
 
 function setActive() {
     $('#myTab a').first().tab('show');
+    setHeightTabPane();
     $('#myTab').find('li:eq(0)').attr('class', 'active');
     var imgActive = $($("#a1").find('td.tenPersent:eq(1) img'));
     imgActive.attr('src', 'images/budget_planner/arrow_open.png');
 }
 
+function setHeightTabPane() {
+    var sizeTabs = getSizeArray();
+    if (sizeTabs > 8) {
+        var numberAdded = sizeTabs - 8;
+        var heightTabCurrent = $('.tab-pane.active').height();
+        var heightLiCurrent = $('li.active').height();
+        var heightTabAdded = (heightLiCurrent * numberAdded) + (8 * numberAdded);
+        var heigtTableAdded = $('.tab-pane.active .row-containTblInput').height() + (numberAdded * 60);
+        $('.tab-pane').css('height', (heightTabCurrent + heightTabAdded) + "px");
+        $('.tab-pane .row-containTblInput').css('height', heigtTableAdded + "px");
+    }
+}
 
+/* all functions below for create a chart*/
 function drawChart(data) {
+	chartExist = true;
     var placeholder = $("#placeholder");
     var index = 1;
     placeholder.unbind();
-    $.plot(placeholder, data, {
+    var plot = $.plot(placeholder, data, {
         series: {
             pie: {
-                innerRadius: 0.5,
+				radius: 0.95,
+                innerRadius: 0.55,
                 show: true,
+                startAngle: 0.5,
                 label: {
                     show: true,
-                    radius: 0.64,
+                    radius: 0.74,
                     formatter: labelFormatter,
                     background: {
                         opacity: 0
@@ -300,49 +320,62 @@ function drawChart(data) {
         },
         grid: {
             hoverable: true
+        },
+        gradient: {
+            radial: true
         }
     });
+
     function labelFormatter(label, series) {
         if (series.percent > 5) {
-            var width = 32;
+            var width = 55;
             if (series.percent < 7) {
-                width = 25;
+                width = 32;
             }
             var path = label.split("||")[0];
             var src = 'images/budget_planner/' + path;
-            return '<img class="img-responsive" width="' + width + '" src="' + src + '" />';
-        } else
+            return '<img class="img-responsive" width="' + width + '" height="'+width+'" src="' + src + '" />';
+        } else{
+			var width = 12;
+			 var path = label.split("||")[0];
+            var src = 'images/budget_planner/' + path;
+            return '<img class="img-responsive" width="' + width + '" height="'+width+'" src="' + src + '" />';
             return '';
+		}
     }
-	tooltip() ;
+    tooltip();
 }
 
 function tooltip() {
     $("#placeholder").bind("plothover", function(event, pos, item) {
-			if (item) {
-				$("#tooltip").hide();
-                var x = item.datapoint[0],
-                y = item.datapoint[1];
-                showTooltip(pos.pageX, pos.pageY, item.series.label);
-            }else{
-				$("#tooltip").hide();
-			}
+        if (item) {
+            //$("#tooltip").hide();
+            showTooltip(pos.pageX, pos.pageY, item.series.label);
+        } else {
+            $("#tooltip").hide();
+        }
     });
 }
 
 function showTooltip(x, y, contents) {
-	console.log(contents);
-	var content = contents.split('||')[1];
-	var name = content.split(':')[0];
-	var value = content.split(':')[1];
-	var html = "<p style='text-align:center;color:blue;margin-bottom:5px'>"+name+"</p><p style='text-align:center;color:blue'>"+value+"</p>";
-	 $('#tooltip').html(html);
+    var content = contents.split('||')[1];
+    var name = content.split(':')[0];
+    var value = content.split(':')[1];
+    var html = "<p style='text-align:center;color:blue;margin-bottom:5px'>" + name + "</p><p style='text-align:center;color:blue'>" + value + "</p>";
+    $('#tooltip').html(html);
     $('#tooltip').css({
         position: 'absolute',
         display: 'none',
-        top: y -110,
-        left: x -60,
-		'padding-top':'20px'
+        top: y - 110,
+        left: x - 60,
+        'padding-top': '20px'
     });
-	 $('#tooltip').show();
+    $('#tooltip').show();
+}
+
+function hideAllPanel() {
+    for (var i = 1; i <= getSizeArray(); i++) {
+        $('#collapse-tab' + i).collapse('hide');
+        $('li #a' + i).find('td.tenPersent:eq(1) img').attr('src', 'images/budget_planner/arrow_close.png');
+    }
 }

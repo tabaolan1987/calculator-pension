@@ -8,6 +8,7 @@ function updateWhenChangeType(e){
 }
 
 function calculateInput(e){
+	
 	var input = $(e).val();
 	var type = $(e).parents('table').find("tr:eq(0) select").val();
 	if(checkNumeric(input)){
@@ -32,7 +33,7 @@ function updateTotal(e){
 	if(total > 0){
 		if(fakewaffle.currentPosition == "tabs"){
 			//update for tabs
-			$('ul#myTab li.active').find('table.table-nonborder td:eq(1) span').html('£'+total);
+			$('ul#myTab li.active').find('table.table-nonborder td:eq(1) span').html('£'+Number(total).toLocaleString('en'));
 			$('ul#myTab li.active').find('.table-responsive').find('tr:eq(0)').find('td.tenPersent img.validate').removeClass('hidden');
 			$(e).parents().find('.tab-pane.active .table.totalCal span.totalMonthly').html(total);
 			var idArray = $(e).parents().find('.tab-pane.active').attr('id');
@@ -41,7 +42,7 @@ function updateTotal(e){
 			//update for panel
 			$(e).parents().find('div.active.panel-body').find('.table.totalCal span.totalMonthly').html(total);
 			var idArray = $(e).parents().find('div.panel-default div.active.panel-body').attr('id');
-			$(e).parents().find("a[href='#collapse-"+idArray+"']").find('table.table-nonborder td:eq(1) span').html('£'+total);
+			$(e).parents().find("a[href='#collapse-"+idArray+"']").find('table.table-nonborder td:eq(1) span').html('£'+Number(total).toLocaleString('en'));
 			$(e).parents().find("a[href='#collapse-"+idArray+"']").find('.table-responsive').find('tr:eq(0)').find('td.tenPersent img.validate').removeClass('hidden');
 			updateNumberToArray(idArray,total);
 		}
@@ -80,6 +81,18 @@ function getTotalInput(table){
 function checkNumeric(checkThis) {
     return checkThis >= 0 && !isNaN(parseFloat(checkThis)) && isFinite(checkThis);
 }
+function isNumberKey(evt)
+{
+	//mpab-521
+	var charCode = (evt.which) ? evt.which : event.keyCode;
+    if (charCode != 46 && charCode > 31
+    && (charCode < 48 || charCode > 57))
+        return false;
+
+    return true;
+	
+}
+
 
 function updateNumberToArray(name, total){
 	totalsArray[name] = total;
@@ -112,15 +125,22 @@ function disableCalculateBtn(){
 }
 
 function eneableCalculateBtn(){
-	var totalIncome = getTotalIncome();
-    var totalOutcome = getTotalOutcome();
-	if(totalIncome > 0 & totalOutcome > 0){
+	if(chartExist){
 		$('li #btnCalculate').prop('disabled', false);
 		$('.panel-default #btnCalculate').prop('disabled', false);
 		$('#lastBtn').prop('disabled',false);
 	}else{
-		disableCalculateBtn();
+		var totalIncome = getTotalIncome();
+		var totalOutcome = getTotalOutcome();
+		if(totalIncome > 0 & totalOutcome > 0){
+			$('li #btnCalculate').prop('disabled', false);
+			$('.panel-default #btnCalculate').prop('disabled', false);
+			$('#lastBtn').prop('disabled',false);
+		}else{
+			disableCalculateBtn();
+		}
 	}
+	
 }
 /*----------------------------------------------------------END----------------------------------------*/
 

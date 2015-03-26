@@ -16,7 +16,6 @@
 	<script src="js/budget_planner/jquery.flot.js"></script>
 	<script src="js/budget_planner/jquery.flot.pie.js"></script>
 	<script src="js/budget_planner/jquery.flot.resize.js"></script>
-	<script src="js/budget_planner/jquery.flot.tooltip.js"></script>
 	<script src="js/budget_planner/cmg_budget_formula.js"></script>
 	<script src="js/budget_planner/cmg_budget_action.js"></script>
 	<script src="js/budget_planner/cmg_budget_ui.js"></script>
@@ -42,9 +41,7 @@
 				</div>
 			</div>
         </div>
-    </div>
-	<!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 			<div class="modal-content">
 			  <div class="modal-header">
@@ -56,7 +53,7 @@
 			  <div class="modal-footer">
 				<table class="table">
 					<tr>
-						<td><a class="btn pull-left" style="color:blue;text-decoration:underline" data-dismiss="modal">No, continue edit</a></td>
+						<td><a class="btn pull-left" style="color:blue;text-decoration:underline" data-dismiss="modal">No, continue editing</a></td>
 						<td><button type="button" class="btn">Yes, calculate now</button></td>
 					</tr>
 				</table>
@@ -78,8 +75,10 @@
 			</div>
 		  </div>
 		</div>
+    </div>
+	<!-- Modal -->
+	
 		<div id='tooltip' style="display:none"></div>
-	</div>
     <script type="text/javascript">
       (function($) {
 		   console.log( "ready!" );

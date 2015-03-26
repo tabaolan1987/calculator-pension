@@ -3,24 +3,28 @@
 <category>
 <type>0</type>
 <name>Income</name>
-<color-category>red</color-category>
+<color-category>#53565a</color-category>
 <image-category>income.gif</image-category>
+<second-color-category>#96989a</second-color-category>
+<color-text-category>black</color-text-category>
 <color-tab>#96989a</color-tab>
 <title-tab>Record your regular income</title-tab>
 <item>Salary (after tax)</item>
 <item>Bonus (after tax)</item>
 <item>Property rental income</item>
 <item>Childcare vouchers</item>
-<item>Pensions</item>
+<item>Pension</item>
 <item>Maternity/Paternity pay</item>
-<item>Savings/Investment</item>
+<item>Savings/Investments</item>
 </category>
 <category>
 <type>1</type>
 <name>Household bills</name>
-<color-category>yellow</color-category>
+<color-category>#FF8200</color-category>
 <image-category>Household_bills.gif</image-category>
 <color-tab>#feb264</color-tab>
+<second-color-category>#feb264</second-color-category>
+<color-text-category>black</color-text-category>
 <title-tab>Record your household bill</title-tab>
 <items>
 <item>Mortgage/rent</item>
@@ -35,21 +39,117 @@
 <category>
 <type>1</type>
 <name>Living costs</name>
-<color-category>green</color-category>
+<color-category>#BBA600</color-category>
 <image-category>Living_costs.gif</image-category>
+<second-color-category>#d5c864</second-color-category>
+<color-text-category>black</color-text-category>
 <color-tab>#d5c864</color-tab>
-<title-tab>Record your Living costs</title-tab>
+<title-tab>Record your living costs</title-tab>
 <item>Grocery shopping</item>
 <item>Clothes</item>
+<item>Child care</item>
+<item>Pocket money</item>
+<item>Pets</item>
+<item>Eating out</item>
+<item>Toiletries/make up</item>
+<item>Perscriptions/medicine</item>
 </category>
 <category>
 <type>1</type>
 <name>Travel</name>
-<color-category>blue</color-category>
-<image-category>Living_costs.gif</image-category>
-<color-tab>blue</color-tab>
-<title-tab>Record your Travel</title-tab>
-<item>Grocery shopping</item>
-<item>Clothes</item>
+<color-category>#FFCD00</color-category>
+<image-category>Travel.gif</image-category>
+<second-color-category>#fee064</second-color-category>
+<color-text-category>black</color-text-category>
+<color-tab>#fee064</color-tab>
+<title-tab>Record your travel</title-tab>
+<item>Train/tube</item>
+<item>Bus</item>
+<item>Petrol/diesel</item>
+<item>Road tax</item>
+<item>Parking/tolls</item>
+<item>Flights</item>
+<item>Car maintenance</item>
+</category>
+<category>
+<type>1</type>
+<name>Repayments</name>
+<color-category>#00778B</color-category>
+<image-category>Repayments.gif</image-category>
+<second-color-category>#64acb8</second-color-category>
+<color-text-category>black</color-text-category>
+<color-tab>#64acb8</color-tab>
+<title-tab>Record your repayments</title-tab>
+<item>Credit card/s</item>
+<item>Personal loan</item>
+<item>Hire purchase</item>
+<item>Student loan</item>
+<item>Store card/s</item>
+<item>Catalogue</item>
+</category>
+<category>
+<type>1</type>
+<name>Insurance</name>
+<color-category>#789D4A</color-category>
+<image-category>Insurance.gif</image-category>
+<second-color-category>#acc390</second-color-category>
+<color-text-category>black</color-text-category>
+<color-tab>#acc390</color-tab>
+<title-tab>Record your insurance</title-tab>
+<item>Life</item>
+<item>Income protection</item>
+<item>Critical illness</item>
+<item>Payment protection</item>
+<item>Credit card</item>
+<item>Health</item>
+<item>Cover plans</item>
+</category>
+<category>
+<type>1</type>
+<name>Savings</name>
+<color-category>#CE0F69</color-category>
+<image-category>Savings.gif</image-category>
+<second-color-category>#e06da3</second-color-category>
+<color-text-category>black</color-text-category>
+<color-tab>#e06da3</color-tab>
+<title-tab>Record your savings</title-tab>
+<item>For specific item</item>
+<item>Regular savings</item>
+<item>Ad hoc</item>
+<item>Pension</item>
+<item>Shares</item>
+<item>Other investments</item>
+</category>
+<category>
+<type>1</type>
+<name>Leisure</name>
+<color-category>#671E75</color-category>
+<image-category>Leisure.gif</image-category>
+<second-color-category>#a276aa</second-color-category>
+<color-text-category>black</color-text-category>
+<color-tab>#a276aa</color-tab>
+<title-tab>Record your leisure</title-tab>
+<item>Gym</item>
+<item>Sports</item>
+<item>Cinema/theatre</item>
+<item>Books/magazines</item>
+<item>Hobbies</item>
+<item>Days out</item>
+<item>Lottery/gambling</item>
+<item>Pub/social</item>
+</category>
+<category>
+<type>1</type>
+<name>Other</name>
+<color-category>#7ac142</color-category>
+<image-category>Other.gif</image-category>
+<second-color-category>#add88b</second-color-category>
+<color-text-category>black</color-text-category>
+<color-tab>#add88b</color-tab>
+<title-tab>Record your other</title-tab>
+<item>Charitable donations</item>
+<item>Sponsorship</item>
+<item>Gifts</item>
+<item>Other</item>
 </category>
 </categories>

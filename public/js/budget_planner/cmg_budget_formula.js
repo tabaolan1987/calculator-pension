@@ -64,7 +64,7 @@ function getSizeArray() {
 }
 
 function checkZero() {
-/* check tab have a total zero then we will popup notifi*/
+/* check tab have a total zero then we will pop up notify*/
 	var showPopUP = false;
 	for(var i = 1; i <= getSizeArray(); i++){
 		if(totalsArray['tab'+i]==0){
@@ -90,7 +90,7 @@ function drawFlotJs(){
 
     if (totalIncome > totalOutcome) {
         var savings = totalIncome - totalOutcome;
-		var tooltip = combineToToolTip(1);
+		var tooltip = ImageArray[1] + "||" + tabName["tab1"] + ":£" + savings;
         data[0] = {
             label: tooltip,
             data: getPersent(totalIncome, savings),

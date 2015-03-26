@@ -209,7 +209,7 @@
 	
 	table.next td.money{
 		padding-left : 342px;
-		padding-top : 10px;
+		padding-top : 20px;
 	}
 	
 	table.next td.money button{
@@ -320,6 +320,11 @@
 		background-image : url("../../images/budget_planner/Pop_up_chart.gif");
 		width : 135px;
 		height : 125px;
+		font-size : 16px;
+	}
+	
+	.modal{
+		//left :-340px;
 	}
 	
 	
