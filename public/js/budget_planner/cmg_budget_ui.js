@@ -27,7 +27,7 @@ function drawUI() {
                     isLast = true;
                 }
                 drawTab(index, colorTab, tabTitle, items, isLast);
-                totalsArray["tab" + index] = 0;
+                totalsArray["tab" + index] = null;
                 tabColor["tab" + index] = colorCategory;
                 tabName["tab" + index] = name;
                 ImageArray[index] = imagePath;
@@ -38,85 +38,9 @@ function drawUI() {
             fakewaffle.responsiveTabs(['xs', 'sm']);
             disableCalculateBtn();
             console.log("function ready!");
-            $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
-                var imgActive = $($(e.target).find('td.tenPersent:eq(1) img'));
-                imgActive.attr('src', 'images/budget_planner/arrow_open.png');
-                var imgActive = $($(e.relatedTarget).find('td.tenPersent:eq(1) img'));
-                imgActive.attr('src', 'images/budget_planner/arrow_close.png');
-				if(chartExist){
-					eneableCalculateBtn();
-				}
-            });
-			 $('a[data-toggle="tab"]').on('hide.bs.tab', function(e) {
-				
-			 });
-            $('div.panel-collapse').on('shown.bs.collapse', function() {
-                var id = $(this).attr('id');
-                $("div.panel-heading").find("a[href='#" + id + "']").find("td.tenPersent:eq(1) img").attr('src', 'images/budget_planner/arrow_down.png');
-				if(chartExist){
-					eneableCalculateBtn();
-				}
-            });
-
-            $('div.panel-collapse').on('hidden.bs.collapse', function() {
-                var id = $(this).attr('id');
-                $("div.panel-heading").find("a[href='#" + id + "']").find("td.tenPersent:eq(1) img").attr('src', 'images/budget_planner/arrow_up.png');
-            });
-
-            $('button[data-target="#calculate"]').click(function() {
-                var warning = checkZero();
-                if (warning) {
-                    $('#myModal').modal('show');
-                    return false;
-                }
-            });
-
-
-            $('#myModal .modal-footer button').click(function() {
-                $('#myModal').modal('hide');
-                if (fakewaffle.currentPosition == "tabs") {
-                    $('button[data-target="#calculate"]').tab('show');
-                } else {
-					hideAllPanel();
-                    $('#collapse-calculate').collapse('show');
-                }
-                disableCalculateBtn();
-            });
-            $('button[data-target="#calculate"]').on('show.bs.tab', function(e) {
-                disableCalculateBtn();
-
-            });
-            $('button[data-target="#calculate"]').on('shown.bs.tab', function(e) {
-                checkTotalOutcome();
-                $(e.relatedTarget).find('td.tenPersent:eq(1) img').attr('src', 'images/budget_planner/arrow_close.png');
-                $("div.panel-heading").find("td.tenPersent:eq(1) img").attr('src', 'images/budget_planner/arrow_up.png');
-                var idPrev = $(e.relatedTarget).attr('id');
-                $('.panel-default .panel-heading #' + idPrev).closest('.panel-heading').closest('.panel-default').find('.panel-collapse').collapse('hide');
-                drawFlotJs();
-                $('.panel-default div#collapse-calculate').collapse('show');
-            });
-
-            $('button[data-target="#collapse-calculate"]').click(function() {
-                var warning = checkZero();
-                if (warning) {
-                    $('#myModal').modal('show');
-                    return false;
-                }
-            });
-            $('#collapse-calculate').on('show.bs.collapse', function(e) {
-                if (fakewaffle.currentPosition == "panel") {
-                    disableCalculateBtn();
-                    checkTotalOutcome();
-                }
-
-            });
-            $('#collapse-calculate').on('shown.bs.collapse', function(e) {
-                if (fakewaffle.currentPosition == "panel") {
-                    hideAllPanel();
-                    drawFlotJs();
-                }
-            });
-
+			registerFunctionsForTab();
+			registerFunctionsForPanel();
+			registerFunctionForModal();
         },
         error: function() {
             alert("An error occurred while processing XML file.");
@@ -261,7 +185,7 @@ function drawCalculateTab() {
     html = html + "<h4 style='font-weight:bolder'>How are you spending your money?</h4>";
     html = html + "</div>";
     html = html + "<div class='col-md-12 col-sm-12 col-xs-12' style='text-align:center;'>";
-    html = html + "<div id='holder-canvas' style='min-height:360px'>";
+    html = html + "<div id='holder-canvas' style='min-height:360px;padding-top : 30px'>";
     html = html + '<div id="placeholder" class="demo-placeholder"></div>';
     html = html + '<div class="labelChart">Total monthly disposable income</div>';
     html = html + "</div>";
@@ -336,10 +260,6 @@ function drawChart(data) {
             var src = 'images/budget_planner/' + path;
             return '<img class="img-responsive" width="' + width + '" height="'+width+'" src="' + src + '" />';
         } else{
-			var width = 12;
-			 var path = label.split("||")[0];
-            var src = 'images/budget_planner/' + path;
-            return '<img class="img-responsive" width="' + width + '" height="'+width+'" src="' + src + '" />';
             return '';
 		}
     }

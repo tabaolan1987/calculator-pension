@@ -67,7 +67,7 @@ function checkZero() {
 /* check tab have a total zero then we will pop up notify*/
 	var showPopUP = false;
 	for(var i = 1; i <= getSizeArray(); i++){
-		if(totalsArray['tab'+i]==0){
+		if(totalsArray['tab'+i] == null){
 			showPopUp= true;
 			return showPopUp;
 		}
