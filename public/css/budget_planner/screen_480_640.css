@@ -127,4 +127,23 @@
 	table.next td.money{
 		padding-left : 310px
 	}
+	#myModal{
+		top:5%;
+		right:10%;
+		font-size : 14px;
+		outline: none;
+	}
+	#myModal .modal-content{
+		width : 420px;
+	}
+	
+	#myModal2{
+		top:5%;
+		right:10%;
+		font-size : 14px;
+		outline: none;
+	}
+	#myModal2 .modal-content{
+		width : 420px;
+	}
 }

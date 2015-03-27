@@ -110,4 +110,24 @@
 		width : 8% !important;
 		padding-left : 374px;
 	}
+	
+	#myModal{
+		top:5%;
+		right:10%;
+		left : -47%;
+		outline: none;
+	}
+	#myModal .modal-content{
+		width : 490px;
+	}
+	
+	#myModal2{
+		top:5%;
+		right:10%;
+		left : -47%;
+		outline: none;
+	}
+	#myModal2 .modal-content{
+		width : 490px;
+	}
 }

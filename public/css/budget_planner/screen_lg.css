@@ -322,9 +322,22 @@
 		height : 125px;
 		font-size : 16px;
 	}
+	#myModal{
+		top:5%;
+		right:32%;
+		outline: none;
+	}
+	#myModal2 .modal-content{
+		width : 480px;
+	}
 	
-	.modal{
-		//left :-340px;
+	#myModal2{
+		top:5%;
+		right:32%;
+		outline: none;
+	}
+	#myModal2 .modal-content{
+		width : 480px;
 	}
 	
 	

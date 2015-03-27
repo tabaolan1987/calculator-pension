@@ -106,7 +106,7 @@ function updateWhenChangeType(e){
 }
 
 function calculateInput(e){
-	var input = parseInt($(e).val());
+	var input = parseFloat($(e).val());
 	var type = $(e).parents('table').find("tr:eq(0) select").val();
 	if(checkNumeric(input)){
 		$(e).removeAttr('title');
@@ -166,13 +166,15 @@ function updateTotal(e){
 }
 
 function updateTotalZeroValueWhenCloseTab(e){
-	var tabID = $(e).attr('href').replace("#","");
-	var number = totalsArray[tabID];
-	if(number == null){
-		totalsArray[tabID] = 0;
-		$(e).find('td.tenPersent:eq(0) img').removeClass('hidden');
-		$(e).find('table.table-nonborder td:eq(1) span').html('£'+Number(0).toLocaleString('en'));
-	}
+	try{
+		var tabID = $(e).attr('href').replace("#","");
+		var number = totalsArray[tabID];
+		if(number == null){
+			totalsArray[tabID] = 0;
+			$(e).find('td.tenPersent:eq(0) img').removeClass('hidden');
+			$(e).find('table.table-nonborder td:eq(1) span').html('£'+Number(0).toLocaleString('en'));
+		}
+	}catch(ex){}
 }
 
 function getTotalInput(table){
@@ -192,11 +194,13 @@ function isNumberKey(evt)
 {
 	//mpab-521
 	var charCode = (evt.which) ? evt.which : event.keyCode;
-    if (charCode != 46 && charCode > 31
+   if (charCode != 46 && charCode > 31
     && (charCode < 48 || charCode > 57))
         return false;
 
     return true;
+	
+	
 	
 }
 

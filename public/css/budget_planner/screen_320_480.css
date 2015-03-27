@@ -116,6 +116,42 @@
 		left : 60%;
 	
 	}
+	
+	#myModal{
+		top:5%;
+		right:10%;
+		outline: none;
+		font-size : 12px;
+	}
+	
+	#myModal .modal-footer a{
+		font-size : 12px !important;
+	}
+	
+	#myModal .modal-footer button{
+		font-size : 12px !important;
+	}
+	#myModal .modal-content{
+		width : 310px;
+	}
+	
+	#myModal2{
+		top:5%;
+		right:10%;
+		outline: none;
+		font-size : 12px;
+	}
+	
+	#myModal2 .modal-footer a{
+		font-size : 12px !important;
+	}
+	
+	#myModal2 .modal-footer button{
+		font-size : 12px !important;
+	}
+	#myModal2 .modal-content{
+		width : 310px;
+	}
 }
 
 

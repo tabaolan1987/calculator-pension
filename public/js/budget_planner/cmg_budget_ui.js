@@ -130,8 +130,8 @@ function drawTab(index, colorTab, titleTab, items, isLast) {
     html = html + "</tr>";
     $.each(items, function() {
         html = html + "<tr>";
-        html = html + "<td><span style='padding-left:10px'>" + $(this).text() + "</span></td>";
-        html = html + "<td><input placeholder='£ 0.00' type='text' class='dataInput' oninput='calculateInput(this)' onkeypress='return isNumberKey(this);' style='width:100%'></td>";
+        html = html + "<td style='padding-left:18px'><span >" + $(this).text() + "</span></td>";
+        html = html + "<td><input placeholder='£ 0.00' type='text' class='dataInput' oninput='calculateInput(this)' onkeypress='return isNumberKey(event)' style='width:100%'></td>";
         html = html + "<td><span>£</span></td>";
         html = html + "<td class='tdMonthly'><span class='monthly'>0</span></td>";
         html = html + "</tr>";
@@ -218,6 +218,7 @@ function setHeightTabPane() {
 
 /* all functions below for create a chart*/
 function drawChart(data) {
+	var startDraw = parseFloat(0.5 - parseFloat((data[0].data)/100));
 	chartExist = true;
     var placeholder = $("#placeholder");
     var index = 1;
@@ -228,7 +229,7 @@ function drawChart(data) {
 				radius: 0.95,
                 innerRadius: 0.55,
                 show: true,
-                startAngle: 0.5,
+                startAngle: startDraw,
                 label: {
                     show: true,
                     radius: 0.74,
@@ -251,7 +252,7 @@ function drawChart(data) {
     });
 
     function labelFormatter(label, series) {
-        if (series.percent > 5) {
+        if (series.percent > 4) {
             var width = 55;
             if (series.percent < 7) {
                 width = 32;

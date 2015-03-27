@@ -14,13 +14,14 @@ var Yearly_multiplicand = 0.08333333333;
 
 function round(number) {
     var n = parseFloat(number);
-    n =  Math.round(n * 100) / 100;
+    n =  Math.round(n);
 	var newnumber = new Number(n).toFixed(0);
 	return newnumber;
 }
 
 function calculateInputBaseOnType(data, type) {
     var output = 0;
+	//alert(data);
     if (type == Weekly_Type) {
         var temp = (data * Weekly_multiplicand);
         output = round(temp);
@@ -28,7 +29,7 @@ function calculateInputBaseOnType(data, type) {
         var temp = (data * Fortnightly_multiplicand);
         output = round(temp);
     } else if (type == Monthly_Type) {
-        output = data;
+        output = Math.round(data);
     } else if (type == Yearly_Type) {
         var temp = data * Yearly_multiplicand;
         output = round(temp);
@@ -142,7 +143,14 @@ function drawFlotJs(){
 		}else{
 			//case 2 : overlap
 			data = getDataSpecialCase();
-			drawChart(data);
+			var dataClock = [];
+			var numberStart = data.length-1;
+			for(var i = 0 ; i < data.length;i++){
+				dataClock[numberStart] = data[i];
+				numberStart--;
+			}
+			console.log(dataClock);
+			drawChart(dataClock);
 			var exceed = totalOutcome - totalIncome;
 			$('.labelChart').html('<span class="total">Total monthly disposable income</span> <p class="exceed">£ -' + exceed + '</p>');					
 		}
@@ -153,7 +161,7 @@ function drawFlotJs(){
 function getDataSpecialCase(){
 	var totalIncome = getTotalIncome();
 	var currentPersent = 0;
-	var index = 1;
+	var index = 0;
 	for(var i=2;i<=getSizeArray();i++){
 		index = i;
 		var per = getPersent(totalIncome, totalsArray["tab" + i]);
