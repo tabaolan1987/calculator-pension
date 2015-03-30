@@ -1,3 +1,25 @@
+/*
+----------------Information--------------------------------
+
+1.Budget Formula JS
+
+2.All function in this file manage the formula of budget in page.
+
+3.Version 1.0.0
+
+4.Company - Claybourne McGregor Consulting Ltd 
+
+5.Author - Lan.Ta 
+
+6.Date - 30-03-2015
+
+*/
+
+
+
+
+
+
 /*Type of each calculate user input*/
 var Weekly_Type = 1;
 var Fortnightly_Type = 2;

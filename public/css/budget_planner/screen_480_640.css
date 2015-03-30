@@ -2,17 +2,7 @@
 	span{
 		font-size : 14px !important;
 	}
-	table.table-responsive > tbody> tr> td.tenPersent {
-		width : 10% !important;
-		padding-left : 10px !important;
-	}
-	table.table-responsive > tbody >tr > td.forty{
-		width : 37% !important;
-	}
 	
-	table.table-responsive > tbody >tr > td.aquarter{
-		width : 21% !important;
-	}
 
 	.row-containTblInput{
 		margin:15px 0px 0px 0px;
@@ -25,7 +15,7 @@
 	
 	.panel-default>.panel-heading{
 		background-color: transparent;
-		border-radius : 25px !important;
+		border-radius : 15px !important;
 		padding : 0px !important;
 		
 	}
@@ -36,7 +26,7 @@
 	
 	div.panel-default{
 		border-color: transparent;
-		margin-bottom : 10px;
+		margin-bottom : 5px;
 		/*font-size : smaller !important;*/
 	}
 	
@@ -45,10 +35,23 @@
 		margin-bottom:0 !important;
 		border : 0 !important;
 	}
+	table.table-responsive > tbody> tr> td.tenPersent {
+		width : 10% !important;
+		padding-left : 10px !important;
+	}
+	table.table-responsive > tbody >tr > td.forty{
+		width : 37% !important;
+		padding-top : 10px;
+		padding-bottom : 10px;
+	}
+	
+	table.table-responsive > tbody >tr > td.aquarter{
+		width : 21% !important;
+	}
 	
 	.table-responsive .img-responsive{
-		width : 50%;
-		height : 50%;
+		width : 55%;
+		height : 55%;
 	}
 	
 	.tenPersent .img-responsive{
@@ -62,7 +65,7 @@
 		padding:0px;
 		border: 1px solid;
 		border-top: transparent;
-		border-radius: 25px;
+		border-radius: 40px;
 		border-left-color: #ddd;
 		border-right-color: #ddd;
 		border-bottom-color: #ddd;
@@ -70,14 +73,14 @@
 		border-bottom-right-radius: 0px;
 	}
 	div.row-heading{
-		height : 48px;
+		height : 58px;
 		min-height : 45px;
-		padding-top : 14px;
+		padding-top : 18px;
 		margin-left:0px !important;
 		margin-right:0px !important;
 		border : 1px solid;
 		border-color : #ddd;
-		border-radius : 20px;
+		border-radius : 15px;
 		-webkit-transition: all ease-in-out .3s;
 		-moz-transition: all ease-in-out .3s;
 		-ms-transition: all ease-in-out .3s;
@@ -99,13 +102,13 @@
 	}
 	
 	table.totalCal{
-		width : 390px;
+		width : 400px;
 	}
 	table.totalCal td.one{
-		width : 50%;	
+		width : 45%;	
 	}
 	table.totalCal td.two{
-		width : 26%;
+		width : 29%;
 	}
 	
 	table.totalCal td.three{
@@ -118,7 +121,7 @@
 	}
 	
 	table.totalCal td.moneyTotal{
-		padding-left : 7px !important;
+		padding-right : 10px !important;
 	}
 	
 	table.next td.one{

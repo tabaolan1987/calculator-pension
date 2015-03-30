@@ -1,9 +1,7 @@
     span,input,button{
 		font-size :16px;
 	}
-	input{
-		//text-align : right;
-	}
+	
 	.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{
 		background-color : transparent;
 		cursor : pointer;
@@ -17,7 +15,7 @@
 	li{
       margin-right: 2px;
       margin-bottom: 5px;
-      border-radius: 25px;
+      border-radius: 15px;
       -webkit-transition: all ease-in-out .3s;
       -moz-transition: all ease-in-out .3s;
       -ms-transition: all ease-in-out .3s;
@@ -29,40 +27,10 @@
 		font-size : 16px;
 	}
 	.nav-tabs > li{
-		margin-bottom : 10px
+		margin-bottom : 5px;
 	 }
 	.nav-tabs{
 		border-bottom : transparent
-	}
-	
-	.nav-tabs  li.active  .arrow{
-		background-image : url("../../images/budget_planner/arrow_open.png");
-		width : 48px;
-		height : 48px;
-	}
-	
-	.nav-tabs  li  .arrow{
-		background-image : url("../../images/budget_planner/arrow_close.png");
-		width : 48px;
-		height : 48px;
-	}
-	
-	a.accordion-toggle.collapsed .arrow{
-		background-image : url("../../images/budget_planner/arrow_up.png");
-		width : 48px;
-		height : 48px;
-	}
-	
-	a.accordion-toggle .arrow{
-		background-image : url("../../images/budget_planner/arrow_down.png");
-		width : 48px;
-		height : 48px;
-	}
-	
-	div.validate{
-		background-image : url("../../images/budget_planner/validate.png");
-		width : 48px;
-		height : 48px;
 	}
 	
 
@@ -112,13 +80,13 @@
 	
 	div.tab-pane{
 		font-size : 16px;
-		height : 540px;
+		height : 500px;
 		width : 450px;
 		border: 1px solid;
 		border-bottom-left-radius : 8px;
 		border-bottom-right-radius : 8px;
-		border-top-left-radius : 25px;
-		border-top-right-radius : 25px;
+		border-top-left-radius : 55px;
+		border-top-right-radius : 55px;
 		border-color : #ddd;
 		border-top-color : transparent;
 		-webkit-transition: all ease-in-out .3s;
@@ -135,7 +103,7 @@
 		margin-right:0px !important;
 		border : 1px solid;
 		border-color : #ddd;
-		border-radius : 20px;
+		border-radius : 15px;
 		-webkit-transition: all ease-in-out .3s;
 		-moz-transition: all ease-in-out .3s;
 		-ms-transition: all ease-in-out .3s;
@@ -145,12 +113,12 @@
 
 	.row-containTblInput{
 		margin:15px 0px 0px 0px;
-		height:350px;
+		height:305px;
 		overflow-x:hidden;
 		overflow-y:auto;
 	}
 	table.containInput{
-		width : 431px;
+		width : 430px;
 	}
 	table.containInput > tbody > tr > td{
 		border-top : 0px !important;
@@ -170,11 +138,11 @@
 	
 	table.containInput td.tdMonthly{
 		text-align : right;
-		padding-right:18px;
+		padding-right:10px;
 	}
 	table.totalCal {
 		margin-bottom : 0px;
-		width : 422px;
+		width : 430px;
 	}
 	table.totalCal > tbody > tr > td {
 		border-top : transparent;
@@ -184,16 +152,18 @@
 		width : 47%;	
 	}
 	table.totalCal td.two{
-		width : 31%;
+		width : 30%;
 	}
 	
 	table.totalCal td.money{
 		width : 8% !important;
+		padding-left : 5px;
 		
 	}
 	
 	table.totalCal td.moneyTotal{
 		float : right;
+		padding-right : 10px;
 	}
 	table.next{
 		width : 100%;
@@ -344,8 +314,9 @@
 
 	
 	.dataInput {
-		//background: url("../../images/budget_planner/pound.png") no-repeat scroll left center ;
-		//padding-left: 30px;
+		background: url("../../images/budget_planner/pound.png") no-repeat scroll left center ;
+		text-align : right;
+		padding-right: 5px;
 	}
 	
 	

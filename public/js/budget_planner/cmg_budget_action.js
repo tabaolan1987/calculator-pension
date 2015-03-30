@@ -1,3 +1,26 @@
+/*
+----------------Information--------------------------------
+
+1.Budget Action JS
+
+2.All function in this file handle the actions of user in page.
+
+3.Version 1.0.0
+
+4.Company - Claybourne McGregor Consulting Ltd 
+
+5.Author - Lan.Ta 
+
+6.Date - 30-03-2015
+
+*/
+
+
+
+
+
+
+
 /* there functions below for register function of  tab */
 function registerFunctionsForTab(){
 $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
@@ -42,6 +65,12 @@ $('div.panel-collapse').on('shown.bs.collapse', function() {
     var id = $(this).attr('id');
     $("div.panel-heading").find("a[href='#" + id + "']").find("td.tenPersent:eq(1) img").attr('src', 'images/budget_planner/arrow_down.png');
 	if(chartExist){
+		if (fakewaffle.currentPosition == "panel" & id!='collapse-calculate') {
+			var v = $('#collapse-calculate').is(':visible');
+			if(v){
+				$('#collapse-calculate').collapse('hide');
+			}
+		}
 		eneableCalculateBtn();
 	}
 });

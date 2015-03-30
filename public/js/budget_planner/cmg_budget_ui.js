@@ -1,3 +1,20 @@
+/*
+----------------Information--------------------------------
+
+1.Budget UI JS
+
+2.All function in this file manage the UI in page.
+
+3.Version 1.0.0
+
+4.Company - Claybourne McGregor Consulting Ltd 
+
+5.Author - Lan.Ta 
+
+6.Date - 30-03-2015
+
+*/
+
 var tabColor = new Array();
 var tabName = new Array();
 var totalsArray = new Array();
@@ -36,6 +53,7 @@ function drawUI() {
             drawCalculateTab();
             setActive();
             fakewaffle.responsiveTabs(['xs', 'sm']);
+			//setHeightTabPane();
             disableCalculateBtn();
             console.log("function ready!");
 			registerFunctionsForTab();
@@ -57,8 +75,8 @@ function loadWarning() {
             $(xml).find('popup').each(function() {
                 var type = parseInt($(this).find('type').text());
                 if (type == 1) {
-                    $('#myModal .modal-body').html($(this).find('message').html());
-                    $('#myModal .modal-body').css('color', $(this).find('color-message').text());
+                    $('#myModal').find('.modal-body').html($(this).find('message').html());
+                    $('#myModal').find('.modal-body').css('color', $(this).find('color-message').text());
                 } else if (type == 2) {
                     $('#myModal2 .modal-body').html($(this).find('message').html());
                     $('#myModal2 .modal-body').css('color', $(this).find('color-message').text());
@@ -131,7 +149,7 @@ function drawTab(index, colorTab, titleTab, items, isLast) {
     $.each(items, function() {
         html = html + "<tr>";
         html = html + "<td style='padding-left:18px'><span >" + $(this).text() + "</span></td>";
-        html = html + "<td><input placeholder='£ 0.00' type='text' class='dataInput' oninput='calculateInput(this)' onkeypress='return isNumberKey(event)' style='width:100%'></td>";
+        html = html + "<td><input placeholder='0.00' type='text' class='dataInput' oninput='calculateInput(this)' onkeypress='return isNumberKey(event)' style='width:100%'></td>";
         html = html + "<td><span>£</span></td>";
         html = html + "<td class='tdMonthly'><span class='monthly'>0</span></td>";
         html = html + "</tr>";
@@ -162,8 +180,6 @@ function drawLastElementInTab(idTab, index, colorTab, isLast) {
     } else {
         html = html + "<td colspan='3' class='money'><button style='font-weight:bold;background-color:" + colorTab + "' onclick='nextTab(" + index + ");' class='btn btn-default'>Next</button></td>";
     }
-
-    html = html + "<td></td>";
     html = html + "</tr>";
     html = html + "</table>";
     html = html + "</div>";
@@ -197,10 +213,10 @@ function drawCalculateTab() {
 
 function setActive() {
     $('#myTab a').first().tab('show');
-    setHeightTabPane();
     $('#myTab').find('li:eq(0)').attr('class', 'active');
     var imgActive = $($("#a1").find('td.tenPersent:eq(1) img'));
     imgActive.attr('src', 'images/budget_planner/arrow_open.png');
+	setHeightTabPane();
 }
 
 function setHeightTabPane() {
@@ -209,7 +225,7 @@ function setHeightTabPane() {
         var numberAdded = sizeTabs - 8;
         var heightTabCurrent = $('.tab-pane.active').height();
         var heightLiCurrent = $('li.active').height();
-        var heightTabAdded = (heightLiCurrent * numberAdded) + (8 * numberAdded);
+        var heightTabAdded = (heightLiCurrent * numberAdded) + (5.5 * numberAdded);
         var heigtTableAdded = $('.tab-pane.active .row-containTblInput').height() + (numberAdded * 60);
         $('.tab-pane').css('height', (heightTabCurrent + heightTabAdded) + "px");
         $('.tab-pane .row-containTblInput').css('height', heigtTableAdded + "px");
@@ -270,7 +286,7 @@ function drawChart(data) {
 function tooltip() {
     $("#placeholder").bind("plothover", function(event, pos, item) {
         if (item) {
-            //$("#tooltip").hide();
+            $("#tooltip").hide();
             showTooltip(pos.pageX, pos.pageY, item.series.label);
         } else {
             $("#tooltip").hide();

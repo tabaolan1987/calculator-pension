@@ -13,18 +13,18 @@
 	
 	.panel-default>.panel-heading{
 		background-color: transparent;
-		border-radius : 25px !important;
+		border-radius : 15px !important;
 		padding : 0px !important;
 		
 	}
 
 	div.panel-group{
-		width : 310px;
+		width : 320px;
 	}
 	
 	div.panel-default{
 		border-color: transparent;
-		margin-bottom : 10px;
+		margin-bottom : 5px;
 		/*font-size : xx-small !important;*/
 	}
 	
@@ -42,13 +42,17 @@
 		margin-bottom:0 !important;
 		border : 0 !important;
 	}
-	
+	table.table-responsive > tbody >tr > td.forty{
+		width : 45%;
+		padding-bottom : 10px;
+		padding-top : 10px;
+	}
 	
 	.panel-group .panel-heading+.panel-collapse>.panel-body{
 		padding:0px;
 		border: 1px solid;
 		border-top: transparent;
-		border-radius: 25px;
+		border-radius: 40px;
 		border-left-color: #ddd;
 		border-right-color: #ddd;
 		border-bottom-color: #ddd;
@@ -56,14 +60,14 @@
 		border-bottom-right-radius: 0px;
 	}
 	div.row-heading{
-		height : 48px;
+		height : 58px;
 		min-height : 30px;
-		padding-top : 13px;
+		padding-top : 18px;
 		margin-left:0px !important;
 		margin-right:0px !important;
 		border : 1px solid;
 		border-color : #ddd;
-		border-radius : 20px;
+		border-radius : 15px;
 		-webkit-transition: all ease-in-out .3s;
 		-moz-transition: all ease-in-out .3s;
 		-ms-transition: all ease-in-out .3s;
@@ -72,17 +76,15 @@
 	}
 	
 	table.containInput{
-		width :307px;
+		width :300px;
 	}
 	table.containInput td.tdMonthly{
-		padding-right : 15px;
+		padding-right : 10px;
+	}
+	table.containInput td.first{
+		width : 40%;
 	}
 	
-	table.table-responsive > tbody >tr > td.forty{
-		width : 45%;
-		padding-bottom : 5px;
-		padding-top : 5px;
-	}
 	
 	
 	table.totalCal{
@@ -93,18 +95,24 @@
 		width : 48%;	
 	}
 	table.totalCal td.two{
-		width : 26%;
-	}
-	
-	table.totalCall td.three{
-		width : 8%
+		width : 24%;
+		padding-left : 0px;
 	}
 	table.totalCal td.money{
-		padding-left : 10px;
+		padding-left : 6px;
 	}
 	
+	table.totalCal td.three{
+		width : 8%
+	}
+	table.totalCal td.moneyTotal{
+		float : right;
+		padding-right :10px;
+	}
+	
+	
 	table.next{
-		width : 320px !important
+		width : 318px !important
 	}
 	
 	table.next td.money{
