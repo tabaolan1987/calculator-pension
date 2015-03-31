@@ -16,10 +16,6 @@
 */
 
 
-
-
-
-
 /*Type of each calculate user input*/
 var Weekly_Type = 1;
 var Fortnightly_Type = 2;
@@ -43,7 +39,6 @@ function round(number) {
 
 function calculateInputBaseOnType(data, type) {
     var output = 0;
-	//alert(data);
     if (type == Weekly_Type) {
         var temp = (data * Weekly_multiplicand);
         output = round(temp);
@@ -160,7 +155,7 @@ function drawFlotJs(){
 				}
 			}
 			drawChart(data);
-			var exceed = value - totalIncome;
+			var exceed = totalOutcome - totalIncome;
 			$('.labelChart').html('<span class="total">Total monthly disposable income</span> <p class="exceed">£ -' + exceed + '</p>');				
 		}else{
 			//case 2 : overlap

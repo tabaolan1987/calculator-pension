@@ -5,10 +5,16 @@
 	<description>Not complete all field</description>
 	<color-message>blue</color-message>
 	<message>
+		<![CDATA[
 		<p>You have not completed all sections of the planner, do you still wish to proceed?</p>
 		<p>Close Brothers to edit text for pop up.</p>
 		<p>Only the warning text is editable, not styling e.g. colour, font or size</p>
 		<p>Links below are not editable as they are part of the flow.</p>
+		<p>Links below are not editable as they are part of the flow.</p>
+		<p>Links below are not editable as they are part of the flow.</p>
+		<p>Links below are not editable as they are part of the flow.</p>
+		<p>Links below are not editable as they are part of the flow.</p>
+		]]>
 	</message>
 </popup>
 <popup>
@@ -16,7 +22,9 @@
 	<description>Outgoings exceed income.</description>
 	<color-message>blue</color-message>
 	<message>
-		<p>Outgoings exceed income.</p><p>Close brothers to edit text for pop up</p>
+		<![CDATA[
+		<p>Outgoings exceed income.</p>
+		]]>
 	</message>
 </popup>
 </holder>

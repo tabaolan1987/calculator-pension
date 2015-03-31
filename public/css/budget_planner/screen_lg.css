@@ -71,7 +71,7 @@
 	}
 	
 	button.calculate{
-		width:40%;background-color:#94b7bb;border-radius:15px;color:black;font-weight:bolder;
+		width:35%;background-color:#94b7bb;border-radius:15px;color:black;font-weight:bolder;font-size : 16px;
 	}
 	#containerMenu{
 		width : 450px;
@@ -85,10 +85,9 @@
 		border: 1px solid;
 		border-bottom-left-radius : 8px;
 		border-bottom-right-radius : 8px;
-		border-top-left-radius : 55px;
-		border-top-right-radius : 55px;
+		border-top-left-radius : 15px;
+		border-top-right-radius : 15px;
 		border-color : #ddd;
-		border-top-color : transparent;
 		-webkit-transition: all ease-in-out .3s;
 		-moz-transition: all ease-in-out .3s;
 		-ms-transition: all ease-in-out .3s;
@@ -101,8 +100,10 @@
 		padding-top : 18px;
 		margin-left:0px !important;
 		margin-right:0px !important;
-		border : 1px solid;
-		border-color : #ddd;
+		border-bottom : 1px solid;
+		border-bottom-left-radius : 15px;
+		border-bottom-right-radius : 15px;
+		border-bottom-color : #ddd;
 		border-radius : 15px;
 		-webkit-transition: all ease-in-out .3s;
 		-moz-transition: all ease-in-out .3s;
@@ -120,6 +121,8 @@
 	table.containInput{
 		width : 430px;
 	}
+	
+	
 	table.containInput > tbody > tr > td{
 		border-top : 0px !important;
 		vertical-align:middle;
@@ -129,6 +132,9 @@
 		width : 50%;
 	}
 	
+	table.containInput td.first div{
+		width : 119px;
+	}
 	table.containInput td.second{
 		width : 45%;
 	}
@@ -241,6 +247,8 @@
 	.modal-body {
 		padding-left : 30px;
 		color : #060392;
+		overflow-y : auto;
+		height : 250px;
 	}
 	
 	.close{
@@ -269,13 +277,13 @@
 	}
 	
 	.table-responsive .img-responsive{
-		width : 55%;
-		height : 55%;
+		width : 60%;
+		height : 60%;
 	}
 	
 	.tenPersent .img-responsive{
-		width : 80%;
-		height : 30%;
+		width  : 80%;
+		height : 40%;
 	}
 	
 	#flotTip{	
@@ -287,9 +295,9 @@
 	
 	
 	#tooltip{
-		background-image : url("../../images/budget_planner/Pop_up_chart.gif");
-		width : 135px;
-		height : 125px;
+		background-image : url("../../images/budget_planner/CB_speech_bubble.png");
+		width : 95px;
+		height : 65px;
 		font-size : 16px;
 	}
 	#myModal{
@@ -317,9 +325,14 @@
 		background: url("../../images/budget_planner/pound.png") no-repeat scroll left center ;
 		text-align : right;
 		padding-right: 5px;
+		border : 1px solid;
+		border-radius : 5px;
+		border-color : #ddd;
+		height : 30px;
 	}
 	
-	
+	table.containInput select{
+	}
 	
 
 

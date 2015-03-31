@@ -1,9 +1,18 @@
 @media (min-width: 320px) and (max-width: 480px){
 	span,select,button,input{
-		font-size : 12px !important;
+		font-size : 10px !important;
 	}
 	
-	
+	#containerMenu{
+		width :310px;
+	}
+	.container-fluid{
+		margin-left : 0px !important;
+		width : 310px;
+	}
+	h3{
+		padding-left : 10px !important;
+	}
 	.row-containTblInput{
 		margin:15px 0px 0px 0px;
 		height:250px;
@@ -35,7 +44,7 @@
 	
 	.tenPersent .img-responsive{
 		width : 80%;
-		height : 30%;
+		height : 40%;
 	}
 
 	.table-responsive {
@@ -52,7 +61,7 @@
 		padding:0px;
 		border: 1px solid;
 		border-top: transparent;
-		border-radius: 40px;
+		border-radius: 15px;
 		border-left-color: #ddd;
 		border-right-color: #ddd;
 		border-bottom-color: #ddd;
@@ -65,8 +74,10 @@
 		padding-top : 18px;
 		margin-left:0px !important;
 		margin-right:0px !important;
-		border : 1px solid;
-		border-color : #ddd;
+		border-bottom : 1px solid;
+		border-bottom-left-radius : 15px;
+		border-bottom-right-radius : 15px;
+		border-bottom-color : #ddd;
 		border-radius : 15px;
 		-webkit-transition: all ease-in-out .3s;
 		-moz-transition: all ease-in-out .3s;
@@ -85,6 +96,11 @@
 		width : 40%;
 	}
 	
+	table.containInput td.first div{
+		width : 119px;
+		font-size : 12px;
+	}
+	
 	
 	
 	table.totalCal{
@@ -92,14 +108,14 @@
 	}
 	
 	table.totalCal td.one{
-		width : 48%;	
+		width : 50%;	
 	}
 	table.totalCal td.two{
 		width : 24%;
-		padding-left : 0px;
+		padding-left : 2px;
 	}
 	table.totalCal td.money{
-		padding-left : 6px;
+		padding-left : 8px;
 	}
 	
 	table.totalCal td.three{
@@ -127,7 +143,7 @@
 	
 	#myModal{
 		top:5%;
-		right:10%;
+		right:0%;
 		outline: none;
 		font-size : 12px;
 	}
@@ -159,6 +175,16 @@
 	}
 	#myModal2 .modal-content{
 		width : 310px;
+	}
+	
+	.dataInput {
+		background: url("../../images/budget_planner/pound_320.png") no-repeat scroll left center ;
+		text-align : right;
+		padding-right: 5px;
+		border : 1px solid;
+		border-radius : 5px;
+		border-color : #ddd;
+	
 	}
 }
 

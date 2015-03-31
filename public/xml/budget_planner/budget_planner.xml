@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <categories>
 <category>
-<type>0</type>
 <name>Income</name>
 <color-category>#53565a</color-category>
-<image-category>income.gif</image-category>
+<image-category>CB_Income_new.png</image-category>
 <second-color-category>#96989a</second-color-category>
 <color-text-category>black</color-text-category>
 <color-tab>#96989a</color-tab>
@@ -18,10 +17,9 @@
 <item>Savings/Investments</item>
 </category>
 <category>
-<type>1</type>
 <name>Household bills</name>
 <color-category>#FF8200</color-category>
-<image-category>Household_bills.gif</image-category>
+<image-category>CB_Household_bills_new.png</image-category>
 <color-tab>#feb264</color-tab>
 <second-color-category>#feb264</second-color-category>
 <color-text-category>black</color-text-category>
@@ -37,10 +35,9 @@
 </items>
 </category>
 <category>
-<type>1</type>
 <name>Living costs</name>
 <color-category>#BBA600</color-category>
-<image-category>Living_costs.gif</image-category>
+<image-category>CB_Living_costs_new.png</image-category>
 <second-color-category>#d5c864</second-color-category>
 <color-text-category>black</color-text-category>
 <color-tab>#d5c864</color-tab>
@@ -55,10 +52,9 @@
 <item>Perscriptions/medicine</item>
 </category>
 <category>
-<type>1</type>
 <name>Travel</name>
 <color-category>#FFCD00</color-category>
-<image-category>Travel.gif</image-category>
+<image-category>CB_travel_new.png</image-category>
 <second-color-category>#fee064</second-color-category>
 <color-text-category>black</color-text-category>
 <color-tab>#fee064</color-tab>
@@ -72,10 +68,9 @@
 <item>Car maintenance</item>
 </category>
 <category>
-<type>1</type>
 <name>Repayments</name>
 <color-category>#00778B</color-category>
-<image-category>Repayments.gif</image-category>
+<image-category>CB_repayments_new.png</image-category>
 <second-color-category>#64acb8</second-color-category>
 <color-text-category>black</color-text-category>
 <color-tab>#64acb8</color-tab>
@@ -88,10 +83,9 @@
 <item>Catalogue</item>
 </category>
 <category>
-<type>1</type>
 <name>Insurance</name>
 <color-category>#789D4A</color-category>
-<image-category>Insurance.gif</image-category>
+<image-category>CB_insurance_new.png</image-category>
 <second-color-category>#acc390</second-color-category>
 <color-text-category>black</color-text-category>
 <color-tab>#acc390</color-tab>
@@ -105,10 +99,9 @@
 <item>Cover plans</item>
 </category>
 <category>
-<type>1</type>
 <name>Savings</name>
 <color-category>#CE0F69</color-category>
-<image-category>Savings.gif</image-category>
+<image-category>CB_savings_new.png</image-category>
 <second-color-category>#e06da3</second-color-category>
 <color-text-category>black</color-text-category>
 <color-tab>#e06da3</color-tab>
@@ -121,10 +114,9 @@
 <item>Other investments</item>
 </category>
 <category>
-<type>1</type>
 <name>Leisure</name>
 <color-category>#671E75</color-category>
-<image-category>Leisure.gif</image-category>
+<image-category>CB_leisure_new.png</image-category>
 <second-color-category>#a276aa</second-color-category>
 <color-text-category>black</color-text-category>
 <color-tab>#a276aa</color-tab>
@@ -139,17 +131,16 @@
 <item>Pub/social</item>
 </category>
 <category>
-<type>1</type>
 <name>Other</name>
 <color-category>#7ac142</color-category>
-<image-category>Other.gif</image-category>
+<image-category>CB_other_new.png</image-category>
 <second-color-category>#add88b</second-color-category>
 <color-text-category>black</color-text-category>
 <color-tab>#add88b</color-tab>
 <title-tab>Record your other</title-tab>
 <item>Charitable donations</item>
 <item>Sponsorship</item>
-<item>Gifts</item>
+<item>pngts</item>
 <item>Other</item>
 </category>
 </categories>

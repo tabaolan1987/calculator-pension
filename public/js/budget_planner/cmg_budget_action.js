@@ -159,7 +159,7 @@ function updateTotal(e){
 	//if(total > 0){
 		if(fakewaffle.currentPosition == "tabs"){
 			//update for tabs
-			$('ul#myTab li.active').find('table.table-nonborder td:eq(1) span').html('£'+Number(total).toLocaleString('en'));
+			$('ul#myTab li.active').find('table.table-nonborder td:eq(1) span').html('£'+Number(total).toLocaleString('en').split('.')[0]);
 			$('ul#myTab li.active').find('.table-responsive').find('tr:eq(0)').find('td.tenPersent img.validate').removeClass('hidden');
 			$(e).parents().find('.tab-pane.active .table.totalCal span.totalMonthly').html(total);
 			var idArray = $(e).parents().find('.tab-pane.active').attr('id');
@@ -168,7 +168,7 @@ function updateTotal(e){
 			//update for panel
 			$(e).parents().find('div.active.panel-body').find('.table.totalCal span.totalMonthly').html(total);
 			var idArray = $(e).parents().find('div.panel-default div.active.panel-body').attr('id');
-			$(e).parents().find("a[href='#collapse-"+idArray+"']").find('table.table-nonborder td:eq(1) span').html('£'+Number(total).toLocaleString('en'));
+			$(e).parents().find("a[href='#collapse-"+idArray+"']").find('table.table-nonborder td:eq(1) span').html('£'+Number(total).toLocaleString('en').split('.')[0]);
 			$(e).parents().find("a[href='#collapse-"+idArray+"']").find('.table-responsive').find('tr:eq(0)').find('td.tenPersent img.validate').removeClass('hidden');
 			updateNumberToArray(idArray,total);
 		}
@@ -284,3 +284,10 @@ function eneableCalculateBtn(){
 }
 /*----------------------------------------------------------END----------------------------------------*/
 
+ function checkChromeBrowser() { 
+     if(navigator.userAgent.indexOf("Chrome") != -1 ) 
+    {
+        return true;
+    }
+		return false;
+}

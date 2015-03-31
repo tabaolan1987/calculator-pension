@@ -53,12 +53,13 @@ function drawUI() {
             drawCalculateTab();
             setActive();
             fakewaffle.responsiveTabs(['xs', 'sm']);
-			//setHeightTabPane();
+			setHeightTabPane();
             disableCalculateBtn();
             console.log("function ready!");
 			registerFunctionsForTab();
 			registerFunctionsForPanel();
 			registerFunctionForModal();
+			 tooltip();
         },
         error: function() {
             alert("An error occurred while processing XML file.");
@@ -74,12 +75,14 @@ function loadWarning() {
         success: function(xml) {
             $(xml).find('popup').each(function() {
                 var type = parseInt($(this).find('type').text());
+				var message = $(this).find('message').text();
+				var color = $(this).find('color-message').text();
                 if (type == 1) {
-                    $('#myModal').find('.modal-body').html($(this).find('message').html());
-                    $('#myModal').find('.modal-body').css('color', $(this).find('color-message').text());
+                    $('#myModal').find('.modal-body').html(message);
+                    $('#myModal').find('.modal-body').css('color', color);
                 } else if (type == 2) {
-                    $('#myModal2 .modal-body').html($(this).find('message').html());
-                    $('#myModal2 .modal-body').css('color', $(this).find('color-message').text());
+                    $('#myModal2').find('.modal-body').html(message);
+                    $('#myModal2').find('.modal-body').css('color', color);
                 }
             });
             console.log("modal already!");
@@ -92,6 +95,12 @@ function loadWarning() {
 }
 
 function drawCategory(name, colorCategory, index, imagePath, secondColorCategory, colorText) {
+	var temp = "";
+	if(name.length > 10){
+		temp = name.substring(0, 6) + "..";
+	}else{
+		temp = name;
+	}
     var html = "<li style='background-color :" + colorCategory + "'>";
     html = html + "<a id='a" + index + "' data-target='#tab" + index + "' href='#tab" + index + "' role='tab' data-toggle='tab'>";
     html = html + "<div>";
@@ -104,7 +113,7 @@ function drawCategory(name, colorCategory, index, imagePath, secondColorCategory
     html = html + "<div class='col-md-12 col-xs-12 col-sm-12 inform' style='background-color:" + secondColorCategory + "'>";
     html = html + "<table class='table table-nonborder'>";
     html = html + "<tr>";
-    html = html + "<td style='color:"+colorText+"'><span>" + name + "</span></td>";
+    html = html + "<td style='color:"+colorText+"'><span title='"+name+"'>" + temp + "</span></td>";
     html = html + "<td style='text-align:right'><span></span></td>";
     html = html + "</tr>";
     html = html + "</table>";
@@ -148,8 +157,8 @@ function drawTab(index, colorTab, titleTab, items, isLast) {
     html = html + "</tr>";
     $.each(items, function() {
         html = html + "<tr>";
-        html = html + "<td style='padding-left:18px'><span >" + $(this).text() + "</span></td>";
-        html = html + "<td><input placeholder='0.00' type='text' class='dataInput' oninput='calculateInput(this)' onkeypress='return isNumberKey(event)' style='width:100%'></td>";
+        html = html + "<td class='first' style='padding-left:18px'><div>" + $(this).text() + "</div></td>";
+        html = html + "<td class='second'><input placeholder='0.00' type='text' class='dataInput' oninput='calculateInput(this)' onkeypress='return isNumberKey(event)' style='width:100%'></td>";
         html = html + "<td><span>£</span></td>";
         html = html + "<td class='tdMonthly'><span class='monthly'>0</span></td>";
         html = html + "</tr>";
@@ -167,8 +176,8 @@ function drawLastElementInTab(idTab, index, colorTab, isLast) {
     html = html + "<table class='table totalCal'>";
     html = html + "<tr>";
     html = html + "<td class='one'></td>";
-    html = html + "<td class='two'><span>Total</span></td>";
-    html = html + "<td class='money'><span>£</span></td>";
+    html = html + "<td class='two'><span style='font-weight:bold'>Total</span></td>";
+    html = html + "<td class='money'><span style='font-weight:bold'>£</span></td>";
     html = html + "<td class='moneyTotal'><span class='totalMonthly' style='font-weight:bold'>0</span></td>";
     html = html + "</tr>";
     html = html + "</table>";
@@ -216,16 +225,23 @@ function setActive() {
     $('#myTab').find('li:eq(0)').attr('class', 'active');
     var imgActive = $($("#a1").find('td.tenPersent:eq(1) img'));
     imgActive.attr('src', 'images/budget_planner/arrow_open.png');
-	setHeightTabPane();
 }
 
 function setHeightTabPane() {
     var sizeTabs = getSizeArray();
-    if (sizeTabs > 8) {
+    if (sizeTabs > 8 & fakewaffle.currentPosition != "panel"){
         var numberAdded = sizeTabs - 8;
         var heightTabCurrent = $('.tab-pane.active').height();
         var heightLiCurrent = $('li.active').height();
-        var heightTabAdded = (heightLiCurrent * numberAdded) + (5.5 * numberAdded);
+		var isChrome = checkChromeBrowser();
+		var heightTabAdded = 0;
+		if(isChrome)
+		{
+			heightTabAdded = (heightLiCurrent * numberAdded) + (5.5 * numberAdded);
+		}else{
+			heightTabAdded = (heightLiCurrent * numberAdded) + (13.5 * numberAdded);
+			//alert('not chrome : ' + heightTabAdded);
+		}
         var heigtTableAdded = $('.tab-pane.active .row-containTblInput').height() + (numberAdded * 60);
         $('.tab-pane').css('height', (heightTabCurrent + heightTabAdded) + "px");
         $('.tab-pane .row-containTblInput').css('height', heigtTableAdded + "px");
@@ -237,8 +253,9 @@ function drawChart(data) {
 	var startDraw = parseFloat(0.5 - parseFloat((data[0].data)/100));
 	chartExist = true;
     var placeholder = $("#placeholder");
+	 placeholder.empty();
     var index = 1;
-    placeholder.unbind();
+    //placeholder.unbind();
     var plot = $.plot(placeholder, data, {
         series: {
             pie: {
@@ -268,46 +285,51 @@ function drawChart(data) {
     });
 
     function labelFormatter(label, series) {
-        if (series.percent > 4) {
-            var width = 55;
-            if (series.percent < 7) {
-                width = 32;
+        if (series.percent > 3) {
+            var width = 50;
+            if (series.percent < 6) {
+                width = 30;
             }
             var path = label.split("||")[0];
             var src = 'images/budget_planner/' + path;
-            return '<img class="img-responsive" width="' + width + '" height="'+width+'" src="' + src + '" />';
+            return '<img class="" width="' + width + '" height="'+width+'" src="' + src + '" />';
         } else{
             return '';
 		}
     }
+	placeholder.append("<div id='tooltip' style='display:none'></div>");
     tooltip();
 }
 
 function tooltip() {
     $("#placeholder").bind("plothover", function(event, pos, item) {
+		//console.log(item);
+		//console.log(event);
         if (item) {
-            $("#tooltip").hide();
-            showTooltip(pos.pageX, pos.pageY, item.series.label);
+            showTooltip(pos.pageX - $("#placeholder").offset().left, pos.pageY - $("#placeholder").offset().top, item.series.label);
         } else {
             $("#tooltip").hide();
         }
     });
+	
 }
 
 function showTooltip(x, y, contents) {
     var content = contents.split('||')[1];
     var name = content.split(':')[0];
     var value = content.split(':')[1];
-    var html = "<p style='text-align:center;color:blue;margin-bottom:5px'>" + name + "</p><p style='text-align:center;color:blue'>" + value + "</p>";
+    var html = "<p style='font-size:12px;text-align:center;color:blue;margin-bottom:2px'>" + name + "</p><p style='font-size:12px;text-align:center;color:blue'>" + value + "</p>";
     $('#tooltip').html(html);
-    $('#tooltip').css({
+     $('#tooltip').css({
         position: 'absolute',
-        display: 'none',
-        top: y - 110,
-        left: x - 60,
-        'padding-top': '20px'
+        top: y - 65,
+        left: x - 95 / 2,
+        'padding-top': '3px',
+		'z-index':'1000'
     });
     $('#tooltip').show();
+	
+    
 }
 
 function hideAllPanel() {
