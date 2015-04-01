@@ -1,33 +1,10 @@
-/*
-----------------Information--------------------------------
-
-1.Budget Action JS
-
-2.All function in this file handle the actions of user in page.
-
-3.Version 1.0.0
-
-4.Company - Claybourne McGregor Consulting Ltd 
-
-5.Author - Lan.Ta 
-
-6.Date - 30-03-2015
-
-*/
-
-
-
-
-
-
-
 /* there functions below for register function of  tab */
-function registerFunctionsForTab(){
-$('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+function registerFunctionsForTab() {
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
     var imgActive = $($(e.target).find('td.tenPersent:eq(1) img'));
     imgActive.attr('src', 'images/budget_planner/arrow_open.png');
-    var imgActive = $($(e.relatedTarget).find('td.tenPersent:eq(1) img'));
-    imgActive.attr('src', 'images/budget_planner/arrow_close.png');
+    var imgInActive = $($(e.relatedTarget).find('td.tenPersent:eq(1) img'));
+    imgInActive.attr('src', 'images/budget_planner/arrow_close.png');
 	updateTotalZeroValueWhenCloseTab($(e.relatedTarget));
 	if(chartExist){
 		eneableCalculateBtn();
@@ -78,6 +55,8 @@ $('div.panel-collapse').on('shown.bs.collapse', function() {
 $('div.panel-collapse').on('hidden.bs.collapse', function() {
 	//update image to inactive panel
     var id = $(this).attr('id');
+	var $a = $("div.panel-heading").find("a[href='#" + id + "']");
+	updateTotalZeroValueWhenCloseTab($a);
     $("div.panel-heading").find("a[href='#" + id + "']").find("td.tenPersent:eq(1) img").attr('src', 'images/budget_planner/arrow_up.png');
 });
 

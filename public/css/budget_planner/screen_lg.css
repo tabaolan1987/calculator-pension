@@ -83,6 +83,7 @@
 		height : 500px;
 		width : 450px;
 		border: 1px solid;
+		border-top : 0px solid;
 		border-bottom-left-radius : 8px;
 		border-bottom-right-radius : 8px;
 		border-top-left-radius : 15px;
@@ -330,7 +331,9 @@
 		border-color : #ddd;
 		height : 30px;
 	}
-	
+	button.calculate{
+		font-weight : 900;
+	}
 	table.containInput select{
 	}
 	
