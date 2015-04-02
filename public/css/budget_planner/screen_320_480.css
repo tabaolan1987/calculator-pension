@@ -1,6 +1,6 @@
 @media (min-width: 320px) and (max-width: 480px){
 	span,select,button,input{
-		font-size : 10px !important;
+		font-size : 12px !important;
 	}
 	
 	#containerMenu{
@@ -11,7 +11,7 @@
 		width : 310px;
 	}
 	h3{
-		padding-left : 10px !important;
+		padding-left : 0px !important;
 	}
 	.row-containTblInput{
 		margin:15px 0px 0px 0px;
@@ -39,14 +39,20 @@
 	
 	.table-responsive .img-responsive{
 		width : 60%;
-		height : 50%;
+		height : 38px;
 	}
-	
+	td.tenPersent{
+		padding-right : 10px;
+	}
 	.tenPersent .img-responsive{
 		width : 80%;
-		height : 40%;
+		height : 38px;
 	}
-
+	.arrow  .img-responsive{
+		width : 80%;
+		height : 38px;
+	}
+	
 	.table-responsive {
 		margin-bottom:0 !important;
 		border : 0 !important;
@@ -115,7 +121,7 @@
 		padding-left : 2px;
 	}
 	table.totalCal td.money{
-		padding-left : 8px;
+		padding-left : 0px;
 	}
 	
 	table.totalCal td.three{
@@ -138,7 +144,21 @@
 	.labelChart{
 		width : 135px;
 		left : 60%;
+	}
 	
+	.labelTop{
+		position:absolute;
+		width:163px;
+		left:56%;
+		top:36%;
+		height : 160px;
+		margin-top:-30px;
+		margin-left:-100px;
+		text-align:center;
+		border-radius : 115px;
+		z-index : 1000;
+		
+		background: url("../../images/budget_planner/trickIE.png") no-repeat scroll top center ;
 	}
 	
 	#myModal{

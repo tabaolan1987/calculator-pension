@@ -39,6 +39,7 @@
 	}
 	table.table-responsive > tbody> tr> td.tenPersent {
 		width : 10% !important;
+		padding-right : 3px;
 	}
 	
 	table.table-responsive > tbody> tr> td.fifyPersent {
@@ -145,7 +146,7 @@
 	
 	table.containInput td.tdMonthly{
 		text-align : right;
-		padding-right:10px;
+		
 	}
 	table.totalCal {
 		margin-bottom : 0px;
@@ -169,8 +170,8 @@
 	}
 	
 	table.totalCal td.moneyTotal{
-		float : right;
-		padding-right : 10px;
+		text-align : right;
+		
 	}
 	table.next{
 		width : 100%;
@@ -207,6 +208,20 @@
 		text-align:center;
 		font-weight:bold;
 	}
+	.labelTop{
+		position:absolute;
+		width:225px;
+		left:47%;
+		top:30%;
+		height : 225px;
+		margin-top:-30px;
+		margin-left:-100px;
+		text-align:center;
+		border-radius : 115px;
+		z-index : 1000;
+		border-color : red;
+		background: url("../../images/budget_planner/trickIE.png") no-repeat scroll top center ;
+	}
 	
 	div.labelChart span{
 		color : #06038d;
@@ -233,11 +248,11 @@
 	}
 	
 	.modal-dialog{
-		max-width :400px;
-		
+		max-width :450px;
 	}
 	
 	.modal-content{
+		width : 448px;
 		border-radius : 20px;
 	}
 	.modal-header {
@@ -249,7 +264,7 @@
 		padding-left : 30px;
 		color : #060392;
 		overflow-y : auto;
-		height : 250px;
+		height : 200px;
 	}
 	
 	.close{
@@ -278,13 +293,18 @@
 	}
 	
 	.table-responsive .img-responsive{
-		width : 60%;
-		height : 60%;
+		width : 68%;
+		height : 68%;
 	}
 	
 	.tenPersent .img-responsive{
-		width  : 80%;
-		height : 40%;
+		width  : 60%;
+		height : 38px%;
+	}
+	
+	.arrow  .img-responsive{
+		width : 50%;
+		height : 38px;
 	}
 	
 	#flotTip{	
@@ -307,7 +327,7 @@
 		outline: none;
 	}
 	#myModal2 .modal-content{
-		width : 480px;
+		width : 448px;
 	}
 	
 	#myModal2{
@@ -319,15 +339,11 @@
 		width : 480px;
 	}
 	
-	
-
-	
 	.dataInput {
 		background: url("../../images/budget_planner/pound.png") no-repeat scroll left center ;
 		text-align : right;
 		padding-right: 5px;
 		border : 1px solid;
-		border-radius : 5px;
 		border-color : #ddd;
 		height : 30px;
 	}

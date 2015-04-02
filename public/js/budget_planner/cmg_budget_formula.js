@@ -73,6 +73,11 @@ function getTotalOutcome() {
 function getPersent(totalIncome, outcome) {
     var persent = (outcome / totalIncome) * 100;
     persent = round(persent);
+	console.log(persent);
+	if(persent < 1 & persent > 0){
+		persent = 1;
+	}
+	console.log(persent);
     return persent;
 }
 
@@ -116,25 +121,31 @@ function drawFlotJs(){
         }
         var index_data = 1;
         for (var i = 2; i <= getSizeArray(); i++) {
-			var tooltip = combineToToolTip(i);
-            data[index_data] = {
+			if(totalsArray["tab"+i] > 0){
+				var tooltip = combineToToolTip(i);
+				data[index_data] = {
                 label: tooltip,
                 data : getPersent(totalIncome, totalsArray["tab" + i]),
                 color: tabColor["tab" + i]
-            }
-            index_data++;
+				}
+				index_data++;
+			}
+			
+           
         }
 		drawChart(data);
 		$('.labelChart').html('<span class="total">Total monthly disposable income</span> <p>£' + savings +'</p>');
     } else if(totalIncome == totalOutcome){
         var index_data = 0;
         for (var i = 2; i <= getSizeArray(); i++) {
-			var tooltip = combineToToolTip(i);
-            data[index_data] = {
-                label: tooltip,
-                data : getPersent(totalIncome, totalsArray["tab" + i]),
-                color: tabColor["tab" + i]
-            }
+			if(totalsArray["tab"+i] > 0){
+				var tooltip = combineToToolTip(i);
+				data[index_data] = {
+					label: tooltip,
+					data : getPersent(totalIncome, totalsArray["tab" + i]),
+					color: tabColor["tab" + i]
+				}
+			}
             index_data++;
         }
 		drawChart(data);

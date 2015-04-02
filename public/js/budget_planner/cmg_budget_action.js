@@ -29,6 +29,7 @@ $('button[data-target="#calculate"]').on('shown.bs.tab', function(e) {
     $('.panel-default .panel-heading #' + idPrev).closest('.panel-heading').closest('.panel-default').find('.panel-collapse').collapse('hide');
     drawFlotJs();
     $('.panel-default div#collapse-calculate').collapse('show');
+	
 });
 
 }
@@ -47,8 +48,9 @@ $('div.panel-collapse').on('shown.bs.collapse', function() {
 			if(v){
 				$('#collapse-calculate').collapse('hide');
 			}
+			eneableCalculateBtn();
 		}
-		eneableCalculateBtn();
+		
 	}
 });
 
@@ -176,11 +178,14 @@ function updateTotal(e){
 function updateTotalZeroValueWhenCloseTab(e){
 	try{
 		var tabID = $(e).attr('href').replace("#","");
+		if (fakewaffle.currentPosition == "panel"){
+			tabID = tabID.split('-')[1];
+		}
 		var number = totalsArray[tabID];
 		if(number == null){
 			totalsArray[tabID] = 0;
 			$(e).find('td.tenPersent:eq(0) img').removeClass('hidden');
-			$(e).find('table.table-nonborder td:eq(1) span').html('£'+Number(0).toLocaleString('en'));
+			$(e).find('table.table-nonborder td:eq(1) span').html('£0');
 		}
 	}catch(ex){}
 }
@@ -200,16 +205,12 @@ function checkNumeric(checkThis) {
 }
 function isNumberKey(evt)
 {
-	//mpab-521
 	var charCode = (evt.which) ? evt.which : event.keyCode;
    if (charCode != 46 && charCode > 31
     && (charCode < 48 || charCode > 57))
         return false;
 
     return true;
-	
-	
-	
 }
 
 

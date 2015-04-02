@@ -96,8 +96,8 @@ function loadWarning() {
 
 function drawCategory(name, colorCategory, index, imagePath, secondColorCategory, colorText) {
 	var temp = "";
-	if(name.length > 10){
-		temp = name.substring(0, 6) + "..";
+	if(name.length > 11){
+		temp = name.substring(0, 9) + "..";
 	}else{
 		temp = name;
 	}
@@ -114,7 +114,7 @@ function drawCategory(name, colorCategory, index, imagePath, secondColorCategory
     html = html + "<table class='table table-nonborder'>";
     html = html + "<tr>";
     html = html + "<td style='color:"+colorText+"'><span title='"+name+"'>" + temp + "</span></td>";
-    html = html + "<td style='text-align:right'><span></span></td>";
+    html = html + "<td style='text-align:right;color:"+colorText+"'><span></span></td>";
     html = html + "</tr>";
     html = html + "</table>";
     html = html + "</div>";
@@ -122,7 +122,7 @@ function drawCategory(name, colorCategory, index, imagePath, secondColorCategory
     html = html + "<td class='tenPersent'>";
     html = html + "<img class='img-responsive pull-right validate hidden' src='images/budget_planner/validate.png' />";
     html = html + "</td>";
-    html = html + "<td class='tenPersent'>";
+    html = html + "<td class='tenPersent arrow'>";
     html = html + "<img class='img-responsive pull-right' src = 'images/budget_planner/arrow_close.png'/>";
     html = html + "</td>";
     html = html + "</tr>";
@@ -213,6 +213,7 @@ function drawCalculateTab() {
     html = html + "<div id='holder-canvas' style='min-height:360px;padding-top : 30px'>";
     html = html + '<div id="placeholder" class="demo-placeholder"></div>';
     html = html + '<div class="labelChart">Total monthly disposable income</div>';
+	html = html + '<div class="labelTop"></div>';
     html = html + "</div>";
     html = html + "</div>";
     html = html + "</div>";
@@ -237,13 +238,12 @@ function setHeightTabPane() {
 		var heightTabAdded = 0;
 		if(isChrome)
 		{
-			heightTabAdded = (heightLiCurrent * numberAdded) + (5.5 * numberAdded);
+			heightTabAdded = $('#myTab').height() -( $('li:last-child').height());
 		}else{
-			heightTabAdded = (heightLiCurrent * numberAdded) + (13.5 * numberAdded);
-			//alert('not chrome : ' + heightTabAdded);
+			heightTabAdded = $('#myTab').height() -( $('li:last-child').height());
 		}
         var heigtTableAdded = $('.tab-pane.active .row-containTblInput').height() + (numberAdded * 60);
-        $('.tab-pane').css('height', (heightTabCurrent + heightTabAdded) + "px");
+        $('.tab-pane').css('height',  (heightTabAdded -10) + "px");
         $('.tab-pane .row-containTblInput').css('height', heigtTableAdded + "px");
     }
 }
@@ -288,11 +288,11 @@ function drawChart(data) {
         if (series.percent > 3) {
             var width = 50;
             if (series.percent < 6) {
-                width = 30;
+                width = 20;
             }
             var path = label.split("||")[0];
             var src = 'images/budget_planner/' + path;
-            return '<img class="" width="' + width + '" height="'+width+'" src="' + src + '" />';
+            return '<img label="'+label+'" class="img_chart" width="' + width + '" height="'+width+'" src="' + src + '" />';
         } else{
             return '';
 		}
@@ -302,16 +302,27 @@ function drawChart(data) {
 }
 
 function tooltip() {
+	var inhole = 0;
     $("#placeholder").bind("plothover", function(event, pos, item) {
-		//console.log(item);
+		
 		//console.log(event);
         if (item) {
+			console.log('in item');
             showTooltip(pos.pageX - $("#placeholder").offset().left, pos.pageY - $("#placeholder").offset().top, item.series.label);
         } else {
-            $("#tooltip").hide();
+           $("#tooltip").hide();
         }
     });
-	
+	$('.img_chart').hover(
+		function() {
+			//on hover
+			var label = $(this).attr('label');
+			showTooltip($(this).offset.left - $(this).width,$(this).offset.top,label);
+		}, function() {
+			//on mouse out
+			$("#tooltip").hide();
+		}
+	);
 }
 
 function showTooltip(x, y, contents) {
@@ -325,7 +336,7 @@ function showTooltip(x, y, contents) {
         top: y - 65,
         left: x - 95 / 2,
         'padding-top': '3px',
-		'z-index':'1000'
+		'z-index':'100'
     });
     $('#tooltip').show();
 	

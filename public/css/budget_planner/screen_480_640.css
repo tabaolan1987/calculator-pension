@@ -37,7 +37,7 @@
 	}
 	table.table-responsive > tbody> tr> td.tenPersent {
 		width : 10% !important;
-		padding-left : 10px !important;
+		padding-right : 10px !important;
 	}
 	table.table-responsive > tbody >tr > td.forty{
 		width : 37% !important;
@@ -51,14 +51,17 @@
 	
 	.table-responsive .img-responsive{
 		width : 55%;
-		height : 55%;
+		height : 38px;
 	}
 	
 	.tenPersent .img-responsive{
-		width : 80%;
-		height : 40%;
+		width : 60%;
+		height : 38px;
 	}
-
+	.arrow  .img-responsive{
+		width : 60%;
+		height : 38px;
+	}
 	
 	
 	.panel-group .panel-heading+.panel-collapse>.panel-body{
@@ -150,5 +153,19 @@
 	}
 	#myModal2 .modal-content{
 		width : 420px;
+	}
+	
+	.labelTop{
+		position:: absolute;
+		width: 215px;
+		left: 48%;
+		top: 31%;
+		height: 214px;
+		margin-top: -32px;
+		margin-left: -100px;
+		text-align: center;
+		border-radius: 115px;
+		z-index: 1000;
+		background: url("../../images/budget_planner/trickIE.png") no-repeat scroll top center ;
 	}
 }
