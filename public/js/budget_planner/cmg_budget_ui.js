@@ -300,21 +300,21 @@ function drawChart(data) {
 function tooltip() {
     $("#placeholder").bind("plothover", function(event, pos, item) {
         if (item) {
-           showTooltip(pos.pageX - $("#placeholder").offset().left, pos.pageY - $("#placeholder").offset().top, item.series.label);
+			showTooltip(pos.pageX - $("#placeholder").offset().left, pos.pageY - $("#placeholder").offset().top, item.series.label);
         } else {
 			$("#tooltip").hide();
         }
     });
-	$('.img_chart').hover(
-		function() {
+	$(document).on('mouseover','img.img_chart',
+		function(event) {
+			console.log(event);
 			var label = $(this).attr('label');
 			console.log($(this).offset().left + "=" + $(this).offset().top);
 			var width = $(this).width()/2;
 			showTooltip($(this).offset().left -($("#placeholder").offset().left - width),$(this).offset().top - $("#placeholder").offset().top,label);
-		}, function() {
-			$("#tooltip").hide();
 		}
 	);
+	
 }
 
 function showTooltip(x, y, contents) {
