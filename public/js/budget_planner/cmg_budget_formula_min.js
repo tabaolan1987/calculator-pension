@@ -3,7 +3,7 @@
 
 1.Budget Formula JS
 
-2.All function in this file manage the formula of budget in page.
+2.All functions in this file manage the formula of budget in page.
 
 3.Version 1.0.0
 

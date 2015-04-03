@@ -305,14 +305,12 @@ function tooltip() {
 			$("#tooltip").hide();
         }
     });
-	$('.img_chart').hover(
+	$(document).on("mouseover",".img_chart",
 		function() {
 			var label = $(this).attr('label');
 			console.log($(this).offset().left + "=" + $(this).offset().top);
 			var width = $(this).width()/2;
 			showTooltip($(this).offset().left -($("#placeholder").offset().left - width),$(this).offset().top - $("#placeholder").offset().top,label);
-		}, function() {
-			$("#tooltip").hide();
 		}
 	);
 }

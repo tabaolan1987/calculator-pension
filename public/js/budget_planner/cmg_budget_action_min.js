@@ -3,7 +3,7 @@
 
 1.Budget Action JS
 
-2.All function in this file manage the action of user in page.
+2.All functions in this file manage the action of user in page.
 
 3.Version 1.0.0
 

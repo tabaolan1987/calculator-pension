@@ -3,7 +3,7 @@
 
 1.Budget Responsive tabs JS
 
-2.All function in this file manage the responsive of tabs in page.
+2.All functions in this file manage the responsive of tabs in page.
 
 3.Version 1.0.0
 
