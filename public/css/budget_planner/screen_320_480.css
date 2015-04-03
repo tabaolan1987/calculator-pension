@@ -181,7 +181,8 @@
 	
 	#myModal2{
 		top:5%;
-		right:10%;
+		right:0%;
+		left : -2%;
 		outline: none;
 		font-size : 12px;
 	}
