@@ -72,13 +72,13 @@ function getTotalOutcome() {
 
 function getPersent(totalIncome, outcome) {
     var persent = (outcome / totalIncome) * 100;
-	console.log("this persent not round" + persent);
-	if(persent < 1 & persent > 0){
-		persent = 1;
-	}
-    persent = round(persent);
-	console.log("this persent round" + persent);
-	console.log(persent);
+	//console.log("this persent not round" + persent);
+	//if(persent < 1 & persent > 0){
+		//persent = 1;
+	//}
+    //persent = round(persent);
+	//console.log("this persent round" + persent);
+	//console.log(persent);
     return persent;
 }
 
@@ -150,7 +150,7 @@ function drawFlotJs(){
             index_data++;
         }
 		drawChart(data);
-		$('.labelChart').html('<span class="total">Total monthly disposable income</span> <p>£ 0.00</p>');
+		$('.labelChart').html('<span class="total">Total monthly disposable income</span> <p>£0</p>');
     }else if(totalIncome < totalOutcome){
 		//case 1 : once of category outcome exceed income so we will draw chart for only this
 		if(checkOutcomeExceedTotalIncome()){

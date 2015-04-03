@@ -140,15 +140,18 @@ function calculateInput(e){
 		$(e).removeAttr('title');
 		$(e).css('color','');
 		input = calculateInputBaseOnType(input,parseInt(type));
-		$(e).closest('tr').find('.monthly').html(input);
+		$(e).closest('tr').find('.monthly').html(Number(input).toLocaleString('en').split('.')[0]);
+		$(e).closest('tr').find('.inputHidden').val(input);
 	}else if ($(e).val().trim() != '') {
 		$(e).attr('title','Please enter a number');
         $(e).css('color', '#ff0000');
 		$(e).closest('tr').find('.monthly').html(0);
+		$(e).closest('tr').find('.inputHidden').val(0);
     } else {
 		$(e).attr('title','Please enter a number');
         $(e).css('color', '#000000');
         $(e).closest('tr').find('.monthly').html(0);
+		$(e).closest('tr').find('.inputHidden').val(0);
     }
 	updateTotal(e);
 }
@@ -160,35 +163,17 @@ function updateTotal(e){
 			//update for tabs
 			$('ul#myTab li.active').find('table.table-nonborder td:eq(1) span').html('£'+Number(total).toLocaleString('en').split('.')[0]);
 			$('ul#myTab li.active').find('.table-responsive').find('tr:eq(0)').find('td.tenPersent img.validate').removeClass('hidden');
-			$(e).parents().find('.tab-pane.active .table.totalCal span.totalMonthly').html(total);
+			$(e).parents().find('.tab-pane.active .table.totalCal span.totalMonthly').html(Number(total).toLocaleString('en').split('.')[0]);
 			var idArray = $(e).parents().find('.tab-pane.active').attr('id');
 			updateNumberToArray(idArray,total);
 		}else{
 			//update for panel
-			$(e).parents().find('div.active.panel-body').find('.table.totalCal span.totalMonthly').html(total);
+			$(e).parents().find('div.active.panel-body').find('.table.totalCal span.totalMonthly').html(Number(total).toLocaleString('en').split('.')[0]);
 			var idArray = $(e).parents().find('div.panel-default div.active.panel-body').attr('id');
 			$(e).parents().find("a[href='#collapse-"+idArray+"']").find('table.table-nonborder td:eq(1) span').html('£'+Number(total).toLocaleString('en').split('.')[0]);
 			$(e).parents().find("a[href='#collapse-"+idArray+"']").find('.table-responsive').find('tr:eq(0)').find('td.tenPersent img.validate').removeClass('hidden');
 			updateNumberToArray(idArray,total);
 		}
-	//}else{
-		//if(fakewaffle.currentPosition == "tabs"){
-			//update for tab
-			//$(e).parents().find('.tab-pane.active .table.totalCal span.totalMonthly').html('0');
-			//$('ul#myTab li.active').find('table.table-nonborder td:eq(1) span').html('');
-			//$('ul#myTab li.active').find('.table-responsive').find('tr:eq(0)').find('td.tenPersent img.validate').addClass('hidden');
-			//var idArray = $(e).parents().find('.tab-pane.active').attr('id');
-			//updateNumberToArray(idArray,total);
-		//}else{
-			//update for panel
-			//$(e).parents().find('div.active.panel-body').find('span.totalMonthly').html(total);
-			//var idArray = $(e).parents().find('div.panel-default div.active.panel-body').attr('id');
-			//var idArray = $(e).parents().find('div.panel-default div.active.panel-body').attr('id');
-			//$(e).parents().find("a[href='#collapse-"+idArray+"']").find('table.table-nonborder td:eq(1) span').html('');
-			//$(e).parents().find("a[href='#collapse-"+idArray+"']").find('.table-responsive').find('tr:eq(0)').find('td.tenPersent img.validate').addClass('hidden');
-			//updateNumberToArray(idArray,total);
-		//}
-	//}
 		eneableCalculateBtn();
 	
 }
@@ -210,8 +195,8 @@ function updateTotalZeroValueWhenCloseTab(e){
 
 function getTotalInput(table){
 	var total = 0;
-	$(table).find('.monthly').each(function(){
-		var temp = $(this).text();
+	$(table).find('.inputHidden').each(function(){
+		var temp = $(this).val();
 		if(temp!=""){
 			total = total + parseFloat(temp);
 		}

@@ -158,7 +158,7 @@ function drawTab(index, colorTab, titleTab, items, isLast) {
         html = html + "<tr>";
         html = html + "<td class='first' style='padding-left:18px'><div>" + $(this).text() + "</div></td>";
         html = html + "<td class='second'><input placeholder='0.00' type='text' class='dataInput' oninput='calculateInput(this)' onkeypress='return isNumberKey(event)' style='width:100%'></td>";
-        html = html + "<td><span>£</span></td>";
+        html = html + "<td><span>£</span><input type='hidden' class='inputHidden'></td>";
         html = html + "<td class='tdMonthly'><span class='monthly'>0</span></td>";
         html = html + "</tr>";
     });
@@ -229,7 +229,7 @@ function setActive() {
 
 function setHeightTabPane() {
     var sizeTabs = getSizeArray();
-    if (sizeTabs > 8 & fakewaffle.currentPosition != "panel"){
+    if (sizeTabs >= 8 & fakewaffle.currentPosition != "panel"){
         var numberAdded = sizeTabs - 8;
         var heightTabCurrent = $('.tab-pane.active').height();
         var heightLiCurrent = $('li.active').height();
@@ -284,8 +284,8 @@ function drawChart(data) {
     });
 
     function labelFormatter(label, series) {
-        if (series.percent > 8) {
-            var width = 40;
+        if (series.percent > 7) {
+            var width = 45;
             var path = label.split("||")[0];
             var src = 'images/budget_planner/' + path;
             return '<img label="'+label+'" class="img_chart" width="' + width + '" height="'+width+'" src="' + src + '" />';
@@ -300,16 +300,17 @@ function drawChart(data) {
 function tooltip() {
     $("#placeholder").bind("plothover", function(event, pos, item) {
         if (item) {
-            showTooltip(pos.pageX - $("#placeholder").offset().left, pos.pageY - $("#placeholder").offset().top, item.series.label);
+           showTooltip(pos.pageX - $("#placeholder").offset().left, pos.pageY - $("#placeholder").offset().top, item.series.label);
         } else {
-           $("#tooltip").hide();
+			$("#tooltip").hide();
         }
     });
 	$('.img_chart').hover(
 		function() {
 			var label = $(this).attr('label');
-			//alert($(this).offset().left + "=" + $(this).offset().top);
-			showTooltip($(this).offset().left -450,$(this).offset().top - 155,label);
+			console.log($(this).offset().left + "=" + $(this).offset().top);
+			var width = $(this).width()/2;
+			showTooltip($(this).offset().left -($("#placeholder").offset().left - width),$(this).offset().top - $("#placeholder").offset().top,label);
 		}, function() {
 			$("#tooltip").hide();
 		}
@@ -317,6 +318,7 @@ function tooltip() {
 }
 
 function showTooltip(x, y, contents) {
+	console.log('after tru : ' + x +"-" +y);
     var content = contents.split('||')[1];
     var name = content.split(':')[0];
     var value = content.split(':')[1];

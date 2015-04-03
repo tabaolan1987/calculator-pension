@@ -42,15 +42,16 @@
 		height : 38px;
 	}
 	td.tenPersent{
-		padding-right : 10px;
+		
 	}
 	.tenPersent .img-responsive{
 		width : 80%;
 		height : 38px;
 	}
 	.arrow  .img-responsive{
-		width : 80%;
+		width : 38px;
 		height : 38px;
+		padding-right : 10px;
 	}
 	
 	.table-responsive {
@@ -99,11 +100,11 @@
 		padding-right : 10px;
 	}
 	table.containInput td.first{
-		width : 40%;
+		width : 35%;
 	}
 	
 	table.containInput td.first div{
-		width : 119px;
+		width : 100px;
 		font-size : 12px;
 	}
 	
@@ -157,7 +158,6 @@
 		text-align:center;
 		border-radius : 115px;
 		z-index : 1000;
-		
 		background: url("../../images/budget_planner/trickIE.png") no-repeat scroll top center ;
 	}
 	
@@ -200,11 +200,9 @@
 	.dataInput {
 		background: url("../../images/budget_planner/pound_320.png") no-repeat scroll left center ;
 		text-align : right;
-		padding-right: 5px;
+		padding-right : 5px;
 		border : 1px solid;
-		border-radius : 5px;
 		border-color : #ddd;
-	
 	}
 }
 

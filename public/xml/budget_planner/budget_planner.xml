@@ -130,19 +130,4 @@
 <item>Lottery/gambling</item>
 <item>Pub/social</item>
 </category>
-<category>
-<name>Other</name>
-<color-category>#7ac142</color-category>
-<image-category>CB_other_new.png</image-category>
-<second-color-category>#add88b</second-color-category>
-<color-text-category>black</color-text-category>
-<color-tab>#add88b</color-tab>
-<title-tab>Record your other</title-tab>
-<item>Charitable donations</item>
-<item>Sponsorship</item>
-<item>pngts</item>
-<item>Other</item>
-</category>
-
-
 </categories>

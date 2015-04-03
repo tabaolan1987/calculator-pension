@@ -1,3 +1,20 @@
+/*
+----------------Information--------------------------------
+
+1.Budget Responsive tabs JS
+
+2.All function in this file manage the responsive of tabs in page.
+
+3.Version 1.0.0
+
+4.Company - Claybourne McGregor Consulting Ltd 
+
+5.Author - Lan.Ta 
+
+6.Date - 30-03-2015
+
+*/
+
 var fakewaffle = ( function ( $, fakewaffle ) {
 	'use strict';
 
