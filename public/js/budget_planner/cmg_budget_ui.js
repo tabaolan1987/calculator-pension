@@ -285,11 +285,8 @@ function drawChart(data) {
     });
 
     function labelFormatter(label, series) {
-        if (series.percent > 3) {
-            var width = 50;
-            if (series.percent < 6) {
-                width = 20;
-            }
+        if (series.percent > 8) {
+            var width = 40;
             var path = label.split("||")[0];
             var src = 'images/budget_planner/' + path;
             return '<img label="'+label+'" class="img_chart" width="' + width + '" height="'+width+'" src="' + src + '" />';
@@ -302,12 +299,8 @@ function drawChart(data) {
 }
 
 function tooltip() {
-	var inhole = 0;
     $("#placeholder").bind("plothover", function(event, pos, item) {
-		
-		//console.log(event);
         if (item) {
-			console.log('in item');
             showTooltip(pos.pageX - $("#placeholder").offset().left, pos.pageY - $("#placeholder").offset().top, item.series.label);
         } else {
            $("#tooltip").hide();
@@ -315,11 +308,10 @@ function tooltip() {
     });
 	$('.img_chart').hover(
 		function() {
-			//on hover
 			var label = $(this).attr('label');
-			showTooltip($(this).offset.left - $(this).width,$(this).offset.top,label);
+			//alert($(this).offset().left + "=" + $(this).offset().top);
+			showTooltip($(this).offset().left -450,$(this).offset().top - 155,label);
 		}, function() {
-			//on mouse out
 			$("#tooltip").hide();
 		}
 	);
@@ -329,7 +321,9 @@ function showTooltip(x, y, contents) {
     var content = contents.split('||')[1];
     var name = content.split(':')[0];
     var value = content.split(':')[1];
-    var html = "<p style='font-size:12px;text-align:center;color:blue;margin-bottom:2px'>" + name + "</p><p style='font-size:12px;text-align:center;color:blue'>" + value + "</p>";
+	value = value.replace("£","");
+	value = parseFloat(value);
+    var html = "<p style='font-size:12px;text-align:center;color:blue;margin-bottom:2px'>" + name + "</p><p style='font-size:12px;text-align:center;color:blue'>£" + Number(value).toLocaleString('en').split('.')[0] + "</p>";
     $('#tooltip').html(html);
      $('#tooltip').css({
         position: 'absolute',

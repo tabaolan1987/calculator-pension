@@ -72,11 +72,12 @@ function getTotalOutcome() {
 
 function getPersent(totalIncome, outcome) {
     var persent = (outcome / totalIncome) * 100;
-    persent = round(persent);
-	console.log(persent);
+	console.log("this persent not round" + persent);
 	if(persent < 1 & persent > 0){
 		persent = 1;
 	}
+    persent = round(persent);
+	console.log("this persent round" + persent);
 	console.log(persent);
     return persent;
 }
@@ -134,7 +135,7 @@ function drawFlotJs(){
            
         }
 		drawChart(data);
-		$('.labelChart').html('<span class="total">Total monthly disposable income</span> <p>£' + savings +'</p>');
+		$('.labelChart').html('<span class="total">Total monthly disposable income</span> <p>£' + Number(savings).toLocaleString('en').split('.')[0] +'</p>');
     } else if(totalIncome == totalOutcome){
         var index_data = 0;
         for (var i = 2; i <= getSizeArray(); i++) {
@@ -149,7 +150,7 @@ function drawFlotJs(){
             index_data++;
         }
 		drawChart(data);
-		$('.labelChart').html('<span class="total">Total monthly disposable income</span> <p>£' + 0 + '</p>');
+		$('.labelChart').html('<span class="total">Total monthly disposable income</span> <p>£ 0.00</p>');
     }else if(totalIncome < totalOutcome){
 		//case 1 : once of category outcome exceed income so we will draw chart for only this
 		if(checkOutcomeExceedTotalIncome()){
@@ -167,7 +168,7 @@ function drawFlotJs(){
 			}
 			drawChart(data);
 			var exceed = totalOutcome - totalIncome;
-			$('.labelChart').html('<span class="total">Total monthly disposable income</span> <p class="exceed">£ -' + exceed + '</p>');				
+			$('.labelChart').html('<span class="total">Total monthly disposable income</span> <p class="exceed">£ -' + Number(exceed).toLocaleString('en').split('.')[0] + '</p>');				
 		}else{
 			//case 2 : overlap
 			data = getDataSpecialCase();
@@ -180,7 +181,7 @@ function drawFlotJs(){
 			console.log(dataClock);
 			drawChart(dataClock);
 			var exceed = totalOutcome - totalIncome;
-			$('.labelChart').html('<span class="total">Total monthly disposable income</span> <p class="exceed">£ -' + exceed + '</p>');					
+			$('.labelChart').html('<span class="total">Total monthly disposable income</span> <p class="exceed">£ -' + Number(exceed).toLocaleString('en').split('.')[0] + '</p>');					
 		}
 		
 	}
