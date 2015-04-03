@@ -14,7 +14,6 @@
 6.Date - 30-03-2015
 
 */
-
 var tabColor = new Array();
 var tabName = new Array();
 var totalsArray = new Array();

@@ -9,23 +9,17 @@
 	<link rel="stylesheet" href="css/budget_planner/screen_320_480.css">
 	<link rel="stylesheet" href="css/budget_planner/screen_480_640.css">
 	<link rel="stylesheet" href="css/budget_planner/screen_640_991.css">
-   <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-61383753-1', 'auto');
-  ga('send', 'pageview');
-</script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="js/budget_planner/cmg_responsive_tabs.js"></script>
+	<script type="text/javascript" src="js/budget_planner/analytics.js"></script>
+	<script type="text/javascript" src="js/budget_planner/cmg_budget_ui.js"></script>
+    <script type="text/javascript" src="js/budget_planner/cmg_responsive_tabs.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<script language="javascript" type="text/javascript" src="js/budget_planner/jquery.flot.js"></script>
-	<script src="js/budget_planner/jquery.flot.pie.js"></script>
-	<script src="js/budget_planner/jquery.flot.resize.js"></script>
-	<script src="js/budget_planner/cmg_budget_formula.js"></script>
-	<script src="js/budget_planner/cmg_budget_action.js"></script>
-	<script src="js/budget_planner/cmg_budget_ui.js"></script>
+	<script type="text/javascript" src="js/budget_planner/jquery.flot.pie.js"></script>
+	<script type="text/javascript" src="js/budget_planner/jquery.flot.resize.js"></script>
+	<script type="text/javascript" src="js/budget_planner/cmg_budget_formula.js"></script>
+	<script type="text/javascript" src="js/budget_planner/cmg_budget_action.js"></script>
+	<script type="text/javascript" src="js/budget_planner/cmg_budget_ui.js"></script>
   </head>
   <body>
     <div class="container-fluid" style="margin-top : 20px;margin-left:10px">
@@ -88,16 +82,12 @@
 	<!-- Modal -->
 	
     <script type="text/javascript">
-      (function($) {
-		   console.log( "ready!" );
-      })(jQuery);
 	  $(document).ready(function(){
 			drawUI();
 			loadWarning();
 			console.log( "document ready!" );
 			
-	  });
-     
+	  }); 
     </script>
   </body>
 </html>
