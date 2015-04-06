@@ -161,6 +161,7 @@ var fakewaffle = ( function ( $, fakewaffle ) {
 		} else if ( $( '.panel-group.responsive' ).is( ':visible' ) === false && fakewaffle.currentPosition === 'panel' ) {
 			fakewaffle.panelToTab();
 			fakewaffle.currentPosition = 'tabs';
+			setHeightTabPane();
 		}
 
 	};
@@ -228,7 +229,7 @@ var fakewaffle = ( function ( $, fakewaffle ) {
 				.addClass( 'tab-pane' )
 				.appendTo( $( destination ) );
 		} );
-
+		setHeightTabPane();
 	};
 
 	fakewaffle.bindTabToCollapse = function () {
