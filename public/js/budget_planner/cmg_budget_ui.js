@@ -95,7 +95,7 @@ function loadWarning() {
 
 function drawCategory(name, colorCategory, index, imagePath, secondColorCategory, colorText) {
 	var temp = "";
-	if(name.length > 11){
+	if(name.length > 15){
 		temp = name.substring(0, 9) + "..";
 	}else{
 		temp = name;

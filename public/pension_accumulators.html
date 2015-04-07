@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Pension Calculator</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="css/pension_accumulators/animate.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	  <script type="text/javascript" src="js/pension_accumulators/formula.js"></script>
+	  <script type="text/javascript" src="js/pension_accumulators/action.js"></script>
+	  <script type="text/javascript" src="js/pension_accumulators/ui.js"></script>
+      <style>
+         ul.nav-tabs{
+			width:100%;
+			border-bottom : 0px;
+			margin-top : 10px;
+         }
+         ul.nav-tabs li{
+			width : 25%;
+         }
+		 .tab-content{
+			padding-top : 20px;
+			padding-left : 10px;
+		 }
+		 #container-coin{
+			height : 400px;
+			border : 1px solid
+		 }
+		 
+		 .coin{
+			background : url("images/pension_accumulators/coin2.png") no-repeat scroll;
+			position:absolute;
+			width:25px;
+			height : 25px;
+			display: none;
+		 }
+      </style>
+   </head>
+   <body>
+      <div class="container-fluid" style="margin-top:20px;margin-left:10px">
+         <div class="row">
+            <h3 style="color:#06038d">Pension Calculator</h3>
+         </div>
+         <div class="row" style="border:1px dashed #ddd">
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12" style="border-right:1px dashed #ddd">
+              <button id="start">start animate</button>
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+				<div id="container-coin">
+					<div class="coin" id="coin1"></div>
+				</div>
+            </div>
+         </div>
+      </div>
+	   <script type="text/javascript">
+	  $(document).ready(function(){
+		
+			$('#start').click(function(){
+				var html = "<div class='coin' id='coin1'></div>";
+				for(var i = 2 ; i < 26 ;i++){
+					html = html + "<div class='coin' id='coin"+i+"'></div>";
+				}
+				$('#container-coin').html(html);
+				fallingCoin(1);
+			});
+		}); 
+    </script>
+   </body>
+</html>

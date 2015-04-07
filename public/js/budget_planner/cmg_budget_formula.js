@@ -48,8 +48,12 @@ function calculateInputBaseOnType(data, type) {
     } else if (type == Monthly_Type) {
         output = Math.round(data);
     } else if (type == Yearly_Type) {
-        var temp = data * Yearly_multiplicand;
-        output = round(temp);
+		if( data == 6){
+			output = 1;
+		}else{
+			var temp = data * Yearly_multiplicand;
+			output = round(temp);
+		}
     }
     return output;
 }

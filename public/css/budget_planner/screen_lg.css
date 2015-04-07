@@ -72,7 +72,7 @@
 	}
 	
 	button.calculate{
-		width:35%;background-color:#94b7bb;border-radius:15px;color:black;font-weight:bolder;font-size : 16px;
+		width:25%;background-color:#94b7bb;border-radius:15px;color:black;font-weight:bolder;font-size : 16px;
 	}
 	#containerMenu{
 		width : 450px;
@@ -347,9 +347,7 @@
 		border-color : #ddd;
 		height : 30px;
 	}
-	button.calculate{
-		font-weight : 900;
-	}
+	
 	table.containInput select{
 	}
 	
