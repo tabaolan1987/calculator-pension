@@ -95,7 +95,7 @@ function loadWarning() {
 
 function drawCategory(name, colorCategory, index, imagePath, secondColorCategory, colorText) {
 	var temp = "";
-	if(name.length > 11){
+	if(name.length > 15){
 		temp = name.substring(0, 9) + "..";
 	}else{
 		temp = name;
@@ -300,14 +300,14 @@ function drawChart(data) {
 function tooltip() {
     $("#placeholder").bind("plothover", function(event, pos, item) {
         if (item) {
-			showTooltip(pos.pageX - $("#placeholder").offset().left, pos.pageY - $("#placeholder").offset().top, item.series.label);
+           showTooltip(pos.pageX - $("#placeholder").offset().left, pos.pageY - $("#placeholder").offset().top, item.series.label);
         } else {
 			$("#tooltip").hide();
         }
     });
-	$(document).on('mouseover','img.img_chart',
-		function(event) {
-			console.log(event);
+
+	$(document).on("mouseover",".img_chart",
+		function() {
 			var label = $(this).attr('label');
 			console.log($(this).offset().left + "=" + $(this).offset().top);
 			var width = $(this).width()/2;
