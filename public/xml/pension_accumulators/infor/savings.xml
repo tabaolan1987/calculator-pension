@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infor_popups>
+<infor>
+<name>current_age</name>
+<message><![CDATA[<p>This is your age!</p>]]></message>
+</infor>
+<infor>
+<name>gender</name>
+<message><![CDATA[<p>This is your gender!</p>]]></message>
+</infor>
+<infor>
+<name>current_annual_salary</name>
+<message><![CDATA[<p>This is your age!</p>]]></message>
+</infor>
+<infor>
+<name>age_to_retire</name>
+<message><![CDATA[<p>This is your age!</p>]]></message>
+</infor>
+<infor>
+<name>income_retire</name>
+<message><![CDATA[<p>This is your age!</p>]]></message>
+</infor>
+<infor>
+<name>percentage_pensions</name>
+<message><![CDATA[<p>This is your age!</p>]]></message>
+</infor>
+</infor_popups>

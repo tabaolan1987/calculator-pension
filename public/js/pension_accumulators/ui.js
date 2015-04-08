@@ -21,6 +21,25 @@ $.fn.animateRotate = function(angle, top, duration, easing, complete) {
   });
 };
 
+function loadAllWarning(){
+	loadWarning('about_you.xml');
+	loadWarning('savings.xml');
+}
+
+function loadAllInformation(){
+	loadInformation('about_you.xml');
+	loadInformation('savings.xml');
+	loadInformation('result.xml');
+}
+
+function loaddAllAnnuity(){
+	loadAnnuityMale();
+	loadAnnuityFemale();
+}
+
+
+
+
 
 function fallingCoin(index) {
 		var coin = "#coin"+index;
