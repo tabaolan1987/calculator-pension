@@ -20,27 +20,6 @@ $.fn.animateRotate = function(angle, top, duration, easing, complete) {
     });
   });
 };
-
-function loadAllWarning(){
-	loadWarning('about_you.xml');
-	loadWarning('savings.xml');
-}
-
-function loadAllInformation(){
-	loadInformation('about_you.xml');
-	loadInformation('savings.xml');
-	loadInformation('result.xml');
-}
-
-function loaddAllAnnuity(){
-	loadAnnuityMale();
-	loadAnnuityFemale();
-}
-
-
-
-
-
 function fallingCoin(index) {
 		var coin = "#coin"+index;
         $(coin).show();
@@ -55,3 +34,24 @@ function fallingCoin(index) {
                 }
         });
 }
+
+
+function showWarning(content){
+//will show warning.
+$('#warning').html(content);
+$('#warning').modal('show');
+}
+
+function showInfor(top,left,content){
+//will show Information.
+$('#infor').html(content);
+$('#infor').css('top',top);
+$('#infor').css('left',left);
+$('#infor').show();
+}
+
+function hideInfor(){
+$('#infor').hide();
+}
+
+

@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <infor_popups>
 <infor>
-<name>current_age</name>
+<name>saving1</name>
 <message><![CDATA[<p>This is your age!</p>]]></message>
 </infor>
 <infor>
-<name>gender</name>
+<name>saving2</name>
 <message><![CDATA[<p>This is your gender!</p>]]></message>
 </infor>
 <infor>
-<name>current_annual_salary</name>
+<name>saving3</name>
 <message><![CDATA[<p>This is your age!</p>]]></message>
 </infor>
 <infor>
-<name>age_to_retire</name>
+<name>saving4</name>
 <message><![CDATA[<p>This is your age!</p>]]></message>
 </infor>
 <infor>
-<name>income_retire</name>
+<name>saving5</name>
 <message><![CDATA[<p>This is your age!</p>]]></message>
 </infor>
 <infor>
-<name>percentage_pensions</name>
+<name>saving6</name>
 <message><![CDATA[<p>This is your age!</p>]]></message>
 </infor>
 </infor_popups>

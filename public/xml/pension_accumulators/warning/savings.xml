@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<warning_popups>
+<warning>
+<name>saving1</name>
+<message><![CDATA[<p>This is your age!</p>]]></message>
+</warning>
+<warning>
+<name>saving2</name>
+<message><![CDATA[<p>This is your age!</p>]]></message>
+</warning>
+<warning>
+<name>saving3</name>
+<message><![CDATA[<p>This is your age!</p>]]></message>
+</warning>
+<warning>
+<name>saving4</name>
+<message><![CDATA[<p>This is your age!</p>]]></message>
+</warning>
+</warning_popups>
