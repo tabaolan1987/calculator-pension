@@ -1,79 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>Pension Calculator</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	  <link rel="stylesheet" href="css/pension_accumulators/animate.css">
-	  <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css">
-	  <link rel="stylesheet" href="css/pension_accumulators/jquery-ui-slider-pips.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	  <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
-      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	  <script type="text/javascript" src="js/pension_accumulators/data.js"></script>
-	  <script type="text/javascript" src="js/pension_accumulators/formula.js"></script>
-	  <script type="text/javascript" src="js/pension_accumulators/action.js"></script>
-	  <script type="text/javascript" src="js/pension_accumulators/ui.js"></script>
-	  <script type="text/javascript" src="js/pension_accumulators/jquery-ui-slider-pips.js"></script>
-      <style>
-         ul.nav-tabs{
-			width:100%;
-			border-bottom : 0px;
-			margin-top : 10px;
-         }
-         ul.nav-tabs li{
-			width : 25%;
-         }
-		 .tab-content{
-			padding-top : 20px;
-			padding-left : 10px;
-		 }
-		 #container-coin{
-			height : 550px;
-			border : 1px solid
-		 }
-		 
-		 .coin{
-			background : url("images/pension_accumulators/coin_blue_horizontal.gif") no-repeat scroll;
-			position:absolute;
-			width:142px;
-			height : 50px;
-			display: none;
-		 }
-      </style>
+		<title>Pension Calculator</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/pension_accumulators/animate.css">
+		<link rel="stylesheet" href="css/pension_accumulators/style-ui.css">
+		<!-- jQuery-ui-Slider-Pips -->
+		<link rel="stylesheet" href="css/pension_accumulators/jquery-ui.css">
+		<link rel="stylesheet" href="css/pension_accumulators/jquery-ui-slider-pips.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/pension_accumulators/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/pension_accumulators/data.js"></script>
+		<script type="text/javascript" src="js/pension_accumulators/formula.js"></script>
+		<script type="text/javascript" src="js/pension_accumulators/action.js"></script>
+		<script type="text/javascript" src="js/pension_accumulators/ui.js"></script>
+		<script type="text/javascript" src="js/pension_accumulators/jquery-ui-slider-pips.js"></script>
+	
    </head>
    <body>
-      <div class="container-fluid" style="margin-top:20px;margin-left:10px">
-         <div class="row">
-            <h3 style="color:#06038d">Pension Calculator edited by Hoang</h3>
-         </div>
-         <div class="row" style="border:1px dashed #ddd">
-            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12" style="border-right:1px dashed #ddd">
-              <button class="classInformation" name="about1" id="start">start animate</button>
-			  <div class="slider"></div>
-            </div>
-            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-				<div id="container-coin">
-					<div class="coin" id="coin1"></div>
+      <div class="container-fluid" id="wrapper">
+         <div class="row title">
+            <h3>Pension Calculator</h3>
+         </div><!--END .title-->
+         <div class="row" id="content">
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 left-content">
+				<div id="content-tooltip"></div>
+				<ul class="nav nav-tabs">
+					<li class="active"><div class="mid"><div><a href="#tab1" data-toggle="tab">about you</a></div></div></li>
+					<li><div class="mid"><div><a href="#tab2" >savings</a></div></div></li>
+					<li><div class="mid"><div><a href="#tab4">results</a></div></div></li>
+					<li><div class="mid"><div><a href="#tab5">summary</a></div></div></li>
+				</ul>
+				<div class="tab-content">
+					
+					<div class="tab-pane active" id="tab1">
+						<div class="row row-rule">
+							<div class="col-sm-10"><span class="icon-tooltip"></span><span class="label-tooltip">What is your current age?</span></div>
+							<div class="col-sm-2"><input type="text" class="form-control input-age" placeholder=""/></div>
+						</div>
+						
+						<div class="row row-rule">
+							<div class="col-sm-3"><span class="icon-tooltip"></span><span class="label-tooltip">Male</span></div>
+							<div class="col-sm-3"><input type="radio" name="optradio"></div>
+							<div class="col-sm-3 radio-lable">Female</div>
+							<div class="col-sm-3"><input type="radio" name="optradio"></div>
+						</div>
+						
+						<div class="row row-rule">
+							<div class="col-sm-10"><span class="icon-tooltip"></span><span class="label-tooltip">What is your current annual salary before tax?</span></div>
+							<div class="col-sm-2 pound"><input type="text" class="form-control" placeholder=""/></div>
+						</div>
+						
+						<div class="row row-rule">
+							<div class="col-sm-7"><span class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider">At what is would you like to retire?</span></div>
+							<div class="col-sm-5"><div class="retirementAge ui-slider"></div></div>
+						</div>
+						
+						<div class="row row-rule">
+							<div class="col-sm-10"><span class="icon-tooltip"></span><span class="label-tooltip">How much imcome do you think will you want to to live on when you retire (per year)?</span></div>
+							<div class="col-sm-2 pound"><input type="text" class="form-control" placeholder=""/></div>
+						</div>
+						
+						<div class="row row-rule">
+							<div class="col-sm-7"><span class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider">What percentage of your pension pot would you like to take add tax free cash?</span></div>
+							<div class="col-sm-5"><div class="percentTaxFreeCast ui-slider"></div></div>
+						</div>
+						<a class="btn btn-primary btnNext">next</a>
+					</div>
+					
+		
+					<div class="tab-pane" id="tab2">
+						tab222222222222222222
+						
+						<a class="btn btn-primary btnNext">next</a>
+						<a class="btn btn-primary btnPrevious">previous</a>
+					</div>
+					<div class="tab-pane" id="tab3">
+						tab 333333333333
+						<a class="btn btn-primary btnNext">next</a>
+						<a class="btn btn-primary btnPrevious">previous</a>
+					</div>
+					<div class="tab-pane" id="tab4">
+						tab 44444
+						<a class="btn btn-primary btnNext">next</a>
+						<a class="btn btn-primary btnPrevious">previous</a>
+					</div>
+					<div class="tab-pane" id="tab5">
+						tab 5555555
+						<a class="btn btn-primary btnPrevious">previous</a>
+					</div>
 				</div>
-            </div>
-         </div>
-      </div>
-<script type="text/javascript">
-	  $(document).ready(function(){
+            </div><!--END .left-content-->
+			
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 right-content">
+				right content
+            </div><!--END .right-content-->
+			
+         </div><!--END #content-->
+		 
+      </div><!--END #wrapper-->
+	  <script type="text/javascript" >
+		$(document).ready(function(){
 			setupData();
 			registerAction();
 			drawSlideAboutYou();
-			$('#start').click(function(){
-				var html = "<div class='coin' id='coin1'></div>";
-				for(var i = 2 ; i < 26 ;i++){
-					html = html + "<div class='coin' id='coin"+i+"'></div>";
-				}
-				$('#container-coin').html(html);
-				fallingCoin(1);
-			});
-		}); 
-</script>
+		});
+	  
+	  </script>
    </body>
 </html>
