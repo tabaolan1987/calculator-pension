@@ -8,8 +8,9 @@ function getYearToRetirement(ageRetire, currentAge){
 }
 function getTax_free_Percent(taxfreecash){
 	var temp = taxfreecash/100;
-	return temp;
+	return parseFloat(temp);
 }
+/*-----------------------------------------------------------------------------------*/
 
 /* tab savings formula and value field */
 function getDefer_compound(totalDeferFund,InterestOnPot,yearToRetirement){
@@ -42,7 +43,7 @@ function getPercent_Contribute_company(cashCompany,currentSalary){
 	var temp = (cashCompany/currentSalary)*12;
 	return parseFloat(temp);
 }
-
+/*-----------------------------------------------------------------------------------*/
 /* tab results formula and value field */ 
 function getRisk_selection(typeofFound){
 	var temp = growthRate[typeofFound];
@@ -65,8 +66,6 @@ function retirementDate(yearToRetirement){
 	return temp;
 }
 
-
- 
 function getInterestOnPot(risk_selection){
 	var temp = risk_selection/100;
 	return parseFloat(temp);
@@ -101,9 +100,16 @@ function getAnnuity_income(annuity_rate,potMinus_taxFreeCash){
 	return parseFloat(temp);
 }
 
+/*-----------------------------------------------------------------------------------*/
 
+/* tab summary formula and value field */ 
 function getForecastIncome(annuity_income,salary_scheme){
 	var temp = annuity_income + salary_scheme;
+	return parseFloat(temp);
+}
+
+function getForecast_percent_target(forecastIncome,targetPension){
+	var temp = forecastIncome/targetPension;
 	return parseFloat(temp);
 }
 
@@ -111,3 +117,5 @@ function getShortFall(forecastIncome,targetPension){
 	var temp  = targetPension - forecastIncome;
 	return parseFloat(temp);
 }
+
+
