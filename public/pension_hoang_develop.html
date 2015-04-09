@@ -34,18 +34,39 @@
 				<div class="tab-content">
 					<div class="tab-pane active" id="tab1">
 						<div class="row row-rule">
-							<div class="col-sm-10"><span class="icon-tooltip"></span><span class="col-text">What is your current age?</span></div>
+							<div class="col-sm-10"><span class="icon-tooltip">What is your current age?</span></div>
 							<div class="col-sm-2"><input type="text" class="form-control input-age" placeholder=""/></div>
 						</div>
 						<div class="row row-rule">
-							<div class="col-sm-3 radio-lable">Male</div>
+							<div class="col-sm-3"><span class="icon-tooltip">Male</span></div>
 							<div class="col-sm-3"><input type="radio" name="optradio"></div>
 							<div class="col-sm-3 radio-lable">Female</div>
 							<div class="col-sm-3"><input type="radio" name="optradio"></div>
 						</div>
 						<div class="row row-rule">
-							<div class="col-sm-10">What is your current annual salary before tax?</div>
+							<div class="col-sm-10"><span class="icon-tooltip">What is your current annual salary before tax?</span></div>
 							<div class="col-sm-2 pound"><input type="text" class="form-control" placeholder=""/></div>
+						</div>
+						<div class="row row-rule">
+							<div class="col-sm-6"><span class="icon-tooltip">What is your current annual salary before tax?</span></div>
+							<div class="col-sm-6"><input id="ex13" type="text" data-slider-ticks="[0, 100, 200, 300, 400]" data-slider-ticks-snap-bounds="30" data-slider-ticks-labels="['$0', '$100', '$200', '$300', '$400']"/></div>
+							
+							<script>
+							
+							// With JQuery
+							$("#ex13").slider({
+								ticks: [0, 100, 200, 300, 400],
+								ticks_labels: ['$0', '$100', '$200', '$300', '$400'],
+								ticks_snap_bounds: 30
+							});
+
+							// Without JQuery
+							var slider = new Slider("#ex13", {
+								ticks: [0, 100, 200, 300, 400],
+								ticks_labels: ['$0', '$100', '$200', '$300', '$400'],
+								ticks_snap_bounds: 30
+							});
+							</script>
 						</div>
 						
 						<a class="btn btn-primary btnNext">next</a>
