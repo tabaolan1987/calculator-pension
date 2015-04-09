@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>Pension Calculator</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	  <link rel="stylesheet" href="css/pension_accumulators/animate.css">
-	  <link rel="stylesheet" href="css/pension_accumulators/style-ui.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	  <script type="text/javascript" src="js/pension_accumulators/formula.js"></script>
-	  <script type="text/javascript" src="js/pension_accumulators/action.js"></script>
-	  <script type="text/javascript" src="js/pension_accumulators/ui.js"></script>
+		<title>Pension Calculator</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/pension_accumulators/animate.css">
+		<link rel="stylesheet" href="css/pension_accumulators/style-ui.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/pension_accumulators/formula.js"></script>
+		<script type="text/javascript" src="js/pension_accumulators/action.js"></script>
+		<script type="text/javascript" src="js/pension_accumulators/ui.js"></script>
+		<!-- jQuery-ui-Slider-Pips -->
+		<link rel="stylesheet" href="css/pension_accumulators/jquery-ui.css">
+		<link rel="stylesheet" href="css/pension_accumulators/jquery-ui-slider-pips.css">
+		<script src="js/pension_accumulators/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/pension_accumulators/jquery-ui-slider-pips.js"></script>
+	
    </head>
    <body>
       <div class="container-fluid" id="wrapper">
@@ -32,45 +38,75 @@
 				</ul>
 				
 				<div class="tab-content">
+					<div id="content-tooltip"></div>
 					<div class="tab-pane active" id="tab1">
 						<div class="row row-rule">
-							<div class="col-sm-10"><span class="icon-tooltip">What is your current age?</span></div>
+							<div class="col-sm-10"><span class="icon-tooltip"></span><span class="label-tooltip">What is your current age?</span></div>
 							<div class="col-sm-2"><input type="text" class="form-control input-age" placeholder=""/></div>
 						</div>
+						
 						<div class="row row-rule">
-							<div class="col-sm-3"><span class="icon-tooltip">Male</span></div>
+							<div class="col-sm-3"><span class="icon-tooltip"></span><span class="label-tooltip">Male</span></div>
 							<div class="col-sm-3"><input type="radio" name="optradio"></div>
 							<div class="col-sm-3 radio-lable">Female</div>
 							<div class="col-sm-3"><input type="radio" name="optradio"></div>
 						</div>
+						
 						<div class="row row-rule">
-							<div class="col-sm-10"><span class="icon-tooltip">What is your current annual salary before tax?</span></div>
+							<div class="col-sm-10"><span class="icon-tooltip"></span><span class="label-tooltip">What is your current annual salary before tax?</span></div>
 							<div class="col-sm-2 pound"><input type="text" class="form-control" placeholder=""/></div>
 						</div>
+						
 						<div class="row row-rule">
-							<div class="col-sm-6"><span class="icon-tooltip">What is your current annual salary before tax?</span></div>
-							<div class="col-sm-6"><input id="ex13" type="text" data-slider-ticks="[0, 100, 200, 300, 400]" data-slider-ticks-snap-bounds="30" data-slider-ticks-labels="['$0', '$100', '$200', '$300', '$400']"/></div>
-							
-							<script>
-							
-							// With JQuery
-							$("#ex13").slider({
-								ticks: [0, 100, 200, 300, 400],
-								ticks_labels: ['$0', '$100', '$200', '$300', '$400'],
-								ticks_snap_bounds: 30
-							});
-
-							// Without JQuery
-							var slider = new Slider("#ex13", {
-								ticks: [0, 100, 200, 300, 400],
-								ticks_labels: ['$0', '$100', '$200', '$300', '$400'],
-								ticks_snap_bounds: 30
-							});
+							<div class="col-sm-7"><span class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider">At what is would you like to retire?</span></div>
+							<div class="col-sm-5"><div class="slider ui-slider"></div></div>
+							<script type="text/javascript">
+								  $(document).ready(function(){
+									var labelStage = ["55","60","65","70","75"];
+									$(".slider")                     
+									.slider({ 
+										min: 55, 
+										max: 75, 
+										step: 1 
+									})                  
+									.slider("pips", {
+										rest: "label",
+										step: 5,label: labelStage
+									})                   
+									.slider("float");	
+									}); 
+							</script>
+						</div>
+						
+						<div class="row row-rule">
+							<div class="col-sm-10"><span class="icon-tooltip"></span><span class="label-tooltip">How much imcome do you think will you want to to live on when you retire (per year)?</span></div>
+							<div class="col-sm-2 pound"><input type="text" class="form-control" placeholder=""/></div>
+						</div>
+						
+						<div class="row row-rule">
+							<div class="col-sm-7"><span class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider">What percentage of your pension pot would you like to take add tax free cash?</span></div>
+							<div class="col-sm-5"><div class="slider2 ui-slider"></div></div>
+							<script type="text/javascript">
+								  $(document).ready(function(){
+									var labelStage2 = ["0","5","10","15","20"];
+									$(".slider2")                     
+									.slider({ 
+										min: 0, 
+										max: 25, 
+										step: 1 
+									})                  
+									.slider("pips", {
+										rest: "label",
+										step: 5,label: labelStage2
+									})                   
+									.slider("float");	
+									}); 
 							</script>
 						</div>
 						
 						<a class="btn btn-primary btnNext">next</a>
 					</div>
+					
 		
 					<div class="tab-pane" id="tab2">
 						tab222222222222222222
