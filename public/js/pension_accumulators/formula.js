@@ -1,6 +1,3 @@
-var LTA = 1250000;
-var male = 1;
-var female = 2;
 /* tab about you formula and value field */
 function getYearToRetirement(ageRetire, currentAge){
 	var year_to_retirement = ageRetire - currentAge;
@@ -118,4 +115,26 @@ function getShortFall(forecastIncome,targetPension){
 	return parseFloat(temp);
 }
 
+function getCoinBlue(forecastIncome,targetPension){
+	var percent = (forecastIncome/targetPension)*100;
+	var coin = round(percent);
+	coin = coin/coinPercent;
+	return coin;
+}
+
+function getCoinRed(coinBlue){
+	if(coinBlue >= totalCoin){
+		return 0;
+	}
+	var coinRed = totalCoin - coinBlue;
+	return coinRed;
+	
+}
+
+function round(number) {
+    var n = parseFloat(number);
+    n =  Math.round(n);
+	var newnumber = new Number(n).toFixed(0);
+	return newnumber;
+}
 

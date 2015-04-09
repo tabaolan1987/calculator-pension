@@ -1,6 +1,6 @@
 /* this function handle the action hover the information image */
 function registerHoverAction(){
-	$(document).on("mouseover",".classInformation",function() {
+	$(document).on("mouseover",".icon-tooltip",function() {
 		//alert('mouseover');
 		var attrName = $(this).attr('name');
 		var content = InformationArray[attrName];
@@ -9,7 +9,7 @@ function registerHoverAction(){
 	}
 	);
 
-	$(document).on("mouseout",".classInformation",function() {
+	$(document).on("mouseout",".icon-tooltip",function() {
 		//hidden the popup and change the color	
 		console.log('mouseout');		
 	}

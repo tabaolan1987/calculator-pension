@@ -3,13 +3,18 @@ var warningArray = new Array();
 var annuityMale = new Array();
 var annuityFemale = new Array();
 var growthRate = new Array();
-
+var LTA;
+var male = 1;
+var female = 2;
+var totalCoin = 25;
+var coinPercent = 4;
 
 function setupData(){
 	loaddAllAnnuity();
 	loadAllInformation();
 	loadAllWarning();
 	loadGrowthRate();
+	loadLTA();
 }
 
 function loadInformation(xml){
@@ -97,7 +102,7 @@ $.ajax({
            $(xml).find('rate').each(function() {
 				var value = $(this).attr('value');
 				var inflation_rate = $(this).attr('inflation_rate');
-				var default = $(this).attr('default');
+				var df = $(this).attr('default');
 				var deduct_inflation_rate = ((parseFloat(value)*100)/100) - parseFloat(inflation_rate);
 				growthRate[value] = deduct_inflation_rate;
             });
@@ -109,6 +114,26 @@ $.ajax({
     });
 }
 
+function loadLTA(){
+$.ajax({
+        type: "GET",
+        url: "xml/pension_accumulators/lta/lta.xml",
+        dataType: "xml",
+        success: function(xml) {
+           $(xml).find('information').each(function() {
+				var active = $(this).find('active').text();
+				if(active == "true"){
+					LTA = $(this).find('value').text();
+					LTA = parseInt(LTA);
+				}
+            });
+            console.log("load xml: "  +  LTA +" already! ");
+        },
+        error: function() {
+            alert("An error occurred while processing XML file lta.");
+        }
+    });
+}
 function loadAllWarning(){
 	loadWarning('about_you.xml');
 	loadWarning('savings.xml');
