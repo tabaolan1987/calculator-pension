@@ -204,6 +204,7 @@
 	width:423px;
 	height:305px;
 	display:none;
+	z-index:999;
 }
 
 .row-rule .col-text{
