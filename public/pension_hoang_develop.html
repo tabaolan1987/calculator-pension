@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>Pension Calculator</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	  <link rel="stylesheet" href="css/pension_accumulators/animate.css">
-	  <link rel="stylesheet" href="css/pension_accumulators/style-ui.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	  <script type="text/javascript" src="js/pension_accumulators/formula.js"></script>
-	  <script type="text/javascript" src="js/pension_accumulators/action.js"></script>
-	  <script type="text/javascript" src="js/pension_accumulators/ui.js"></script>
+		<title>Pension Calculator</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/pension_accumulators/animate.css">
+		<link rel="stylesheet" href="css/pension_accumulators/style-ui.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/pension_accumulators/formula.js"></script>
+		<script type="text/javascript" src="js/pension_accumulators/action.js"></script>
+		<script type="text/javascript" src="js/pension_accumulators/ui.js"></script>
+		<!-- jQuery-ui-Slider-Pips -->
+		<link rel="stylesheet" href="css/pension_accumulators/jquery-ui.css">
+		<link rel="stylesheet" href="css/pension_accumulators/jquery-ui-slider-pips.css">
+		<script src="js/pension_accumulators/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/pension_accumulators/jquery-ui-slider-pips.js"></script>
+	
    </head>
    <body>
       <div class="container-fluid" id="wrapper">
@@ -49,23 +55,24 @@
 						</div>
 						<div class="row row-rule">
 							<div class="col-sm-6"><span class="icon-tooltip">What is your current annual salary before tax?</span></div>
-							<div class="col-sm-6"><input id="ex13" type="text" data-slider-ticks="[0, 100, 200, 300, 400]" data-slider-ticks-snap-bounds="30" data-slider-ticks-labels="['$0', '$100', '$200', '$300', '$400']"/></div>
-							
-							<script>
-							
-							// With JQuery
-							$("#ex13").slider({
-								ticks: [0, 100, 200, 300, 400],
-								ticks_labels: ['$0', '$100', '$200', '$300', '$400'],
-								ticks_snap_bounds: 30
-							});
-
-							// Without JQuery
-							var slider = new Slider("#ex13", {
-								ticks: [0, 100, 200, 300, 400],
-								ticks_labels: ['$0', '$100', '$200', '$300', '$400'],
-								ticks_snap_bounds: 30
-							});
+							<div class="col-sm-6"><div class="slider"></div></div>
+							<script type="text/javascript">
+								  $(document).ready(function(){
+										$(".slider")
+                        
+										.slider({ 
+											min: 55, 
+											max: 57, 
+											step: 1 
+										})
+																
+										.slider("pips", {
+											rest: "label",
+											step: 5
+										})
+																
+										.slider("float");
+									}); 
 							</script>
 						</div>
 						
