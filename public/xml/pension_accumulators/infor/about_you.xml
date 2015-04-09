@@ -1,26 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <infor_popups>
 <infor>
-<name>about1</name>
-<message><![CDATA[<p>This is your age!</p>]]></message>
+<id-element></id-element>
+<name>current-age</name>
+<message><![CDATA[<p>Current age</p>
+<p>Your pension forecast will be calculated using the time period between your current age and your chosen retirement age.</p>
+<p>The calculation will be based on complete years from the current date to the same date in your retirement year.</p>
+<p>If you are using this modeller when it is close to your next birthday, you may wish to use your current age + 1.</p>]]></message>
 </infor>
 <infor>
+<id-element></id-element>
 <name>about2</name>
 <message><![CDATA[<p>This is your gender!</p>]]></message>
 </infor>
 <infor>
+<id-element></id-element>
 <name>about3</name>
 <message><![CDATA[<p>This is your age!</p>]]></message>
 </infor>
 <infor>
+<id-element></id-element>
 <name>about4</name>
 <message><![CDATA[<p>This is your age!</p>]]></message>
 </infor>
 <infor>
+<id-element></id-element>
 <name>about5</name>
 <message><![CDATA[<p>This is your age!</p>]]></message>
 </infor>
 <infor>
+<id-element></id-element>
 <name>about6</name>
 <message><![CDATA[<p>This is your age!</p>]]></message>
 </infor>

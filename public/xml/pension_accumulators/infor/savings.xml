@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <infor_popups>
 <infor>
+<id-element></id-element>
 <name>saving1</name>
 <message><![CDATA[<p>This is your age!</p>]]></message>
 </infor>
 <infor>
+<id-element></id-element>
 <name>saving2</name>
 <message><![CDATA[<p>This is your gender!</p>]]></message>
 </infor>
 <infor>
+<id-element></id-element>
 <name>saving3</name>
 <message><![CDATA[<p>This is your age!</p>]]></message>
 </infor>
 <infor>
+<id-element></id-element>
 <name>saving4</name>
 <message><![CDATA[<p>This is your age!</p>]]></message>
 </infor>
 <infor>
+<id-element></id-element>
 <name>saving5</name>
 <message><![CDATA[<p>This is your age!</p>]]></message>
 </infor>
 <infor>
+<id-element></id-element>
 <name>saving6</name>
 <message><![CDATA[<p>This is your age!</p>]]></message>
 </infor>
