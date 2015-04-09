@@ -1,6 +1,3 @@
-var LTA = 1250000;
-var male = 1;
-var female = 2;
 /* tab about you formula and value field */
 function getYearToRetirement(ageRetire, currentAge){
 	var year_to_retirement = ageRetire - currentAge;
@@ -8,8 +5,9 @@ function getYearToRetirement(ageRetire, currentAge){
 }
 function getTax_free_Percent(taxfreecash){
 	var temp = taxfreecash/100;
-	return temp;
+	return parseFloat(temp);
 }
+/*-----------------------------------------------------------------------------------*/
 
 /* tab savings formula and value field */
 function getDefer_compound(totalDeferFund,InterestOnPot,yearToRetirement){
@@ -42,7 +40,7 @@ function getPercent_Contribute_company(cashCompany,currentSalary){
 	var temp = (cashCompany/currentSalary)*12;
 	return parseFloat(temp);
 }
-
+/*-----------------------------------------------------------------------------------*/
 /* tab results formula and value field */ 
 function getRisk_selection(typeofFound){
 	var temp = growthRate[typeofFound];
@@ -65,8 +63,6 @@ function retirementDate(yearToRetirement){
 	return temp;
 }
 
-
- 
 function getInterestOnPot(risk_selection){
 	var temp = risk_selection/100;
 	return parseFloat(temp);
@@ -101,9 +97,16 @@ function getAnnuity_income(annuity_rate,potMinus_taxFreeCash){
 	return parseFloat(temp);
 }
 
+/*-----------------------------------------------------------------------------------*/
 
+/* tab summary formula and value field */ 
 function getForecastIncome(annuity_income,salary_scheme){
 	var temp = annuity_income + salary_scheme;
+	return parseFloat(temp);
+}
+
+function getForecast_percent_target(forecastIncome,targetPension){
+	var temp = forecastIncome/targetPension;
 	return parseFloat(temp);
 }
 
@@ -111,3 +114,27 @@ function getShortFall(forecastIncome,targetPension){
 	var temp  = targetPension - forecastIncome;
 	return parseFloat(temp);
 }
+
+function getCoinBlue(forecastIncome,targetPension){
+	var percent = (forecastIncome/targetPension)*100;
+	var coin = round(percent);
+	coin = coin/coinPercent;
+	return coin;
+}
+
+function getCoinRed(coinBlue){
+	if(coinBlue >= totalCoin){
+		return 0;
+	}
+	var coinRed = totalCoin - coinBlue;
+	return coinRed;
+	
+}
+
+function round(number) {
+    var n = parseFloat(number);
+    n =  Math.round(n);
+	var newnumber = new Number(n).toFixed(0);
+	return newnumber;
+}
+

@@ -20,6 +20,18 @@ $.fn.animateRotate = function(angle, top, duration, easing, complete) {
     });
   });
 };
+
+function setupCoin(coinBlue,coinRed){
+	var html = "<div class='coinBlue' id='coin1'></div>";
+	for(var i = 2 ; i <= totalCoin ;i++){
+		if(i > coinBlue){
+			html = html + "<div class='coinRed' id='coin"+i+"'></div>";
+		}else{
+			html = html + "<div class='coinBlue' id='coin"+i+"'></div>";
+		}	
+	}
+	$('#container-coin').html(html);
+}
 function fallingCoin(index) {
 		var coin = "#coin"+index;
         $(coin).show();
@@ -28,10 +40,10 @@ function fallingCoin(index) {
         var moveToBottom = heightContainer - (heightImage * index);
         var angle = 70 * (index % 2 === 0 ? 1 : -1);
         $(coin).animateRotate(angle, moveToBottom, 1000-heightImage*index, 'linear', function () {  
-                if (index < 25) {
-                    index = index + 1;
-                    fallingCoin(index);
-                }
+            if (index < totalCoin) {
+                index = index + 1;
+                fallingCoin(index);
+            }
         });
 }
 
