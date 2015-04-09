@@ -62,7 +62,18 @@
       </div>
 	   <script type="text/javascript">
 	  $(document).ready(function(){
-			$(".slider").slider().slider("pips");
+		var labelStage = ["55","60","65","70","75"];
+$(".slider")                     
+.slider({ 
+    min: 55, 
+    max: 75, 
+    step: 1 
+})                  
+.slider("pips", {
+    rest: "label",
+    step: 5,label: labelStage
+})                   
+.slider("float");
 			setupData();
 			registerHoverAction();
 			$('#start').click(function(){
