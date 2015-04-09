@@ -46,8 +46,21 @@ function fallingCoin(index) {
             }
         });
 }
+function drawSlideRetirementAge(){
+	var labelStage = ["55","60","65","70","75"];
+	$(".retirementAge").slider({min: 55,max: 75,step: 1,value:65}).slider("pips", {rest: "label",step: 5,
+	label: labelStage}).slider("float");
+}
 
-
+function drawSlidePercentTaxFreeCash(){
+	var labelStage = ["0","5","10","15","20","25"];
+	$(".percentTaxFreeCast").slider({min: 0,max: 25,step: 1}).slider("pips", {rest: "label",step: 5,
+	label: labelStage}).slider("float");
+}
+function drawSlideAboutYou(){
+	drawSlideRetirementAge();
+	drawSlidePercentTaxFreeCash();
+}
 function showWarning(content){
 //will show warning.
 $('#warning').html(content);

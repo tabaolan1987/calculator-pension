@@ -1,11 +1,16 @@
+function registerAction(){
+	registerHoverAction();
+	registerNextButton();
+	registerBackButton();
+}
 /* this function handle the action hover the information image */
 function registerHoverAction(){
 	$(document).on("mouseover",".icon-tooltip",function() {
 		//alert('mouseover');
-		var attrName = $(this).attr('name');
+		var attrName = $(this).attr('information-message');
 		var content = InformationArray[attrName];
 		console.log(content);
-		//added content to popup and change the color
+		//added content to popup then show popup and change the color of this.
 	}
 	);
 
@@ -42,6 +47,48 @@ function registerBackButton(){
 		//handle when user click back button in tab Result.
 	});
 
+}
+function getGender(){
+	if($("input:radio[name=optradio]").is(":checked")){
+		var gender = $("input:radio[name=optradio]:checked").val();
+		return gender;
+	}
+	return 0;
+
+}
+function checkDataAboutYou(){
+	var currentAge = $('#current_age').val();
+	if(currentAge == ""){
+		return $('#current_age').attr('validate-message');
+	}
+	var gender = getGender();
+	if(gender == 0){
+		return $("input:radio[name=optradio]").attr('validate-message');
+	}
+	var currentSalary = $('#current_salary').val();
+	if(currentSalary=="" & currentSalary == 0){
+		return $('#current_salary').attr('validate-message');
+	}
+	var targetPension = $('#targetPension').val();
+	if( targetPension == "" & targetPension == 0){
+		return $('#targetPension').attr('validate-message');
+	}
+	var ageRetire = $('#ageRetire').val();
+	if(parseInt(ageRetire) < parseInt(currentAge)){
+		return "retireAge-smaller-than-currentAge";
+	}
+	return true;
+}
+
+
+function isNumberKey(evt)
+{
+	var charCode = (evt.which) ? evt.which : event.keyCode;
+   if (charCode != 46 && charCode > 31
+    && (charCode < 48 || charCode > 57))
+        return false;
+
+    return true;
 }
 
 

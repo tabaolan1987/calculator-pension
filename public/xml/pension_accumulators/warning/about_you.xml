@@ -1,19 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <warning_popups>
-<warning>
+<warning-simple>
+<id-element></id-element>
 <name>current_age</name>
-<message><![CDATA[<p>This is your age!</p>]]></message>
-</warning>
-<warning>
+<message><![CDATA[<p>something will be write in here!</p>]]></message>
+</warning-simple>
+<warning-simple>
+<id-element></id-element>
 <name>gender</name>
-<message><![CDATA[<p>This is your age!</p>]]></message>
-</warning>
-<warning>
+<message><![CDATA[<p>something will be write in here!</p>]]></message>
+</warning-simple>
+<warning-simple>
+<id-element></id-element>
 <name>current_annual_salary</name>
-<message><![CDATA[<p>This is your age!</p>]]></message>
-</warning>
-<warning>
+<message><![CDATA[<p>something will be write in here!</p>]]></message>
+</warning-simple>
+<warning-simple>
+<id-element></id-element>
 <name>income_retire</name>
-<message><![CDATA[<p>This is your age!</p>]]></message>
-</warning>
+<message><![CDATA[<p>something will be write in here!</p>]]></message>
+</warning-simple>
+
+<warning-special>
+<name>retireAge-smaller-than-currentAge</name>
+<message><![CDATA[<p>something will be write in here</p>]]></message>
+</warning-special>
+<warning-special>
+<name>special-case</name>
+<message><![CDATA[<p>something will be write in here!</p>]]></message>
+</warning-special>
 </warning_popups>

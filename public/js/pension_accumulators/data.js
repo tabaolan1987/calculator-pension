@@ -26,6 +26,8 @@ function loadInformation(xml){
             $(xml).find('infor').each(function() {
                 var message = $(this).find('message').text();
 				var name = $(this).find('name').text();
+				var idEl = $(this).find('idelement').text();
+				$('#'+idEl).addClass('information-message',name);
 				InformationArray[name] = message;
             });
             console.log("load xml  : "  +  xml +" already!");
@@ -42,7 +44,14 @@ function loadWarning(xml){
         url: "xml/pension_accumulators/warning/" + xml,
         dataType: "xml",
         success: function(xml) {
-            $(xml).find('warning').each(function() {
+            $(xml).find('warning-simple').each(function() {
+                var message = $(this).find('message').text();
+				var name = $(this).find('name').text();
+				var idEl = $(this).find('idelement').text();
+				$('#'+idEl).addClass('validate-message',name);
+				warningArray[name] = message;
+            });
+			$(xml).find('warning-special').each(function() {
                 var message = $(this).find('message').text();
 				var name = $(this).find('name').text();
 				warningArray[name] = message;
