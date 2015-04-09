@@ -143,6 +143,11 @@
 	height:29px;
 }
 
+.row-rule .col-text{
+	height:29px;
+	line-height:29px;
+}
+
 /*next previous*/
 .tab-content .btnNext,
 .tab-content .btnPrevious{
