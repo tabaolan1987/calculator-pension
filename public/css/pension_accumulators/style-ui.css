@@ -142,12 +142,12 @@
 
 /*row content*/
 .tab-pane{
-	padding-bottom:30px;
+	padding-bottom:40px;
 }
 
 .tab-pane .row-rule{
 	padding:20px 0;
-	margin:0 20px;
+	margin:0 10px;
 	border-top: 3px dotted #ddd;
 }
 
@@ -180,12 +180,23 @@
 	background:url(../../images/pension_accumulators/pound.png) bottom left no-repeat;
 }
 
+.label-tooltip{
+	display:block;
+	padding: 6px 0 0 50px;
+	
+}
+
 .icon-tooltip{
 	background:url(../../images/pension_accumulators/icon-tooltip.png) left center no-repeat;
 	display:inline-block;
 	height:29px;
-	line-height:29px;
-	text-indent:50px;
+	width:29px;
+	margin-right: 20px;
+	float:left;
+}
+
+.icon-tooltip:hover{
+	background:url(../../images/pension_accumulators/icon-tooltip-hover.png) left center no-repeat;
 }
 
 .row-rule .col-text{
@@ -193,11 +204,19 @@
 	line-height:29px;
 }
 
+.row-rule .ui-slider{
+	margin-top:22px;
+}
+
+.row-rule .label-slider{
+	margin-top:12px;
+}
+
 /*next previous*/
 .tab-content .btnNext,
 .tab-content .btnPrevious{
 	position:absolute;
-	bottom:5px;
+	bottom:10px;
 	background-color: #06038d;
 	height:25px;
 	padding:2px 12px;
@@ -209,9 +228,9 @@
 }
 
 .tab-content .btnNext{
-	right:5px;
+	right:28px;
 }
 
 .tab-content .btnPrevious{
-	left:5px;
+	left:28px;
 }
