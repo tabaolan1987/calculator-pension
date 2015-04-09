@@ -206,6 +206,10 @@
 	height:305px;
 	display:none;
 	z-index:999;
+	padding-left : 60px;
+	padding-right : 15px;
+	padding-top : 20px;
+	overflow-y : auto;
 }
 
 .row-rule .col-text{
