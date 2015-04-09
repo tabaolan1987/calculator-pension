@@ -199,6 +199,13 @@
 	background:url(../../images/pension_accumulators/icon-tooltip-hover.png) left center no-repeat;
 }
 
+#content-tooltip{
+	background:url(../../images/pension_accumulators/tooltip-bg.png) left center no-repeat;
+	width:423px;
+	height:305px;
+	display:none;
+}
+
 .row-rule .col-text{
 	height:29px;
 	line-height:29px;
