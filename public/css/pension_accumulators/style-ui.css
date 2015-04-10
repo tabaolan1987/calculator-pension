@@ -130,17 +130,17 @@
 	background:url(../../images/pension_accumulators/icon-savings-active.png) top left no-repeat;
 }
 
-.nav-tabs li:nth-child(4) a{
+.nav-tabs li:nth-child(3) a{
 	background:url(../../images/pension_accumulators/icon-results.png) top left no-repeat;
 }
-.nav-tabs li:nth-child(4).active a{
+.nav-tabs li:nth-child(3).active a{
 	background:url(../../images/pension_accumulators/icon-results-active.png) top left no-repeat;
 }
 
-.nav-tabs li:nth-child(5) a{
+.nav-tabs li:nth-child(4) a{
 	background:url(../../images/pension_accumulators/icon-summary.png) top left no-repeat;
 }
-.nav-tabs li:nth-child(5).active a{
+.nav-tabs li:nth-child(4).active a{
 	background:url(../../images/pension_accumulators/icon-summary-active.png) top left no-repeat;
 }
 
