@@ -10,6 +10,17 @@
 	border:3px dotted #ddd;
 }
 
+.align-right{
+	text-align:right !important;
+}
+
+.align-left{
+	text-align:left !important;
+}
+
+.align-center{
+	text-align:center !important;
+}
 
 /*left content
 -----------------------------------------------------------------*/
@@ -17,6 +28,7 @@
 	border-right:3px dotted #ddd;
 }
 
+/*tab*/
 .nav-tabs{
 	border-bottom:none;
 	margin-top:20px;
@@ -165,6 +177,7 @@
 	border:2px solid #ccc;
 	margin-top:5px;
 	padding: 0 5px;
+	text-align:right;
 }
 
 .row-rule input[type="radio"]{
