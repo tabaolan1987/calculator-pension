@@ -10,6 +10,11 @@
 	border:3px dotted #ddd;
 }
 
+/*class style important*/
+.border-none{
+	border:none !important;
+}
+
 .align-right{
 	text-align:right !important;
 }
@@ -41,7 +46,8 @@
 	padding-left:13px;
 }
 
-.nav-tabs li.active{
+.nav-tabs li.active,
+.nav-tabs li.parent-active{
 	background:url(../../images/pension_accumulators/tab-bg-left-active.png) top left no-repeat;
 }
 
@@ -50,7 +56,8 @@
 	height:49px;
 }
 
-.nav-tabs li.active .mid{
+.nav-tabs li.active .mid,
+.nav-tabs li.parent-active .mid{
 	background:url(../../images/pension_accumulators/tab-bg-mid-active.png) top left repeat-x;
 }
 
@@ -59,7 +66,8 @@
 	height:49px;
 }
 
-.nav-tabs li.active  .mid div{
+.nav-tabs li.active  .mid div,
+.nav-tabs li.parent-active  .mid div{
 	background:url(../../images/pension_accumulators/tab-bg-right-active.png) top right no-repeat;
 }
 
@@ -97,7 +105,8 @@
 	color:#0f0d8f;
 }
 
-.nav-tabs li.active a{
+.nav-tabs li.active a,
+.nav-tabs li.parent-active a{
 	font-weight:bold;
 	text-decoration:none;
 }
@@ -116,7 +125,8 @@
 .nav-tabs li:nth-child(2) a{
 	background:url(../../images/pension_accumulators/icon-savings.png) top left no-repeat;
 }
-.nav-tabs li:nth-child(2).active a{
+.nav-tabs li:nth-child(2).active a,
+.nav-tabs li:nth-child(2).parent-active a{
 	background:url(../../images/pension_accumulators/icon-savings-active.png) top left no-repeat;
 }
 
@@ -173,7 +183,7 @@
 }
 
 .row-rule input[type="text"]{
-	height:23px;
+	height:24px;
 	border:2px solid #ccc;
 	margin-top:5px;
 	padding: 0 5px;
@@ -181,17 +191,48 @@
 }
 
 .row-rule input[type="radio"]{
-	margin:6px 0 0;
-	width: 20px;
-    height: 20px;
+	//margin:6px 0 0;
+	//width: 20px;
+    //height: 20px;
+}
+
+.row-rule input[type="radio"]{
+    display:none;
+}
+
+.row-rule input[type="radio"] + label{
+    background:url(../../images/pension_accumulators/radio.png) center bottom no-repeat;
+    height: 28px;
+    width: 26px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+}
+
+.row-rule input[type="radio"]:checked + label{
+    background:url(../../images/pension_accumulators/radio-check.png) center bottom no-repeat;
 }
 
 .row-rule .radio-lable{
 	padding-top:5px;
 }
 
+.row-rule{
+	font-size:14px;
+	color: #797979;
+}
+
+.row-rule p{
+	padding-left:15px;
+}
+
 .pound{
 	background:url(../../images/pension_accumulators/pound.png) bottom left no-repeat;
+	padding-left:20px;
+}
+
+.percent{
+	background:url(../../images/pension_accumulators/percent.png) bottom right no-repeat;
+	padding:0 25px;
 }
 
 .label-tooltip{
@@ -201,9 +242,9 @@
 }
 
 .icon-tooltip{
-	background:url(../../images/pension_accumulators/icon-tooltip.png) left center no-repeat;
+	background:url(../../images/pension_accumulators/icon-tooltip.png) left bottom no-repeat;
 	display:inline-block;
-	height:29px;
+	height:30px;
 	width:29px;
 	margin-right: 20px;
 	float:left;
@@ -238,6 +279,13 @@
 	margin-top:12px;
 }
 
+/*tab saving row content*/
+.tab-title{
+	color: #0f0d8f;
+    font-size: 17px;
+    padding-left: 26px;
+}
+
 /*next previous*/
 .tab-content .btnNext,
 .tab-content .btnPrevious{
@@ -246,6 +294,10 @@
 	background-color: #06038d;
 	height:25px;
 	padding:2px 12px;
+}
+
+.tab-content .btnPrevious{
+	background-color:#747678;
 }
 
 .tab-content .btnNext:hover,
