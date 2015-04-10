@@ -6,6 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/pension_accumulators/animate.css">
+		<!-- jQuery-ui-Slider-Pips -->
+		<link rel="stylesheet" href="css/pension_accumulators/jquery-ui.css">
+		<link rel="stylesheet" href="css/pension_accumulators/jquery-ui-slider-pips.css">
+		<!--Pension Accumulator Style ui-->
 		<link rel="stylesheet" href="css/pension_accumulators/style-ui.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -13,8 +17,6 @@
 		<script type="text/javascript" src="js/pension_accumulators/action.js"></script>
 		<script type="text/javascript" src="js/pension_accumulators/ui.js"></script>
 		<!-- jQuery-ui-Slider-Pips -->
-		<link rel="stylesheet" href="css/pension_accumulators/jquery-ui.css">
-		<link rel="stylesheet" href="css/pension_accumulators/jquery-ui-slider-pips.css">
 		<script src="js/pension_accumulators/jquery-ui.js"></script>
 		<script type="text/javascript" src="js/pension_accumulators/jquery-ui-slider-pips.js"></script>
 	
@@ -32,9 +34,8 @@
 				<ul class="nav nav-tabs">
 					<li class="active"><div class="mid"><div><a href="#tab1" data-toggle="tab">about you</a></div></div></li>
 					<li><div class="mid"><div><a href="#tab2" data-toggle="tab">savings</a></div></div></li>
-					<li class="child"><a href="#tab3" data-toggle="tab">savings child</a></li>
-					<li><div class="mid"><div><a href="#tab4" data-toggle="tab">results</a></div></div></li>
-					<li><div class="mid"><div><a href="#tab5" data-toggle="tab">summary</a></div></div></li>
+					<li><div class="mid"><div><a href="#tab3" data-toggle="tab">results</a></div></div></li>
+					<li><div class="mid"><div><a href="#tab4" data-toggle="tab">summary</a></div></div></li>
 				</ul>
 				
 				<div class="tab-content">
@@ -47,9 +48,9 @@
 						
 						<div class="row row-rule">
 							<div class="col-sm-3"><span class="icon-tooltip"></span><span class="label-tooltip">Male</span></div>
-							<div class="col-sm-3"><input type="radio" name="optradio"></div>
+							<div class="col-sm-3"><input type="radio" id="male" name="optradio"><label for="male"></label></div>
 							<div class="col-sm-3 radio-lable">Female</div>
-							<div class="col-sm-3"><input type="radio" name="optradio"></div>
+							<div class="col-sm-3"><input type="radio" id="female" name="optradio"><label for="female"></label></div>
 						</div>
 						
 						<div class="row row-rule">
@@ -60,22 +61,6 @@
 						<div class="row row-rule">
 							<div class="col-sm-7"><span class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider">At what is would you like to retire?</span></div>
 							<div class="col-sm-5"><div class="slider ui-slider"></div></div>
-							<script type="text/javascript">
-								  $(document).ready(function(){
-									var labelStage = ["55","60","65","70","75"];
-									$(".slider")                     
-									.slider({ 
-										min: 55, 
-										max: 75, 
-										step: 1 
-									})                  
-									.slider("pips", {
-										rest: "label",
-										step: 5,label: labelStage
-									})                   
-									.slider("float");	
-									}); 
-							</script>
 						</div>
 						
 						<div class="row row-rule">
@@ -86,61 +71,82 @@
 						<div class="row row-rule">
 							<div class="col-sm-7"><span class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider">What percentage of your pension pot would you like to take add tax free cash?</span></div>
 							<div class="col-sm-5"><div class="slider2 ui-slider"></div></div>
-							<script type="text/javascript">
-								  $(document).ready(function(){
-									var labelStage2 = ["0","5","10","15","20"];
-									$(".slider2")                     
-									.slider({ 
-										min: 0, 
-										max: 25, 
-										step: 1 
-									})                  
-									.slider("pips", {
-										rest: "label",
-										step: 5,label: labelStage2
-									})                   
-									.slider("float");	
-									}); 
-							</script>
 						</div>
 						
 						<a class="btn btn-primary btnNext">next</a>
-					</div>
+					</div><!--END #tab1-->
 					
 		
 					<div class="tab-pane" id="tab2">
-						tab222222222222222222
+						<div id="box-monney-purchase">
+							<h3 class="tab-title">Monney Purchase/Defined Contribution Schemes & AVCs</h3>
+							
+							<div class="row row-rule border-none">
+								<p>If you have any deferred pensions, what is the total fund value?</p>
+								<div class="col-sm-1"><span class="icon-tooltip"></span></div>
+								<div class="col-sm-2 pound"><input type="text" class="form-control" placeholder=""/></div>
+							</div>
+							
+							<div class="row row-rule">
+								<p>What is the total fund value of your current pensions?</p>
+								<div class="col-sm-1"><span class="icon-tooltip"></span></div>
+								<div class="col-sm-2 pound"><input type="text" class="form-control" placeholder=""/></div>
+							</div>
+							
+							<div class="row row-rule">
+								<p>How much are you currently paying into your pension per month?</p>
+								<div class="col-sm-1"><span class="icon-tooltip"></span></div>
+								<div class="col-sm-2 pound"><input type="text" class="form-control" placeholder=""/></div>
+								<div class="col-sm-2 percent"><input type="text" class="form-control" placeholder=""/></div>
+							</div>
+							
+							<div class="row row-rule">
+								<p>How much does your employer contribute towards your pension per month?</p>
+								<div class="col-sm-1"><span class="icon-tooltip"></span></div>
+								<div class="col-sm-2 pound"><input type="text" class="form-control" placeholder=""/></div>
+								<div class="col-sm-2 percent"><input type="text" class="form-control" placeholder=""/></div>
+							</div>
+						</div><!--END #box-monney-purchase-->
+						
+						<div id="box-defined-benefits" style="display:none;">
+							<h3 class="tab-title">Defined Benefits (Final Salary) schemes</h3>
+						
+							<div class="row row-rule border-none">
+								<p>Do you have any pension income payable from a Defined Benefits (Final Salary) company pension?</p>							
+								<div class="col-sm-2"><span class="icon-tooltip"></span><span class="label-tooltip">Yes</span></div>
+								<div class="col-sm-1"><input type="radio" id="yes" name="optradio2"><label for="yes"></label></div>
+								<div class="col-sm-1 radio-lable">No</div>
+								<div class="col-sm-1"><input type="radio" id="no" name="optradio2"><label for="no"></label></div>
+							</div>
+							
+							<div class="row row-rule">
+								<p>Enter any income payable from Defined Benefit (Final Salary) company pensions (total per year).</p>
+								<div class="col-sm-1"><span class="icon-tooltip"></span></div>
+								<div class="col-sm-2 pound"><input type="text" class="form-control" placeholder=""/></div>
+							</div>
+						</div><!--END #box-defined-benefits-->
 						
 						<a class="btn btn-primary btnNext">next</a>
-						<a class="btn btn-primary btnPrevious">previous</a>
-					</div>
+						<a class="btn btn-primary btnPrevious">back</a>
+					</div><!--END #tab2-->
+					
+					
 					<div class="tab-pane" id="tab3">
-						tab 333333333333
+						tab 333
 						
 						<a class="btn btn-primary btnNext">next</a>
-						<a class="btn btn-primary btnPrevious">previous</a>
-					</div>
+						<a class="btn btn-primary btnPrevious">back</a>
+					</div><!--END #tab3-->
+					
+					
 					<div class="tab-pane" id="tab4">
 						tab 44444
 						
 						<a class="btn btn-primary btnNext">next</a>
-						<a class="btn btn-primary btnPrevious">previous</a>
-					</div>
-					<div class="tab-pane" id="tab5">
-						tab 5555555
-						
-						<a class="btn btn-primary btnPrevious">previous</a>
-					</div>
+						<a class="btn btn-primary btnPrevious">back</a>
+					</div><!--END #tab4-->
+					
 				</div>
-				<script>
-					$('.btnNext').click(function(){
-					  $('.nav-tabs > .active').next('li').find('a').trigger('click');
-					});
-
-					  $('.btnPrevious').click(function(){
-					  $('.nav-tabs > .active').prev('li').find('a').trigger('click');
-					});
-				</script>
             </div><!--END .left-content-->
 			
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 right-content">
@@ -150,6 +156,47 @@
          </div><!--END #content-->
 		 
       </div><!--END #wrapper-->
-	  
+	
+	<script type="text/javascript">
+	$(document).ready(function(){
+		/*next tab*/
+		$('.btnNext').click(function(){
+			$('.nav-tabs > .active').next('li').find('a').trigger('click');
+		});
+
+		$('.btnPrevious').click(function(){
+			$('.nav-tabs > .active').prev('li').find('a').trigger('click');
+		});
+	
+
+		/*input slider 1*/
+		var labelStage = ["55","60","65","70","75"];
+		$(".slider")                     
+		.slider({ 
+			min: 55, 
+			max: 75, 
+			step: 1 
+		})                  
+		.slider("pips", {
+			rest: "label",
+			step: 5,label: labelStage
+		})                   
+		.slider("float");
+	
+		/*input slider 2*/
+		var labelStage2 = ["0","5","10","15","20"];
+		$(".slider2")                     
+		.slider({ 
+			min: 0, 
+			max: 25, 
+			step: 1 
+		})                  
+		.slider("pips", {
+			rest: "label",
+			step: 5,label: labelStage2
+		})                   
+		.slider("float");	
+	}); 
+	</script>
    </body>
 </html>
