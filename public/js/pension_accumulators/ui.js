@@ -63,8 +63,8 @@ function drawSlideAboutYou(){
 }
 function showWarning(content){
 //will show warning.
-$('#warning').html(content);
-$('#warning').modal('show');
+$('#warningModal').find('.modal-body').html(content);
+$('#warningModal').modal('show');
 }
 
 function showInfor(top,left,content){

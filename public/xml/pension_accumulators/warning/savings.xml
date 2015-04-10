@@ -2,22 +2,7 @@
 <warning_popups>
 <warning-simple>
 <id-element></id-element>
-<name>saving1</name>
-<message><![CDATA[<p>This is your age!</p>]]></message>
-</warning-simple>
-<warning-simple>
-<id-element></id-element>
-<name>saving2</name>
-<message><![CDATA[<p>This is your age!</p>]]></message>
-</warning-simple>
-<warning-simple>
-<id-element></id-element>
-<name>saving3</name>
-<message><![CDATA[<p>This is your age!</p>]]></message>
-</warning-simple>
-<warning-simple>
-<id-element></id-element>
-<name>saving4</name>
-<message><![CDATA[<p>This is your age!</p>]]></message>
+<name>enter-at-least</name>
+<message><![CDATA[<p>Please enter at least once field!</p>]]></message>
 </warning-simple>
 </warning_popups>
