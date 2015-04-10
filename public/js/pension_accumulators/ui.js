@@ -46,6 +46,8 @@ function fallingCoin(index) {
             }
         });
 }
+/*------------------------------------------------------*/
+/* there are functions handle UI of tabs About you */
 function drawSlideRetirementAge(){
 	var labelStage = ["55","60","65","70","75"];
 	$(".retirementAge").slider({min: 55,max: 75,step: 1,value:65}).slider("pips", {rest: "label",step: 5,
@@ -61,6 +63,8 @@ function drawSlideAboutYou(){
 	drawSlideRetirementAge();
 	drawSlidePercentTaxFreeCash();
 }
+/*------------------------------------------------------------------*/
+
 function showWarning(content){
 //will show warning.
 $('#warningModal').find('.modal-body').html(content);

@@ -6,7 +6,7 @@
 <message><![CDATA[<p>something will be write in here for current age!</p>]]></message>
 </warning-simple>
 <warning-simple>
-<id-element>gender-radio</id-element>
+<id-element>male</id-element>
 <name>gender</name>
 <message><![CDATA[<p>something will be write in here for gender!</p>]]></message>
 </warning-simple>

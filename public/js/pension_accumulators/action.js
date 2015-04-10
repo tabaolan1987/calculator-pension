@@ -1,6 +1,7 @@
 function registerAction(){
 	registerHoverAction();
 	registerActionAboutYou();
+	registerActionSavingTab();
 }
 /* this function handle the action hover the information image */
 function registerHoverAction(){
@@ -10,7 +11,6 @@ function registerHoverAction(){
 		var content = InformationArray[attrName];
 		$("#content-tooltip").html(content);
 		var height = $("#content-tooltip").height();
-		console.log(height);
 		var top = $(this).offset().top;
 		var left = $(this).offset().left;
 		$("#content-tooltip").css({
@@ -83,9 +83,6 @@ function registerActionAboutYou(){
 			showWarning(content);
 		}
 	});
-	
-	
-
 
 }
 
@@ -116,7 +113,7 @@ function checkDataAboutYou(){
 	}
 	var gender = getGender();
 	if(gender == 0){
-		return $("#gender-radio").attr('validate-message');
+		return $("#male").attr('validate-message');
 	}
 	var currentSalary = $('#txt-current-salary').val();
 	if(currentSalary=="" || currentSalary == 0){
@@ -135,8 +132,6 @@ function checkDataAboutYou(){
 /*------------------------------------------------------------------------------------*/
 
 /* there are actions for savings tab */
-
-
 function eneableTabResult(){
 	$('#results').attr('href','#tab3');
 	$('#results').attr('data-toggle','tab');
@@ -148,21 +143,21 @@ function disableTabResult(){
 }
 
 function checkDataSaving(){
-	var deffer_pen = $('#').val();
+	var deffer_pen = $('#txt-deffered-pensions').val();
 	if(deffer_pen.length > 0){
 		return true;
 	}
-	var current_pen = $('#').val();
+	var current_pen = $('#txt-current-pensions').val();
 	if(current_pen.length > 0){
 		return true;
 	}
 	
-	var seft_pay =  $('#').val();
+	var seft_pay =  $('#txt-you-paying').val();
 	if(seft_pay.length > 0){
 		return true;
 	}
 	
-	var company_pay = $('#').val();
+	var company_pay = $('#txt-your-employer').val();
 	if(company_pay.length > 0){
 		return true;
 	}
@@ -172,20 +167,20 @@ function checkDataSaving(){
 
 function registerActionSavingTab(){
 	
-	$('#savings').click(function(){
+	$('#results').click(function(){
 		var check = checkDataSaving();
 		if(check != true){
-			var nameWarning = $('#').attr('validate-message');
+			var nameWarning = $('#txt-deffered-pensions').attr('validate-message');
 			var content = warningArray[nameWarning];
 			showWarning(content);
 		}
 	});
-	$("input:radio[name=]").change(function(){
-		var val = $(this).val();
-		if(val == "Yes"){
-			$('.').show();
+	$("input:radio[name=company-pension]").change(function(){
+		var val = $(this).attr("id");
+		if(val == "yes"){
+			$('.final-salary').show();
 		}else{
-			$('.').hide();
+			$('.final-salary').hide();
 		}
 	});
 	
@@ -199,46 +194,43 @@ function registerActionSavingTab(){
 	});
 	
 	$('#nextSavings').click(function(){
-		if(isSav1Visible()){
+		if(isBox1Visible()){
 			var check = checkDataSaving();
 			if(check == true){
 				eneableTabResult();
-				hiddenSav1();
+				hiddenBox1();
 			}else{
 				disableTabResult();
 				var nameWarning = $('#').attr('validate-message');
 				var content = warningArray[nameWarning];
 				showWarning(content);
 			}
-		}else if(isSav2Visible()){
+		}else if(isBox2Visible()){
 			$('#results').trigger('click');
 		}
 	});
 	
 	$('#backSavings').click(function(){
-		if(isSav1Visible()){
+		if(isBox1Visible()){
 			$('#about-you').trigger('click');
-		}else if(isSav2Visible()){
-			hiddenSav2();
+		}else if(isBox2Visible()){
+			hiddenBox2();
 		}
 	});
 	
-	
-	
-
 }
 
 function hiddenBox1(){
-	$('.box1').hide();
-	$('.box2').show();
+	$('.box-monney-purchase').hide();
+	$('.box-defined-benefits').show();
 }
 
 function hiddenBox2(){
-	$('.box1').show();
-	$('.box2').hide();
+	$('.box-monney-purchase').show();
+	$('.box-defined-benefits').hide();
 }
 function isBox1Visible(){
-	if($('.box1').is(":visible")){
+	if($('.box-monney-purchase').is(":visible")){
 		return true;
 	}else{
 		return false;
@@ -246,7 +238,7 @@ function isBox1Visible(){
 }
 
 function isBox2Visible(){
-	if($('.box2').is(":visible")){
+	if($('.box-defined-benefits').is(":visible")){
 		return true;
 	}else{
 		return false;

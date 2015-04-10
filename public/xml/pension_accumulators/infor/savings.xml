@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <infor_popups>
 <infor>
-<id-element></id-element>
-<name>saving1</name>
-<message><![CDATA[<p>This is your age!</p>]]></message>
+<id-element>deferred-pensions</id-element>
+<name>deferred-pensions</name>
+<message><![CDATA[<p>Some thing will be write for deferred pensions!</p>]]></message>
 </infor>
 <infor>
-<id-element></id-element>
-<name>saving2</name>
-<message><![CDATA[<p>This is your gender!</p>]]></message>
+<id-element>current-pensions</id-element>
+<name>current-pensions</name>
+<message><![CDATA[<p>Some thing will be write for current pensions!</p>]]></message>
 </infor>
 <infor>
-<id-element></id-element>
-<name>saving3</name>
-<message><![CDATA[<p>This is your age!</p>]]></message>
+<id-element>you-paying</id-element>
+<name>you-paying</name>
+<message><![CDATA[<p>Some thing will be write for you currently paying into your pension per month!</p>]]></message>
 </infor>
 <infor>
-<id-element></id-element>
-<name>saving4</name>
-<message><![CDATA[<p>This is your age!</p>]]></message>
+<id-element>your-employer</id-element>
+<name>your-employer</name>
+<message><![CDATA[<p>Some thing will be write for your employer!</p>]]></message>
 </infor>
 <infor>
-<id-element></id-element>
-<name>saving5</name>
-<message><![CDATA[<p>This is your age!</p>]]></message>
+<id-element>Defined-Benefits</id-element>
+<name>Defined-Benefits</name>
+<message><![CDATA[<p>Some thing will be write for Defined Benefits</p>]]></message>
 </infor>
 <infor>
-<id-element></id-element>
-<name>saving6</name>
-<message><![CDATA[<p>This is your age!</p>]]></message>
+<id-element>income-payable</id-element>
+<name>income-payable</name>
+<message><![CDATA[<p>Some thing will be write for income payable!</p>]]></message>
 </infor>
 </infor_popups>
