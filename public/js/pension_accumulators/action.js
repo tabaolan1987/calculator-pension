@@ -20,14 +20,11 @@ function registerHoverAction(){
 			left: left - 5
 		});
 		$("#content-tooltip").show();
-		//added content to popup then show popup and change the color of this.
 	}
 	);
 
 	$(document).on("mouseout",".icon-tooltip",function() {
-		//hidden the popup and change the color	
-		$("#content-tooltip").hide();
-		console.log('mouseout');		
+		$("#content-tooltip").hide();		
 	}
 	);
 }
