@@ -9,13 +9,24 @@ function registerHoverAction(){
 		//alert('mouseover');
 		var attrName = $(this).attr('information-message');
 		var content = InformationArray[attrName];
-		console.log(content);
+		$("#content-tooltip").html(content);
+		var height = $("#content-tooltip").height();
+		console.log(height);
+		var top = $(this).offset().top;
+		var left = $(this).offset().left;
+		$("#content-tooltip").css({
+			position: 'absolute',
+			top: (top - height) + 35,
+			left: left - 5
+		});
+		$("#content-tooltip").show();
 		//added content to popup then show popup and change the color of this.
 	}
 	);
 
 	$(document).on("mouseout",".icon-tooltip",function() {
 		//hidden the popup and change the color	
+		$("#content-tooltip").hide();
 		console.log('mouseout');		
 	}
 	);

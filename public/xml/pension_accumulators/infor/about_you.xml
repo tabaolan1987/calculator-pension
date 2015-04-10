@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <infor_popups>
 <infor>
-<id-element></id-element>
+<id-element>current-age</id-element>
 <name>current-age</name>
 <message><![CDATA[<p>Current age</p>
 <p>Your pension forecast will be calculated using the time period between your current age and your chosen retirement age.</p>
@@ -9,28 +9,28 @@
 <p>If you are using this modeller when it is close to your next birthday, you may wish to use your current age + 1.</p>]]></message>
 </infor>
 <infor>
-<id-element></id-element>
-<name>about2</name>
+<id-element>gender</id-element>
+<name>gender</name>
 <message><![CDATA[<p>This is your gender!</p>]]></message>
 </infor>
 <infor>
-<id-element></id-element>
-<name>about3</name>
+<id-element>current-salary</id-element>
+<name>current-salary</name>
 <message><![CDATA[<p>This is your age!</p>]]></message>
 </infor>
 <infor>
-<id-element></id-element>
-<name>about4</name>
+<id-element>age-retirement</id-element>
+<name>age-retirement</name>
 <message><![CDATA[<p>This is your age!</p>]]></message>
 </infor>
 <infor>
-<id-element></id-element>
-<name>about5</name>
+<id-element>target-pension</id-element>
+<name>target-pension</name>
 <message><![CDATA[<p>This is your age!</p>]]></message>
 </infor>
 <infor>
-<id-element></id-element>
-<name>about6</name>
+<id-element>tax-free-cash</id-element>
+<name>tax-free-cash</name>
 <message><![CDATA[<p>This is your age!</p>]]></message>
 </infor>
 </infor_popups>
