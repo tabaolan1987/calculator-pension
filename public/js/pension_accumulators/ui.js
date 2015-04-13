@@ -70,13 +70,15 @@ function drawSlideResult(ageRetire,percentTaxFree){
 	var label = ["55","60","65","70","75"];
 	$("#age-to-retirement-result").slider({min: 55,max: 75,step: 1,value:ageRetire}).slider("pips", {rest: "label",step: 5,
 	label: label}).slider("float").on("slidechange", function(e,ui) {
-        $("#age-to-retirement").slider().slider('value',labelStage[ui.value]);
+        var value = $("#age-to-retirement-result").slider().slider('value');
+		$("#age-to-retirement").slider().slider('value',value);
     });
 	
 	var labelStage = ["0","5","10","15","20","25"];
 	$("#percent-tax-free-result").slider({min: 0,max: 25,step: 1,value:percentTaxFree}).slider("pips", {rest: "label",step: 5,
 	label: labelStage}).slider("float").on("slidechange", function(e,ui) {
-        $("#percent-tax-free").slider().slider('value',labelStage[ui.value]);
+		var value = $("#percent-tax-free-result").slider().slider('value');
+        $("#percent-tax-free").slider().slider('value',value);
     });
 }
 /*--------------------------------------------*/

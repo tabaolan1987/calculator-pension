@@ -1,14 +1,15 @@
 /* tab about you formula and value field */
 function getYearToRetirement(){
-	var ageRitire = $('#age-to-retirement').slider().slider('value');
+	var ageRetire = $('#age-to-retirement').slider().slider('value');
 	var currentAge = $("#txt-current-age").val();
 	var year_to_retirement = ageRetire - currentAge;
 	return parseInt(year_to_retirement);
 }
 function getTax_free_Percent(){
 	var taxFreeCash = $('#percent-tax-free').slider().slider('value');
-	var temp = taxfreecash/100;
-	return parseFloat(temp);
+	var temp = taxFreeCash/100;
+	temp =  parseFloat(temp);
+	return temp;
 }
 /*-----------------------------------------------------------------------------------*/
 
@@ -16,64 +17,70 @@ function getTax_free_Percent(){
 function getDefer_compound(){
 	var totalDeferFund = parseFloat($('#txt-deffered-pensions').val());
 	var interRestOnPot = getInterestOnPot();
-	var yearToRitirement = getYearToRetirement();
-	var temp = totalDeferFund*(1 + interRestOnPot/1);
-	temp = Math.pow(temp,yearToRetirement);
-	return parseFloat(temp);
+	var yearToRetirement = getYearToRetirement();
+	var temp = totalDeferFund * Math.pow((1 + interRestOnPot/1),yearToRetirement);
+	temp =  parseFloat(temp);
+	return round(temp);
 }
-
 function getCurrent_compound(){
 	var totalCurrentFund = parseFloat($('#txt-current-pensions').val());
+	console.log(totalCurrentFund);
 	var interRestOnPot = getInterestOnPot();
-	var yearToRitirement = getYearToRetirement();
-	var temp = totalCurrentFund*(1 + InterestOnPot/1);
-	temp = Math.pow(temp,yearToRetirement);
-	return parseFloat(temp);
+	var yearToRetirement = getYearToRetirement();
+	var temp = totalCurrentFund * Math.pow((1 + interRestOnPot/1),yearToRetirement);
+	temp =  parseFloat(temp);
+	return round(temp);
 }
 
 function getCash_Contribute(){
 	var currentSalary = parseFloat($('#txt-current-salary').val());
 	var percentPaying = parseFloat($('#txt-you-paying-percent').val());
-	var temp = (percentPaying*currentSalary)/12;
-	return parseFloat(temp);
+	var temp = ((percentPaying*currentSalary)/12)/100;
+	temp =  parseFloat(temp);
+	return round(temp);
 }
 
 function getPercent_Contribute(){
 	var currentSalary = parseFloat($('#txt-current-salary').val());
 	var cashPaying = parseFloat($('#txt-you-paying').val());
 	var temp = (cashPaying/currentSalary)*12;
-	return parseFloat(temp);
+	temp = parseFloat(temp);
+	return temp;
 }
 
 function getCash_Contribute_company(){
 	var currentSalary = parseFloat($('#txt-current-salary').val());
 	var percentCompany = parseFloat($('#txt-your-employer-percent').val());
-	var temp = (percentCompany*currentSalary)/12;
-	return parseFloat(temp);
+	var temp = ((percentCompany*currentSalary)/12)/100;
+	temp =  parseFloat(temp);
+	return round(temp);
 }
 function getPercent_Contribute_company(cashCompany,currentSalary){
 	var currentSalary = parseFloat($('#txt-current-salary').val());
 	var cashCompany = parseFloat($('#txt-your-employer').val());
 	var temp = (cashCompany/currentSalary)*12;
-	return parseFloat(temp);
+	temp =  parseFloat(temp);
+	return temp;
 }
 /*-----------------------------------------------------------------------------------*/
 /* tab results formula and value field */ 
 function getRisk_selection(){
-	var typeOfFound = $("input:radio[name=]:checked").val();
-	var temp = growthRate[typeofFound];
+	var temp = growthRate[$("input:radio[name='an-grow-percent']:checked").val()];
 	return parseFloat(temp);
 }
 
 function getTax_Free_Value(){
-	var retirementPot = getRetirementPot();
+	var retirementPot = parseFloat(getRetirementPot());
 	var taxFreePercent = getTax_free_Percent();
 	var temp1 = parseFloat(retirementPot*taxFreePercent);
 	var temp2 = parseFloat(LTA*(25/100));
-	if(temp1 > temp2){
-		return temp1;
+	console.log("temp1 : " + temp1 + " temp2 :"  + temp2)
+	if(temp1 <= temp2){
+		console.log("temp1 :" + temp1)
+		return round(temp1);
 	}else{
-		return temp2;
+		console.log("temp2 :"  + temp2)
+		return round(temp2);
 	}
 }
 function yourRetirementDate(){
@@ -81,34 +88,50 @@ function yourRetirementDate(){
 	var d = new Date();
 	var year = d.getFullYear();
 	var temp = parseInt(year) + parseInt(yearToRetirement);
-	return temp;
+	temp = parseFloat(temp);
+	return round(temp);
 }
 
 function getInterestOnPot(){
 	var temp = getRisk_selection()/100;
-	return parseFloat(temp);
+	temp = parseFloat(temp);
+	return temp;
 }
 
 function getRetirementPot(){
+	console.log("---------------------------");
 	var defer_compound = getDefer_compound();
+	console.log("defer_compound " +defer_compound);
 	var current_compound = getCurrent_compound();
+	console.log("current_compound " + current_compound);
 	var cashContribute = getCash_Contribute();
+	console.log("cashContribute " + cashContribute);
 	var cashContributeCompany = getCash_Contribute_company();
+	console.log("cashContributeCompany  : " + cashContributeCompany);
 	var yearToRetirement = getYearToRetirement();
+	console.log("yearToRetirement : " + yearToRetirement);
 	var interestOnPot = getInterestOnPot();
-	var oneOffLumpsum = $('#oneOffLumpSum').val();
-	var f1 = 12*(cashContribute + cashContributeCompany);
-	var f2 = (Math.pow((interestOnPot+1),(yearToRetirement+1)) -1)/interestOnPot;
-	var f3 =  12*(cashContribute + cashContributeCompany);
-	var finalFormula = f1 * f2 - f3 + oneOffLumpsum + current_compound + defer_compound;
-	return finalFormula;
+	console.log("interestOnPot : " + interestOnPot);
+	var oneOffLumpsum = parseFloat($('#oneOffLumpSum').val());
+	console.log("oneOffLumpsum : " + oneOffLumpsum);
+	var f1 = (parseFloat(cashContribute) + parseFloat(cashContributeCompany))*12;
+	console.log("f1 : " + parseFloat(f1));
+	var m1 =  parseFloat(interestOnPot)+1;
+	var m2 = parseInt(yearToRetirement+1);
+	var f2 = Math.pow(m1,m2);
+	f2 = (f2 - 1)/parseFloat(interestOnPot);
+	var finalFormula = f1 * f2 - f1 + oneOffLumpsum + parseFloat(current_compound) + parseFloat(defer_compound);
+	finalFormula = parseFloat(finalFormula);
+	console.log("getRetirementPot " + round(finalFormula));
+	return round(finalFormula);
 }
 
 function getPotMinus_taxFreeCash(){
-	var retirementPot = getRetirementPot();
-	var taxFreeValue = getTax_Free_Value();
+	var retirementPot = parseFloat(getRetirementPot());
+	var taxFreeValue = parseFloat(getTax_Free_Value());
 	var f1 = retirementPot - taxFreeValue;
-	return parseFloat(f1);
+	f1 = parseFloat(f1);
+	return round(f1);
 }
 
 function getAnnuity_rate(){
@@ -116,35 +139,41 @@ function getAnnuity_rate(){
 	var retirementAge = $('#age-to-retirement').slider().slider('value');
 	if(gender == male){
 		var temp = annuityMale[retirementAge];
-		return temp;
+		temp = parseFloat(temp);
+		return round(temp);
 	}else if(gender == female){
 		var temp = annuityFemale[retirementAge];
-		return temp;
+		temp =  parseFloat(temp);
+		return round(temp);
 	}
 }
 
 function getAnnuity_income(){
 	var potMinus_taxFreeCash = getPotMinus_taxFreeCash();
-	annuity_rate = getAnnuity_rate();
+	var annuity_rate = getAnnuity_rate();
 	var temp = (potMinus_taxFreeCash/100000) * annuity_rate;
-	return parseFloat(temp);
+	temp = parseFloat(temp);
+	return round(temp);
 }
 function getFinalSalaryScheme(){
 	var temp = parseFloat($('#txt-income-payable').val());
-	return temp;
+	temp = round(temp);
+	return parseFloat(temp);
 }
 
 function getForecastIncome(){
-	var annuity_income =  getAnnuity_income();
+	var annuity_income =  parseFloat(getAnnuity_income());
 	var salary_scheme = getFinalSalaryScheme();
 	var temp = annuity_income + salary_scheme;
-	return parseFloat(temp);
+	temp = parseFloat(temp);
+	console.log('getForecastIncome : ' + temp);
+	return round(temp);
 }
 
 function getForecast_percent_target(){
 	var forecastIncome = getForecastIncome();
 	var incomeYouWantTolive  = parseFloat($('#income-you-want').val());
-	var temp = forecastIncome/targetPension;
+	var temp = forecastIncome/incomeYouWantTolive;
 	return parseFloat(temp);
 }
 
