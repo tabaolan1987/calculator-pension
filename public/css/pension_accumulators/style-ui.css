@@ -286,6 +286,91 @@
     padding-left: 26px;
 }
 
+/*tab results*/
+#tab3 .row-rule{
+	border-top:none;
+	padding: 15px 0;
+}
+
+#year-retire,
+#age-retire{
+	font-weight:bold;
+}
+
+.total-result{
+	text-align:center;
+}
+
+.total-result-wrap{
+	border: 3px solid #06038d;
+    color: #06038d;
+    display: inline-block;
+    font-size: 19px;
+    padding: 7px 50px;
+}
+
+#pound-per-year{
+	font-weight:bold;
+}
+
+.result-note{
+	font-size:11px;
+	color:#797979;
+}
+
+.content-title{
+	color:#797979;
+	padding-left:25px;
+}
+
+.btn-note{
+	color: #797979;
+    font-size: 13px;
+}
+
+#btn-advanced{
+	display:inline-block;
+	color:#fff;
+	font-weight:bold;
+	background-color:#009fdf;
+	padding:5px 10px;
+	border-radius:5px;
+	margin-left:20px;
+}
+
+.label-percent{
+	display:inline-block;
+	padding-left:5px;
+}
+
+.modal .icon-tooltip{
+	background:url(../../images/pension_accumulators/icon-tooltip-hover.png) left center no-repeat;
+}
+
+.modal-value{
+	margin-left:50px;
+}
+
+.modal input[type="radio"]{
+    display:none;
+}
+
+.modal input[type="radio"] + label{
+    background:url(../../images/pension_accumulators/radio-popup.png) center bottom no-repeat;
+    height: 28px;
+    width: 26px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+}
+
+.modal input[type="radio"]:checked + label{
+    background:url(../../images/pension_accumulators/radio-popup-check.png) center bottom no-repeat;
+}
+
+#estimated-annual-modal .modal-body{
+	overflow:hidden;
+}
+
 /*next previous*/
 .tab-content .btnNext,
 .tab-content .btnPrevious{

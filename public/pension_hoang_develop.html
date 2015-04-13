@@ -21,14 +21,14 @@
 		<script type="text/javascript" src="js/pension_accumulators/jquery-ui-slider-pips.js"></script>
 	
    </head>
-   <body>
-      <div class="container-fluid" id="wrapper">
+<body>
+	<div class="container-fluid" id="wrapper">
 	  
-         <div class="row title">
-            <h3>Pension Calculator</h3>
-         </div><!--END .title-->
+        <div class="row title">
+			<h3>Pension Calculator</h3>
+        </div><!--END .title-->
 		 
-         <div class="row" id="content">
+        <div class="row" id="content">
 		 
             <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 left-content">
 				<ul class="nav nav-tabs">
@@ -132,7 +132,46 @@
 					
 					
 					<div class="tab-pane" id="tab3">
-						tab 333
+						<h3 class="tab-title">Your forecast income if you retire in <span id="year-retire">2037</span> at age <span id="age-retire">67</span> is:</h3>
+						<div class="total-result"><span class="total-result-wrap"><b>£</b><span id="pound-per-year">10,200</span> per year *</span></div>
+						<div class="total-result result-note">* This is the amount in addition to State Pension</div>
+						<div class="content-title">Change the values below to see the possible impact they may have.</div>
+						
+						<div class="row row-rule">
+							<div class="col-sm-8"><span class="icon-tooltip"></span><span class="label-tooltip">Personal monthly contributions</span></div>
+							<div class="col-sm-2 pound"><input type="text" class="form-control" placeholder=""/></div>
+							<div class="col-sm-2 percent"><input type="text" class="form-control" placeholder=""/></div>
+						</div>
+							
+						<div class="row row-rule">
+							<div class="col-sm-8"><span class="icon-tooltip"></span><span class="label-tooltip">Employer monthly contributions</span></div>
+							<div class="col-sm-2 pound"><input type="text" class="form-control" placeholder=""/></div>
+							<div class="col-sm-2 percent"><input type="text" class="form-control" placeholder=""/></div>
+						</div>
+						
+						<div class="row row-rule">
+							<div class="col-sm-10"><span class="icon-tooltip"></span><span class="label-tooltip">Make a one-off lump sum payment</span></div>
+							<div class="col-sm-2 pound"><input type="text" class="form-control" placeholder=""/></div>
+						</div>
+						
+						<div class="row row-rule">
+							<div class="col-sm-10"><span class="icon-tooltip"></span><span class="label-tooltip">Income you think you will want to to live on</span></div>
+							<div class="col-sm-2 pound"><input type="text" class="form-control" placeholder=""/></div>
+						</div>
+						
+						<div class="row row-rule">
+							<div class="col-sm-7"><span class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider">Retirement age</span></div>
+							<div class="col-sm-5"><div class="slider-age ui-slider"></div></div>
+						</div>
+						
+						<div class="row row-rule">
+							<div class="col-sm-7"><span class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider"> Percentage tax free cash?</span></div>
+							<div class="col-sm-5"><div class="slider-cash ui-slider"></div></div>
+						</div>
+						
+						<div class="row row-rule align-right">
+							<span class="btn-note">Click here to change your growth rate</span> <span id="btn-advanced" data-toggle="modal" data-target="#estimated-annual-modal">advanced</span>
+						</div>
 						
 						<a class="btn btn-primary btnNext">next</a>
 						<a class="btn btn-primary btnPrevious">back</a>
@@ -153,9 +192,30 @@
 				right content
             </div><!--END .right-content-->
 			
-         </div><!--END #content-->
+        </div><!--END #content-->
 		 
-      </div><!--END #wrapper-->
+    </div><!--END #wrapper-->
+	  
+	<div class="modal fade" id="estimated-annual-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header" style="border-bottom:0px">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+					<h4 class="modal-title" id="myModalLabel"></h4>
+				</div>
+				<div class="modal-body">
+					<div class="col-sm-12"><span class="icon-tooltip"></span><span class="label-tooltip">What is the estimated annual growth of your savings?</span></div>
+					<div class="col-sm-2 modal-value"><span class="label-percent">2%</span></div>
+					<div class="col-sm-2"><span class="label-percent">5%</span></div>
+					<div class="col-sm-2"><span class="label-percent">8%</span></div>
+					<div class="clearfix"></div>
+					<div class="col-sm-2 modal-value"><input type="radio" id="2-percent" name="percent"><label for="2-percent"></label></div>
+					<div class="col-sm-2"><input type="radio" id="5-percent" name="percent"><label for="5-percent"></label></div>
+					<div class="col-sm-2"><input type="radio" id="8-percent" name="percent"><label for="8-percent"></label></div>
+				</div>
+			</div>
+		</div>
+	</div>
 	
 	<script type="text/javascript">
 	$(document).ready(function(){
@@ -195,8 +255,37 @@
 			rest: "label",
 			step: 5,label: labelStage2
 		})                   
-		.slider("float");	
+		.slider("float");
+		
+		/*input slider age*/
+		var labelStageAge = ["55","60","65","70","75"];
+		$(".slider-age")                     
+		.slider({ 
+			min: 55, 
+			max: 75, 
+			step: 1 
+		})                  
+		.slider("pips", {
+			rest: "label",
+			step: 5,label: labelStageAge
+		})                   
+		.slider("float");
+	
+		/*input slider cash*/
+		var labelStageCash = ["0","5","10","15","20"];
+		$(".slider-cash")                     
+		.slider({ 
+			min: 0, 
+			max: 25, 
+			step: 1 
+		})                  
+		.slider("pips", {
+			rest: "label",
+			step: 5,label: labelStageCash
+		})                   
+		.slider("float");
+		
 	}); 
 	</script>
-   </body>
+</body>
 </html>
