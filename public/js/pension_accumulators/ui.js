@@ -47,16 +47,16 @@ function fallingCoin(index) {
         });
 }
 /*------------------------------------------------------*/
-/* there are functions handle UI of tabs About you */
+/* there are functions handle UI of tab About you */
 function drawSlideRetirementAge(){
 	var labelStage = ["55","60","65","70","75"];
-	$(".retirementAge").slider({min: 55,max: 75,step: 1,value:65}).slider("pips", {rest: "label",step: 5,
+	$("#age-to-retirement").slider({min: 55,max: 75,step: 1,value:65}).slider("pips", {rest: "label",step: 5,
 	label: labelStage}).slider("float");
 }
 
 function drawSlidePercentTaxFreeCash(){
 	var labelStage = ["0","5","10","15","20","25"];
-	$(".percentTaxFreeCast").slider({min: 0,max: 25,step: 1}).slider("pips", {rest: "label",step: 5,
+	$("#percent-tax-free").slider({min: 0,max: 25,step: 1}).slider("pips", {rest: "label",step: 5,
 	label: labelStage}).slider("float");
 }
 function drawSlideAboutYou(){
@@ -65,6 +65,25 @@ function drawSlideAboutYou(){
 }
 /*------------------------------------------------------------------*/
 
+/* there are functions handle UI of tab result*/
+function drawSlideResult(ageRetire,percentTaxFree){
+	var label = ["55","60","65","70","75"];
+	$("#age-to-retirement-result").slider({min: 55,max: 75,step: 1,value:ageRetire}).slider("pips", {rest: "label",step: 5,
+	label: label}).slider("float").on("slidechange", function(e,ui) {
+        $("#age-to-retirement").slider().slider('value',labelStage[ui.value]);
+    });
+	
+	var labelStage = ["0","5","10","15","20","25"];
+	$("#percent-tax-free-result").slider({min: 0,max: 25,step: 1,value:percentTaxFree}).slider("pips", {rest: "label",step: 5,
+	label: labelStage}).slider("float").on("slidechange", function(e,ui) {
+        $("#percent-tax-free").slider().slider('value',labelStage[ui.value]);
+    });
+}
+/*--------------------------------------------*/
+function drawSlide(){
+drawSlideAboutYou();
+drawSlideResult(65,0)
+}
 function showWarning(content){
 //will show warning.
 $('#warningModal').find('.modal-body').html(content);

@@ -2,6 +2,7 @@ function registerAction(){
 	registerHoverAction();
 	registerActionAboutYou();
 	registerActionSavingTab();
+	
 }
 /* this function handle the action hover the information image */
 function registerHoverAction(){
@@ -201,7 +202,7 @@ function registerActionSavingTab(){
 				hiddenBox1();
 			}else{
 				disableTabResult();
-				var nameWarning = $('#').attr('validate-message');
+				var nameWarning = $('#txt-deffered-pensions').attr('validate-message');
 				var content = warningArray[nameWarning];
 				showWarning(content);
 			}
@@ -218,7 +219,10 @@ function registerActionSavingTab(){
 		}
 	});
 	
+	calculatePersonalPay("txt-you-paying","txt-you-paying-percent");
+	calculateCompanyPay("txt-your-employer","txt-your-employer-percent");
 }
+
 
 function hiddenBox1(){
 	$('.box-monney-purchase').hide();
@@ -244,4 +248,91 @@ function isBox2Visible(){
 		return false;
 	}
 }
+
+function calculatePersonalPay(idCash,idPercent){
+	$('#'+idCash).on('blur',function(){
+		var percent = $('#'+idPercent).val();
+		if(percent == '' || typeof percent === 'undefined' || percent === null){
+			var currentSalary = parseFloat($('#txt-current-salary').val());
+			var valueCash = parseFloat($(this).val());
+			percent = getPercent_Contribute(valueCash,currentSalary);
+			percent = percent*100;
+			$('#'+idPercent).val(percent);
+		}
+	});
+	$('#'+idPercent).on('blur',function(){
+		var cash = $('#'+idCash).val();
+		if(cash == '' || typeof cash === 'undefined' || cash === null){
+			var currentSalary = parseFloat($('#txt-current-salary').val());
+			var percent = parseFloat($(this).val());
+			cash = getCash_Contribute(percent,currentSalary);
+			cash = cash*100;
+			$('#'+idCash).val(cash);
+		}
+	});
+}
+
+function calculateCompanyPay(idCash,idPercent){
+	$('#'+idCash).on('blur',function(){
+		var percent = $('#'+idPercent).val();
+		if(percent == '' || typeof percent === 'undefined' || percent === null){
+			var currentSalary = parseFloat($('#txt-current-salary').val());
+			var valueCash = parseFloat($(this).val());
+			percent = getPercent_Contribute(valueCash,currentSalary);
+			percent = percent*100;
+			$('#'+idPercent).val(percent);
+		}
+	});
+	$('#'+idPercent).on('blur',function(){
+		var cash = $('#'+idCash).val();
+		if(cash == '' || typeof cash === 'undefined' || cash === null){
+			var currentSalary = parseFloat($('#txt-current-salary').val());
+			var percent = parseFloat($(this).val());
+			cash = getCash_Contribute(percent,currentSalary);
+			percent = percent*100;
+			$('#'+idCash).val(cash);
+		}
+	});
+}
+/*-----------------------------------------------------------------*/
+
+
+/* this is action for tab results */
+function registerActionResultTab(){
+	$('a[href="#tab3"]').on('shown.bs.tab', function (e) {
+		setupMessage();
+		setupForecastIncomeMessage();
+	});
+}
+
+
+function setupMessage(){
+	var yourRetirementDate = yourRetirementDate();
+	$('#').html(yourRetirementDate);
+	var retirementAge = $('#age-to-retirement').slider().slider('value');
+	$('#').html(retirementAge);
+}
+function setupForecastIncomeMessage(){
+	var forceCash = getForecastIncome();
+	$('#').html(forceCash);
+	
+}
+
+
+function setTextToTextField(){
+	var cashContribute = getCash_Contribute();
+	var ContributePercent = getPercent_Contribute();
+	$('#').val(cashContribute);
+	$('#').val(cashContributePercent);
+	
+	var cashContriCompany = getCash_Contribute_company();
+	var percentContriConpany = getPercent_Contribute_company();
+	$('#').val(cashContriCompany);
+	$('#').val(percentContriConpany);
+}
+
+function setAutoUpdateTextField(){
+
+}
+
 

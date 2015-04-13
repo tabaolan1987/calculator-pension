@@ -66,7 +66,7 @@
 						
 						<div class="row row-rule">
 							<div class="col-sm-7"><span id="tax-free-cash" class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider">What percentage of your pension pot would you like to take add tax free cash?</span></div>
-							<div class="col-sm-5"><div class="percentTaxFreeCast ui-slider"></div></div>
+							<div class="col-sm-5"><div id="percent-tax-free" class="percentTaxFreeCast ui-slider"></div></div>
 						</div>
 						<a id='nextAboutYou' class="btn btn-primary btnNext">next</a>
 					</div>
@@ -163,7 +163,7 @@
 		$(document).ready(function(){
 			setupData();
 			registerAction();
-			drawSlideAboutYou();
+			drawSlide();
 		});
 	  
 	  </script>
