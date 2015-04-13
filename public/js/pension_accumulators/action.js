@@ -326,12 +326,12 @@ function setTextToTextField(){
 	var cashContribute = getCash_Contribute();
 	var ContributePercent = getPercent_Contribute();
 	$('#txt-you-paying-result').val(cashContribute);
-	$('#txt-you-paying-percent-result').val(ContributePercent);
+	$('#txt-you-paying-percent-result').val(ContributePercent*100);
 	
 	var cashContriCompany = getCash_Contribute_company();
 	var percentContriConpany = getPercent_Contribute_company();
 	$('#txt-your-employer-result').val(cashContriCompany);
-	$('#txt-your-employer-percent-result').val(percentContriConpany);
+	$('#txt-your-employer-percent-result').val(percentContriConpany*100);
 	
 	var targetPension = $('#txt-target-pensions').val();
 	$('#txt-target-pensions-result').val(targetPension);
