@@ -10,6 +10,11 @@
 	border:3px dotted #ddd;
 }
 
+a,
+a:focus{
+   outline: 0;
+}
+
 /*class style important*/
 .border-none{
 	border:none !important;
@@ -336,6 +341,7 @@
 	padding:5px 10px;
 	border-radius:5px;
 	margin-left:20px;
+	font-size:14px;
 }
 
 .label-percent{
@@ -369,6 +375,52 @@
 
 #estimated-annual-modal .modal-body{
 	overflow:hidden;
+}
+
+/*tab summary*/
+#wrap-tab{
+	border: 3px solid #06038d;
+	margin:10px 0;
+	padding:10px;
+}
+
+#wrap-tab .tab-title{
+	padding-left:0;
+}
+
+#wrap-tab  div{
+	color: #797979;
+    font-size: 17px;
+}
+
+#wrap-tab p,
+#wrap-tab ul li{
+	color: #797979;
+    font-size: 14px;
+}
+
+#wrap-tab ul{
+	padding:0;
+}
+
+#wrap-tab ul li{
+	margin: 0 0 0 50px;
+}
+
+#wrap-tab .li-heading{
+	list-style:none;
+	margin:10px 0 0;
+}
+
+#wrap-tab .p-color{
+	color:#06038d;
+	font-weight:bold;
+}
+
+#wrap-tab a{
+	color:#06038d;
+	font-weight:bold;
+	text-decoration:underline;
 }
 
 /*next previous*/
