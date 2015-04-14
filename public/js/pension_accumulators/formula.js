@@ -195,7 +195,7 @@ function getShortFall(){
 function getCoinBlue(forecastIncome,targetPension){
 	var percent = (forecastIncome/targetPension)*100;
 	console.log(percent);
-	var coin = percent;
+	var coin = round(percent);
 	coin = coin/coinPercent;
 	console.log(coin);
 	return round(coin);

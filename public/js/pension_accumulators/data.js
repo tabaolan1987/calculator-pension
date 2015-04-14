@@ -101,7 +101,33 @@ $.ajax({
         }
     });
 }
-
+function drawGrowRate(xml){
+	 var index = 0;
+	 var html ="";
+	 $(xml).find('rate').each(function() {
+		index++;
+		var value = $(this).attr('value');
+		if(index == 1){
+			html = "<div class='col-sm-2 modal-value'><span class='label-percent'>"+value+"%</span></div>";
+		}else{
+			html = html + "<div class='col-sm-2'><span class='label-percent'>"+value+"%</span></div>";
+		}
+	 });
+	 html = html + "<div class='clearfix'></div>";
+	 index = 0;
+	 $(xml).find('rate').each(function() {
+		index++;
+		var value = $(this).attr('value');
+		var checked = $(this).attr('default');
+		if(index == 1){
+			html = html + "<div class='col-sm-2 modal-value'><input type='radio' value='"+value+"' id='"+value+"-percent' "+checked+" name='an-grow-percent'><label for='"+value+"-percent'></label></div>";
+		}else{
+			html = html + "<div class='col-sm-2'><input type='radio' value='"+value+"' id='"+value+"-percent' "+checked+" name='an-grow-percent'><label for='"+value+"-percent'></label></div>";
+		}
+	 });
+	 
+	 $('#estimated-annual-modal').find('.modal-body').append(html);
+}
 function loadGrowthRate(){
 $.ajax({
         type: "GET",
@@ -115,6 +141,7 @@ $.ajax({
 				var deduct_inflation_rate = ((parseFloat(value)*100)/100) - parseFloat(inflation_rate);
 				growthRate[value] = deduct_inflation_rate;
             });
+			drawGrowRate(xml);
             console.log("load xml: "  +  xml +" already! ");
         },
         error: function() {
