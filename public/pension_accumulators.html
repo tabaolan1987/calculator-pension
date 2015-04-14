@@ -13,11 +13,12 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/pension_accumulators/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/pension_accumulators/jquery-ui-slider-pips.js"></script>
 		<script type="text/javascript" src="js/pension_accumulators/data.js"></script>
 		<script type="text/javascript" src="js/pension_accumulators/formula.js"></script>
 		<script type="text/javascript" src="js/pension_accumulators/action.js"></script>
 		<script type="text/javascript" src="js/pension_accumulators/ui.js"></script>
-		<script type="text/javascript" src="js/pension_accumulators/jquery-ui-slider-pips.js"></script>
+		
 	
    </head>
    <body>
@@ -66,7 +67,7 @@
 						
 						<div class="row row-rule">
 							<div class="col-sm-7"><span id="tax-free-cash" class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider">What percentage of your pension pot would you like to take add tax free cash?</span></div>
-							<div class="col-sm-5"><div class="percentTaxFreeCast ui-slider"></div></div>
+							<div class="col-sm-5"><div id="percent-tax-free" class="percentTaxFreeCast ui-slider"></div></div>
 						</div>
 						<a id='nextAboutYou' class="btn btn-primary btnNext">next</a>
 					</div>
@@ -124,9 +125,49 @@
 						<a id="backSavings" class="btn btn-primary btnPrevious">back</a>
 					</div>
 					<div class="tab-pane" id="tab3">
-						tab 333333333333
+						<h3 class="tab-title">Your forecast income if you retire in <span id="year-retire">2037</span> at age <span id="age-retire">67</span> is:</h3>
+						<div class="total-result"><span class="total-result-wrap"><b>£</b><span id="pound-per-year"></span> per year *</span></div>
+						<div class="total-result result-note">* This is the amount in addition to State Pension</div>
+						<div class="content-title">Change the values below to see the possible impact they may have.</div>
+						
+						<div class="row row-rule">
+							<div class="col-sm-8"><span class="icon-tooltip"></span><span class="label-tooltip">Personal monthly contributions</span></div>
+							<div class="col-sm-2 pound"><input id="txt-you-paying-result" type="text" class="form-control" placeholder=""/></div>
+							<div class="col-sm-2 percent"><input id="txt-you-paying-percent-result" type="text" class="form-control" placeholder=""/></div>
+						</div>
+							
+						<div class="row row-rule">
+							<div class="col-sm-8"><span class="icon-tooltip"></span><span class="label-tooltip">Employer monthly contributions</span></div>
+							<div class="col-sm-2 pound"><input id="txt-your-employer-result" type="text" class="form-control" placeholder=""/></div>
+							<div class="col-sm-2 percent"><input id="txt-your-employer-percent-result" type="text" class="form-control" placeholder=""/></div>
+						</div>
+						
+						<div class="row row-rule">
+							<div class="col-sm-10"><span class="icon-tooltip"></span><span class="label-tooltip">Make a one-off lump sum payment</span></div>
+							<div class="col-sm-2 pound"><input id="oneOffLumpSum" type="text" value=0 class="form-control" placeholder=""/></div>
+						</div>
+						
+						<div class="row row-rule">
+							<div class="col-sm-10"><span class="icon-tooltip"></span><span class="label-tooltip">Income you think you will want to to live on</span></div>
+							<div class="col-sm-2 pound"><input id="txt-target-pensions-result" type="text" class="form-control" placeholder=""/></div>
+						</div>
+						
+						<div class="row row-rule">
+							<div class="col-sm-7"><span class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider">Retirement age</span></div>
+							<div class="col-sm-5"><div id="age-to-retirement-result" class="slider-age ui-slider"></div></div>
+						</div>
+						
+						<div class="row row-rule">
+							<div class="col-sm-7"><span class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider"> Percentage tax free cash?</span></div>
+							<div class="col-sm-5"><div id="percent-tax-free-result" class="slider-cash ui-slider"></div></div>
+						</div>
+						
+						<div class="row row-rule align-right">
+							<span class="btn-note">Click here to change your growth rate</span> <span id="btn-advanced" data-toggle="modal" data-target="#estimated-annual-modal">advanced</span>
+						</div>
+						
 						<a class="btn btn-primary btnNext">next</a>
-						<a class="btn btn-primary btnPrevious">previous</a>
+						<a class="btn btn-primary btnPrevious">back</a>
 					</div>
 					<div class="tab-pane" id="tab4">
 						tab 44444
@@ -159,11 +200,31 @@
 				</div>
 			  </div>
 	</div>
+	<div class="modal fade" id="estimated-annual-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header" style="border-bottom:0px">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+					<h4 class="modal-title" id="myModalLabel"></h4>
+				</div>
+				<div class="modal-body">
+					<div class="col-sm-12"><span class="icon-tooltip"></span><span class="label-tooltip">What is the estimated annual growth of your savings?</span></div>
+					<div class="col-sm-2 modal-value"><span class="label-percent">2%</span></div>
+					<div class="col-sm-2"><span class="label-percent">5%</span></div>
+					<div class="col-sm-2"><span class="label-percent">8%</span></div>
+					<div class="clearfix"></div>
+					<div class="col-sm-2 modal-value"><input type="radio" value="2" id="2-percent" name="an-grow-percent"><label for="2-percent"></label></div>
+					<div class="col-sm-2"><input type="radio" id="5-percent" checked value="5" name="an-grow-percent"><label for="5-percent"></label></div>
+					<div class="col-sm-2"><input type="radio" id="8-percent" value="8" name="an-grow-percent"><label for="8-percent"></label></div>
+				</div>
+			</div>
+		</div>
+	</div>
 	  <script type="text/javascript" >
 		$(document).ready(function(){
 			setupData();
 			registerAction();
-			drawSlideAboutYou();
+			drawSlide();
 		});
 	  
 	  </script>
