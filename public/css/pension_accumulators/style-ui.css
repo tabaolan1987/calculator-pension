@@ -339,7 +339,7 @@ a:focus{
 	color:#fff;
 	font-weight:bold;
 	background-color:#009fdf;
-	padding:5px 10px;
+	padding:3px 10px;
 	border-radius:5px;
 	margin-left:20px;
 	font-size:14px;
@@ -426,7 +426,8 @@ a:focus{
 
 /*next previous*/
 .tab-content .btnNext,
-.tab-content .btnPrevious{
+.tab-content .btnPrevious,
+.btn-print{
 	position:absolute;
 	bottom:10px;
 	background-color: #06038d;
@@ -443,7 +444,8 @@ a:focus{
 	background-color:#428bca;
 }
 
-.tab-content .btnNext{
+.tab-content .btnNext,
+.btn-print{
 	right:28px;
 }
 
