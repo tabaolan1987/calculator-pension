@@ -131,34 +131,34 @@
 						<div class="content-title">Change the values below to see the possible impact they may have.</div>
 						
 						<div class="row row-rule">
-							<div class="col-sm-8"><span class="icon-tooltip"></span><span class="label-tooltip">Personal monthly contributions</span></div>
+							<div class="col-sm-8"><span id="you-paying-result" class="icon-tooltip"></span><span class="label-tooltip">Personal monthly contributions</span></div>
 							<div class="col-sm-2 pound"><input id="txt-you-paying-result" type="text" class="form-control" placeholder=""/></div>
 							<div class="col-sm-2 percent"><input id="txt-you-paying-percent-result" type="text" class="form-control" placeholder=""/></div>
 						</div>
 							
 						<div class="row row-rule">
-							<div class="col-sm-8"><span class="icon-tooltip"></span><span class="label-tooltip">Employer monthly contributions</span></div>
+							<div class="col-sm-8"><span id="your-employer-result" class="icon-tooltip"></span><span class="label-tooltip">Employer monthly contributions</span></div>
 							<div class="col-sm-2 pound"><input id="txt-your-employer-result" type="text" class="form-control" placeholder=""/></div>
 							<div class="col-sm-2 percent"><input id="txt-your-employer-percent-result" type="text" class="form-control" placeholder=""/></div>
 						</div>
 						
 						<div class="row row-rule">
-							<div class="col-sm-10"><span class="icon-tooltip"></span><span class="label-tooltip">Make a one-off lump sum payment</span></div>
+							<div class="col-sm-10"><span id="one-off-lump" class="icon-tooltip"></span><span class="label-tooltip">Make a one-off lump sum payment</span></div>
 							<div class="col-sm-2 pound"><input id="oneOffLumpSum" type="text" value=0 class="form-control" placeholder=""/></div>
 						</div>
 						
 						<div class="row row-rule">
-							<div class="col-sm-10"><span class="icon-tooltip"></span><span class="label-tooltip">Income you think you will want to to live on</span></div>
+							<div class="col-sm-10"><span id="target-pension-result" class="icon-tooltip"></span><span class="label-tooltip">Income you think you will want to to live on</span></div>
 							<div class="col-sm-2 pound"><input id="txt-target-pensions-result" type="text" class="form-control" placeholder=""/></div>
 						</div>
 						
 						<div class="row row-rule">
-							<div class="col-sm-7"><span class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider">Retirement age</span></div>
+							<div class="col-sm-7"><span id="age-retirement-result" class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider">Retirement age</span></div>
 							<div class="col-sm-5"><div id="age-to-retirement-result" class="slider-age ui-slider"></div></div>
 						</div>
 						
 						<div class="row row-rule">
-							<div class="col-sm-7"><span class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider"> Percentage tax free cash?</span></div>
+							<div class="col-sm-7"><span id="tax-free-cash-result" class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider"> Percentage tax free cash?</span></div>
 							<div class="col-sm-5"><div id="percent-tax-free-result" class="slider-cash ui-slider"></div></div>
 						</div>
 						
@@ -183,6 +183,7 @@
 			
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 right-content">
 				right content
+				<div id="container-coin"></div>
             </div><!--END .right-content-->
 			
          </div><!--END #content-->
