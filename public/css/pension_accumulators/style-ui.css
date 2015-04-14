@@ -529,7 +529,7 @@ a:focus{
 .coinRed{
 	background: url(../../images/pension_accumulators/coin_red_horiontal_crop.png) top no-repeat;
 	width: 114px;
-	height: 39px;
+	height: 50px;
 	position:absolute;
 	display:none;
 }
@@ -537,7 +537,7 @@ a:focus{
 .coinBlue{
 	background: url(../../images/pension_accumulators/coin_blue_horizontal_crop.png) top no-repeat;
 	width: 114px;
-	height: 39px;
+	height: 50px;
 	position:absolute;
 	display:none;
 }
