@@ -3,6 +3,7 @@ function registerAction(){
 	registerActionAboutYou();
 	registerActionSavingTab();
 	registerActionResultTab();
+	registerActionSummaryTab();
 	
 }
 /* this function handle the action hover the information image */
@@ -294,7 +295,6 @@ function calculateCompanyPay(){
 /* this is action for tab results */
 function registerActionResultTab(){
 	$('a[id="results"]').on('shown.bs.tab', function (e) {
-		setupMessage();
 		eneabledSummary()
 		setTextToTextField();
 		drawChart();
@@ -320,8 +320,7 @@ function setupMessage(){
 	$('#year-retire').html(yRD);
 	var rA = $('#age-to-retirement').slider().slider('value');
 	$('#age-retire').html(rA);
-	var forceCash = getForecastIncome();
-	forceCash = Number(forceCash).toLocaleString('en').split('.')[0];
+	var forceCash = Number(getForecastIncome()).toLocaleString('en').split('.')[0];
 	$('#pound-per-year').html(forceCash);
 }
 
@@ -345,8 +344,6 @@ function setTextToTextField(){
 	
 	var targetPension = $('#txt-target-pensions').val();
 	$('#txt-target-pensions-result').val(targetPension);
-	
-	//$('#oneOffLumpSum').val(0);
 }
 
 function disableTxtField(){
@@ -431,15 +428,55 @@ function drawChart(){
 	$('.bot-arrow').hide();
 	setupMessage();
 	var forceCashIncome = getForecastIncome();
-	var shortFall = getShortFall();
 	var targetPension = $('#txt-target-pensions').val();
 	var coinBlue = getCoinBlue(forceCashIncome,targetPension);
 	console.log(coinBlue);
 	var coinRed = getCoinRed(coinBlue);
-	console.log("targetPension " + Number(targetPension).toLocaleString('en').split('.')[0]);
 	$('.pound-annual-income').html(Number(targetPension).toLocaleString('en').split('.')[0]);
 	//prepare for setup coin
 	setupCoin(coinBlue,coinRed);
 	fallingCoin(1);
 }
 /*------------------------------------------------------------------*/
+function registerActionSummaryTab(){
+	$('a[id="summary"]').on('shown.bs.tab', function (e) {
+		setupMessageSummary();
+	});
+}
+function setupMessageSummary(){
+	var forceCashIncome = getForecastIncome();
+	var targetPension =  $('#txt-target-pensions').val();
+	var percent_income = getForecast_percent_target();
+	percent_income = parseFloat(percent_income)*100;
+	if(targetPension >= forceCashIncome){
+		var shorFall = getShortFall();
+		$('.pound-normal-title').html(Number(shorFall).toLocaleString('en').split('.')[0]);
+		showNormal();
+	}else{
+		var excess = forceCashIncome - targetPension;
+		$('.pound-excess-title').html(Number(excess).toLocaleString('en').split('.')[0]);
+		showExcess();
+	}
+	$('.pound-wanted').html(Number(targetPension).toLocaleString('en').split('.')[0]);
+	$('.pound-forecast').html(Number(forceCashIncome).toLocaleString('en').split('.')[0]);
+	$('.percent-target').html(round(percent_income));
+	
+}
+
+function showNormal(){
+	$('.excess-title').each(function(){
+		$(this).hide();
+	});
+	$('.normal-title').each(function(){
+		$(this).show();
+	});
+}
+
+function showExcess(){
+	$('.excess-title').each(function(){
+		$(this).show();
+	});
+	$('.normal-title').each(function(){
+		$(this).hide();
+	});
+}
