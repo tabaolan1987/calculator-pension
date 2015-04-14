@@ -22,7 +22,7 @@
 	
    </head>
    <body>
-      <div class="container-fluid" id="wrapper">
+    <div class="container-fluid" id="wrapper">
          <div class="row title">
             <h3>Pension Calculator</h3>
          </div><!--END .title-->
@@ -210,27 +210,34 @@
             </div><!--END .left-content-->
 			
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 right-content">
-				<div class="row">
-					<h3>Your required annual income <br/> &nbsp;&nbsp;&nbsp; <b>£</b><b class="pound-annual-income">50,000</b></h3>
-					<div id="coin-container" class="col-sm-5 align-center">
-						<img src="images/pension_accumulators/col-coin.png" alt="" title="" />
-					</div>
-					<div class="col-sm-7 align-center">
-						<div class="top-arrow">
-							<div class="arrow-top"></div>
-							<div class="arrow-mid">Shortfall </br> <span style="color:#da291c;">£</span><span class="pound-shortfall">39,800</span></div>
-							<div class="arrow-bot"></div>
+            	<div class="draw-chart-default align-center" style="display:none;">
+            		<img src="images/pension_accumulators/pile_of_coins_grey.gif" alt="" title="" />
+            	</div>
+
+            	<div class="draw-chart" >
+					<div class="row">
+						<h3>Your required annual income <br/> &nbsp;&nbsp;&nbsp; <b>£</b><b class="pound-annual-income">50,000</b></h3>
+						<div id="coin-container" class="col-sm-5 align-center">
+							<img src="images/pension_accumulators/col-coin.png" alt="" title="" />
 						</div>
-						<div class="bot-arrow">Pension <br/> £<span class="pound-income-inform">39,800</span></div>
+						<div class="col-sm-7 align-center">
+							<div class="top-arrow">
+								<div class="arrow-top"></div>
+								<div class="arrow-mid">Shortfall </br> <span style="color:#da291c;">£</span><span class="pound-shortfall">39,800</span></div>
+								<div class="arrow-bot"></div>
+							</div>
+							<div class="bot-arrow">Pension <br/> £<span class="pound-income-inform">39,800</span></div>
+						</div>
 					</div>
-				</div>
-				
-				<a class="btn btn-primary btn-print">print</a>
+					
+					<a class="btn btn-primary btn-print">print</a>
+			 	</div>
             </div><!--END .right-content-->
 			
          </div><!--END #content-->
 		 
-      </div><!--END #wrapper-->
+    </div><!--END #wrapper-->
+
 	<div class="modal fade" id="warningModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			  <div class="modal-dialog">
 				<div class="modal-content">
