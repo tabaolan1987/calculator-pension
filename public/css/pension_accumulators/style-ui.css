@@ -463,6 +463,7 @@ a:focus{
 
 .top-arrow{
 	text-align: center;
+	display:none;
 }
 
 .arrow-top{
@@ -479,6 +480,7 @@ a:focus{
 	vertical-align: middle;
 	font-weight: bold;
 	color: #0f0d8f;
+	display:table-cell;
 }
 
 .arrow-bot{
@@ -500,4 +502,26 @@ a:focus{
 	display: table-cell;
 	font-size: 17px;
 	color: #0f0d8f;
+	display:none;
+	
+}
+
+.coinRed{
+	background: url(../../images/pension_accumulators/coin_red_horiontal_crop.png) top no-repeat;
+	width: 114px;
+	height: 39px;
+	position:absolute;
+	display:none;
+}
+
+.coinBlue{
+	background: url(../../images/pension_accumulators/coin_blue_horizontal_crop.png) top no-repeat;
+	width: 114px;
+	height: 39px;
+	position:absolute;
+	display:none;
+}
+
+#coin-container{
+	height : 390px;
 }

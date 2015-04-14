@@ -400,7 +400,8 @@ function drawChart(){
 	var coinBlue = getCoinBlue(forceCashIncome,targetPension);
 	console.log(coinBlue);
 	var coinRed = getCoinRed(coinBlue);
-	console.log(coinRed);
+	console.log(Number(targetPension).toLocaleString('en').split('.')[0]);
+	$('.pound-annual-income').html(Number(targetPension).toLocaleString('en').split('.')[0]);
 	//prepare for setup coin
 	setupCoin(coinBlue,coinRed);
 	fallingCoin(1);

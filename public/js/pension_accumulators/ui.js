@@ -22,7 +22,11 @@ $.fn.animateRotate = function(angle, top, duration, easing, complete) {
 };
 
 function setupCoin(coinBlue,coinRed){
-	var html = "<div class='coinBlue' id='coin1'></div>";
+	if(coinBlue > 0){
+		var html = "<div class='coinBlue' id='coin1'></div>";
+	}else{
+		var html = "<div class='coinRed' id='coin1'></div>";
+	}
 	for(var i = 2 ; i <= totalCoin ;i++){
 		if(i > coinBlue){
 			html = html + "<div class='coinRed' id='coin"+i+"'></div>";
@@ -30,12 +34,13 @@ function setupCoin(coinBlue,coinRed){
 			html = html + "<div class='coinBlue' id='coin"+i+"'></div>";
 		}	
 	}
-	$('#container-coin').html(html);
+	$('#coin-container').html(html);
 }
 function fallingCoin(index) {
 		var coin = "#coin"+index;
         $(coin).show();
-        var heightContainer = $('#container-coin').height() - 25;
+        var heightContainer = $('#coin-container').height() - 25;
+		console.log('heightContainer :' + heightContainer);
         var heightImage = $(coin).height() / 2 - 5;
         var moveToBottom = heightContainer - (heightImage * index);
         var angle = 70 * (index % 2 === 0 ? 1 : -1);
@@ -43,9 +48,37 @@ function fallingCoin(index) {
             if (index < totalCoin) {
                 index = index + 1;
                 fallingCoin(index);
-            }
+            }else{
+				//set visible and height
+				setHeightDiv();
+			}
         });
 }
+
+function setHeightDiv(){
+	var forceCashIncome = getForecastIncome();
+	var shortFall = getShortFall();
+	var targetPension = $('#txt-target-pensions').val();
+	var coinBlue = getCoinBlue(forceCashIncome,targetPension);
+	var coinRed = getCoinRed(coinBlue);
+	var heighTotalRed = (coinRed * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
+	var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
+	$('.arrow-mid').css('height',heightMidInform);
+	$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0]);
+	$('.top-arrow').css('display','block');
+	$('.pound-income-inform').html(Number(forceCashIncome).toLocaleString('en').split('.')[0]);
+	if(coinBlue > 5){
+		var hieghtBlueDiv = ($('#coin-container').height() - 25 - heighTotalRed)/2 - $('.bot-arrow').height()/2;
+		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
+		$('.bot-arrow').css('padding-top',hieghtBlueDiv);
+		$('.bot-arrow').show();
+	}
+	
+	
+	
+}
+
+
 /*------------------------------------------------------*/
 /* there are functions handle UI of tab About you */
 function drawSlideRetirementAge(){
