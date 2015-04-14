@@ -231,7 +231,7 @@
 						</div>
 					</div>
 					
-					<a class="btn btn-primary btn-print">print</a>
+					<a class="btn btn-primary btn-print" onclick="PrintElement('#box-print')" >print</a>
 			 	</div>
             </div><!--END .right-content-->
 			
@@ -264,13 +264,57 @@
 			</div>
 		</div>
 	</div>
+
+	<div id="box-print" style="display:none;">
+			<h4 id="caveat-title">Caveat Title</h4>
+			<div id="caveat-content">
+				<p>The aim of this calculator is to give you an indication of how much you need to contribute to a pension and what you might get as a retirement income. The calculator should not be regarded as personal advice. If you are at all unsure, please contact us for advice.</p>
+				<p>The figures are a guide and not guaranteed. Your final pension fund and the income available will depend on factors including the growth your fund achieves, contributions you make in future, charges, inflation, your retirement age, annuity rates at the time and the annuity options you choose.</p>
+			</div>
+			<h4 id="example-title">Example Title</h4>
+			<div id="example-content">
+				<p>Investment returns are not guaranteed and could be more or less than those used here. Past performance is not a guide to future returns. The value of investments can fall as well as rise, so you may get back less than you invest.</p>
+			</div>
+			<div id="result-box" style="border: 2px dotted #ddd;padding: 10px;">
+				<p>State pension is not included in these calculations.</p>
+				<h4>Your results:</h4>
+				<p>Your chosen target income is <b>£</b><b class="pound-target-income">50,000</b> each year when you retire at age <b class="retire-age">67</b>.</p>
+				<p>Your chosen tax free cash amount is <b>£</b><b class="pound-cash-amount">85,694</b> (<b class="percent-cash-amount">25</b>%).</p>
+				<p>Your future pension payments and any existing pensions you have included will will provide an income of <b>£</b><b class="pound-income">10,200</b> a year from age <b class="retire-age">67</b></p>
+				<p>You have a shortfall of <b>£</b><b class="pound-short-fall">39,800</b> per year.</p>
+			</div>
+	</div>
+
 	  <script type="text/javascript" >
 		$(document).ready(function(){
 			setupData();
 			registerAction();
 			drawSlide();
 		});
-	  
+	  	
+
+	  	    function PrintElement(element)
+		    {
+		        Popup($(element).html());
+		    }
+
+		    function Popup(data) 
+		    {
+		        var mywindow = window.open('', 'Summary', 'height=400,width=600');
+		        mywindow.document.write('<html><head><title>Summary</title>');
+		        /*optional stylesheet*/ //mywindow.document.write('<link rel="stylesheet" href="main.css" type="text/css" />');
+		        mywindow.document.write('</head><body >');
+		        mywindow.document.write(data);
+		        mywindow.document.write('</body></html>');
+
+		        mywindow.document.close(); // necessary for IE >= 10
+		        mywindow.focus(); // necessary for IE >= 10
+
+		        mywindow.print();
+		        mywindow.close();
+
+		        return true;
+		    }
 	  </script>
    </body>
 </html>
