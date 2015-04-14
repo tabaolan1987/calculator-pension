@@ -24,7 +24,7 @@ function getDefer_compound(){
 }
 function getCurrent_compound(){
 	var totalCurrentFund = parseFloat($('#txt-current-pensions').val());
-	console.log(totalCurrentFund);
+	//console.log(totalCurrentFund);
 	var interRestOnPot = getInterestOnPot();
 	var yearToRetirement = getYearToRetirement();
 	var temp = totalCurrentFund * Math.pow((1 + interRestOnPot/1),yearToRetirement);
@@ -34,11 +34,11 @@ function getCurrent_compound(){
 
 function getCash_Contribute(){
 	var currentSalary = parseFloat($('#txt-current-salary').val());
-	console.log("currentSalary " + currentSalary);
+	////console.log("currentSalary " + currentSalary);
 	var percentPaying = parseFloat($('#txt-you-paying-percent').val());
-	console.log("percentPaying " + percentPaying);
+	////console.log("percentPaying " + percentPaying);
 	var temp = ((percentPaying*currentSalary)/12)/100;
-	console.log("cash  " + temp);
+	////console.log("cash  " + temp);
 	temp =  parseFloat(temp);
 	return round(temp);
 }
@@ -77,12 +77,12 @@ function getTax_Free_Value(){
 	var taxFreePercent = getTax_free_Percent();
 	var temp1 = parseFloat(retirementPot*taxFreePercent);
 	var temp2 = parseFloat(LTA*(25/100));
-	console.log("temp1 : " + temp1 + " temp2 :"  + temp2)
+	////console.log("temp1 : " + temp1 + " temp2 :"  + temp2)
 	if(temp1 <= temp2){
-		console.log("temp1 :" + temp1)
+		//console.log("temp1 :" + temp1)
 		return round(temp1);
 	}else{
-		console.log("temp2 :"  + temp2)
+		//console.log("temp2 :"  + temp2)
 		return round(temp2);
 	}
 }
@@ -102,30 +102,30 @@ function getInterestOnPot(){
 }
 
 function getRetirementPot(){
-	console.log("---------------------------");
+	////console.log("---------------------------");
 	var defer_compound = getDefer_compound();
-	console.log("defer_compound " +defer_compound);
+	////console.log("defer_compound " +defer_compound);
 	var current_compound = getCurrent_compound();
-	console.log("current_compound " + current_compound);
+	////console.log("current_compound " + current_compound);
 	var cashContribute = getCash_Contribute();
-	console.log("cashContribute " + cashContribute);
+	////console.log("cashContribute " + cashContribute);
 	var cashContributeCompany = getCash_Contribute_company();
-	console.log("cashContributeCompany  : " + cashContributeCompany);
+	////console.log("cashContributeCompany  : " + cashContributeCompany);
 	var yearToRetirement = getYearToRetirement();
-	console.log("yearToRetirement : " + yearToRetirement);
+	////console.log("yearToRetirement : " + yearToRetirement);
 	var interestOnPot = getInterestOnPot();
-	console.log("interestOnPot : " + interestOnPot);
+	////console.log("interestOnPot : " + interestOnPot);
 	var oneOffLumpsum = parseFloat($('#oneOffLumpSum').val());
-	console.log("oneOffLumpsum : " + oneOffLumpsum);
+	////console.log("oneOffLumpsum : " + oneOffLumpsum);
 	var f1 = (parseFloat(cashContribute) + parseFloat(cashContributeCompany))*12;
-	console.log("f1 : " + parseFloat(f1));
+	//////console.log("f1 : " + parseFloat(f1));
 	var m1 =  parseFloat(interestOnPot)+1;
 	var m2 = parseInt(yearToRetirement+1);
 	var f2 = Math.pow(m1,m2);
 	f2 = (f2 - 1)/parseFloat(interestOnPot);
 	var finalFormula = f1 * f2 - f1 + oneOffLumpsum + parseFloat(current_compound) + parseFloat(defer_compound);
 	finalFormula = parseFloat(finalFormula);
-	console.log("getRetirementPot " + round(finalFormula));
+	////console.log("getRetirementPot " + round(finalFormula));
 	return round(finalFormula);
 }
 
@@ -169,7 +169,7 @@ function getForecastIncome(){
 	var salary_scheme = getFinalSalaryScheme();
 	var temp = annuity_income + salary_scheme;
 	temp = parseFloat(temp);
-	console.log('getForecastIncome : ' + temp);
+	////console.log('getForecastIncome : ' + temp);
 	return round(temp);
 }
 
@@ -194,10 +194,10 @@ function getShortFall(){
 
 function getCoinBlue(forecastIncome,targetPension){
 	var percent = (forecastIncome/targetPension)*100;
-	console.log(percent);
+	////console.log(percent);
 	var coin = round(percent);
 	coin = coin/coinPercent;
-	console.log(coin);
+	//console.log(coin);
 	return round(coin);
 }
 
