@@ -44,13 +44,14 @@ function fallingCoin(index) {
         var heightImage = $(coin).height() / 2 - 5;
         var moveToBottom = heightContainer - (heightImage * index);
         var angle = 70 * (index % 2 === 0 ? 1 : -1);
-        $(coin).animateRotate(angle, moveToBottom, 1000-heightImage*index, 'linear', function () {  
+        $(coin).animateRotate(angle, moveToBottom, 500-heightImage*index, 'linear', function () {  
             if (index < totalCoin) {
                 index = index + 1;
                 fallingCoin(index);
             }else{
 				//set visible and height
 				setHeightDiv();
+				eneabledTxtField();
 			}
         });
 }
@@ -61,21 +62,22 @@ function setHeightDiv(){
 	var targetPension = $('#txt-target-pensions').val();
 	var coinBlue = getCoinBlue(forceCashIncome,targetPension);
 	var coinRed = getCoinRed(coinBlue);
-	var heighTotalRed = (coinRed * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
-	var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
-	$('.arrow-mid').css('height',heightMidInform);
-	$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0]);
-	$('.top-arrow').css('display','block');
 	$('.pound-income-inform').html(Number(forceCashIncome).toLocaleString('en').split('.')[0]);
-	if(coinBlue > 5){
+	if(coinBlue > 5 & coinBlue < totalCoin){
+		var heighTotalRed = (coinRed * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
+		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
+		$('.arrow-mid').css('height',heightMidInform);
+		$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0]);
+		$('.top-arrow').css('display','block');
 		var hieghtBlueDiv = ($('#coin-container').height() - 25 - heighTotalRed)/2 - $('.bot-arrow').height()/2;
 		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
 		$('.bot-arrow').css('padding-top',hieghtBlueDiv);
 		$('.bot-arrow').show();
+	}else if(coinBlue == totalCoin){
+		$('.top-arrow').css('display','none');
+	}else{
+		
 	}
-	
-	
-	
 }
 
 
@@ -105,6 +107,7 @@ function drawSlideResult(ageRetire,percentTaxFree){
 	label: label}).slider("float").on("slidechange", function(e,ui) {
         var value = $("#age-to-retirement-result").slider().slider('value');
 		$("#age-to-retirement").slider().slider('value',value);
+		drawChart();
     });
 	
 	var labelStage = ["0","5","10","15","20","25"];
@@ -112,6 +115,7 @@ function drawSlideResult(ageRetire,percentTaxFree){
 	label: labelStage}).slider("float").on("slidechange", function(e,ui) {
 		var value = $("#percent-tax-free-result").slider().slider('value');
         $("#percent-tax-free").slider().slider('value',value);
+		drawChart();
     });
 }
 /*--------------------------------------------*/

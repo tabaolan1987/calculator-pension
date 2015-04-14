@@ -296,13 +296,27 @@ function calculateCompanyPay(){
 function registerActionResultTab(){
 	$('a[id="results"]').on('shown.bs.tab', function (e) {
 		setupMessage();
+		eneabledSummary()
 		setTextToTextField();
+		drawChart();
 		setupSlide();
+		onChange();
+	});
+	
+	$('#nextResult').on('click',function(){
+		$('#summary').trigger('click');
+	});
+	
+	$('#backResult').on('click',function(){
+		$('#savings').trigger('click');
 	});
 	setAutoUpdateTextField();
 }
 
-
+function eneabledSummary(){
+$('#summary').attr('href','#tab4');
+$('#summary').attr('data-toggle','tab');
+}
 function setupMessage(){
 	var yRD = yourRetirementDate();
 	$('#year-retire').html(yRD);
@@ -345,6 +359,9 @@ function setAutoUpdateTextField(){
 function updateTargetPens(){
 	$('#txt-target-pensions-result').on('blur',function(){
 		$('#txt-target-pensions').val($(this).val());
+	});
+	$('#txt-target-pensions-result').on('change',function(){
+		drawChart();
 	});
 }
 function calculatePersonalPayResult(){
@@ -392,17 +409,48 @@ function calculateCompanyPayResult(){
 		//}
 	});
 }
+function disableTxtField(){
+	$('#txt-your-employer-percent-result').attr("disabled","disabled");
+	$('#txt-your-employer-result').attr("disabled","disabled");
+	$('#txt-you-paying-percent-result').attr("disabled","disabled");
+	$('#txt-you-paying-result').attr("disabled","disabled");
+	$('#txt-target-pensions-result').attr("disabled","disabled");
+	$('#oneOffLumpSum').attr("disabled","disabled");
+}
+function eneabledTxtField(){
+	$('#txt-your-employer-percent-result').removeAttr("disabled");
+	$('#txt-your-employer-result').removeAttr("disabled");
+	$('#txt-you-paying-percent-result').removeAttr("disabled");
+	$('#txt-you-paying-result').removeAttr("disabled");
+	$('#txt-target-pensions-result').removeAttr("disabled");
+	$('#oneOffLumpSum').removeAttr("disabled");
+}
+function onChange(){
+	$('#txt-your-employer-percent-result').on('change',function(){drawChart();});
+	$('#txt-your-employer-result').on('change',function(){drawChart();});
+	$('#txt-you-paying-percent-result').on('change',function(){drawChart();});
+	$('#txt-you-paying-result').on('change',function(){drawChart();});
+	$('#txt-target-pensions-result').on('change',function(){drawChart();});
+	$('#oneOffLumpSum').on('change',function(){drawChart();});
+}
 
 function drawChart(){
+	disableTxtField();
+	$('.top-arrow').hide();
+	$('.bot-arrow').hide();
+	setupMessage();
 	var forceCashIncome = getForecastIncome();
 	var shortFall = getShortFall();
 	var targetPension = $('#txt-target-pensions').val();
 	var coinBlue = getCoinBlue(forceCashIncome,targetPension);
 	console.log(coinBlue);
 	var coinRed = getCoinRed(coinBlue);
-	console.log(Number(targetPension).toLocaleString('en').split('.')[0]);
+	console.log("targetPension " + Number(targetPension).toLocaleString('en').split('.')[0]);
 	$('.pound-annual-income').html(Number(targetPension).toLocaleString('en').split('.')[0]);
 	//prepare for setup coin
 	setupCoin(coinBlue,coinRed);
 	fallingCoin(1);
 }
+
+
+/*------------------------------------------------------------------*/
