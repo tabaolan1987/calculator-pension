@@ -459,6 +459,10 @@ a:focus{
 	padding: 5px 0 0 20px;
 }
 
+.top-arrow{
+	text-align: center;
+}
+
 .arrow-top{
 	background: url(../../images/pension_accumulators/arrow-top-bg.png) top left no-repeat;
 	width: 201px;
@@ -472,10 +476,26 @@ a:focus{
 	text-align: center;
 	vertical-align: middle;
 	font-weight: bold;
+	color: #0f0d8f;
 }
 
 .arrow-bot{
 	background: url(../../images/pension_accumulators/arrow-bot-bg.png) top left no-repeat;
 	width: 201px;
 	height: 49px;	
+}
+
+.pound-shortfall{
+	color: #da291c;
+}
+
+.bot-arrow{
+	background: url(../../images/pension_accumulators/arrow-pension.png) left top no-repeat;
+	width: 201px;
+	height: 74px;
+	text-align: center;
+	vertical-align: middle;
+	display: table-cell;
+	font-size: 17px;
+	color: #0f0d8f;
 }
