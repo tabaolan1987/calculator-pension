@@ -170,7 +170,7 @@
 						</div>
 						
 						<div class="row row-rule align-right">
-							<span class="btn-note">Click here to change your growth rate</span> <span id="btn-advanced" data-toggle="modal" data-target="#estimated-annual-modal">advanced</span>
+							<span class="btn-note">Click here to change your growth rate</span> <span class="btn" id="btn-advanced" data-toggle="modal" data-target="#estimated-annual-modal">advanced</span>
 						</div>
 						
 						<a class="btn btn-primary btnNext">next</a>
@@ -210,7 +210,7 @@
 							
 							<p><a href="" title="Change tax free cash" alt="Change tax free cash">Change tax free cash</a></p>
 							<div class="align-right">
-								<span class="btn-note">Click here to change your growth rate</span> <span id="btn-advanced" data-toggle="modal" data-target="#estimated-annual-modal">advanced</span>
+								<span class="btn-note">Click here to change your growth rate</span> <span class="btn" id="btn-advanced" data-toggle="modal" data-target="#estimated-annual-modal">advanced</span>
 							</div>
 						</div>
 						
@@ -223,16 +223,20 @@
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 right-content">
 				<div class="row">
 					<h3>Your required annual income <br/> &nbsp;&nbsp;&nbsp; <b>£</b><b class="pound-annual-income">50,000</b></h3>
-					<div class="col-sm-5"><img src="images/pension_accumulators/col-coin.png" alt="" title="" /></div>
-					<div class="col-sm-7">
+					<div id="coin-container" class="col-sm-5 align-center">
+						<img src="images/pension_accumulators/col-coin.png" alt="" title="" />
+					</div>
+					<div class="col-sm-7 align-center">
 						<div class="top-arrow">
 							<div class="arrow-top"></div>
-							<div class="arrow-mid">Shortfall </br> £39,800</div>
+							<div class="arrow-mid">Shortfall </br> <span style="color:#da291c;">£</span><span class="pound-shortfall">39,800</span></div>
 							<div class="arrow-bot"></div>
 						</div>
-						<div class="bot-arrow"></div>
+						<div class="bot-arrow">Pension <br/> £10,200</div>
 					</div>
 				</div>
+
+				<a class="btn btn-primary btn-print">print</a>
             </div><!--END .right-content-->
 			
         </div><!--END #content-->
