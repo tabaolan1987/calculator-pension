@@ -33,7 +33,8 @@ a:focus{
 }
 
 /*left content
------------------------------------------------------------------*/
+---------------------------------------------------------------------------------------------------------------*/
+
 .left-content{
 	border-right:3px dotted #ddd;
 }
@@ -448,4 +449,33 @@ a:focus{
 
 .tab-content .btnPrevious{
 	left:28px;
+}
+
+/*right-content
+---------------------------------------------------------------------------------------------------------------*/
+.right-content h3{
+	font-size: 19px;
+	color: #0f0d8f;
+	padding: 5px 0 0 20px;
+}
+
+.arrow-top{
+	background: url(../../images/pension_accumulators/arrow-top-bg.png) top left no-repeat;
+	width: 201px;
+	height: 49px;
+}
+
+.arrow-mid{
+	background: url(../../images/pension_accumulators/arrow-mid-bg.png) top left repeat-y;
+	width: 201px;
+	font-size: 21px;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+}
+
+.arrow-bot{
+	background: url(../../images/pension_accumulators/arrow-bot-bg.png) top left no-repeat;
+	width: 201px;
+	height: 49px;	
 }
