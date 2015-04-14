@@ -71,7 +71,6 @@ function setHeightDiv(){
 		$('.top-arrow').css('display','block');
 		var hieghtBlueDiv = ($('#coin-container').height() - 25 - heighTotalRed)/2 - $('.bot-arrow').height()/2;
 		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
-		$('.bot-arrow').css('padding-top',hieghtBlueDiv);
 		$('.bot-arrow').show();
 	}else if(coinBlue == totalCoin){
 		$('.top-arrow').css('display','none');
