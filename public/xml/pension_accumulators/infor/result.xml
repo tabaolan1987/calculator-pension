@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <infor_popups>
 <infor>
-<id-element></id-element>
-<name>result1</name>
-<message><![CDATA[<p>This is your age!</p>]]></message>
+<id-element>you-paying-result</id-element>
+<name>your paying for pensions per month</name>
+<message><![CDATA[<p>This is your paying for pension per month!</p>]]></message>
 </infor>
 <infor>
-<id-element></id-element>
-<name>result2</name>
-<message><![CDATA[<p>This is your gender!</p>]]></message>
+<id-element>your-employer-result</id-element>
+<name>your employee paying for pensions per month</name>
+<message><![CDATA[<p>this is your employee paying pensions per month</p>]]></message>
 </infor>
 <infor>
-<id-element></id-element>
-<name>result3</name>
-<message><![CDATA[<p>This is your age!</p>]]></message>
+<id-element>one-off-lump</id-element>
+<name>one off lumpsum</name>
+<message><![CDATA[<p>this is for one off lumpsum</p>]]></message>
 </infor>
 <infor>
-<id-element></id-element>
-<name>result4</name>
-<message><![CDATA[<p>This is your age!</p>]]></message>
+<id-element>target-pension-result</id-element>
+<name>income you want to live</name>
+<message><![CDATA[<p>this is for income you want to live!</p>]]></message>
 </infor>
 <infor>
-<id-element></id-element>
-<name>result5</name>
-<message><![CDATA[<p>This is your age!</p>]]></message>
+<id-element>age-retirement-result</id-element>
+<name>Age you want to retire</name>
+<message><![CDATA[<p>This is the age you want to retire at!</p>]]></message>
 </infor>
 <infor>
-<id-element></id-element>
-<name>result6</name>
-<message><![CDATA[<p>This is your age!</p>]]></message>
+<id-element>tax-free-cash-result</id-element>
+<name>tax free cash</name>
+<message><![CDATA[<p>This is the tax free cash</p>]]></message>
 </infor>
 </infor_popups>

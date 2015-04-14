@@ -34,8 +34,11 @@ function getCurrent_compound(){
 
 function getCash_Contribute(){
 	var currentSalary = parseFloat($('#txt-current-salary').val());
+	console.log("currentSalary " + currentSalary);
 	var percentPaying = parseFloat($('#txt-you-paying-percent').val());
+	console.log("percentPaying " + percentPaying);
 	var temp = ((percentPaying*currentSalary)/12)/100;
+	console.log("cash  " + temp);
 	temp =  parseFloat(temp);
 	return round(temp);
 }
@@ -55,7 +58,7 @@ function getCash_Contribute_company(){
 	temp =  parseFloat(temp);
 	return round(temp);
 }
-function getPercent_Contribute_company(cashCompany,currentSalary){
+function getPercent_Contribute_company(){
 	var currentSalary = parseFloat($('#txt-current-salary').val());
 	var cashCompany = parseFloat($('#txt-your-employer').val());
 	var temp = (cashCompany/currentSalary)*12;
@@ -172,14 +175,14 @@ function getForecastIncome(){
 
 function getForecast_percent_target(){
 	var forecastIncome = getForecastIncome();
-	var incomeYouWantTolive  = parseFloat($('#income-you-want').val());
+	var incomeYouWantTolive  = parseFloat($('#txt-target-pensions-result').val());
 	var temp = forecastIncome/incomeYouWantTolive;
 	return parseFloat(temp);
 }
 
 function getShortFall(){
 	var forecastIncome = getForecastIncome();
-	var incomeYouWantTolive  = parseFloat($('#income-you-want').val());
+	var incomeYouWantTolive  = parseFloat($('#txt-target-pensions-result').val());
 	var temp  = incomeYouWantTolive - forecastIncome;
 	return parseFloat(temp);
 }
@@ -191,9 +194,11 @@ function getShortFall(){
 
 function getCoinBlue(forecastIncome,targetPension){
 	var percent = (forecastIncome/targetPension)*100;
-	var coin = round(percent);
+	console.log(percent);
+	var coin = percent;
 	coin = coin/coinPercent;
-	return coin;
+	console.log(coin);
+	return round(coin);
 }
 
 function getCoinRed(coinBlue){

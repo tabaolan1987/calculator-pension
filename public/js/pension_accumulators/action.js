@@ -253,40 +253,40 @@ function isBox2Visible(){
 }
 
 function calculatePersonalPay(){
-	$('#txt-you-paying').on('blur',function(){
+	$('#txt-you-paying').on('input',function(){
 		var percent = $('#txt-you-paying-percent').val();
-		if(percent == '' || typeof percent === 'undefined' || percent === null){
+		//if(percent == '' || typeof percent === 'undefined' || percent === null){
 			percent = getPercent_Contribute();
 			percent = percent*100;
 			$('#txt-you-paying-percent').val(percent);
-		}
+		//}
 	});
-	$('#txt-you-paying-percent').on('blur',function(){
+	$('#txt-you-paying-percent').on('input',function(){
 		var cash = $('#txt-you-paying').val();
-		if(cash == '' || typeof cash === 'undefined' || cash === null){
+		//if(cash == '' || typeof cash === 'undefined' || cash === null){
 			cash = getCash_Contribute();
 			cash = cash*100;
 			$('#txt-you-paying').val(cash);
-		}
+		//}
 	});
 }
 
 function calculateCompanyPay(){
-	$('#txt-your-employer').on('blur',function(){
+	$('#txt-your-employer').on('input',function(){
 		var percent = $('#txt-your-employer-percent').val();
-		if(percent == '' || typeof percent === 'undefined' || percent === null){
+		//if(percent == '' || typeof percent === 'undefined' || percent === null){
 			percent = getPercent_Contribute_company();
 			percent = percent*100;
 			$('#txt-your-employer-percent').val(percent);
-		}
+		//}
 	});
-	$('#txt-your-employer-percent').on('blur',function(){
+	$('#txt-your-employer-percent').on('input',function(){
 		var cash = $('#txt-your-employer').val();
-		if(cash == '' || typeof cash === 'undefined' || cash === null){
+		//if(cash == '' || typeof cash === 'undefined' || cash === null){
 			cash = getCash_Contribute_company();
 			cash = cash*100;
 			$('#txt-your-employer').val(cash);
-		}
+		//}
 	});
 }
 /*-----------------------------------------------------------------*/
@@ -296,7 +296,6 @@ function calculateCompanyPay(){
 function registerActionResultTab(){
 	$('a[id="results"]').on('shown.bs.tab', function (e) {
 		setupMessage();
-		setupForecastIncomeMessage();
 		setTextToTextField();
 		setupSlide();
 	});
@@ -309,12 +308,11 @@ function setupMessage(){
 	$('#year-retire').html(yRD);
 	var rA = $('#age-to-retirement').slider().slider('value');
 	$('#age-retire').html(rA);
-}
-function setupForecastIncomeMessage(){
 	var forceCash = getForecastIncome();
+	forceCash = Number(forceCash).toLocaleString('en').split('.')[0];
 	$('#pound-per-year').html(forceCash);
-	
 }
+
 
 function setupSlide(){
 	var rA = $('#age-to-retirement').slider().slider('value');
@@ -350,45 +348,60 @@ function updateTargetPens(){
 	});
 }
 function calculatePersonalPayResult(){
-	$('#txt-you-paying-result').on('blur',function(){
-		var percent = $('#txt-you-paying-percent-result').val();
-		if(percent == '' || typeof percent === 'undefined' || percent === null){
+	$('#txt-you-paying-result').on('input',function(){
+			$('#txt-you-paying').val($(this).val());
+			var percent = $('#txt-you-paying-percent-result').val();
+		//if(percent == '' || typeof percent === 'undefined' || percent === null){
 			percent = getPercent_Contribute();
 			percent = percent*100;
 			$('#txt-you-paying-percent').val(percent);
 			$('#txt-you-paying-percent-result').val(percent);
-		}
+		//}
 	});
-	$('#txt-you-paying-percent-result').on('blur',function(){
+	$('#txt-you-paying-percent-result').on('input',function(){
+		$('#txt-you-paying-percent-result').val($(this).val());
 		var cash = $('#txt-you-paying-result').val();
-		if(cash == '' || typeof cash === 'undefined' || cash === null){
+		//if(cash == '' || typeof cash === 'undefined' || cash === null){
 			cash = getCash_Contribute();
 			cash = cash*100;
 			$('#txt-you-paying').val(cash);
 			$('#txt-you-paying-result').val(cash);
-		}
+		//}
 	});
 }
 
 function calculateCompanyPayResult(){
-	$('#txt-your-employer-result').on('blur',function(){
+	$('#txt-your-employer-result').on('input',function(){
+		$('#txt-your-employer').val($(this).val());
 		var percent = $('#txt-your-employer-percent-result').val();
-		if(percent == '' || typeof percent === 'undefined' || percent === null){
+		//if(percent == '' || typeof percent === 'undefined' || percent === null){
 			percent = getPercent_Contribute_company();
 			percent = percent*100;
 			$('#txt-your-employer-percent-result').val(percent);
 			$('#txt-your-employer-percent').val(percent);
-		}
+		//}
 	});
-	$('#txt-your-employer-percent-result').on('blur',function(){
+	$('#txt-your-employer-percent-result').on('input',function(){
+		$('#txt-your-employer-percent').val($(this).val());
 		var cash = $('#txt-your-employer-result').val();
-		if(cash == '' || typeof cash === 'undefined' || cash === null){
+		//if(cash == '' || typeof cash === 'undefined' || cash === null){
 			cash = getCash_Contribute_company();
 			percent = percent*100;
 			$('#txt-your-employer').val(cash);
 			$('#txt-your-employer-result').val(cash);
-		}
+		//}
 	});
 }
 
-
+function drawChart(){
+	var forceCashIncome = getForecastIncome();
+	var shortFall = getShortFall();
+	var targetPension = $('#txt-target-pensions').val();
+	var coinBlue = getCoinBlue(forceCashIncome,targetPension);
+	console.log(coinBlue);
+	var coinRed = getCoinRed(coinBlue);
+	console.log(coinRed);
+	//prepare for setup coin
+	setupCoin(coinBlue,coinRed);
+	fallingCoin(1);
+}
