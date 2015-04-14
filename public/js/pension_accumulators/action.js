@@ -184,6 +184,7 @@ function registerActionSavingTab(){
 		if(val == "yes"){
 			$('.final-salary').show();
 		}else{
+			$('#txt-income-payable').val(0);
 			$('.final-salary').hide();
 		}
 	});
