@@ -8,7 +8,6 @@ function registerAction(){
 /* this function handle the action hover the information image */
 function registerHoverAction(){
 	$(document).on("mouseover",".icon-tooltip",function() {
-		//alert('mouseover');
 		var attrName = $(this).attr('information-message');
 		var content = InformationArray[attrName];
 		$("#content-tooltip").html(content);
@@ -310,12 +309,11 @@ function registerActionResultTab(){
 	$('#backResult').on('click',function(){
 		$('#savings').trigger('click');
 	});
-	setAutoUpdateTextField();
 }
 
 function eneabledSummary(){
-$('#summary').attr('href','#tab4');
-$('#summary').attr('data-toggle','tab');
+	$('#summary').attr('href','#tab4');
+	$('#summary').attr('data-toggle','tab');
 }
 function setupMessage(){
 	var yRD = yourRetirementDate();
@@ -348,67 +346,9 @@ function setTextToTextField(){
 	var targetPension = $('#txt-target-pensions').val();
 	$('#txt-target-pensions-result').val(targetPension);
 	
-	$('#oneOffLumpSum').val(0);
+	//$('#oneOffLumpSum').val(0);
 }
 
-function setAutoUpdateTextField(){
-	calculatePersonalPayResult();
-	calculateCompanyPayResult();
-	updateTargetPens();
-}
-function updateTargetPens(){
-	$('#txt-target-pensions-result').on('blur',function(){
-		$('#txt-target-pensions').val($(this).val());
-	});
-	$('#txt-target-pensions-result').on('change',function(){
-		drawChart();
-	});
-}
-function calculatePersonalPayResult(){
-	$('#txt-you-paying-result').on('input',function(){
-			$('#txt-you-paying').val($(this).val());
-			var percent = $('#txt-you-paying-percent-result').val();
-		//if(percent == '' || typeof percent === 'undefined' || percent === null){
-			percent = getPercent_Contribute();
-			percent = percent*100;
-			$('#txt-you-paying-percent').val(percent);
-			$('#txt-you-paying-percent-result').val(percent);
-		//}
-	});
-	$('#txt-you-paying-percent-result').on('input',function(){
-		$('#txt-you-paying-percent-result').val($(this).val());
-		var cash = $('#txt-you-paying-result').val();
-		//if(cash == '' || typeof cash === 'undefined' || cash === null){
-			cash = getCash_Contribute();
-			cash = cash*100;
-			$('#txt-you-paying').val(cash);
-			$('#txt-you-paying-result').val(cash);
-		//}
-	});
-}
-
-function calculateCompanyPayResult(){
-	$('#txt-your-employer-result').on('input',function(){
-		$('#txt-your-employer').val($(this).val());
-		var percent = $('#txt-your-employer-percent-result').val();
-		//if(percent == '' || typeof percent === 'undefined' || percent === null){
-			percent = getPercent_Contribute_company();
-			percent = percent*100;
-			$('#txt-your-employer-percent-result').val(percent);
-			$('#txt-your-employer-percent').val(percent);
-		//}
-	});
-	$('#txt-your-employer-percent-result').on('input',function(){
-		$('#txt-your-employer-percent').val($(this).val());
-		var cash = $('#txt-your-employer-result').val();
-		//if(cash == '' || typeof cash === 'undefined' || cash === null){
-			cash = getCash_Contribute_company();
-			percent = percent*100;
-			$('#txt-your-employer').val(cash);
-			$('#txt-your-employer-result').val(cash);
-		//}
-	});
-}
 function disableTxtField(){
 	$('#txt-your-employer-percent-result').attr("disabled","disabled");
 	$('#txt-your-employer-result').attr("disabled","disabled");
@@ -426,12 +366,62 @@ function eneabledTxtField(){
 	$('#oneOffLumpSum').removeAttr("disabled");
 }
 function onChange(){
-	$('#txt-your-employer-percent-result').on('change',function(){drawChart();});
-	$('#txt-your-employer-result').on('change',function(){drawChart();});
-	$('#txt-you-paying-percent-result').on('change',function(){drawChart();});
-	$('#txt-you-paying-result').on('change',function(){drawChart();});
-	$('#txt-target-pensions-result').on('change',function(){drawChart();});
-	$('#oneOffLumpSum').on('change',function(){drawChart();});
+	$('#txt-your-employer-percent-result').on('change',function(){
+		$('#txt-your-employer-percent').val($(this).val());
+		var cash = $('#txt-your-employer-result').val();
+		//if(cash == '' || typeof cash === 'undefined' || cash === null){
+			cash = getCash_Contribute_company();
+			percent = percent*100;
+			$('#txt-your-employer').val(cash);
+			$('#txt-your-employer-result').val(cash);
+		//}
+		drawChart();	
+	});
+	$('#txt-your-employer-result').on('change',function(){
+		$('#txt-your-employer').val($(this).val());
+		var percent = $('#txt-your-employer-percent-result').val();
+		//if(percent == '' || typeof percent === 'undefined' || percent === null){
+			percent = getPercent_Contribute_company();
+			percent = percent*100;
+			$('#txt-your-employer-percent-result').val(percent);
+			$('#txt-your-employer-percent').val(percent);
+		//}
+		drawChart();
+	
+	});
+	$('#txt-you-paying-percent-result').on('change',function(){
+		$('#txt-you-paying-percent-result').val($(this).val());
+		var cash = $('#txt-you-paying-result').val();
+		//if(cash == '' || typeof cash === 'undefined' || cash === null){
+			cash = getCash_Contribute();
+			cash = cash*100;
+			$('#txt-you-paying').val(cash);
+			$('#txt-you-paying-result').val(cash);
+		//}
+		drawChart();
+	});
+	$('#txt-you-paying-result').on('change',function(){
+		$('#txt-you-paying').val($(this).val());
+		var percent = $('#txt-you-paying-percent-result').val();
+		//if(percent == '' || typeof percent === 'undefined' || percent === null){
+			percent = getPercent_Contribute();
+			percent = percent*100;
+			$('#txt-you-paying-percent').val(percent);
+			$('#txt-you-paying-percent-result').val(percent);
+		//}		
+		drawChart();
+	});
+	$('#txt-target-pensions-result').on('change',function(){
+		$('#txt-target-pensions').val($(this).val());
+		drawChart();
+	});
+	$('#oneOffLumpSum').on('change',function(){
+		drawChart();
+	});
+	
+	$("input:radio[name='an-grow-percent']").on('change',function(){
+		drawChart();
+	});
 }
 
 function drawChart(){
@@ -451,6 +441,4 @@ function drawChart(){
 	setupCoin(coinBlue,coinRed);
 	fallingCoin(1);
 }
-
-
 /*------------------------------------------------------------------*/
