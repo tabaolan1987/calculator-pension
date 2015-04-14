@@ -421,6 +421,7 @@ function onChange(){
 	
 	$("input:radio[name='an-grow-percent']").on('change',function(){
 		drawChart();
+		$('#estimated-annual-modal').modal('hide');
 	});
 }
 
