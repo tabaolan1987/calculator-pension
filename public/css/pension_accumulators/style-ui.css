@@ -51,7 +51,6 @@ a:focus{
 }
 
 .tab-pane{
-	height: 550px;
 	min-height: 550px;
 }
 
@@ -472,6 +471,7 @@ a:focus{
 ---------------------------------------------------------------------------------------------------------------*/
 .right-content{
 	overflow: hidden;
+	min-height: 638px;
 }
 
 .right-content h3{
@@ -522,6 +522,7 @@ a:focus{
 	font-size: 17px;
 	color: #0f0d8f;
 	display:none;
+	padding-top: 12px;
 	
 }
 
