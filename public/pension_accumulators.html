@@ -27,7 +27,7 @@
             <h3>Pension Calculator</h3>
          </div><!--END .title-->
          <div class="row" id="content">
-            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 left-content">
+            <div class="col-sm-12 col-md-7 left-content">
 				<div id="content-tooltip"></div>
 				<ul class="nav nav-tabs">
 					<li class="active"><div class="mid"><div><a id='about-you' href="#tab1" data-toggle="tab">about you</a></div></div></li>
@@ -109,12 +109,12 @@
 							<div class="row row-rule border-bottom">
 								<p>Do you have any pension income payable from a Defined Benefits (Final Salary) company pension?</p>							
 								<div class="col-sm-2"><span id="Defined-Benefits" class="icon-tooltip"></span><span class="label-tooltip">Yes</span></div>
-								<div class="col-sm-1"><input type="radio" id="yes" name="company-pension"><label for="yes"></label></div>
+								<div class="col-sm-2 col-lg-1"><input type="radio" id="yes" name="company-pension"><label for="yes"></label></div>
 								<div class="col-sm-1 radio-lable">No</div>
-								<div class="col-sm-1"><input type="radio" id="no" name="company-pension"><label for="no"></label></div>
+								<div class="col-sm-2 col-lg-1"><input type="radio" id="no" name="company-pension"><label for="no"></label></div>
 							</div>
 							
-							<div style="display:none" class="row row-rule final-salary">
+							<div style="display:none" class="row row-rule final-salary border-none">
 								<p>Enter any income payable from Defined Benefit (Final Salary) company pensions (total per year).</p>
 								<div class="col-sm-1"><span id="income-payable" class="icon-tooltip"></span></div>
 								<div class="col-sm-2 pound"><input onkeypress="return isNumberKey(event)" id="txt-income-payable" type="text" class="form-control" placeholder=""/></div>
@@ -210,7 +210,7 @@
 				</div>
             </div><!--END .left-content-->
 			
-            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 right-content">
+            <div class="col-sm-12 col-md-5 hidden-sm right-content">
             	<div class="right-content-draw" style="display:none;">
 	            	<div class="draw-chart" >
 						<div class="row">

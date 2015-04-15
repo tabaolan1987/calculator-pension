@@ -554,3 +554,11 @@ a:focus{
 .draw-chart-default{
 	padding-top: 50px;
 }
+
+/* 470px hoặc nhỏ hơn */
+@media screen and (max-width: 991px) {
+	.left-content{
+		border-right: none;
+		//border-bottom: 3px dotted #ddd
+	}
+}
