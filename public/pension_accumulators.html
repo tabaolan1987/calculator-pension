@@ -171,10 +171,10 @@
 					</div>
 					<div class="tab-pane" id="tab4">
 						<div id="wrap-tab">
-							<h3 class="tab-title normal-title">You have a shortfall of <b>£</b><b class="summary-pound-shortfall">12,500</b> per year.</h3>
-							<h3 class="tab-title excess-title" style="display:none;">You have an excess of <b>£</b><b class="summary-pound-excess">12,500</b> per year.</h3>
+							<h3 class="tab-title summary-normal-title">You have a shortfall of <b>£</b><b class="summary-pound-shortfall">12,500</b> per year.</h3>
+							<h3 class="tab-title summary-excess-title" style="display:none;">You have an excess of <b>£</b><b class="summary-pound-excess">12,500</b> per year.</h3>
 							<div>You wanted <b>£</b><b class="summary-pound-pension">50,000</b>, your forecast is <b>£</b><b  class="summary-pound-income">62,500</b>, which is <b class="summary-percent">125</b><b>%</b> of your target.</div>
-							<ul class="normal-title">
+							<ul class="summary-normal-title">
 								<li class="li-heading">You can reduce the difference by:</li>
 								<li>increasing  your contributions</li>
 								<li>delaying your retirement </li>
@@ -183,7 +183,7 @@
 								<li>changing your investment fund growth rate</li>
 							</ul>
 
-							<ul class="excess-title" style="display:none;">
+							<ul class="summary-excess-title" style="display:none;">
 								<li class="li-heading">You can reduce the difference by:</li>
 								<li>decreasing  your contributions</li>
 								<li>bringing forward your retirement</li>
@@ -194,28 +194,24 @@
 							<p class="p-color">Your current plans:</p>
 							<p>Your chosen target income is <b>£</b><b class="summary-pound-pension">50,000</b> each year when you retire at age <b class="summary-retire-age">67</b><p>
 							
-							<p><a class="summary-link" href="" title="Change income required" alt="Change income required">Change income required</a> &nbsp;&nbsp;&nbsp;&nbsp; <a class="summary-link" href="" title="Change retirement age" alt="Change retirement age">Change retirement age</a></p>
+							<p><a  data-toggle="tab" class="summary-link"  title="Change income required" alt="Change income required">Change income required</a> &nbsp;&nbsp;&nbsp;&nbsp; <a class="summary-link"  data-toggle="tab" title="Change retirement age" alt="Change retirement age">Change retirement age</a></p>
 							<p>Your future pension payments and any existing pensions you have included will will provide an income of <b>£</b><b class="summary-pound-income">10,200</b> a year from age <b class="summary-retire-age">67</b></p>
 							
-							<p><a class="summary-link" href="" title="Change contributions" alt="Change contributions">Change contributions</a></p>
+							<p><a  data-toggle="tab" class="summary-link"  title="Change contributions" alt="Change contributions">Change contributions</a></p>
 							<p>Your chosen tax free cash amount is <b>£</b><b class="summary-pound-amount">85,694</b> (<b class="summary-percent-amount">25</b><b>%</b>)</p>
 							
-							<p><a class="summary-link" href="" title="Change tax free cash" alt="Change tax free cash">Change tax free cash</a></p>
+							<p><a class="summary-link"  title="Change tax free cash" alt="Change tax free cash">Change tax free cash</a></p>
 							<div class="align-right">
 								<span class="btn-note">Click here to change your growth rate</span> <span class="btn" id="btn-advanced" data-toggle="modal" data-target="#estimated-annual-modal">advanced</span>
 							</div>
 						</div>
-						<a class="btn btn-primary btnPrevious">back</a>
+						<a id="backSummary" class="btn btn-primary btnPrevious">back</a>
 					</div>
 				</div>
             </div><!--END .left-content-->
 			
             <div class="col-sm-12 col-md-5 hidden-sm right-content">
             	<div class="right-content-draw" style="display:none;">
-	            	<div class="draw-chart-default align-center" style="display:none;">
-	            		<img src="images/pension_accumulators/pile_of_coins_grey.gif" alt="" title="" />
-	            	</div>
-
 	            	<div class="draw-chart" >
 						<div class="row">
 							<h3>Your required annual income <br/> &nbsp;&nbsp;&nbsp; <b>£</b><b class="pound-annual-income">50,000</b></h3>
@@ -232,7 +228,7 @@
 							</div>
 						</div>
 						
-						<a class="btn btn-primary btn-print" onclick="PrintElement('#box-print')" >print</a>
+						<a id="print-data" class="btn btn-primary btn-print" onclick="PrintElement('#box-print')" >print</a>
 				 	</div>
 				</div>
 				<div class="right-content-default align-center">
@@ -296,30 +292,6 @@
 			registerAction();
 			drawSlide();
 		});
-	  	
-
-	  	    function PrintElement(element)
-		    {
-		        Popup($(element).html());
-		    }
-
-		    function Popup(data) 
-		    {
-		        var mywindow = window.open('', 'Summary', 'height=400,width=600');
-		        mywindow.document.write('<html><head><title>Summary</title>');
-		        /*optional stylesheet*/ //mywindow.document.write('<link rel="stylesheet" href="main.css" type="text/css" />');
-		        mywindow.document.write('</head><body >');
-		        mywindow.document.write(data);
-		        mywindow.document.write('</body></html>');
-
-		        mywindow.document.close(); // necessary for IE >= 10
-		        mywindow.focus(); // necessary for IE >= 10
-
-		        mywindow.print();
-		        mywindow.close();
-
-		        return true;
-		    }
 	  </script>
    </body>
 </html>
