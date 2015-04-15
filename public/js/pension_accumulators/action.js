@@ -286,7 +286,6 @@ function calculatePersonalPay(){
 		var cash = $('#txt-you-paying').val();
 		//if(cash == '' || typeof cash === 'undefined' || cash === null){
 			cash = getCash_Contribute();
-			cash = cash*100;
 			$('#txt-you-paying').val(fixed(cash));
 		//}
 	});
@@ -305,7 +304,6 @@ function calculateCompanyPay(){
 		var cash = $('#txt-your-employer').val();
 		//if(cash == '' || typeof cash === 'undefined' || cash === null){
 			cash = getCash_Contribute_company();
-			cash = cash*100;
 			$('#txt-your-employer').val(fixed(cash));
 		//}
 	});
@@ -397,7 +395,6 @@ function onChange(){
 		var cash = $('#txt-your-employer-result').val();
 		//if(cash == '' || typeof cash === 'undefined' || cash === null){
 			cash = getCash_Contribute_company();
-			percent = percent*100;
 			$('#txt-your-employer').val(fixed(cash));
 			$('#txt-your-employer-result').val(fixed(cash));
 		//}
@@ -420,7 +417,6 @@ function onChange(){
 		var cash = $('#txt-you-paying-result').val();
 		//if(cash == '' || typeof cash === 'undefined' || cash === null){
 			cash = getCash_Contribute();
-			cash = cash*100;
 			$('#txt-you-paying').val(fixed(cash));
 			$('#txt-you-paying-result').val(fixed(cash));
 		//}
