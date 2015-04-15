@@ -549,6 +549,8 @@ a:focus{
 
 #coin-container{
 	height : 520px;
+	width: 114px;
+	display: inline-block;
 }
 
 .draw-chart-default{
@@ -559,6 +561,6 @@ a:focus{
 @media screen and (max-width: 991px) {
 	.left-content{
 		border-right: none;
-		//border-bottom: 3px dotted #ddd
+		border-bottom: 3px dotted #ddd;
 	}
 }
