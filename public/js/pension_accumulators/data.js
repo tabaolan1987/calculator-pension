@@ -15,8 +15,37 @@ function setupData(){
 	loadAllWarning();
 	loadGrowthRate();
 	loadLTA();
+	loadPrintInfor();
 }
-
+function loadPrintInfor(){
+ $.ajax({
+        type: "GET",
+        url: "xml/pension_accumulators/print/print-title.xml",
+        dataType: "xml",
+        success: function(xml) {
+            $(xml).find('caveat-title').each(function() {
+                var cv = $(this).text();
+				$('#caveat-title').html(cv);
+            });
+			$(xml).find('caveat-content').each(function() {
+                var cv = $(this).text();
+				$('#caveat-content').html(cv);
+            });
+			$(xml).find('example-title').each(function() {
+                var cv = $(this).text();
+				$('#example-title').html(cv);
+            });
+			$(xml).find('example-content').each(function() {
+                var cv = $(this).text();
+				$('#example-content').html(cv);
+            });
+            console.log("load xml  : "  +  print +" already!");
+        },
+        error: function() {
+            alert("An error occurred while processing XML file print.");
+        }
+    });
+}
 function loadInformation(xml){
  $.ajax({
         type: "GET",

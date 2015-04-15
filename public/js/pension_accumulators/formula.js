@@ -193,12 +193,21 @@ function getShortFall(){
 
 
 function getCoinBlue(forecastIncome,targetPension){
-	var percent = (forecastIncome/targetPension)*100;
-	////console.log(percent);
-	var coin = round(percent);
-	coin = coin/coinPercent;
-	//console.log(coin);
-	return round(coin);
+	
+	if(parseFloat(forecastIncome) >= parseFloat(targetPension) ){
+		coin = totalCoin;
+	}else{
+		var percent = (forecastIncome/targetPension)*100;
+		////console.log(percent);
+		var coin = round(percent);
+		coin = coin/coinPercent;
+	}
+	coin = round(coin);
+	if(coin == 0){
+		coin = 1;
+	}
+	console.log("coin blue " + coin);
+	return coin;
 }
 
 function getCoinRed(coinBlue){
