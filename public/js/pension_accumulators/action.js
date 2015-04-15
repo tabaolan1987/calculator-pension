@@ -450,9 +450,17 @@ function onChange(){
 		$('#estimated-annual-modal').modal('hide');
 	});
 }
-
+function showRightContent(){
+	$('#right-content').removeClass('hidden-sm');
+	$('#right-content').show();
+}
+function hideRightContent(){
+	$('#right-content').addClass('hidden-sm');
+	$('#right-content').hide();
+}
 function drawChart(){
 	if(current_forcecash_income !== getForecastIncome()){
+		showRightContent();
 		showChartRight();
 		disableTxtField();
 		$('.top-arrow').hide();

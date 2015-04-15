@@ -63,22 +63,7 @@ function setHeightDiv(){
 	var coinBlue = getCoinBlue(forceCashIncome,targetPension);
 	var coinRed = getCoinRed(coinBlue);
 	$('.pound-income-inform').html(Number(forceCashIncome).toLocaleString('en').split('.')[0]);
-	if(coinRed < 5){
-		var heighTotalRed = (2 * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
-		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
-		$('.arrow-mid').css('height',heightMidInform);
-		$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0]);
-		$('.top-arrow').show();
-		console.log("heighTotalRed " + heighTotalRed);
-		console.log("$('.top-arrow').height() " + $('.top-arrow').height());
-		var hieghtBlueDiv = ($('#coin-container').height() - 25 - $('.top-arrow').height())/2 - $('.bot-arrow').height()/2;
-		console.log("$('.bot-arrow')/2 : " + $('.bot-arrow').height()/2);
-		console.log("hieghtBlueDiv " + hieghtBlueDiv);
-		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
-		$('.bot-arrow').show();
-		return true;
-	}else
-	if(coinBlue > 5 & coinBlue < totalCoin){
+	if(coinBlue > 5 & coinBlue < totalCoin & coinRed  > 5){
 		var heighTotalRed = (coinRed * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
 		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
 		$('.arrow-mid').css('height',heightMidInform);
@@ -110,6 +95,20 @@ function setHeightDiv(){
 		$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0]);
 		$('.bot-arrow').css('margin-top','0');
 		$('.top-arrow').show();
+		$('.bot-arrow').show();
+		return true;
+	}else if(coinRed < 5){
+		var heighTotalRed = (2 * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
+		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
+		$('.arrow-mid').css('height',heightMidInform);
+		$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0]);
+		$('.top-arrow').show();
+		console.log("heighTotalRed " + heighTotalRed);
+		console.log("$('.top-arrow').height() " + $('.top-arrow').height());
+		var hieghtBlueDiv = ($('#coin-container').height() - 25 - $('.top-arrow').height())/2 - $('.bot-arrow').height()/2;
+		console.log("$('.bot-arrow')/2 : " + $('.bot-arrow').height()/2);
+		console.log("hieghtBlueDiv " + hieghtBlueDiv);
+		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
 		$('.bot-arrow').show();
 		return true;
 	}
