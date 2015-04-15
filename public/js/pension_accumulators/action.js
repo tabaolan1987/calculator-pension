@@ -354,6 +354,7 @@ function disableTxtField(){
 	$('#txt-you-paying-result').attr("disabled","disabled");
 	$('#txt-target-pensions-result').attr("disabled","disabled");
 	$('#oneOffLumpSum').attr("disabled","disabled");
+	$('#print-data').attr("disabled","disabled");
 }
 function eneabledTxtField(){
 	$('#txt-your-employer-percent-result').removeAttr("disabled");
@@ -362,6 +363,7 @@ function eneabledTxtField(){
 	$('#txt-you-paying-result').removeAttr("disabled");
 	$('#txt-target-pensions-result').removeAttr("disabled");
 	$('#oneOffLumpSum').removeAttr("disabled");
+	$('#print-data').removeAttr("disabled");
 }
 function onChange(){
 	$('#txt-your-employer-percent-result').on('change',function(){
@@ -442,6 +444,16 @@ function drawChart(){
 function registerActionSummaryTab(){
 	$('a[id="summary"]').on('shown.bs.tab', function (e) {
 		setupMessageSummary();
+		//setActionLink();
+	});
+	$('#backSummary').on('click',function(e){
+		$('#results').trigger('click');
+	});
+	
+}
+function setActionLink(){
+	$('.').on('click',function(e){
+		$('#results').trigger('click');
 	});
 }
 function setupMessageSummary(){
@@ -449,6 +461,8 @@ function setupMessageSummary(){
 	var targetPension =  $('#txt-target-pensions').val();
 	var percent_income = getForecast_percent_target();
 	percent_income = parseFloat(percent_income)*100;
+	var tax_free_percent  = $('#percent-tax-free').slider().slider('value');
+	var retire_age = $("#age-to-retirement-result").slider().slider('value');
 	if(targetPension >= forceCashIncome){
 		var shorFall = getShortFall();
 		$('.pound-normal-title').html(Number(shorFall).toLocaleString('en').split('.')[0]);
@@ -480,4 +494,36 @@ function showExcess(){
 	$('.normal-title').each(function(){
 		$(this).hide();
 	});
+}
+
+
+
+
+/*function print*/
+function updateDataPrint(){
+	var forceCashIncome = getForecastIncome();
+	var targetPension =  $('#txt-target-pensions').val();
+	var tax_free_percent  = $('#percent-tax-free').slider().slider('value');
+	var retire_age = $("#age-to-retirement-result").slider().slider('value');
+	
+}
+function PrintElement(element)
+{
+	updateDataPrint();
+	Popup($(element).html());
+}
+
+function Popup(data) 
+{
+	var mywindow = window.open('', 'Summary', 'height=400,width=600');
+	mywindow.document.write('<html><head><title>Summary</title>');
+	/*optional stylesheet*/ //mywindow.document.write('<link rel="stylesheet" href="main.css" type="text/css" />');
+	mywindow.document.write('</head><body >');
+	mywindow.document.write(data);
+	mywindow.document.write('</body></html>');
+	mywindow.document.close(); // necessary for IE >= 10
+	mywindow.focus(); // necessary for IE >= 10
+	mywindow.print();
+	mywindow.close();
+	return true;
 }
