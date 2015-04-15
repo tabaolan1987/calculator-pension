@@ -20,6 +20,11 @@ a:focus{
 	border:none !important;
 }
 
+.border-bottom{
+	border:none !important;
+	border-bottom: 3px dotted #ddd !important;
+}
+
 .align-right{
 	text-align:right !important;
 }
