@@ -502,6 +502,7 @@ function setupMessageSummary(){
 	percent_income = parseFloat(percent_income)*100;
 	var tax_free_percent  = $('#percent-tax-free').slider().slider('value');
 	var retire_age = $("#age-to-retirement-result").slider().slider('value');
+	var tax_free_value = getTax_Free_Value();
 	if(targetPension >= forceCashIncome){
 		var shorFall = getShortFall();
 		$('.summary-pound-shortfall').html(Number(shorFall).toLocaleString('en').split('.')[0]);
@@ -523,7 +524,7 @@ function setupMessageSummary(){
 		$(this).html(retire_age);
 	});
 	
-	$('.summary-pound-amount').html();
+	$('.summary-pound-amount').html(Number(tax_free_value).toLocaleString('en').split('.')[0]);
 		
 }
 
@@ -554,6 +555,7 @@ function updateDataPrint(){
 	var targetPension =  $('#txt-target-pensions').val();
 	var tax_free_percent  = $('#percent-tax-free').slider().slider('value');
 	var retire_age = $("#age-to-retirement-result").slider().slider('value');
+	var tax_free_value = getTax_Free_Value();
 	var shorFall = getShortFall();
 	$('.print-pound-pension').html(Number(targetPension).toLocaleString('en').split('.')[0]);
 	$('.print-retire-age').each(function(){
@@ -561,7 +563,7 @@ function updateDataPrint(){
 	});
 	
 	$('.print-percent-amount').html(tax_free_percent);
-	$('.print-pound-amount').html();
+	$('.print-pound-amount').html(Number(tax_free_value).toLocaleString('en').split('.')[0]);
 	$('.print-pound-income').html(Number(forceCashIncome).toLocaleString('en').split('.')[0]);
 	$('.print-pound-shortfall').html(Number(shorFall).toLocaleString('en').split('.')[0]);
 }
