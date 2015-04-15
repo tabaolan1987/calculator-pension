@@ -213,7 +213,7 @@ function getCoinBlue(forecastIncome,targetPension){
 		var coin = round(percent);
 		coin = coin/coinPercent;
 	}
-	coin = round(coin);
+	coin = parseInt(coin);
 	if(coin == 0){
 		coin = 1;
 	}
