@@ -555,7 +555,7 @@ a:focus{
 	padding-top: 50px;
 }
 
-/* 470px hoặc nhỏ hơn */
+/*less than 991px*/
 @media screen and (max-width: 991px) {
 	.left-content{
 		border-right: none;
