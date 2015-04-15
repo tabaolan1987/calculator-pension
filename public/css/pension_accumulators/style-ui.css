@@ -561,6 +561,14 @@ a:focus{
 @media screen and (max-width: 991px) {
 	.left-content{
 		border-right: none;
-		border-bottom: 3px dotted #ddd;
 	}
+
+	.right-content{
+		border-top: 3px dotted #ddd;
+	}
+}
+
+/*less than 991px*/
+@media screen and (max-width: 640px) {
+	
 }
