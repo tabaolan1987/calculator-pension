@@ -69,7 +69,8 @@ function setHeightDiv(){
 		$('.arrow-mid').css('height',heightMidInform);
 		$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0]);
 		$('.top-arrow').css('display','block');
-		var hieghtBlueDiv = ($('#coin-container').height() - 25 - heighTotalRed)/2 - $('.bot-arrow').height()/2;
+		var totalBlue = (coinBlue * ($('.coinBlue').height()/2 -5)) + ($('.coinBlue').height()/2); 
+		var hieghtBlueDiv = ($('#coin-container').height() - 25 - totalBlue)/2 - $('.bot-arrow').height()/2;
 		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
 		$('.bot-arrow').show();
 		return true;
