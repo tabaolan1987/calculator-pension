@@ -8,7 +8,7 @@ var male = 1;
 var female = 2;
 var totalCoin = 25;
 var coinPercent = 4;
-
+var current_forcecash_income = 0;
 function setupData(){
 	loaddAllAnnuity();
 	loadAllInformation();
@@ -39,7 +39,7 @@ function loadPrintInfor(){
                 var cv = $(this).text();
 				$('#example-content').html(cv);
             });
-            console.log("load xml  : "  +  print +" already!");
+            console.log("load xml  : print already!");
         },
         error: function() {
             alert("An error occurred while processing XML file print.");

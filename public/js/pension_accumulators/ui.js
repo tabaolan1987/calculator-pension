@@ -44,7 +44,7 @@ function fallingCoin(index) {
         var heightImage = $(coin).height() / 2 - 5;
         var moveToBottom = heightContainer - (heightImage * index);
         var angle = 70 * (index % 2 === 0 ? 1 : -1);
-        $(coin).animateRotate(angle, moveToBottom, 500-heightImage*index, 'linear', function () {  
+        $(coin).animateRotate(angle, moveToBottom, 300-heightImage*index, 'linear', function () {  
             if (index < totalCoin) {
                 index = index + 1;
                 fallingCoin(index);
@@ -64,13 +64,16 @@ function setHeightDiv(){
 	var coinRed = getCoinRed(coinBlue);
 	$('.pound-income-inform').html(Number(forceCashIncome).toLocaleString('en').split('.')[0]);
 	if(coinRed < 5){
-		var heighTotalRed = (coinRed * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
+		var heighTotalRed = (2 * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
 		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
 		$('.arrow-mid').css('height',heightMidInform);
 		$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0]);
-		$('.top-arrow').css('display','block');
-		var totalBlue = (coinBlue * ($('.coinBlue').height()/2 -5)) + ($('.coinBlue').height()/2); 
-		var hieghtBlueDiv = ($('#coin-container').height() - 25 - totalBlue)/2 - $('.bot-arrow').height()/2;
+		$('.top-arrow').show();
+		console.log("heighTotalRed " + heighTotalRed);
+		console.log("$('.top-arrow').height() " + $('.top-arrow').height());
+		var hieghtBlueDiv = ($('#coin-container').height() - 25 - $('.top-arrow').height())/2 - $('.bot-arrow').height()/2;
+		console.log("$('.bot-arrow')/2 : " + $('.bot-arrow').height()/2);
+		console.log("hieghtBlueDiv " + hieghtBlueDiv);
 		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
 		$('.bot-arrow').show();
 		return true;
@@ -172,5 +175,13 @@ $('#infor').show();
 function hideInfor(){
 $('#infor').hide();
 }
+function showChartRight(){
+$('.right-content-draw').show();
+$('.right-content-default').hide();
+}
 
+function hideChartRight(){
+$('.right-content-draw').hide();
+$('.right-content-default').show();
+}
 
