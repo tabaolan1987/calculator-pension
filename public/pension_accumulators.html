@@ -106,7 +106,7 @@
 						<div class="box-defined-benefits" id="box-defined-benefits" style="display:none;">
 							<h3 class="tab-title">Defined Benefits (Final Salary) schemes</h3>
 						
-							<div class="row row-rule border-none">
+							<div class="row row-rule border-bottom">
 								<p>Do you have any pension income payable from a Defined Benefits (Final Salary) company pension?</p>							
 								<div class="col-sm-2"><span id="Defined-Benefits" class="icon-tooltip"></span><span class="label-tooltip">Yes</span></div>
 								<div class="col-sm-1"><input type="radio" id="yes" name="company-pension"><label for="yes"></label></div>
@@ -171,9 +171,9 @@
 					</div>
 					<div class="tab-pane" id="tab4">
 						<div id="wrap-tab">
-							<h3 class="tab-title normal-title">You have a shortfall of <b>£</b><b class="pound-normal-title">12,500</b> per year.</h3>
-							<h3 class="tab-title excess-title">You have an excess of <b>£</b><b class="pound-excess-title">12,500</b> per year.</h3>
-							<div>You wanted <b>£</b><b class="pound-wanted">50,000</b>, your forecast is <b>£</b><b  class="pound-forecast">62,500</b>, which is <b class="percent-target">125</b><b>%</b> of your target.</div>
+							<h3 class="tab-title normal-title">You have a shortfall of <b>£</b><b class="summary-pound-shortfall">12,500</b> per year.</h3>
+							<h3 class="tab-title excess-title" style="display:none;">You have an excess of <b>£</b><b class="summary-pound-excess">12,500</b> per year.</h3>
+							<div>You wanted <b>£</b><b class="summary-pound-pension">50,000</b>, your forecast is <b>£</b><b  class="summary-pound-income">62,500</b>, which is <b class="summary-percent">125</b><b>%</b> of your target.</div>
 							<ul class="normal-title">
 								<li class="li-heading">You can reduce the difference by:</li>
 								<li>increasing  your contributions</li>
@@ -192,15 +192,15 @@
 								<li>changing your investment fund growth rate</li>
 							</ul>
 							<p class="p-color">Your current plans:</p>
-							<p>Your chosen target income is <b>£</b><b class="pound-income">50,000</b> each year when you retire at age <b class="retire-age">67</b><p>
+							<p>Your chosen target income is <b>£</b><b class="summary-pound-pension">50,000</b> each year when you retire at age <b class="summary-retire-age">67</b><p>
 							
-							<p><a href="" title="Change income required" alt="Change income required">Change income required</a> <a href="" title="Change retirement age" alt="Change retirement age">Change retirement age</a></p>
-							<p>Your future pension payments and any existing pensions you have included will will provide an income of <b>£</b><b class="pound-provide">10,200</b> a year from age <b class="retire-age">67</b></p>
+							<p><a class="summary-link" href="" title="Change income required" alt="Change income required">Change income required</a> &nbsp;&nbsp;&nbsp;&nbsp; <a class="summary-link" href="" title="Change retirement age" alt="Change retirement age">Change retirement age</a></p>
+							<p>Your future pension payments and any existing pensions you have included will will provide an income of <b>£</b><b class="summary-pound-income">10,200</b> a year from age <b class="summary-retire-age">67</b></p>
 							
-							<p><a href="" title="Change contributions" alt="Change contributions">Change contributions</a></p>
-							<p>Your chosen tax free cash amount is <b>£</b><b class="pound-amount">85,694</b> (<b class="percent-amount">25</b><b>%</b>)</p>
+							<p><a class="summary-link" href="" title="Change contributions" alt="Change contributions">Change contributions</a></p>
+							<p>Your chosen tax free cash amount is <b>£</b><b class="summary-pound-amount">85,694</b> (<b class="summary-percent-amount">25</b><b>%</b>)</p>
 							
-							<p><a href="" title="Change tax free cash" alt="Change tax free cash">Change tax free cash</a></p>
+							<p><a class="summary-link" href="" title="Change tax free cash" alt="Change tax free cash">Change tax free cash</a></p>
 							<div class="align-right">
 								<span class="btn-note">Click here to change your growth rate</span> <span class="btn" id="btn-advanced" data-toggle="modal" data-target="#estimated-annual-modal">advanced</span>
 							</div>
@@ -275,10 +275,10 @@
 			<div id="result-box" style="border: 2px dotted #ddd;padding: 10px;">
 				<p>State pension is not included in these calculations.</p>
 				<h4>Your results:</h4>
-				<p>Your chosen target income is <b>£</b><b class="pound-target-income">50,000</b> each year when you retire at age <b class="retire-age">67</b>.</p>
-				<p>Your chosen tax free cash amount is <b>£</b><b class="pound-cash-amount">85,694</b> (<b class="percent-cash-amount">25</b>%).</p>
-				<p>Your future pension payments and any existing pensions you have included will will provide an income of <b>£</b><b class="pound-income">10,200</b> a year from age <b class="retire-age">67</b></p>
-				<p>You have a shortfall of <b>£</b><b class="pound-short-fall">39,800</b> per year.</p>
+				<p>Your chosen target income is <b>£</b><b class="print-pound-pension">50,000</b> each year when you retire at age <b class="print-retire-age">67</b>.</p>
+				<p>Your chosen tax free cash amount is <b>£</b><b class="print-pound-amount">85,694</b> (<b class="print-percent-amount">25</b>%).</p>
+				<p>Your future pension payments and any existing pensions you have included will will provide an income of <b>£</b><b class="print-pound-income">10,200</b> a year from age <b class="print-retire-age">67</b></p>
+				<p>You have a shortfall of <b>£</b><b class="print-pound-shortfall">39,800</b> per year.</p>
 			</div>
 	</div>
 
