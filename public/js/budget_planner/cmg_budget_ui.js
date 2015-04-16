@@ -241,7 +241,7 @@ function setHeightTabPane() {
 		}else{
 			heightTabAdded = $('#myTab').height() -( $('li:last-child').height());
 		}
-        var heigtTableAdded = $('.tab-pane.active .row-containTblInput').height() + (numberAdded * 60);
+        var heigtTableAdded = $('.tab-pane.active .row-containTblInput').height() + (numberAdded * 50);
         $('.tab-pane').css('height',  (heightTabAdded -10) + "px");
         $('.tab-pane .row-containTblInput').css('height', heigtTableAdded + "px");
     }

@@ -38,18 +38,18 @@
 	}
 	
 	.table-responsive .img-responsive{
-		width : 60%;
+		width : 38px;
 		height : 38px;
 	}
 	td.tenPersent{
 		
 	}
 	.tenPersent .img-responsive{
-		width : 80%;
+		width :38px;
 		height : 38px;
 	}
 	.arrow  .img-responsive{
-		width : 38px;
+		width :38px;
 		height : 38px;
 		padding-right : 10px;
 	}
@@ -60,8 +60,7 @@
 	}
 	table.table-responsive > tbody >tr > td.forty{
 		width : 45%;
-		padding-bottom : 10px;
-		padding-top : 10px;
+		
 	}
 	
 	.panel-group .panel-heading+.panel-collapse>.panel-body{
@@ -76,9 +75,9 @@
 		border-bottom-right-radius: 0px;
 	}
 	div.row-heading{
-		height : 58px;
+		height : 46px;
 		min-height : 30px;
-		padding-top : 18px;
+		padding-top : 15px;
 		margin-left:0px !important;
 		margin-right:0px !important;
 		border-bottom : 1px solid;
