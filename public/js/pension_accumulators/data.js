@@ -9,6 +9,7 @@ var female = 2;
 var totalCoin = 25;
 var coinPercent = 4;
 var current_forcecash_income = 0;
+var current_target = 0;
 function setupData(){
 	loaddAllAnnuity();
 	loadAllInformation();

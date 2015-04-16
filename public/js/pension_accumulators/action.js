@@ -455,15 +455,15 @@ function hideRightContent(){
 	$('#right-content').hide();
 }
 function drawChart(){
-	if(current_forcecash_income !== getForecastIncome()){
+	var forceCashIncome = getForecastIncome();
+	var targetPension = $('#txt-target-pensions').val();
+	if(current_forcecash_income !== forceCashIncome || current_target !== targetPension){
 		showRightContent();
 		showChartRight();
 		disableTxtField();
 		$('.top-arrow').hide();
 		$('.bot-arrow').hide();
 		setupMessage();
-		var forceCashIncome = getForecastIncome();
-		var targetPension = $('#txt-target-pensions').val();
 		var coinBlue = getCoinBlue(forceCashIncome,targetPension);
 		console.log(coinBlue);
 		var coinRed = getCoinRed(coinBlue);
@@ -472,6 +472,7 @@ function drawChart(){
 		setupCoin(coinBlue,coinRed);
 		fallingCoin(1);
 		current_forcecash_income = forceCashIncome;
+		current_target = targetPension;
 	}
 	
 }
