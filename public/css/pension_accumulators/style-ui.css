@@ -38,6 +38,10 @@ a:focus{
 	text-align:center !important;
 }
 
+.img-responsive{
+	display: inline-block;
+}
+
 /*left content
 ---------------------------------------------------------------------------------------------------------------*/
 
@@ -455,6 +459,12 @@ a:focus{
 	padding:2px 12px;
 }
 
+.btn-print{
+	position: inherit;
+	bottom: 0;
+	margin: 25px 22px 0 0;
+}
+
 .tab-content .btnPrevious{
 	background-color:#747678;
 }
@@ -464,8 +474,7 @@ a:focus{
 	background-color:#428bca;
 }
 
-.tab-content .btnNext,
-.btn-print{
+.tab-content .btnNext{
 	right:28px;
 }
 
@@ -980,6 +989,38 @@ a:focus{
 	/*popup*/
 	.icon-tooltip-popup{
 		margin-right: 0px;
+	}
+
+	/*right draw*/
+	.arrow-top{
+		background: url(../../images/pension_accumulators/arrow-top-bg-480.png) top left no-repeat;
+		width: 150px;
+		height: 38px;
+	}
+
+	.arrow-mid{
+		background: url(../../images/pension_accumulators/arrow-mid-bg-480.png) top left repeat-y;
+		width: 150px;
+		font-size: 16px;
+	}
+
+	.arrow-bot{
+		background: url(../../images/pension_accumulators/arrow-bot-bg-480.png) top left no-repeat;
+		width: 150px;
+		height: 36px;	
+	}
+
+	.bot-arrow{
+		background: url(../../images/pension_accumulators/arrow-pension-480.png) left top no-repeat;
+		width: 129px;
+		height: 61px;
+		font-size: 13px;
+		padding-top: 16px;
+		padding-left: 20px;
+	}
+
+	.btn-print {
+	    margin: 25px 2px 0 0;
 	}
 
 	/*bootstrap overide*/
