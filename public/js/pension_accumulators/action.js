@@ -13,12 +13,14 @@ function registerHoverAction(){
 		var content = InformationArray[attrName];
 		$("#infor-tooltip").html(content);
 		var height = $("#content-tooltip").height();
+		console.log("height : " + height);
 		var top = $(this).offset().top;
 		console.log("top : " + top);
 		var left = $(this).offset().left;
+		var topTool =  top - height/(1.65);
 		$("#content-tooltip").css({
 				position: 'fixed',
-				top: (top - 2 * height / 3) + $(this).height()/2,
+				top: topTool,
 				left: left + $(this).width()
 		});
 		$("#content-tooltip").show();
@@ -26,7 +28,7 @@ function registerHoverAction(){
 	);
 
 	$(document).on("mouseout",".icon-tooltip",function() {
-		$("#content-tooltip").hide();		
+		//$("#content-tooltip").hide();		
 	});
 }
 /* this function just allow user can type numberic only */
