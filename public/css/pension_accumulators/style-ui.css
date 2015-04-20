@@ -292,6 +292,10 @@ a:focus{
 	padding-left : 60px;
 	padding-right : 15px;
 	padding-top : 20px;
+}
+
+#infor-tooltip{
+	height:264px;
 	overflow-y : auto;
 }
 
@@ -748,11 +752,13 @@ a:focus{
 		background:url(../../images/pension_accumulators/tooltip-bg-480.png) left center no-repeat;
 		width:192px;
 		height:139px;
-		display:none;
-		z-index:999;
-		padding-left : 60px;
-		padding-right : 15px;
-		padding-top : 20px;
+		padding-left : 30px;
+		padding-right : 3px;
+		padding-top : 7px;
+	}
+
+	#infor-tooltip{
+		height:118px;
 		overflow-y : auto;
 	}
 
