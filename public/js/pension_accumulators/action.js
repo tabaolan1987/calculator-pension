@@ -14,29 +14,20 @@ function registerHoverAction(){
 		$("#infor-tooltip").html(content);
 		var height = $("#content-tooltip").height();
 		var top = $(this).offset().top;
+		console.log("top : " + top);
 		var left = $(this).offset().left;
-		var isXs = checkScreenXsSM();
-		if(isXs === true){
-			$("#content-tooltip").css({
-				position: 'absolute',
-				top: (top - height) -45,
-				left: left +5
-			});
-		}else{
-			$("#content-tooltip").css({
-				position: 'absolute',
-				top: (top - height) + 35,
-				left: left - 5
-			});
-		}
+		$("#content-tooltip").css({
+				position: 'fixed',
+				top: (top - 2 * height / 3) + $(this).height()/2,
+				left: left + $(this).width()
+		});
 		$("#content-tooltip").show();
 	}
 	);
 
 	$(document).on("mouseout",".icon-tooltip",function() {
 		$("#content-tooltip").hide();		
-	}
-	);
+	});
 }
 /* this function just allow user can type numberic only */
 function isNumberKey(evt)
