@@ -3,31 +3,46 @@
 <infor>
 <id-element>deferred-pensions</id-element>
 <name>deferred-pensions</name>
-<message><![CDATA[<p>Some thing will be write for deferred pensions!</p>]]></message>
+<message><![CDATA[<p>Deferred pensions</p>
+<p>If you have one or more deferred Money Purchase/Defined Contribution pensions or AVCs, add together the current fund values and enter the total.</p>]]></message>
 </infor>
 <infor>
 <id-element>current-pensions</id-element>
 <name>current-pensions</name>
-<message><![CDATA[<p>Some thing will be write for current pensions!</p>]]></message>
+<message><![CDATA[<p>Current fund value of existing pensions</p>
+<p>You will be able to find this on your last annual statement. For a more up-to-date quotation, you can contact your pension provider.</p>
+<p>Alternatively, you could enter an estimated value.</p>]]></message>
 </infor>
 <infor>
 <id-element>you-paying</id-element>
 <name>you-paying</name>
-<message><![CDATA[<p>Some thing will be write for you currently paying into your pension per month!</p>]]></message>
+<message><![CDATA[<p>Employee contribution</p>
+<p>Enter the regular monthly amount you pay into your pension.</p>
+<p>If you do not contribute, leave this blank.</p>]]></message>
 </infor>
 <infor>
 <id-element>your-employer</id-element>
 <name>your-employer</name>
-<message><![CDATA[<p>Some thing will be write for your employer!</p>]]></message>
+<message><![CDATA[<p>Employer contribution</p>
+<p>Enter the regular monthly amount your employer pays into your pension.</p>
+<p>If your employer does not contribute, leave this blank.</p>]]></message>
 </infor>
 <infor>
 <id-element>Defined-Benefits</id-element>
 <name>Defined-Benefits</name>
-<message><![CDATA[<p>Some thing will be write for Defined Benefits</p>]]></message>
+<message><![CDATA[<p>Defined Benefits (Final Salary)</p>
+<p>The benefits from this type of pension are defined using a formula that is usually related to your salary.</p>
+<p>The income from final salary schemes is not associated with assets allocated to each individual pension as they are for defined contribution schemes.</p>
+<p>Enter the annual income amount that you are likely to receive from this pension in today's terms (not the projected amount which is sometimes  referred to as 'revalued' pension).</p>
+<p>If you have more than one DB scheme, add them together and enter the total.</p>]]></message>
 </infor>
 <infor>
 <id-element>income-payable</id-element>
 <name>income-payable</name>
-<message><![CDATA[<p>Some thing will be write for income payable!</p>]]></message>
+<message><![CDATA[<p>Defined Benefits (Final Salary)</p>
+<p>The benefits from this type of pension are defined using a formula that is usually related to your salary.</p>
+<p>The income from final salary schemes is not associated with assets allocated to each individual pension as they are for defined contribution schemes.</p>
+<p>Enter the annual income amount that you are likely to receive from this pension in today's terms (not the projected amount which is sometimes  referred to as 'revalued' pension).</p>
+<p>If you have more than one DB scheme, add them together and enter the total.</p>]]></message>
 </infor>
 </infor_popups>
