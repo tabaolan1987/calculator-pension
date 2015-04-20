@@ -173,7 +173,7 @@
 						<div id="wrap-tab">
 							<h3 class="tab-title summary-normal-title">You have a shortfall of <b>£</b><b class="summary-pound-shortfall">12,500</b> per year.</h3>
 							<h3 class="tab-title summary-excess-title" style="display:none;">You have an excess of <b>£</b><b class="summary-pound-excess">12,500</b> per year.</h3>
-							<div>You wanted <b>£</b><b class="summary-pound-pension">50,000</b>, your forecast is <b>£</b><b  class="summary-pound-income">62,500</b>, which is <b class="summary-percent">125</b><b>%</b> of your target.</div>
+							<div class="wanted-income">You wanted <b>£</b><b class="summary-pound-pension">50,000</b>, your forecast is <b>£</b><b  class="summary-pound-income">62,500</b>, which is <b class="summary-percent">125</b><b>%</b> of your target.</div>
 							<ul class="summary-normal-title">
 								<li class="li-heading">You can reduce the difference by:</li>
 								<li>increasing  your contributions</li>
@@ -210,31 +210,40 @@
 				</div>
             </div><!--END .left-content-->
 			
-            <div id='right-content' class="col-sm-12 col-md-5 hidden-sm right-content">
+            <div id='right-content' class="col-sm-12 col-md-5 hidden-sm right-content"><!--hidden-xs-->
             	<div class="right-content-draw" style="display:none;">
 	            	<div class="draw-chart" >
 						<div class="row">
 							<h3>Your required annual income <br/> &nbsp;&nbsp;&nbsp; <b>£</b><b class="pound-annual-income">50,000</b></h3>
-							<div class="col-sm-5 align-center">
+							<div class="col-xs-5 align-right">
 								<div id="coin-container">
-									<img src="images/pension_accumulators/col-coin.png" alt="" title="" />
+									<img class="img-responsive" src="images/pension_accumulators/col-coin.png" alt="" title="" />
 								</div>
 							</div>
-							<div class="col-sm-7 align-center">
-								<div class="top-arrow">
-									<div class="arrow-top"></div>
-									<div class="arrow-mid">Shortfall </br> <span style="color:#da291c;">£</span><span class="pound-shortfall">39,800</span></div>
-									<div class="arrow-bot"></div>
+							<div class="col-xs-7 align-left">
+								<div>
+									<div class="top-arrow">
+										<div class="arrow-top"></div>
+										<div class="arrow-mid">Shortfall </br> <span style="color:#da291c;">£</span><span class="pound-shortfall">39,800</span></div>
+										<div class="arrow-bot"></div>
+									</div>
 								</div>
-								<div class="bot-arrow">Pension <br/> £<span class="pound-income-inform">39,800</span></div>
+								<div>
+									<div class="bot-arrow">
+										Pension <br/> £<span class="pound-income-inform">39,800</span>
+										<div class="align-right">
+											<a id="print-data" class="btn btn-primary btn-print" onclick="PrintElement('#box-print')" >print</a>
+										</div>
+									</div>
+								</div>
+								
 							</div>
 						</div>
 						
-						<a id="print-data" class="btn btn-primary btn-print" onclick="PrintElement('#box-print')" >print</a>
 				 	</div>
 				</div>
 				<div class="right-content-default align-center">
-					<img src="images/pension_accumulators/right-content-img.jpg" alt="" title="" />
+					<img class="img-responsive" src="images/pension_accumulators/right-content-img.jpg" alt="" title="" />
 				</div>
             </div><!--END .right-content-->
 			
@@ -262,7 +271,7 @@
 					<h4 class="modal-title" id="myModalLabel"></h4>
 				</div>
 				<div class="modal-body">
-					<div class="col-sm-12"><span class="icon-tooltip"></span><span class="label-tooltip">What is the estimated annual growth of your savings?</span></div>
+					<div class="col-sm-12"><span class="icon-tooltip-popup"></span><span class="label-tooltip">What is the estimated annual growth of your savings?</span></div>
 				</div>
 			</div>
 		</div>
