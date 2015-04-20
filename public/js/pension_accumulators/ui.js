@@ -71,12 +71,14 @@ function setHeightDiv(){
 		$('.top-arrow').css('display','inline-block');
 		var hieghtBlueDiv = ($('#coin-container').height() - 25 - heighTotalRed)/2 - $('.bot-arrow').height()/2;
 		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
+		$('#print-div').css('margin-top',hieghtBlueDiv);
 		$('.bot-arrow').css('display','inline-block');
 		return true;
 	}else if(coinBlue == totalCoin){
 		$('.top-arrow').hide();
 		var margin = ($('#coin-container').height() - 25)/2 - $('.bot-arrow').height()/2;
 		$('.bot-arrow').css('margin-top',margin);
+		$('#print-div').css('margin-top',margin);
 		$('.bot-arrow').css('display','inline-block');
 		return true;
 	}else if(coinBlue <= 5 & coinBlue > 1){
@@ -97,7 +99,7 @@ function setHeightDiv(){
 		$('.top-arrow').css('display','inline-block');
 		$('.bot-arrow').css('display','inline-block');
 		return true;
-	}else if(coinRed < 5){
+	}else if(coinRed <= 5){
 		var heighTotalRed = (2 * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
 		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
 		$('.arrow-mid').css('height',heightMidInform);
@@ -109,6 +111,7 @@ function setHeightDiv(){
 		console.log("$('.bot-arrow')/2 : " + $('.bot-arrow').height()/2);
 		console.log("hieghtBlueDiv " + hieghtBlueDiv);
 		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
+		$('#print-div').css('margin-top',hieghtBlueDiv);
 		$('.bot-arrow').css('display','inline-block');
 		return true;
 	}
@@ -188,5 +191,20 @@ function checkScreenXsSM(){
 		return false;
 	}else{
 		return true;
+	}
+}
+function showRightContent(){
+	$('#right-content').show();
+}
+function hideRightContent(){
+	$('#right-content').hide();
+}
+
+function drawRightContent(){
+	var checkSize = checkScreenXsSM();
+	if(checkSize == true){
+		hideRightContent();
+	}else{
+		showRightContent();
 	}
 }

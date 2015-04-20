@@ -212,7 +212,7 @@
 				</div>
             </div><!--END .left-content-->
 			
-            <div id='right-content' class="col-sm-12 col-md-5 hidden-sm hidden-xs right-content"><!---->
+            <div id='right-content' class="col-sm-12 col-md-5 right-content"><!---->
             	<div class="right-content-draw" style="display:none;">
 	            	<div class="draw-chart" >
 						<div class="row">
@@ -233,7 +233,7 @@
 								<div>
 									<div class="bot-arrow">
 										Pension <br/> £<span class="pound-income-inform">39,800</span>
-										<div class="align-right">
+										<div id="print-div" class="align-right">
 											<a id="print-data" class="btn btn-primary btn-print" onclick="PrintElement('#box-print')" >print</a>
 										</div>
 									</div>
@@ -304,6 +304,7 @@
 			setupData();
 			registerAction();
 			drawSlide();
+			drawRightContent();
 		});
 	  </script>
    </body>

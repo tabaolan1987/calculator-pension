@@ -34,7 +34,7 @@ function registerHoverAction(){
 	);
 
 	$(document).on("mouseout",".icon-tooltip",function() {
-		//$("#content-tooltip").hide();		
+		$("#content-tooltip").hide();		
 	}
 	);
 }
@@ -455,14 +455,7 @@ function onChange(){
 		$('#estimated-annual-modal').modal('hide');
 	});
 }
-function showRightContent(){
-	$('#right-content').removeClass('hidden-sm');
-	$('#right-content').show();
-}
-function hideRightContent(){
-	$('#right-content').addClass('hidden-sm');
-	$('#right-content').hide();
-}
+
 function drawChart(){
 	var forceCashIncome = getForecastIncome();
 	var targetPension = $('#txt-target-pensions').val();
