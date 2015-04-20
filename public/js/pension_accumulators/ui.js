@@ -183,4 +183,10 @@ function hideChartRight(){
 $('.right-content-draw').hide();
 $('.right-content-default').show();
 }
-
+function checkScreenXsSM(){
+	if($('#check-ui').is(":visible")){
+		return false;
+	}else{
+		return true;
+	}
+}

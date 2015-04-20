@@ -11,21 +11,30 @@ function registerHoverAction(){
 	$(document).on("mouseover",".icon-tooltip",function() {
 		var attrName = $(this).attr('information-message');
 		var content = InformationArray[attrName];
-		$("#content-tooltip").html(content);
+		$("#infor-tooltip").html(content);
 		var height = $("#content-tooltip").height();
 		var top = $(this).offset().top;
 		var left = $(this).offset().left;
-		$("#content-tooltip").css({
-			position: 'absolute',
-			top: (top - height) + 35,
-			left: left - 5
-		});
+		var isXs = checkScreenXsSM();
+		if(isXs === true){
+			$("#content-tooltip").css({
+				position: 'absolute',
+				top: (top - height) -45,
+				left: left +5
+			});
+		}else{
+			$("#content-tooltip").css({
+				position: 'absolute',
+				top: (top - height) + 35,
+				left: left - 5
+			});
+		}
 		$("#content-tooltip").show();
 	}
 	);
 
 	$(document).on("mouseout",".icon-tooltip",function() {
-		$("#content-tooltip").hide();		
+		//$("#content-tooltip").hide();		
 	}
 	);
 }

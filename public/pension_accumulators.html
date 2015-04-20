@@ -28,7 +28,9 @@
          </div><!--END .title-->
          <div class="row" id="content">
             <div class="col-sm-12 col-md-7 left-content">
-				<div id="content-tooltip"></div>
+				<div id="content-tooltip">
+					<div id="infor-tooltip"></div>
+				</div>
 				<ul class="nav nav-tabs">
 					<li class="active"><div class="mid"><div><a id='about-you' href="#tab1" data-toggle="tab">about you</a></div></div></li>
 					<li><div class="mid"><div><a id='savings'>savings</a></div></div></li>
@@ -296,7 +298,7 @@
 				<p>You have a shortfall of <b>£</b><b class="print-pound-shortfall">39,800</b> per year.</p>
 			</div>
 	</div>
-
+	<div id='check-ui' class="hidden-sm hidden-xs"></div>
 	  <script type="text/javascript" >
 		$(document).ready(function(){
 			setupData();
