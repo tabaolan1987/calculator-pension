@@ -27,28 +27,23 @@ https://cdn.rawgit.com/Claybourne/CloseBrothersCalculators/master/public/js/budg
 	<script type="text/javascript" src="https://cdn.rawgit.com/Claybourne/CloseBrothersCalculators/master/public/js/budget_planner/cmg_budget_formula_min.js"></script>
 	<script type="text/javascript" src="https://cdn.rawgit.com/Claybourne/CloseBrothersCalculators/master/public/js/budget_planner/cmg_budget_action_min.js"></script>
 	<script type="text/javascript" src="https://cdn.rawgit.com/Claybourne/CloseBrothersCalculators/master/public/js/budget_planner/cmg_budget_ui_min.js"></script>
-	<link rel="stylesheet" href="css/jquery.range.css">
-	<script src="js/jquery.range-min.js"></script>
+	<link rel="stylesheet" href="css/jquery.nouislider.min.css">
+	<script src="js/jquery.nouislider.all.min.js"></script>
   </head>
   <body>
-	<div style= "margin-top : 50px;margin-left : 10px">
-    <input type="hidden" class="slider-input" value="23" style="margin-top:10px" />
+	<div id="slider-start" style= "margin-top : 50px;margin-left : 10px">
+
   </div>
 	<!-- Modal -->
 	
     <script type="text/javascript">
-      (function($) {
-		   console.log( "ready!" );
-      })(jQuery);
 	  $(document).ready(function(){
-			$('.slider-input').jRange({
-    from: 0,
-    to: 100,
-    step: 1,
-    scale: [0,25,50,75,100],
-    format: '%s',
-    width: 300,
-    showLabels: true
+			$("#slider-start").noUiSlider({
+	start: [1],
+	range: {
+		'min': [ 0 ],
+		'max': [ 100 ]
+	}
 });
 	  });
      

@@ -28,7 +28,7 @@ function registerHoverAction(){
 	);
 
 	$(document).on("mouseout",".icon-tooltip",function() {
-		//$("#content-tooltip").hide();		
+		$("#content-tooltip").hide();		
 	});
 }
 /* this function just allow user can type numberic only */
