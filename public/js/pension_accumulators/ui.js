@@ -94,7 +94,7 @@ function setHeightDiv(){
 	}else if(coinBlue <= 3){
 		var heighTotalRed = (coinRed * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
 		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height()*2;
-		$('.arrow-mid').css('height',350);
+		$('.arrow-mid').css('height',338);
 		$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0]);
 		$('.bot-arrow').css('margin-top','0');
 		$('.top-arrow').css('display','inline-block');
