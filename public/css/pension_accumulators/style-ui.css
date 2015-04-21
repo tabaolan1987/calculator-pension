@@ -42,6 +42,13 @@ a:focus{
 	display: inline-block;
 }
 
+@media screen and (min-width:0\0) {
+	/* IE9 and IE10 rule sets go here */
+	.img-responsive{
+		width: auto;
+	}
+}
+
 /*left content
 ---------------------------------------------------------------------------------------------------------------*/
 
