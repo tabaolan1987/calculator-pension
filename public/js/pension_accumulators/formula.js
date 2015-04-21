@@ -89,7 +89,6 @@ function getTax_Free_Value(){
 	var taxFreePercent = getTax_free_Percent();
 	var temp1 = parseFloatCMG(retirementPot*taxFreePercent);
 	var temp2 = parseFloatCMG(LTA*(25/100));
-	////console.log("temp1 : " + temp1 + " temp2 :"  + temp2)
 	if(temp1 <= temp2){
 		//console.log("temp1 :" + temp1)
 		return round(temp1);
@@ -209,7 +208,6 @@ function getCoinBlue(forecastIncome,targetPension){
 		coin = totalCoin;
 	}else{
 		var percent = (forecastIncome/targetPension)*100;
-		////console.log(percent);
 		var coin = round(percent);
 		coin = coin/coinPercent;
 	}

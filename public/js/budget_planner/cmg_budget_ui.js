@@ -324,7 +324,13 @@ function showTooltip(x, y, contents) {
     var value = content.split(':')[1];
 	value = value.replace("£","");
 	value = parseFloat(value);
-    var html = "<p style='font-size:12px;text-align:center;color:blue;margin-bottom:2px'>" + name + "</p><p style='font-size:12px;text-align:center;color:blue'>£" + Number(value).toLocaleString('en').split('.')[0] + "</p>";
+	var temp = "";
+	if(name.length > 15){
+		temp = name.substring(0, 9) + "..";
+	}else{
+		temp = name;
+	}
+    var html = "<p style='font-size:12px;text-align:center;color:blue;margin-bottom:2px'>" + temp + "</p><p style='font-size:12px;text-align:center;color:blue'>£" + Number(value).toLocaleString('en').split('.')[0] + "</p>";
     $('#tooltip').html(html);
      $('#tooltip').css({
         position: 'absolute',

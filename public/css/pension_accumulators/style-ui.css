@@ -491,6 +491,7 @@ a:focus{
 .right-content{
 	overflow: hidden;
 	min-height: 638px;
+	height : 638px;
 }
 
 .right-content h3{

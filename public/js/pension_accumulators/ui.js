@@ -9,7 +9,6 @@ $.fn.animateRotate = function(angle, top, duration, easing, complete) {
       duration: duration,
       easing: easing,
       step: function(now) {
-          //console.log(now);
           var currentDeg = (1- now/top)*angle;
         $elem.css({
            transform: 'rotate(' + currentDeg + 'deg)',
