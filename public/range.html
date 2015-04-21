@@ -28,7 +28,31 @@ https://cdn.rawgit.com/Claybourne/CloseBrothersCalculators/master/public/js/budg
 	<script type="text/javascript" src="https://cdn.rawgit.com/Claybourne/CloseBrothersCalculators/master/public/js/budget_planner/cmg_budget_action_min.js"></script>
 	<script type="text/javascript" src="https://cdn.rawgit.com/Claybourne/CloseBrothersCalculators/master/public/js/budget_planner/cmg_budget_ui_min.js"></script>
 	<link rel="stylesheet" href="css/jquery.nouislider.min.css">
+	<link rel="stylesheet" href="css/jquery.nouislider.pips.min.css">
+	
 	<script src="js/jquery.nouislider.all.min.js"></script>
+	<script src="js/jquery.liblink.js"></script>
+	
+	<style>
+		.tooltip {
+			display: block;
+			position: absolute;
+			border: 1px solid #D9D9D9;
+			font: 400 12px/12px Arial;
+			border-radius: 3px;
+			background: #fff;
+			top: -43px;
+			padding: 5px;
+			left: -9px;
+			text-align: center;
+			width: 50px;
+		}
+		.tooltip strong {
+			display: block;
+			padding: 2px;
+		}
+	
+	</style>
   </head>
   <body>
 	<div id="slider-start" style= "margin-top : 50px;margin-left : 10px">
@@ -37,16 +61,27 @@ https://cdn.rawgit.com/Claybourne/CloseBrothersCalculators/master/public/js/budg
 	<!-- Modal -->
 	
     <script type="text/javascript">
+		 (function($) {
+
+		$("#slider-tooltip").Link('lower').to('-inline-');
+      })(jQuery);
 	  $(document).ready(function(){
-			$("#slider-start").noUiSlider({
-	start: [1],
-	range: {
-		'min': [ 0 ],
-		'max': [ 100 ]
-	}
-});
+				$("#slider-start").noUiSlider({
+			animate: true,
+			start: 55,
+			step: 1,
+			range: {
+				'min':  55,
+				'max':  75
+			}
+			});
+		$('#slider-start').noUiSlider_pips({
+			mode: 'values',
+			values: [55,60,65,70,75],
+			density: 5
+		});
 	  });
-     
+		
     </script>
   </body>
 </html>

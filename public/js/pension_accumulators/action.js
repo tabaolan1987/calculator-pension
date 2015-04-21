@@ -14,10 +14,10 @@ function registerHoverAction(){
 		$("#infor-tooltip").html(content);
 		var height = $("#content-tooltip").height();
 		console.log("height : " + height);
-		var top = $(this).offset().top;
+		var top = $(this).offset().top - $(window).scrollTop();;
 		console.log("top : " + top);
 		var left = $(this).offset().left;
-		var topTool =  top - height/(1.65);
+		var topTool =  top - height/1.624;
 		$("#content-tooltip").css({
 				position: 'fixed',
 				top: topTool,
