@@ -16,13 +16,27 @@ function registerHoverAction(){
 		console.log("height : " + height);
 		var top = $(this).offset().top - $(window).scrollTop();;
 		console.log("top : " + top);
-		var left = $(this).offset().left;
-		var topTool =  top - height/1.624;
-		$("#content-tooltip").css({
+		var background = $("#content-tooltip").css('background');
+		console.log(background);
+		var n = background.search("480");
+		if(n!= -1){
+			var left = $(this).offset().left;
+			var topTool =  top - height/1.74;
+			$("#content-tooltip").css({
+					position: 'fixed',
+					top: topTool,
+					left: left + $(this).width()
+			});
+		}else{
+			var left = $(this).offset().left;
+			var topTool =  top - height/1.66;
+			$("#content-tooltip").css({
 				position: 'fixed',
 				top: topTool,
 				left: left + $(this).width()
-		});
+			});
+		}
+		
 		$("#content-tooltip").show();
 	}
 	);
