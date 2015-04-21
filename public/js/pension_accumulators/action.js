@@ -14,26 +14,26 @@ function registerHoverAction(){
 		$("#infor-tooltip").html(content);
 		var height = $("#content-tooltip").height();
 		console.log("height : " + height);
-		var top = $(this).offset().top - $(window).scrollTop();;
+		var top = $(this).offset().top - $(window).scrollTop();
 		console.log("top : " + top);
-		var background = $("#content-tooltip").css('background');
+		var background = $("#content-tooltip").css('background-image');
 		console.log(background);
-		var n = background.search("480");
-		if(n!= -1){
+		var n = background.indexOf("480");
+		if(n == -1){
 			var left = $(this).offset().left;
-			var topTool =  top - height/1.74;
-			$("#content-tooltip").css({
-					position: 'fixed',
-					top: topTool,
-					left: left + $(this).width()
-			});
-		}else{
-			var left = $(this).offset().left;
-			var topTool =  top - height/1.66;
+			var topTool =  top - 172;
 			$("#content-tooltip").css({
 				position: 'fixed',
 				top: topTool,
 				left: left + $(this).width()
+			});
+		}else{
+			var left = $(this).offset().left;
+			var topTool =  top - 76;
+			$("#content-tooltip").css({
+					position: 'fixed',
+					top: topTool,
+					left: left + $(this).width()
 			});
 		}
 		
@@ -368,14 +368,14 @@ function setupSlide(){
 }
 function setTextToTextField(){
 	var cashContribute = getCash_Contribute();
-	var ContributePercent = getPercent_Contribute();
+	var ContributePercent = getPercent_Contribute()*100;
 	$('#txt-you-paying-result').val(cashContribute);
-	$('#txt-you-paying-percent-result').val(ContributePercent*100);
+	$('#txt-you-paying-percent-result').val(fixed(ContributePercent));
 	
 	var cashContriCompany = getCash_Contribute_company();
-	var percentContriConpany = getPercent_Contribute_company();
+	var percentContriConpany = getPercent_Contribute_company()*100;
 	$('#txt-your-employer-result').val(cashContriCompany);
-	$('#txt-your-employer-percent-result').val(percentContriConpany*100);
+	$('#txt-your-employer-percent-result').val(fixed(percentContriConpany));
 	
 	var targetPension = $('#txt-target-pensions').val();
 	$('#txt-target-pensions-result').val(targetPension);

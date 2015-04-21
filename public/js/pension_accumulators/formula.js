@@ -237,6 +237,6 @@ function round(number) {
 	return newnumber;
 }
 function fixed(number){
-	var newnumber = new Number(number).toFixed(2);
+	var newnumber = new Number(number).toFixed(1);
 	return newnumber;
 }
