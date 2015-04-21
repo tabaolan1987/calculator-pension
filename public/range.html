@@ -29,9 +29,9 @@ https://cdn.rawgit.com/Claybourne/CloseBrothersCalculators/master/public/js/budg
 	<script type="text/javascript" src="https://cdn.rawgit.com/Claybourne/CloseBrothersCalculators/master/public/js/budget_planner/cmg_budget_ui_min.js"></script>
 	<link rel="stylesheet" href="css/jquery.nouislider.min.css">
 	<link rel="stylesheet" href="css/jquery.nouislider.pips.min.css">
-	
-	<script src="js/jquery.nouislider.all.min.js"></script>
 	<script src="js/jquery.liblink.js"></script>
+	<script src="js/jquery.nouislider.all.min.js"></script>
+	
 	
 	<style>
 		.tooltip {
@@ -61,12 +61,7 @@ https://cdn.rawgit.com/Claybourne/CloseBrothersCalculators/master/public/js/budg
 	<!-- Modal -->
 	
     <script type="text/javascript">
-		 (function($) {
-
-		$("#slider-tooltip").Link('lower').to('-inline-');
-      })(jQuery);
-	  $(document).ready(function(){
-				$("#slider-start").noUiSlider({
+			$("#slider-start").noUiSlider({
 			animate: true,
 			start: 55,
 			step: 1,
@@ -75,12 +70,21 @@ https://cdn.rawgit.com/Claybourne/CloseBrothersCalculators/master/public/js/budg
 				'max':  75
 			}
 			});
+		
 		$('#slider-start').noUiSlider_pips({
 			mode: 'values',
 			values: [55,60,65,70,75],
 			density: 5
 		});
-	  });
+		
+			$('#slider-start').Link('upper').to('-inline-<div class="tooltip"></div>', function ( value ) {
+			// The tooltip HTML is 'this', so additional
+			// markup can be inserted here.
+			$(this).html(
+				'<strong>Value: </strong>' +
+				'<span>' + value + '</span>'
+			);
+		});
 		
     </script>
   </body>
