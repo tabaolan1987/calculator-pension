@@ -59,7 +59,7 @@ function registerActionAboutYou(){
 	
 	$('.text-about-you').on('input', function() {
 		var check = checkDataAboutYou();
-		if(check == true){
+		if(check.length == 0){
 			eneableTabSavings();
 		}else{
 			disableTabSavings();
@@ -67,7 +67,7 @@ function registerActionAboutYou(){
 	});
 	$("input:radio[name=optradio]").change(function(){
 		var check = checkDataAboutYou();
-		if(check == true){
+		if(check.length == 0){
 			eneableTabSavings();
 		}else{
 			disableTabSavings();
@@ -85,14 +85,17 @@ function registerActionAboutYou(){
 			var caseWarning = check[0];
 			if(caseWarning == "retireAge-smaller-than-currentAge"){
 				content = warningArray["retireAge-smaller-than-currentAge"];
+				disableTabSavings();
+				showWarning(content);
 			}else{
 				content = warningArray["validate-field"] +" "+ check[0];
 				for(var i =1; i < check.length;i++){
 					content = content+"," + check[i];
 				}
+				disableTabSavings();
+				showWarning(content+"!");
 			}
-			disableTabSavings();
-			showWarning(content+"!");
+			
 		}
 	});
 	
@@ -102,14 +105,17 @@ function registerActionAboutYou(){
 			var caseWarning = check[0];
 			if(caseWarning == "retireAge-smaller-than-currentAge"){
 				content = warningArray["retireAge-smaller-than-currentAge"];
+				disableTabSavings();
+				showWarning(content);
 			}else{
 				content = warningArray["validate-field"] +" "+ check[0];
 				for(var i =1; i < check.length;i++){
 					content = content+"," + check[i];
 				}
+				disableTabSavings();
+				showWarning(content + "!");
 			}
-			disableTabSavings();
-			showWarning(content + "!");
+			
 			return false;
 		}
 	});
@@ -379,12 +385,12 @@ function setupSlide(){
 function setTextToTextField(){
 	var cashContribute = getCash_Contribute();
 	var ContributePercent = getPercent_Contribute()*100;
-	$('#txt-you-paying-result').val(cashContribute);
+	$('#txt-you-paying-result').val(fixed(cashContribute));
 	$('#txt-you-paying-percent-result').val(fixed(ContributePercent));
 	
 	var cashContriCompany = getCash_Contribute_company();
 	var percentContriConpany = getPercent_Contribute_company()*100;
-	$('#txt-your-employer-result').val(cashContriCompany);
+	$('#txt-your-employer-result').val(fixed(cashContriCompany));
 	$('#txt-your-employer-percent-result').val(fixed(percentContriConpany));
 	
 	var targetPension = $('#txt-target-pensions').val();
