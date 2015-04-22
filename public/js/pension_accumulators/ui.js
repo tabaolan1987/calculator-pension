@@ -91,8 +91,9 @@ function setHeightDiv(){
 		$('.bot-arrow').css('display','inline-block');
 		return true;
 	}else if(coinBlue <= 3){
+		coinRed = 21;
 		var heighTotalRed = (coinRed * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
-		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height() - 27;
+		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
 		var isXs = checkScreenXsSM();
 		if(isXs == true){
 			$('.arrow-mid').css('height',heightMidInform +12);

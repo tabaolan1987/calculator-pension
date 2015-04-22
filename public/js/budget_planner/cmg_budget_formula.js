@@ -76,13 +76,7 @@ function getTotalOutcome() {
 
 function getPersent(totalIncome, outcome) {
     var persent = (outcome / totalIncome) * 100;
-	//console.log("this persent not round" + persent);
-	//if(persent < 1 & persent > 0){
-		//persent = 1;
-	//}
-    //persent = round(persent);
-	//console.log("this persent round" + persent);
-	//console.log(persent);
+	persent = round(persent);
     return persent;
 }
 
@@ -198,6 +192,7 @@ function getDataSpecialCase(){
 	for(var i=2;i<=getSizeArray();i++){
 		index = i;
 		var per = getPersent(totalIncome, totalsArray["tab" + i]);
+		console.log("per : " + per);
 		currentPersent = currentPersent + parseInt(per);
 		if(currentPersent > 100){
 			break;
@@ -207,7 +202,8 @@ function getDataSpecialCase(){
 	var number = 0;
 	var totalPie = 100;
 	for(var j=index;j > 1;j--){
-		var per = parseInt(getPersent(totalIncome, totalsArray["tab" + j]));
+		var per = parseFloat(getPersent(totalIncome, totalsArray["tab" + j]));
+		console.log('per again : ' + per);
 		if(totalPie > per){
 			var tooltip = combineToToolTip(j);
 			data[number] = {
@@ -224,6 +220,7 @@ function getDataSpecialCase(){
 				data : per,
 				color : tabColor["tab" + j]
 			}
+			console.log('return data 100');
 			return data;
 		}else if(totalPie < per){
 			var tooltip = combineToToolTip(j);
@@ -232,6 +229,7 @@ function getDataSpecialCase(){
 				data : totalPie,
 				color : tabColor["tab" + j]
 			}
+			console.log('return data bigger than 100');
 			return data;
 		}
 	}
