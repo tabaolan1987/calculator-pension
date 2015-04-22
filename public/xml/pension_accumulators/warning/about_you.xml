@@ -1,26 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <warning_popups>
 <warning-simple>
-<id-element>txt-current-age</id-element>
-<name>current_age</name>
-<message><![CDATA[<p>something will be write in here for current age!</p>]]></message>
+<name>validate-field</name>
+<message><![CDATA[Please enter your]]></message>
 </warning-simple>
-<warning-simple>
-<id-element>male</id-element>
-<name>gender</name>
-<message><![CDATA[<p>something will be write in here for gender!</p>]]></message>
-</warning-simple>
-<warning-simple>
-<id-element>txt-current-salary</id-element>
-<name>current_annual_salary</name>
-<message><![CDATA[<p>something will be write in here for current salary!</p>]]></message>
-</warning-simple>
-<warning-simple>
-<id-element>txt-target-pensions</id-element>
-<name>target-pensions</name>
-<message><![CDATA[<p>something will be write in here for target pensions!</p>]]></message>
-</warning-simple>
-
 <warning-special>
 <name>retireAge-smaller-than-currentAge</name>
 <message><![CDATA[<p>something will be write in here for special</p>]]></message>

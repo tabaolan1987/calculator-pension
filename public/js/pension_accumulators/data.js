@@ -77,8 +77,6 @@ function loadWarning(xml){
             $(xml).find('warning-simple').each(function() {
                 var message = $(this).find('message').text();
 				var name = $(this).find('name').text();
-				var idEl = $(this).find('id-element').text();
-				$('#'+idEl).attr('validate-message',name);
 				warningArray[name] = message;
             });
 			$(xml).find('warning-special').each(function() {

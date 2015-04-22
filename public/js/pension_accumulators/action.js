@@ -13,11 +13,8 @@ function registerHoverAction(){
 		var content = InformationArray[attrName];
 		$("#infor-tooltip").html(content);
 		var height = $("#content-tooltip").height();
-		console.log("height : " + height);
 		var top = $(this).offset().top - $(window).scrollTop();
-		console.log("top : " + top);
 		var background = $("#content-tooltip").css('background-image');
-		console.log(background);
 		var n = background.indexOf("480");
 		if(n == -1){
 			var left = $(this).offset().left;
@@ -81,24 +78,38 @@ function registerActionAboutYou(){
 	$('#nextAboutYou').click(function(){
 		//handle when user click next button in tab about you.
 		var check = checkDataAboutYou();
-		if(check == true){
+		if(check.length == 0){
 			eneableTabSavings();
 			$("#savings").trigger('click');
 		}else{
-			var content = warningArray[check];
-			console.log(content + check);
+			var caseWarning = check[0];
+			if(caseWarning == "retireAge-smaller-than-currentAge"){
+				content = warningArray["retireAge-smaller-than-currentAge"];
+			}else{
+				content = warningArray["validate-field"] +" "+ check[0];
+				for(var i =1; i < check.length;i++){
+					content = content+"," + check[i];
+				}
+			}
 			disableTabSavings();
-			showWarning(content);
+			showWarning(content+"!");
 		}
 	});
 	
 	$('#savings').click(function(){
 		var check = checkDataAboutYou();
-		if(check != true){
-			var content = warningArray[check];
-			console.log(content + check);
+		if(check.length > 0){
+			var caseWarning = check[0];
+			if(caseWarning == "retireAge-smaller-than-currentAge"){
+				content = warningArray["retireAge-smaller-than-currentAge"];
+			}else{
+				content = warningArray["validate-field"] +" "+ check[0];
+				for(var i =1; i < check.length;i++){
+					content = content+"," + check[i];
+				}
+			}
 			disableTabSavings();
-			showWarning(content);
+			showWarning(content + "!");
 			return false;
 		}
 	});
@@ -124,29 +135,28 @@ function getGender(){
 
 }
 function checkDataAboutYou(){
+	var content = new Array();
 	var currentAge = $('#txt-current-age').val();
 	if(currentAge == "" || typeof currentAge === 'undefined' || currentAge === null){
-		var name = $('#txt-current-age').attr('validate-message');
-		console.log("name" + name);
-		return name;
+		content.push("current age");
 	}
 	var gender = getGender();
 	if(gender == 0){
-		return $("#male").attr('validate-message');
+		content.push("gender");
 	}
 	var currentSalary = $('#txt-current-salary').val();
 	if(currentSalary=="" || currentSalary == 0){
-		return $('#txt-current-salary').attr('validate-message');
+		content.push("current salary");
 	}
 	var targetPension = $('#txt-target-pensions').val();
 	if( targetPension == "" & targetPension == 0){
-		return $('#txt-target-pensions').attr('validate-message');
+		content.push("target income");
 	}
 	var ageRetire = $('.retirementAge').slider().slider('value');
 	if(parseInt(ageRetire) < parseInt(currentAge)){
-		return "retireAge-smaller-than-currentAge";
+		content.push("retireAge-smaller-than-currentAge");
 	}
-	return true;
+	return content;
 }
 /*------------------------------------------------------------------------------------*/
 

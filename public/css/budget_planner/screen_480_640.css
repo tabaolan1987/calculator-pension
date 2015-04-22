@@ -40,7 +40,7 @@
 		padding-right : 10px !important;
 	}
 	table.table-responsive > tbody >tr > td.forty{
-		width : 37% !important;
+		width : 43% !important;
 		
 	}
 	
@@ -49,17 +49,17 @@
 	}
 	
 	.table-responsive .img-responsive{
-		width : 38px;
-		height : 38px;
+		width : 35px;
+		height : 35px;
 	}
 	
 	.tenPersent .img-responsive{
-		width : 38px;
-		height : 38px;
+		width :30px;
+		height : 30px;
 	}
 	.arrow  .img-responsive{
-		width : 38px;
-		height : 38px;
+		width :30px;
+		height : 30px;
 	}
 	
 	
@@ -75,9 +75,9 @@
 		border-bottom-right-radius: 0px;
 	}
 	div.row-heading{
-		height : 46px;
+		height : 45px;
 		min-height : 45px;
-		padding-top : 15px;
+		padding-top : 13px;
 		margin-left:0px !important;
 		margin-right:0px !important;
 		border-bottom : 1px solid;
@@ -158,7 +158,7 @@
 		position:: absolute;
 		width: 215px;
 		left: 48%;
-		top: 31%;
+		top: 25%;
 		height: 214px;
 		margin-top: -32px;
 		margin-left: -100px;

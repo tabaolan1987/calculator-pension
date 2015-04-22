@@ -109,7 +109,7 @@ function drawCategory(name, colorCategory, index, imagePath, secondColorCategory
     html = html + "<img class='img-responsive' src='images/budget_planner/" + imagePath + "'/>";
     html = html + "</td>";
     html = html + "<td class='forty'>";
-    html = html + "<div class='col-md-12 col-xs-12 col-sm-12 inform' style='background-color:" + secondColorCategory + "'>";
+    html = html + "<div class='col-md-12 col-xs-12 col-sm-12 inform' style='height:35px;background-color:" + secondColorCategory + "'>";
     html = html + "<table class='table table-nonborder'>";
     html = html + "<tr>";
     html = html + "<td style='color:"+colorText+"'><span title='"+name+"'>" + temp + "</span></td>";
@@ -209,7 +209,7 @@ function drawCalculateTab() {
     html = html + "<h4 style='font-weight:bolder'>How are you spending your money?</h4>";
     html = html + "</div>";
     html = html + "<div class='col-md-12 col-sm-12 col-xs-12' style='text-align:center;'>";
-    html = html + "<div id='holder-canvas' style='min-height:360px;padding-top : 30px'>";
+    html = html + "<div id='holder-canvas' style='min-height:300px;padding-top : 0px'>";
     html = html + '<div id="placeholder" class="demo-placeholder"></div>';
     html = html + '<div class="labelChart">Total monthly disposable income</div>';
 	html = html + '<div class="labelTop"></div>';
@@ -243,7 +243,7 @@ function setHeightTabPane() {
 		}
         var heigtTableAdded = $('.tab-pane.active .row-containTblInput').height() + (numberAdded * 50);
         $('.tab-pane').css('height',  (heightTabAdded -10) + "px");
-        $('.tab-pane .row-containTblInput').css('height', heigtTableAdded + "px");
+        $('.tab-pane .row-containTblInput').css('height', heigtTableAdded-10);
     }
 }
 
@@ -309,7 +309,6 @@ function tooltip() {
 	$(document).on("mouseover",".img_chart",
 		function() {
 			var label = $(this).attr('label');
-			console.log($(this).offset().left + "=" + $(this).offset().top);
 			var width = $(this).width()/2;
 			showTooltip($(this).offset().left -($("#placeholder").offset().left - width),$(this).offset().top - $("#placeholder").offset().top,label);
 		}
@@ -318,7 +317,6 @@ function tooltip() {
 }
 
 function showTooltip(x, y, contents) {
-	console.log('after tru : ' + x +"-" +y);
     var content = contents.split('||')[1];
     var name = content.split(':')[0];
     var value = content.split(':')[1];
