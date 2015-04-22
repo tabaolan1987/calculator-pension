@@ -44,7 +44,6 @@ function registerHoverAction(){
 	});
 	
 	$(document).on("mouseout","#content-tooltip",function(e) {
-		console.log(e);
 		if ($(e.toElement).parents("#content-tooltip").length == 0) {
 			$("#content-tooltip").hide();
 		}
