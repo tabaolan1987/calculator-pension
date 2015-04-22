@@ -52,7 +52,7 @@ function getCash_Contribute(){
 	var percentPaying = parseFloatCMG($('#txt-you-paying-percent').val());
 	var temp = ((percentPaying*currentSalary)/12)/100;
 	temp =  parseFloatCMG(temp);
-	return round(temp);
+	return temp;
 }
 
 function getPercent_Contribute(){
@@ -68,7 +68,7 @@ function getCash_Contribute_company(){
 	var percentCompany = parseFloatCMG($('#txt-your-employer-percent').val());
 	var temp = ((percentCompany*currentSalary)/12)/100;
 	temp =  parseFloatCMG(temp);
-	return round(temp);
+	return temp;
 }
 function getPercent_Contribute_company(){
 	var currentSalary = parseFloatCMG($('#txt-current-salary').val());
