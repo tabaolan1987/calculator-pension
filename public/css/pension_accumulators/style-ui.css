@@ -567,6 +567,12 @@ a:focus{
 	padding-top: 50px;
 }
 
+/*overide slider css*/
+.ui-slider-pips .ui-slider-pip{
+	color: #797979 !important;
+	font-weight: bold !important;
+}
+
 @media screen and (min-width:0\0) {
 	/* IE9 and IE10 rule sets go here */
 	.img-responsive{
