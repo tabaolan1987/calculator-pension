@@ -1,5 +1,5 @@
 #wrapper{
-	margin:20px 10px 20px 30px;
+	margin:30px 10px 20px 30px;
 }
 
 .title h3{
@@ -445,6 +445,10 @@ a:focus{
 	color:#06038d;
 	font-weight:bold;
 	text-decoration:underline;
+}
+
+.summary-normal-title b{
+	color: #da291c;
 }
 
 /*next previous*/
