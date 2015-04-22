@@ -128,6 +128,7 @@ a:focus{
 	line-height:38px;
 	margin:6px 0 0 5px;
 	color:#0f0d8f;
+	width: 90%;
 }
 
 .nav-tabs li.active a,
@@ -217,12 +218,6 @@ a:focus{
 	margin-top:5px;
 	padding: 0 5px;
 	text-align:right;
-}
-
-.row-rule input[type="radio"]{
-	//margin:6px 0 0;
-	//width: 20px;
-    //height: 20px;
 }
 
 .row-rule input[type="radio"]{
