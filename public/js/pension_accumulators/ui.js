@@ -83,7 +83,7 @@ function setHeightDiv(){
 	}else if(coinBlue <= 5 & coinBlue > 3){
 		var heighTotalRed = (coinRed * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
 		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
-		$('.arrow-mid').css('height',heightMidInform);
+		$('.arrow-mid').css('height',heightMidInform - 4);
 		$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0]);
 		$('.bot-arrow').css('margin-top','0');
 		$('#print-div').css('margin-top',"0px");
@@ -96,9 +96,9 @@ function setHeightDiv(){
 		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
 		var isXs = checkScreenXsSM();
 		if(isXs == true){
-			$('.arrow-mid').css('height',heightMidInform +12);
-		}else{
 			$('.arrow-mid').css('height',heightMidInform);
+		}else{
+			$('.arrow-mid').css('height',heightMidInform -4);
 		}
 		
 		$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0]);
