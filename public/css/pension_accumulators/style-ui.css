@@ -445,6 +445,7 @@ a:focus{
 	color:#06038d;
 	font-weight:bold;
 	text-decoration:underline;
+	cursor: pointer;
 }
 
 .summary-normal-title b{
