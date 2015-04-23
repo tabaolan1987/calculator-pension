@@ -212,8 +212,7 @@ function registerActionSavingTab(){
 	$('#results').click(function(){
 		var check = checkDataSaving();
 		if(check != true){
-			var nameWarning = $('#txt-deffered-pensions').attr('validate-message');
-			var content = warningArray[nameWarning];
+			var content = warningArray["enter-at-least-once-field"];
 			showWarning(content);
 			return false;
 		}
@@ -245,16 +244,14 @@ function registerActionSavingTab(){
 				hiddenBox1();
 			}else{
 				disableTabResult();
-				var nameWarning = $('#txt-deffered-pensions').attr('validate-message');
-				var content = warningArray[nameWarning];
+				var content = warningArray["enter-at-least-once-field"];
 				showWarning(content);
 			}
 		}else if(isBox2Visible()){
 			if(isIncomeVisible()){
 				var vl = $('#txt-income-payable').val();
 				if(vl == 0){
-					var nameWarning = $('#txt-income-payable').attr('validate-message');
-					var content = warningArray[nameWarning];
+					var content = warningArray["income-able"];
 					showWarning(content);
 				}else{
 					$('#results').trigger('click');
