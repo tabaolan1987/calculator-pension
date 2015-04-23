@@ -4,6 +4,7 @@
 
 .title h3{
 	color:#06038d;
+	font-size: 20px;
 }
 
 #content{
@@ -38,8 +39,13 @@ a:focus{
 	text-align:center !important;
 }
 
+/*overide css bootstrap*/
 .img-responsive{
 	display: inline-block;
+}
+
+.modal-estimated{
+	color: #777777;
 }
 
 /*left content
@@ -127,7 +133,7 @@ a:focus{
 	display:inline-block;
 	line-height:38px;
 	margin:6px 0 0 5px;
-	color:#0f0d8f;
+	color:#06038d;
 	width: 90%;
 }
 
@@ -241,7 +247,7 @@ a:focus{
 }
 
 .row-rule{
-	color: #797979;
+	color: #777777;
 }
 
 .row-rule p{
@@ -311,7 +317,7 @@ a:focus{
 
 /*tab saving row content*/
 .tab-title{
-	color: #0f0d8f;
+	color: #06038d;
     font-size: 17px;
     padding-left: 26px;
     margin-top: 0;
@@ -346,16 +352,16 @@ a:focus{
 
 .result-note{
 	font-size:11px;
-	color:#797979;
+	color:#777777;
 }
 
 .content-title{
-	color:#797979;
+	color:#777777;
 	padding-left:25px;
 }
 
 .btn-note{
-	color: #797979;
+	color: #777777;
     font-size: 13px;
 }
 
@@ -416,13 +422,13 @@ a:focus{
 }
 
 .wanted-income{
-	color: #797979;
+	color: #777777;
     font-size: 17px;
 }
 
 #wrap-tab p,
 #wrap-tab ul li{
-	color: #797979;
+	color: #777777;
 }
 
 #wrap-tab ul{
@@ -576,7 +582,7 @@ a:focus{
 
 /*overide slider css*/
 .ui-slider-pips .ui-slider-pip{
-	color: #797979 !important;
+	color: #777777 !important;
 	font-weight: bold !important;
 }
 
