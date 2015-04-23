@@ -81,7 +81,7 @@
 	
 	div.tab-pane{
 		font-size : 16px;
-		height : 500px;
+		height : 395px;
 		width : 450px;
 		border: 1px solid;
 		border-top : 0px solid;
@@ -116,7 +116,7 @@
 
 	.row-containTblInput{
 		margin:15px 0px 0px 0px;
-		height:220px;
+		height:215px;
 		overflow-x:hidden;
 		overflow-y:auto;
 	}
