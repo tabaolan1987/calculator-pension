@@ -293,9 +293,11 @@ a:focus{
 	padding-left : 60px;
 	padding-right : 15px;
 	padding-top : 20px;
+	
 }
 
 #infor-tooltip{
+	z-index : 1000;
 	height:264px;
 	overflow-y : auto;
 }

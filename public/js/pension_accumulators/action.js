@@ -34,20 +34,16 @@ function registerHoverAction(){
 			});
 		}
 		$("#content-tooltip").show();
-	}
+	});
+	$("#content-tooltip").hover( 
+			function() {  $("#content-tooltip").show(); },
+			function() { $("#content-tooltip").hide(); }
 	);
-
 	$(document).on("mouseout",".icon-tooltip",function() {
-		if(!$('#content-tooltip').is(":hover")){
-			$("#content-tooltip").hide();
-		}	
+		$("#content-tooltip").hide();
 	});
 	
-	$(document).on("mouseout","#content-tooltip",function(e) {
-		if ($(e.toElement).parents("#content-tooltip").length == 0) {
-			$("#content-tooltip").hide();
-		}
-	});
+	
 }
 /* this function just allow user can type numberic only */
 function isNumberKey(evt)
