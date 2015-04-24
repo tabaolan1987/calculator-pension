@@ -125,7 +125,7 @@ function animationShortFall(height,shortFall){
 		$('.top-arrow').show();
 		$(".arrow-mid").animate({"height":height}, "slow",function(){
 			$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0]);
-			$('.shortfall').fadeIn();
+			$('.bot-arrow-pension').fadeIn();
 		});
 	}, 200);
 }
@@ -136,10 +136,10 @@ function animationIncomed(){
 		console.log('income animate');
 		$('.bot-arrow').show();
 		var left =  $(".bot-arrow").offset().left;
-		$(".bot-arrow").css({left:left}).animate({"left":"0px"}, "slow");
-		}, 200,function(){
-			
+		$(".bot-arrow").css({left:left}).animate({"left":"0px"}, "slow",function(){
+			$('.shortfall').fadeIn();
 		});
+		}, 200);
 
 }
 
