@@ -125,6 +125,7 @@ function setHeightDiv(){
 }
 
 function animationShortFall(height,shortFall){
+	$('.bot-arrow-pension').hide();
 	setTimeout(function(){
 		$('.top-arrow').show();
 		$(".arrow-mid").animate({"height":height}, "slow",function(){
@@ -140,8 +141,9 @@ function animationIncomed(){
 		console.log('income animate');
 		$('.bot-arrow').show();
 		$('.print-div').hide();
+		$('.shortfall').hide();
 		var left =  $(".bot-arrow").offset().left;
-		$(".bot-arrow").css({left:left}).animate({"left":"0px"}, "slow",function(){
+		$(".bot-arrow").css({left:left}).animate({"left":"10px"}, "slow",function(){
 			$('.shortfall').fadeIn();
 			$('.print-div').show();
 		});
