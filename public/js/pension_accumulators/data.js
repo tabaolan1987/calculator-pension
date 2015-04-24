@@ -1,3 +1,19 @@
+/*
+----------------Information--------------------------------
+
+1.Pension Accumulators Data JS
+
+2.All function in this file manage the data in page.
+
+3.Version 1.0.0
+
+4.Company - Claybourne McGregor Consulting Ltd 
+
+5.Author - Lan.Ta 
+
+6.Date - 30-03-2015
+
+*/
 var InformationArray = new Array();
 var warningArray = new Array();
 var annuityMale = new Array();

@@ -1,3 +1,19 @@
+/*
+----------------Information--------------------------------
+
+1.Pension Accumulators UI JS
+
+2.All function in this file manage the UI in page.
+
+3.Version 1.0.0
+
+4.Company - Claybourne McGregor Consulting Ltd 
+
+5.Author - Lan.Ta 
+
+6.Date - 30-03-2015
+
+*/
 $.fn.animatecss = function (classes, callback) {
     return this.addClass(classes).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', callback);
 };
