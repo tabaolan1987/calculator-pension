@@ -611,7 +611,8 @@ a:focus{
 /*less than 640px*/
 @media screen and (max-width: 640px) {
 	/*font size*/
-	#content {
+	#content,
+	.modal-body{
 	    font-size: 13px;
 	}
 
@@ -840,7 +841,8 @@ a:focus{
 /*less than 480px*/
 @media screen and (max-width: 480px) {
 	/*font size*/
-	#content {
+	#content,
+	.modal-body{
 	    font-size: 10px;
 	}
 
