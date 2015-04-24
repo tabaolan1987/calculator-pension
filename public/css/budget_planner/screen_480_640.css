@@ -156,15 +156,23 @@
 	
 	.labelTop{
 		position:: absolute;
-		width: 215px;
-		left: 48%;
-		top: 25%;
-		height: 214px;
+		width: 187px;
+		left: 52%;
+		top: 21%;
+		height: 185px;
 		margin-top: -32px;
 		margin-left: -100px;
 		text-align: center;
 		border-radius: 115px;
 		z-index: 1000;
 		background: url("../../images/budget_planner/trickIE.png") no-repeat scroll top center ;
+	}
+	.labelChart{
+		width : 170px;
+		left  : 54%;
+	}
+	
+	.modal-body{
+		width : 400px;
 	}
 }
