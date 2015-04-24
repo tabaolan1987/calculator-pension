@@ -49,6 +49,7 @@ function fallingCoin(index) {
                 fallingCoin(index);
             }else{
 				//set visible and height
+				console.log('coin done');
 				setHeightDiv();
 				eneabledTxtField();
 			}
@@ -65,62 +66,79 @@ function setHeightDiv(){
 	if(coinBlue > 5 & coinBlue < totalCoin & coinRed  > 5){
 		var heighTotalRed = (coinRed * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
 		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
-		$('.arrow-mid').css('height',heightMidInform - 2);
-		$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0]);
-		$('.top-arrow').css('display','inline-block');
+		$('.arrow-mid').css('height',0);
 		var hieghtBlueDiv = ($('#coin-container').height() - 25 - heighTotalRed)/2 - $('.bot-arrow').height()/2;
 		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
-		$('#print-div').css('margin-top',hieghtBlueDiv);
-		$('.bot-arrow').css('display','inline-block');
+		$('#print-div').css('margin-top',hieghtBlueDiv + 12);
+		animationShortFall(heightMidInform -2,shortFall);
+		animationIncomed();
 		return true;
 	}else if(coinBlue == totalCoin){
 		$('.top-arrow').hide();
 		var margin = ($('#coin-container').height() - 25)/2 - $('.bot-arrow').height()/2;
 		$('.bot-arrow').css('margin-top',margin);
 		$('#print-div').css('margin-top',margin);
-		$('.bot-arrow').css('display','inline-block');
+		animationIncomed();
 		return true;
 	}else if(coinBlue <= 5 & coinBlue > 3){
 		var heighTotalRed = (coinRed * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
 		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
-		$('.arrow-mid').css('height',heightMidInform - 4);
-		$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0]);
+		$('.arrow-mid').css('height',0);
 		$('.bot-arrow').css('margin-top','0');
 		$('#print-div').css('margin-top',"0px");
-		$('.top-arrow').css('display','inline-block');
-		$('.bot-arrow').css('display','inline-block');
+		animationShortFall(heightMidInform - 4,shortFall);
+		animationIncomed();
 		return true;
 	}else if(coinBlue <= 3){
 		coinRed = 21;
 		var heighTotalRed = (coinRed * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
 		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
 		var isXs = checkScreenXsSM();
+		$('.arrow-mid').css('height',0);
 		if(isXs == true){
-			$('.arrow-mid').css('height',heightMidInform);
+			//$('.arrow-mid').css('height',0);
+			animationShortFall(heightMidInform,shortFall);
 		}else{
-			$('.arrow-mid').css('height',heightMidInform -4);
+			//$('.arrow-mid').css('height',0);
+			animationShortFall(heightMidInform -4,shortFall);
 		}
 		
-		$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0]);
 		$('.bot-arrow').css('margin-top','0');
-		$('.top-arrow').css('display','inline-block');
 		$('#print-div').css('margin-top',"0px");
-		$('.bot-arrow').css('display','inline-block');
+		animationIncomed();
 		return true;
 	}else if(coinRed <= 5){
 		var heighTotalRed = (2 * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
 		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
-		$('.arrow-mid').css('height',heightMidInform -2);
-		$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0]);
-		$('.top-arrow').css('display','inline-block');
+		$('.arrow-mid').css('height',0);
 		var hieghtBlueDiv = ($('#coin-container').height() - 25 - $('.top-arrow').height())/2 - $('.bot-arrow').height()/2;
 		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
 		$('#print-div').css('margin-top',hieghtBlueDiv);
-		$('.bot-arrow').css('display','inline-block');
+		animationIncomed();
+		animationShortFall(heightMidInform -2,shortFall);
 		return true;
 	}
 }
 
+function animationShortFall(height,shortFall){
+	setTimeout(function(){
+		$('.top-arrow').show();
+		$(".arrow-mid").animate({"height":height}, "slow",function(){
+			$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0]);
+		});
+	}, 500);
+}
+
+function animationIncomed(){
+	
+	setTimeout(function(){
+		console.log('income animate');
+		$('.bot-arrow').show();
+		var left =  $(".bot-arrow").offset().left;
+		$(".bot-arrow").css({left:left}).animate({"left":"0px"}, "slow");
+	}, 500);
+
+}
 
 /*------------------------------------------------------*/
 /* there are functions handle UI of tab About you */
