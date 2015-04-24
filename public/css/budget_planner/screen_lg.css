@@ -171,6 +171,7 @@
 	
 	table.totalCal td.moneyTotal{
 		text-align : right;
+		max-width : 50px;
 		
 	}
 	table.next{

@@ -109,7 +109,7 @@ function drawCategory(name, colorCategory, index, imagePath, secondColorCategory
     html = html + "<img class='img-responsive' src='images/budget_planner/" + imagePath + "'/>";
     html = html + "</td>";
     html = html + "<td class='forty'>";
-    html = html + "<div class='col-md-12 col-xs-12 col-sm-12 inform' style='height:35px;background-color:" + secondColorCategory + "'>";
+    html = html + "<div class='col-md-12 col-xs-12 col-sm-12 inform' style='background-color:" + secondColorCategory + "'>";
     html = html + "<table class='table table-nonborder'>";
     html = html + "<tr>";
     html = html + "<td style='color:"+colorText+"'><span title='"+name+"'>" + temp + "</span></td>";
