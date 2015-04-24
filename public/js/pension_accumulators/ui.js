@@ -69,7 +69,7 @@ function setHeightDiv(){
 		$('.arrow-mid').css('height',0);
 		var hieghtBlueDiv = ($('#coin-container').height() - 25 - heighTotalRed)/2 - $('.bot-arrow').height()/2;
 		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
-		$('#print-div').css('margin-top',hieghtBlueDiv + 11);
+		$('#print-div').css('margin-top',hieghtBlueDiv + 9);
 		animationShortFall(heightMidInform -2,shortFall);
 		animationIncomed();
 		return true;
@@ -77,7 +77,7 @@ function setHeightDiv(){
 		$('.top-arrow').hide();
 		var margin = ($('#coin-container').height() - 25)/2 - $('.bot-arrow').height()/2;
 		$('.bot-arrow').css('margin-top',margin);
-		$('#print-div').css('margin-top',margin + 9);
+		$('#print-div').css('margin-top',margin + 7);
 		animationIncomed();
 		return true;
 	}else if(coinBlue <= 5 & coinBlue > 3){
@@ -85,7 +85,11 @@ function setHeightDiv(){
 		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
 		$('.arrow-mid').css('height',0);
 		$('.bot-arrow').css('margin-top','0');
-		$('#print-div').css('margin-top',"21px");
+		if(coinBlue==4){
+			$('#print-div').css('margin-top',"-1px");
+		}else{
+			$('#print-div').css('margin-top',"19px");
+		}
 		animationShortFall(heightMidInform - 4,shortFall);
 		animationIncomed();
 		return true;
@@ -104,7 +108,7 @@ function setHeightDiv(){
 		}
 		
 		$('.bot-arrow').css('margin-top','0');
-		$('#print-div').css('margin-top',"0");
+		$('#print-div').css('margin-top',"-1px");
 		animationIncomed();
 		return true;
 	}else if(coinRed <= 5){
@@ -113,7 +117,7 @@ function setHeightDiv(){
 		$('.arrow-mid').css('height',0);
 		var hieghtBlueDiv = ($('#coin-container').height() - 25 - $('.top-arrow').height())/2 - $('.bot-arrow').height()/2;
 		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
-		$('#print-div').css('margin-top',hieghtBlueDiv + 9);
+		$('#print-div').css('margin-top',hieghtBlueDiv + 7);
 		animationIncomed();
 		animationShortFall(heightMidInform -2,shortFall);
 		return true;
