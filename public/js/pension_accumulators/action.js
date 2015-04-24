@@ -482,7 +482,7 @@ function onChange(){
 function drawChart(){
 	var forceCashIncome = getForecastIncome();
 	var targetPension = $('#txt-target-pensions').val();
-	if(current_forcecash_income !== forceCashIncome || current_target !== targetPension){
+	//if(current_forcecash_income !== forceCashIncome || current_target !== targetPension){
 		showRightContent();
 		showChartRight();
 		disableTxtField();
@@ -498,7 +498,7 @@ function drawChart(){
 		fallingCoin(1);
 		current_forcecash_income = forceCashIncome;
 		current_target = targetPension;
-	}
+	//}
 	
 }
 /*------------------------------------------------------------------*/
