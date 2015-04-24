@@ -706,7 +706,6 @@ a:focus{
 	.nav-tabs li a{
 		height:31px;
 		padding-left:36px;
-		display:inline-block;
 		line-height:31px;
 		margin:4px 0 0 1px;
 		font-size: 12px;
@@ -760,11 +759,9 @@ a:focus{
 	/*tooltip*/
 	.icon-tooltip{
 		background:url(../../images/pension_accumulators/icon-tooltip-480.png) left bottom no-repeat;
-		display:inline-block;
 		height:22px;
 		width:22px;
 		margin-right: 0px;
-		float:left;
 	}
 
 	.icon-tooltip:hover{
@@ -935,7 +932,6 @@ a:focus{
 	.nav-tabs li a{
 		height:25px;
 		padding-left:24px;
-		display:inline-block;
 		line-height:22px;
 		margin:2px 0 0 1px;
 		font-size: 8px;
@@ -988,11 +984,9 @@ a:focus{
 	/*tooltip*/
 	.icon-tooltip{
 		background:url(../../images/pension_accumulators/icon-tooltip-320.png) left bottom no-repeat;
-		display:inline-block;
 		height:19px;
 		width:17px;
 		margin-right: 0px;
-		float:left;
 	}
 
 	.icon-tooltip:hover{
