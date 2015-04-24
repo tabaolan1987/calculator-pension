@@ -551,7 +551,7 @@ a:focus{
 	color: #0f0d8f;
 	display:none;
 	padding-top: 12px;
-	
+	position:absolute;
 }
 
 .coinRed{
