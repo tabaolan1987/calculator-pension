@@ -235,15 +235,17 @@ function setHeightTabPane() {
         var heightLiCurrent = $('li.active').height();
 		var isChrome = checkChromeBrowser();
 		var heightTabAdded = 0;
+		var heigtTableAdded = 0;
 		if(isChrome)
 		{
 			heightTabAdded = $('#myTab').height() -( $('li:last-child').height());
+			heigtTableAdded = $('.tab-pane.active .row-containTblInput').height() + (numberAdded * 50) -2;
 		}else{
 			heightTabAdded = $('#myTab').height() -( $('li:last-child').height());
+			heigtTableAdded = $('.tab-pane.active .row-containTblInput').height() + (numberAdded * 50) + 5;
 		}
-        var heigtTableAdded = $('.tab-pane.active .row-containTblInput').height() + (numberAdded * 50);
         $('.tab-pane').css('height',  (heightTabAdded -10) + "px");
-        $('.tab-pane .row-containTblInput').css('height', heigtTableAdded-10);
+        $('.tab-pane .row-containTblInput').css('height', heigtTableAdded +35);
     }
 }
 
@@ -252,7 +254,7 @@ function drawChart(data) {
 	var startDraw = parseFloat(0.5 - parseFloat((data[0].data)/100));
 	chartExist = true;
     var placeholder = $("#placeholder");
-	 placeholder.empty();
+	placeholder.empty();
     var index = 1;
     //placeholder.unbind();
     var plot = $.plot(placeholder, data, {
@@ -334,7 +336,7 @@ function showTooltip(x, y, contents) {
         position: 'absolute',
         top: y - 65,
         left: x - 95 / 2,
-        'padding-top': '3px',
+        'padding-top': '10px',
 		'z-index':'100'
     });
     $('#tooltip').show();

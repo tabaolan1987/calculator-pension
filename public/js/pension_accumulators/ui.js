@@ -154,10 +154,8 @@ function animationShortFall(height,shortFall){
 function animationIncomed(){
 	
 	setTimeout(function(){
-		console.log('income animate');
 		$('.bot-arrow').show();
 		$('.print-div').hide();
-		$('.shortfall').hide();
 		var left =  $(".bot-arrow").offset().left;
 		$(".bot-arrow").css({left:left}).animate({"left":"10px"}, "slow",function(){
 			$('.shortfall').fadeIn();

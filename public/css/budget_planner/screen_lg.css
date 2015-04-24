@@ -44,7 +44,7 @@
 	
 	table.table-responsive > tbody> tr> td.fifyPersent {
 		width : 15% !important;
-		padding-left : 10px !important;
+		padding : 5px !important;
 	}
 	
 	table.table-responsive > tbody >tr > td.forty{
@@ -97,7 +97,7 @@
 		transition: all ease-in-out .3s;
 	}
 	div.row-heading{
-		height : 46px;
+		height : 48px;
 		min-height : 46px;
 		padding-top : 13px;
 		margin-left:0px !important;
@@ -188,7 +188,7 @@
 	
 	table.next td.money{
 		padding-left : 342px;
-		padding-top : 20px;
+		padding-top : 10px;
 	}
 	
 	table.next td.money button{
@@ -267,7 +267,7 @@
 		color : #060392;
 		overflow-y : auto;
 		height : 200px;
-		width : 440px;
+		width : 420px;
 	}
 	
 	.close{

@@ -15,7 +15,7 @@
 
 */
 
-
+var isCallHide = false;
 /* there functions below for register function of  tab */
 function registerFunctionsForTab() {
 $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
@@ -66,6 +66,7 @@ $('div.panel-collapse').on('shown.bs.collapse', function() {
 			if(v){
 				$('#collapse-calculate').collapse('hide');
 			}
+			isCallHide = true;
 			eneableCalculateBtn();
 		}
 		
@@ -76,7 +77,10 @@ $('div.panel-collapse').on('hidden.bs.collapse', function() {
 	//update image to inactive panel
     var id = $(this).attr('id');
 	var $a = $("div.panel-heading").find("a[href='#" + id + "']");
-	updateTotalZeroValueWhenCloseTab($a);
+	if(isCallHide ==false){
+		updateTotalZeroValueWhenCloseTab($a);
+	}
+	
     $("div.panel-heading").find("a[href='#" + id + "']").find("td.tenPersent:eq(1) img").attr('src', 'images/budget_planner/arrow_up.png');
 });
 
@@ -102,8 +106,10 @@ $('#collapse-calculate').on('show.bs.collapse', function(e) {
 
 $('#collapse-calculate').on('shown.bs.collapse', function(e) {
 	if (fakewaffle.currentPosition == "panel") {
+		isCallHide = true;
 		hideAllPanel();
 		drawFlotJs();
+		//isCallHide = false;
 	}
 });
 
