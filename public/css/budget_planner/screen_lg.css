@@ -97,7 +97,7 @@
 		transition: all ease-in-out .3s;
 	}
 	div.row-heading{
-		height : 48px;
+		height : 50px;
 		min-height : 46px;
 		padding-top : 13px;
 		margin-left:0px !important;

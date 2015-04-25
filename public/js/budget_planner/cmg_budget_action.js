@@ -66,7 +66,7 @@ $('div.panel-collapse').on('shown.bs.collapse', function() {
 			if(v){
 				$('#collapse-calculate').collapse('hide');
 			}
-			isCallHide = true;
+			isCallHide = false;
 			eneableCalculateBtn();
 		}
 		
