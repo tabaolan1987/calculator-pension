@@ -144,8 +144,9 @@ function drawFlotJs(){
 					data : getPersent(totalIncome, totalsArray["tab" + i]),
 					color: tabColor["tab" + i]
 				}
+				 index_data++;
 			}
-            index_data++;
+           
         }
 		drawChart(data);
 		$('.labelChart').html('<span class="total">Total monthly disposable income</span> <p>£0</p>');

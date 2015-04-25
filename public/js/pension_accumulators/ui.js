@@ -130,23 +130,22 @@ function setHeightDiv(){
 	}else if(coinRed <= 5){
 		var heighTotalRed = (2 * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
 		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
-		$('.arrow-mid').css('height',0);
+		$('.arrow-mid').css('height',40);
 		var hieghtBlueDiv = ($('#coin-container').height() - 25 - $('.top-arrow').height())/2 - $('.bot-arrow').height()/2;
 		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
 		$('#print-div').css('margin-top',hieghtBlueDiv + 7);
-		animationIncomed();
 		animationShortFall(heightMidInform -2,shortFall);
+		animationIncomed();
 		return true;
 	}
 }
 
 function animationShortFall(height,shortFall){
-	$('.bot-arrow-pension').hide();
 	setTimeout(function(){
 		$('.top-arrow').show();
 		$(".arrow-mid").animate({"height":height}, "slow",function(){
 			$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0]);
-			$('.bot-arrow-pension').fadeIn();
+			$('.shortfall').fadeIn();
 		});
 	}, 200);
 }
@@ -161,7 +160,7 @@ function animationIncomed(){
 			$('.bot-arrow-pension').show();
 			$('.print-div').show();
 		});
-		}, 200);
+		}, 400);
 
 }
 

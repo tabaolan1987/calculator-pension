@@ -550,7 +550,7 @@ function setupMessageSummary(){
 	var tax_free_percent  = $('#percent-tax-free').slider().slider('value');
 	var retire_age = $("#age-to-retirement-result").slider().slider('value');
 	var tax_free_value = getTax_Free_Value();
-	if(forceCashIncome < targetPension){
+	if(parseFloat(forceCashIncome) < parseFloat(targetPension)){
 		var shorFall = getShortFall();
 		$('.summary-pound-shortfall').html(Number(shorFall).toLocaleString('en').split('.')[0]);
 		showNormal();
