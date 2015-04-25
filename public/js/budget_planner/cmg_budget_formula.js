@@ -193,9 +193,8 @@ function getDataSpecialCase(){
 	for(var i=2;i<=getSizeArray();i++){
 		index = i;
 		var per = getPersent(totalIncome, totalsArray["tab" + i]);
-		console.log("per : " + per);
 		currentPersent = currentPersent + parseInt(per);
-		if(currentPersent > 100){
+		if(currentPersent >= 100){
 			break;
 		}
 	}
