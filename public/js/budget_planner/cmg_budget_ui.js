@@ -183,7 +183,7 @@ function drawLastElementInTab(idTab, index, colorTab, isLast) {
     html = html + "<table class='table next'>";
     html = html + "<tr>";
     if (isLast) {
-        html = html + "<td colspan='2'>Select your 'Calculate' to see your results or click on any section to change the value</td>";
+        html = html + "<td colspan='2'>Select 'Calculate' to see your results or click on any section to change the value</td>";
         html = html + "<td style='padding-top:16px'><button id='lastBtn' style='font-weight:bold;background-color:" + colorTab + "' onclick='nextTab(" + index + ");' class='btn btn-default'>Calculate</button></td>";
     } else {
         html = html + "<td colspan='3' class='money'><button style='font-weight:bold;background-color:" + colorTab + "' onclick='nextTab(" + index + ");' class='btn btn-default'>Next</button></td>";
