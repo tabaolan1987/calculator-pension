@@ -361,14 +361,23 @@ function calculateCompanyPay(){
 
 /* this is action for tab results */
 function registerActionResultTab(){
+	
 	$('a[id="results"]').on('shown.bs.tab', function (e) {
 		eneabledSummary()
-		setTextToTextField();
-		drawChart();
-		setupSlide();
-		onChange();
+		var forceCashIncome = parseFloatCMG(getForecastIncome());
+		var targetPension = parseFloatCMG($('#txt-target-pensions').val());
+		console.log("current_forcecash_income : " + current_forcecash_income + " forceCashIncome "+ forceCashIncome);
+		console.log("current_target : " + current_target + " targetPension "+ targetPension);
+		if(parseFloatCMG(current_forcecash_income) !== forceCashIncome || parseFloatCMG(current_target) !== targetPension){
+			drawChart();
+			setTextToTextField();
+			setupSlide();
+			onChange();
+		}else{
+			console.log('====');
+		}	
 	});
-	
+
 	$('#nextResult').on('click',function(){
 		$('#summary').trigger('click');
 	});

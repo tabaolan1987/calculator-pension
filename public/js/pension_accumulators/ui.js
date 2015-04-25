@@ -158,7 +158,7 @@ function animationIncomed(){
 		$('.print-div').hide();
 		var left =  $(".bot-arrow").offset().left;
 		$(".bot-arrow").css({left:left}).animate({"left":"10px"}, "slow",function(){
-			$('.shortfall').fadeIn();
+			$('.bot-arrow-pension').show();
 			$('.print-div').show();
 		});
 		}, 200);

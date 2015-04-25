@@ -184,7 +184,7 @@ function drawLastElementInTab(idTab, index, colorTab, isLast) {
     html = html + "<tr>";
     if (isLast) {
         html = html + "<td colspan='2'>Select your 'Calculate' to see your results or click on any section to change the value</td>";
-        html = html + "<td class=''><button id='lastBtn' style='font-weight:bold;background-color:" + colorTab + "' onclick='nextTab(" + index + ");' class='btn btn-default'>Calculate</button></td>";
+        html = html + "<td style='padding-top:16px'><button id='lastBtn' style='font-weight:bold;background-color:" + colorTab + "' onclick='nextTab(" + index + ");' class='btn btn-default'>Calculate</button></td>";
     } else {
         html = html + "<td colspan='3' class='money'><button style='font-weight:bold;background-color:" + colorTab + "' onclick='nextTab(" + index + ");' class='btn btn-default'>Next</button></td>";
     }
@@ -295,7 +295,7 @@ function drawChart(data) {
             return '';
 		}
     }
-	placeholder.append("<div id='tooltip' style='display:none'></div>");
+	placeholder.append("<div id='tooltip' style='display:none'><div id='tooltip-infor'></div></div>");
     tooltip();
 }
 
@@ -325,21 +325,20 @@ function showTooltip(x, y, contents) {
 	value = value.replace("£","");
 	value = parseFloat(value);
 	var temp = "";
-	if(name.length > 15){
-		temp = name.substring(0, 9) + "..";
+	if(name.length > 23){
+		temp = name.substring(0, 22) + "..";
 	}else{
 		temp = name;
 	}
-    var html = "<p style='font-size:12px;text-align:center;color:blue;margin-bottom:2px'>" + temp + "</p><p style='font-size:12px;text-align:center;color:blue'>£" + Number(value).toLocaleString('en').split('.')[0] + "</p>";
-    $('#tooltip').html(html);
-     $('#tooltip').css({
+    var html = "<div style='width:80px;margin-bottom : 10px'>" +temp + "<br>£" + Number(value).toLocaleString('en').split('.')[0] + "<div>";
+     $('#tooltip').html(html);
+	 $('#tooltip').css({
         position: 'absolute',
         top: y - 65,
         left: x - 95 / 2,
-        'padding-top': '10px',
 		'z-index':'100'
     });
-    $('#tooltip').show();
+    $('#tooltip').css('display','flex');
 	
     
 }

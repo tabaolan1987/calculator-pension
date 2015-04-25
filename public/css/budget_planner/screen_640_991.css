@@ -27,7 +27,6 @@
 	}
 
 	.panel-default>.panel-heading{
-		max-height : 58px;
 		background-color: transparent;
 		border-radius : 15px !important;
 		padding : 0px !important;
