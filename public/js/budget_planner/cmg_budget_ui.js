@@ -317,7 +317,6 @@ function tooltip() {
 	);
 	
 }
-
 function showTooltip(x, y, contents) {
     var content = contents.split('||')[1];
     var name = content.split(':')[0];
@@ -330,17 +329,26 @@ function showTooltip(x, y, contents) {
 	}else{
 		temp = name;
 	}
-    var html = "<div style='width:80px;margin-bottom : 10px'>" +temp + "<br>£" + Number(value).toLocaleString('en').split('.')[0] + "<div>";
-     $('#tooltip').html(html);
+	var table = $("<table style='margin-bottom:15px;overflow:hidden;height:100%;width:100%'><tbody><tr><td align='center'>"+temp + "<br>£" + Number(value).toLocaleString('en').split('.')[0] +"</td></tr></tbody></table>");
+    //var html = $("<div style='width:80px;margin-bottom : 10px'>" +temp + "<br>£" + Number(value).toLocaleString('en').split('.')[0] + "</div>");
+   // html.css('display' ,'-webkit-box');
+	//html.css('display', '-webkit-flex')
+	//html.css('display', '-moz-box');
+	//html.css('display' ,'-ms-flexbox');
+	//html.css('display', 'flex');
+    //html.css('-webkit-flex-align', 'center');
+	//html.css('-ms-flex-align', 'center');
+	//html.css('-webkit-align-items', 'center');
+	//html.css('align-items', 'center');
+	 $('#tooltip').html(table);
 	 $('#tooltip').css({
         position: 'absolute',
         top: y - 65,
         left: x - 95 / 2,
-		'z-index':'100'
+		'z-index':'100',
+		'padding' : '0 7px 10px 7px'
     });
-    $('#tooltip').css('display','flex');
-	
-    
+	$('#tooltip').show();
 }
 
 function hideAllPanel() {
