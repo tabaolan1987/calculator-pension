@@ -14,7 +14,9 @@
 6.Date - 30-03-2015
 
 */
-
+$.fn.hasScrollBar = function() {
+    return this.get(0).scrollHeight > this.height();
+}
 var isCallHide = false;
 /* there functions below for register function of  tab */
 function registerFunctionsForTab() {
@@ -27,6 +29,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 	if(chartExist){
 		eneableCalculateBtn();
 	}
+	
 });
 
 $('button[data-target="#calculate"]').click(function() {
@@ -141,6 +144,7 @@ function updateWhenChangeType(e){
 
 function calculateInput(e){
 	var input = parseFloat($(e).val());
+	var image = $(e).css('background-image');
 	var type = $(e).parents('table').find("tr:eq(0) select").val();
 	if(checkNumeric(input)){
 		$(e).removeAttr('title');
@@ -148,16 +152,22 @@ function calculateInput(e){
 		input = calculateInputBaseOnType(input,parseInt(type));
 		$(e).closest('tr').find('.monthly').html(Number(input).toLocaleString('en').split('.')[0]);
 		$(e).closest('tr').find('.inputHidden').val(input);
+		$(e).addClass('dataInputBlack');
+		//$(e).css('background-image', image.replace('grey','black'));
 	}else if ($(e).val().trim() != '') {
 		$(e).attr('title','Please enter a number');
         $(e).css('color', '#ff0000');
 		$(e).closest('tr').find('.monthly').html(0);
 		$(e).closest('tr').find('.inputHidden').val(0);
+		$(e).removeClass('dataInputBlack');
+		//$(e).css('background-image', image.replace('black','grey'));
     } else {
 		$(e).attr('title','Please enter a number');
         $(e).css('color', '#000000');
         $(e).closest('tr').find('.monthly').html(0);
 		$(e).closest('tr').find('.inputHidden').val(0);
+		$(e).removeClass('dataInputBlack');
+		//$(e).css('background-image', image.replace('black','grey'));
     }
 	updateTotal(e);
 }

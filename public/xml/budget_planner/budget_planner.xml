@@ -17,7 +17,7 @@
 <item>Savings/Investments</item>
 </category>
 <category>
-<name>Household bills with a very long name</name>
+<name>Household bills</name>
 <color-category>#FF8200</color-category>
 <image-category>CB_Household_bills_new.png</image-category>
 <color-tab>#feb264</color-tab>
@@ -129,5 +129,16 @@
 <item>Days out</item>
 <item>Lottery/gambling</item>
 <item>Pub/social</item>
+</category>
+<category>
+<name>Leisure</name>
+<color-category>#671E75</color-category>
+<image-category>CB_leisure_new.png</image-category>
+<second-color-category>#a276aa</second-color-category>
+<color-text-category>black</color-text-category>
+<color-tab>#a276aa</color-tab>
+<title-tab>Record your leisure</title-tab>
+<item>Gym</item>
+<item>Sports</item>
 </category>
 </categories>

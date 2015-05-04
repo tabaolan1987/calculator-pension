@@ -34,7 +34,7 @@
 	
 	.row-containTblInput{
 		margin:15px 0px 0px 0px;
-		height:310px;
+		height:215px;
 		overflow-x:hidden;
 		overflow-y:auto;
 	}
@@ -85,7 +85,7 @@
 		width : 430px;
 	}
 	table.totalCal{
-		width : 430px;
+		width : 422px;
 	}
 	table.next{
 		width : 450px;
@@ -103,11 +103,11 @@
 	}
 	
 	table.totalCal td.money {
-		padding-left : 0px;
+		padding-left : 7px;
 	}
 	
 	table.totalCal td.moneyTotal{
-		padding-right : 10px !important;
+		padding-right : 0px !important;
 	}
 	
 	table.next td.one{

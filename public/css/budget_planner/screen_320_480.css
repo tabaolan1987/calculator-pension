@@ -201,11 +201,14 @@
 	}
 	
 	.dataInput {
-		background: url("../../images/budget_planner/pound_320.png") no-repeat scroll left center ;
+		background: url("../../images/budget_planner/grey-pound-320.png") no-repeat scroll left center ;
 		text-align : right;
 		padding-right : 5px;
 		border : 1px solid;
 		border-color : #ddd;
+	}
+	.dataInputBlack{
+		background: url("../../images/budget_planner/black-pound-320.png") no-repeat scroll left center ;
 	}
 }
 

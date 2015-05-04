@@ -214,12 +214,12 @@ var fakewaffle = ( function ( $, fakewaffle ) {
 				console.log('id panel :'  + idPanel);
 			    var $table = $(this).find('table.containInput');
 				var total = getTotalInput($table);
-				if(total > 0){
+				if(total > 0 && idPanel!=='calculate'){
 					$("ul#myTab a[data-target='#"+idPanel+"']").find('table.table-nonborder td:eq(1) span').html('£'+total);
-					$("ul#myTab a[data-target='#"+idPanel+"']").find('.table-responsive').find('tr:eq(0)').find('td.aquarter div.validate').removeClass('hidden');
+					$("ul#myTab a[data-target='#"+idPanel+"']").find('.table-responsive').find('tr:eq(0)').find('td.tenPersent img.validate').removeClass('hidden');
 				}else{
 					$("ul#myTab a[data-target='#"+idPanel+"']").find('table.table-nonborder td:eq(1) span').html('');
-					$("ul#myTab a[data-target='#"+idPanel+"']").find('.table-responsive').find('tr:eq(0)').find('td.aquarter div.validate').addClass('hidden');	
+					$("ul#myTab a[data-target='#"+idPanel+"']").find('.table-responsive').find('tr:eq(0)').find('td.tenPersent img.validate').addClass('hidden');	
 				}
 				
 			});

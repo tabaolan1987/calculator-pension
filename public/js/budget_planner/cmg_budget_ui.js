@@ -19,6 +19,9 @@ var tabName = new Array();
 var totalsArray = new Array();
 var ImageArray = new Array();
 var chartExist = false;
+var setHeight = true;
+var heightTabAdded = 0;
+var heigtTableAdded = 0;
 function drawUI() {
     var index = 0
     $.ajax({
@@ -96,7 +99,7 @@ function loadWarning() {
 function drawCategory(name, colorCategory, index, imagePath, secondColorCategory, colorText) {
 	var temp = "";
 	if(name.length > 15){
-		temp = name.substring(0, 9) + "..";
+		temp = name.substring(0, 15) + "..";
 	}else{
 		temp = name;
 	}
@@ -184,9 +187,9 @@ function drawLastElementInTab(idTab, index, colorTab, isLast) {
     html = html + "<tr>";
     if (isLast) {
         html = html + "<td colspan='2'>Select 'Calculate' to see your results or click on any section to change the value</td>";
-        html = html + "<td style='padding-top:16px'><button id='lastBtn' style='font-weight:bold;background-color:" + colorTab + "' onclick='nextTab(" + index + ");' class='btn btn-default'>Calculate</button></td>";
+        html = html + "<td style='padding-top:16px'><button id='lastBtn' style='font-size : 16px;font-weight:bold;background-color:" + colorTab + "' onclick='nextTab(" + index + ");' class='btn btn-default'>Calculate</button></td>";
     } else {
-        html = html + "<td colspan='3' class='money'><button style='font-weight:bold;background-color:" + colorTab + "' onclick='nextTab(" + index + ");' class='btn btn-default'>Next</button></td>";
+        html = html + "<td colspan='3' class='money'><button style='font-size:16px;font-weight:bold;background-color:" + colorTab + "' onclick='nextTab(" + index + ");' class='btn btn-default'>Next</button></td>";
     }
     html = html + "</tr>";
     html = html + "</table>";
@@ -229,24 +232,24 @@ function setActive() {
 
 function setHeightTabPane() {
     var sizeTabs = getSizeArray();
-    if (sizeTabs >= 8 & fakewaffle.currentPosition != "panel"){
+    if (sizeTabs >= 8 && fakewaffle.currentPosition != "panel"){
         var numberAdded = sizeTabs - 8;
         var heightTabCurrent = $('.tab-pane.active').height();
         var heightLiCurrent = $('li.active').height();
 		var isChrome = checkChromeBrowser();
-		var heightTabAdded = 0;
-		var heigtTableAdded = 0;
 		if(isChrome)
 		{
-			heightTabAdded = $('#myTab').height() -( $('li:last-child').height());
-			heigtTableAdded = $('.tab-pane.active .row-containTblInput').height() + (numberAdded * 50) -2;
+			heightTabAdded  = $('#myTab').height() -( $('li:last-child').height());
+			heigtTableAdded = 215 + (numberAdded * 50) -2;
 		}else{
 			heightTabAdded = $('#myTab').height() -( $('li:last-child').height());
-			heigtTableAdded = $('.tab-pane.active .row-containTblInput').height() + (numberAdded * 50) + 5;
+			heigtTableAdded = 215 + (numberAdded * 50) + 5;
 		}
         $('.tab-pane').css('height',  (heightTabAdded -10) + "px");
-        $('.tab-pane .row-containTblInput').css('height', heigtTableAdded +25);
+        $('.tab-pane .row-containTblInput').css('height', (heigtTableAdded +25) + "px");
+		setHeight = false;
     }
+	
 }
 
 /* all functions below for create a chart*/
@@ -356,4 +359,6 @@ function hideAllPanel() {
         $('#collapse-tab' + i).collapse('hide');
         $('li #a' + i).find('td.tenPersent:eq(1) img').attr('src', 'images/budget_planner/arrow_close.png');
     }
+	$('button[data-target="#calculate"]').tab('show');
+	
 }

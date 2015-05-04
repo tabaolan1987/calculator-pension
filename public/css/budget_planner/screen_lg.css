@@ -164,15 +164,11 @@
 	}
 	
 	table.totalCal td.money{
-		width : 8% !important;
-		padding-left : 5px;
-		
+		padding-left : 4px;	
 	}
 	
 	table.totalCal td.moneyTotal{
 		text-align : right;
-		max-width : 50px;
-		
 	}
 	table.next{
 		width : 100%;
@@ -347,13 +343,18 @@
 		width : 480px;
 	}
 	
-	.dataInput {
-		background: url("../../images/budget_planner/pound.png") no-repeat scroll left center ;
+	.dataInput{
+		background: url("../../images/budget_planner/grey_pound.png") no-repeat scroll left center ;
 		text-align : right;
 		padding-right: 5px;
 		border : 1px solid;
 		border-color : #ddd;
 		height : 30px;
+	}
+	
+	.dataInputBlack{
+		background: url("../../images/budget_planner/black_pound.png") no-repeat scroll left center ;
+		
 	}
 	
 	table.containInput select{
