@@ -6,8 +6,8 @@
 		font-size : 16px;
 	}
 
-	:-ms-input-placeholder {  
-		color: #DEDEDE;  
+	 input.dataInput:-ms-input-placeholder  {  
+		color: #DEDEDE !important;  
 	}
 	
 	.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{
