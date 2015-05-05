@@ -160,7 +160,7 @@ function drawTab(index, colorTab, titleTab, items, isLast) {
     $.each(items, function() {
         html = html + "<tr>";
         html = html + "<td class='first' style='padding-left:18px'><div>" + $(this).text() + "</div></td>";
-        html = html + "<td class='second'><input placeholder='0.00' type='text' class='dataInput' oninput='calculateInput(this)' onkeypress='return isNumberKey(event)' style='width:100%'></td>";
+        html = html + "<td class='second'><input maxlength='7' placeholder='0.00' type='text' class='dataInput' oninput='calculateInput(this)' onkeypress='return isNumberKey(event)' style='width:100%'></td>";
         html = html + "<td><span>£</span><input type='hidden' class='inputHidden'></td>";
         html = html + "<td class='tdMonthly'><span class='monthly'>0</span></td>";
         html = html + "</tr>";
