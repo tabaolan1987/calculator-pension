@@ -41,9 +41,7 @@
 		width :  35px;
 		height : 35px;
 	}
-	td.tenPersent{
-		
-	}
+	
 	.tenPersent .img-responsive{
 		width :30px;
 		height : 30px;
@@ -58,8 +56,16 @@
 		margin-bottom:0 !important;
 		border : 0 !important;
 	}
+	
+	table.table-responsive > tbody> tr> td.tenPersent{
+		width : 35px !important;
+	}
+	
+	table.table-responsive > tbody> tr> td.fifyPersent{
+		width : 50px !important;
+	}
 	table.table-responsive > tbody >tr > td.forty{
-		width : 45%;
+		width : 200px;
 		
 	}
 	

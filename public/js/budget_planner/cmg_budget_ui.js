@@ -187,7 +187,7 @@ function drawLastElementInTab(idTab, index, colorTab, isLast) {
     html = html + "<tr>";
     if (isLast) {
         html = html + "<td colspan='2'>Select 'Calculate' to see your results or click on any section to change the value</td>";
-        html = html + "<td style='padding-top:16px'><button id='lastBtn' style='font-size : 16px;font-weight:bold;background-color:" + colorTab + "' onclick='nextTab(" + index + ");' class='btn btn-default'>Calculate</button></td>";
+        html = html + "<td style='padding-top:20px'><button id='lastBtn' style='font-size : 16px;font-weight:bold;background-color:" + colorTab + "' onclick='nextTab(" + index + ");' class='btn btn-default'>Calculate</button></td>";
     } else {
         html = html + "<td colspan='3' class='money'><button style='font-size:16px;font-weight:bold;background-color:" + colorTab + "' onclick='nextTab(" + index + ");' class='btn btn-default'>Next</button></td>";
     }
@@ -240,13 +240,13 @@ function setHeightTabPane() {
 		if(isChrome)
 		{
 			heightTabAdded  = $('#myTab').height() -( $('li:last-child').height());
-			heigtTableAdded = 215 + (numberAdded * 50) -2;
+			heigtTableAdded = 215 + (numberAdded * 50);
 		}else{
 			heightTabAdded = $('#myTab').height() -( $('li:last-child').height());
 			heigtTableAdded = 215 + (numberAdded * 50) + 5;
 		}
-        $('.tab-pane').css('height',  (heightTabAdded -10) + "px");
-        $('.tab-pane .row-containTblInput').css('height', (heigtTableAdded +25) + "px");
+        $('.tab-pane').css('height',  (heightTabAdded -9) + "px");
+        $('.tab-pane .row-containTblInput').css('height', (heigtTableAdded +19) + "px");
 		setHeight = false;
     }
 	

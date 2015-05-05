@@ -1,6 +1,14 @@
     span,input,button{
 		font-size :16px;
 	}
+	::-webkit-input-placeholder {
+		color: #DEDEDE;
+		font-size : 16px;
+	}
+
+	:-ms-input-placeholder {  
+		color: #DEDEDE;  
+	}
 	
 	.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{
 		background-color : transparent;
@@ -38,20 +46,21 @@
 		width : 100%;
 	}
 	table.table-responsive > tbody> tr> td.tenPersent {
-		width : 10% !important;
+		width : 60px !important;
 		padding-right : 3px;
 	}
 	
 	table.table-responsive > tbody> tr> td.fifyPersent {
-		width : 15% !important;
+		width : 81px !important;
 		padding : 5px !important;
 	}
 	
 	table.table-responsive > tbody >tr > td.forty{
-		width : 43%;
+		width : 245px;
 		padding-bottom : 5px;
 		padding-top : 5px;
 		font-size : 16px;
+		max-width : 246px;
 	}
 	
 	table.table-responsive > tbody >tr > td.aquarter{
@@ -184,7 +193,7 @@
 	
 	table.next td.money{
 		padding-left : 342px;
-		padding-top : 16px;
+		padding-top : 20px;
 	}
 	
 	table.next td.money button{

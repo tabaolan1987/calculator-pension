@@ -1,6 +1,6 @@
 @media (min-width: 480px) and (max-width: 640px){
 	span{
-		font-size : 16px !important;
+		font-size : 15px !important;
 	}
 	
 
@@ -36,11 +36,14 @@
 		border : 0 !important;
 	}
 	table.table-responsive > tbody> tr> td.tenPersent {
-		width : 10% !important;
+		width : 50px!important;
 		padding-right : 10px !important;
 	}
+	table.table-responsive > tbody> tr> td.fifyPersent{
+		width : 74px !important;
+	}
 	table.table-responsive > tbody >tr > td.forty{
-		width : 43% !important;
+		width : 245px !important;
 		
 	}
 	
