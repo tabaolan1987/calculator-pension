@@ -46,17 +46,17 @@
 		width : 100%;
 	}
 	table.table-responsive > tbody> tr> td.tenPersent {
-		width : 50px !important;
+		width : 45px !important;
 		padding-right : 3px;
 	}
 	
 	table.table-responsive > tbody> tr> td.fifyPersent {
-		width : 60px !important;
+		width : 50px !important;
 		padding : 5px !important;
 	}
 	
 	table.table-responsive > tbody >tr > td.forty{
-		width : 280px;
+		width : 285px;
 		padding-bottom : 5px;
 		padding-top : 5px;
 		font-size : 16px;
