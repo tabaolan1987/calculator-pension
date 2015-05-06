@@ -1,10 +1,10 @@
 @media (min-width: 640px) and (max-width: 991px){
 	table.table-responsive > tbody> tr> td.tenPersent {
-		width : 60px!important;
+		width : 50px!important;
 		padding-right : 10px !important;
 	}
 	table.table-responsive > tbody >tr > td.forty{
-		width : 245px !important;
+		width : 270px !important;
 		
 	}
 	

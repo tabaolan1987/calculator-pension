@@ -104,16 +104,24 @@
 	table.containInput td.tdMonthly{
 		padding-right : 10px;
 	}
-	table.containInput td.first{
-		width : 35%;
-	}
+	
 	
 	table.containInput td.first div{
-		width : 100px;
+		width : 90px;
 		font-size : 12px;
 	}
 	
+	table.containInput td.first{
+		width : 100px;
+	}
 	
+	table.containInput td.second{
+		width : 100px
+	}
+	
+	table.containInput td.three{
+		width : 10px
+	}
 	
 	table.totalCal{
 		width : 300px;
