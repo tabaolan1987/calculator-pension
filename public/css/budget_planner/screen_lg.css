@@ -144,6 +144,7 @@
 	
 	table.containInput td.first div{
 		width : 119px;
+		word-wrap: break-word;
 	}
 	table.containInput td.second{
 		width : 45%;
