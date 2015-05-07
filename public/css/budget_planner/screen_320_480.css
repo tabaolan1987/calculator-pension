@@ -220,6 +220,7 @@
 	
 	#myModal2 .modal-body{
 		text-align : left;
+		width : 300px;
 	}
 	
 	.dataInput {
