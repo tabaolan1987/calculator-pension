@@ -1,0 +1,180 @@
+@media (min-width: 480px) and (max-width: 640px){
+	span{
+		font-size : 15px !important;
+	}
+	
+
+	.row-containTblInput{
+		margin:15px 0px 0px 0px;
+		height:310px;
+		overflow-x:hidden;
+		overflow-y:auto;
+	}
+	
+	
+	
+	.panel-default>.panel-heading{
+		background-color: transparent;
+		border-radius : 15px !important;
+		padding : 0px !important;
+		
+	}
+
+	div.panel-group{
+		width : 420px;
+	}
+	
+	div.panel-default{
+		border-color: transparent;
+		margin-bottom : 5px;
+		/*font-size : smaller !important;*/
+	}
+	
+	
+	.table-responsive {
+		margin-bottom:0 !important;
+		border : 0 !important;
+	}
+	table.table-responsive > tbody> tr> td.tenPersent {
+		width : 50px!important;
+		padding-right : 10px !important;
+	}
+	table.table-responsive > tbody> tr> td.fifyPersent{
+		width : 60px !important;
+	}
+	table.table-responsive > tbody >tr > td.forty{
+		width : 260px !important;
+		
+	}
+	
+	table.table-responsive > tbody >tr > td.aquarter{
+		width : 21% !important;
+	}
+	
+	.table-responsive .img-responsive{
+		width : 35px;
+		height : 35px;
+	}
+	
+	.tenPersent .img-responsive{
+		width :30px;
+		height : 30px;
+	}
+	.arrow  .img-responsive{
+		width :30px;
+		height : 30px;
+	}
+	
+	
+	.panel-group .panel-heading+.panel-collapse>.panel-body{
+		padding:0px;
+		border: 1px solid;
+		border-top: transparent;
+		border-radius: 15px;
+		border-left-color: #ddd;
+		border-right-color: #ddd;
+		border-bottom-color: #ddd;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;
+	}
+	div.row-heading{
+		height : 45px;
+		min-height : 45px;
+		padding-top : 13px;
+		margin-left:0px !important;
+		margin-right:0px !important;
+		border-bottom : 1px solid;
+		border-bottom-left-radius : 15px;
+		border-bottom-right-radius : 15px;
+		border-bottom-color : #ddd;
+		border-radius : 15px;
+		-webkit-transition: all ease-in-out .3s;
+		-moz-transition: all ease-in-out .3s;
+		-ms-transition: all ease-in-out .3s;
+		-o-transition: all ease-in-out .3s;
+		transition: all ease-in-out .3s;
+	}
+	table.containInput{
+		width : 400px;
+	}
+	table.containInput td.first{
+		width : 45%;
+	}
+	
+	table.containInput td.second{
+		width : 30%;
+	}
+	table.containInput td.three{
+		width : 7%;
+	}
+	
+	table.totalCal{
+		width : 400px;
+	}
+	table.totalCal td.one{
+		width : 45%;	
+	}
+	table.totalCal td.two{
+		width : 29%;
+	}
+	
+	table.totalCal td.three{
+		width : 8%
+	}
+	
+	table.totalCal td.money{
+		padding-left : 6px;
+	}
+	
+	table.totalCal td.moneyTotal{
+		
+	}
+	
+	table.next td.one{
+		width : 42% !important;
+	}
+	table.next td.money{
+		padding-left : 310px
+	}
+	#myModal{
+		top : 5%;
+		width : 430px;
+		font-size : 14px;
+		outline: none;
+	}
+	#myModal .modal-content{
+		width : 420px;
+	}
+	
+	#myModal2{
+		top : 5%;
+		width : 430px;
+		font-size : 14px;
+		outline: none;
+	}
+	#myModal2 .modal-content{
+		width : 420px;
+	}
+	
+	.labelTop{
+		position:: absolute;
+		width: 187px;
+		left: 52%;
+		top: 21%;
+		height: 185px;
+		margin-top: -32px;
+		margin-left: -100px;
+		text-align: center;
+		border-radius: 115px;
+		z-index: 1000;
+		background: url("../../images/budget_planner/trickIE.png") no-repeat scroll top center ;
+	}
+	.labelChart{
+		width : 170px;
+		left  : 54%;
+	}
+	
+	.modal-body{
+		width : 400px;
+	}
+}

@@ -1,0 +1,382 @@
+    span,input,button{
+		font-size :16px;
+	}
+	::-webkit-input-placeholder {
+		color: #DEDEDE;
+		font-size : 16px;
+	}
+
+	 input.dataInput:-ms-input-placeholder  {  
+		color: #DEDEDE !important;  
+	}
+	
+	.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{
+		background-color : transparent;
+		cursor : pointer;
+		border: 0px
+	  }
+	.nav-tabs>li>a, .nav-tabs>li>a:hover, .nav-tabs>li>a:focus{
+		background-color : transparent;
+		border:0px;
+		cursor : pointer;
+	}
+	li{
+      margin-right: 2px;
+      margin-bottom: 5px;
+      border-radius: 15px;
+      -webkit-transition: all ease-in-out .3s;
+      -moz-transition: all ease-in-out .3s;
+      -ms-transition: all ease-in-out .3s;
+      -o-transition: all ease-in-out .3s;
+      transition: all ease-in-out .3s;
+    }
+	.nav > li > a {
+		padding : 0px;
+		font-size : 16px;
+	}
+	.nav-tabs > li{
+		margin-bottom : 5px;
+	 }
+	.nav-tabs{
+		border-bottom : transparent
+	}
+	
+
+	a > div > table.table-responsive{
+		width : 100%;
+	}
+	table.table-responsive > tbody> tr> td.tenPersent {
+		width : 45px !important;
+		padding-right : 3px;
+	}
+	
+	table.table-responsive > tbody> tr> td.fifyPersent {
+		width : 50px !important;
+		padding : 5px !important;
+	}
+	
+	table.table-responsive > tbody >tr > td.forty{
+		width : 285px;
+		padding-bottom : 5px;
+		padding-top : 5px;
+		font-size : 16px;
+	}
+	
+	table.table-responsive > tbody >tr > td.aquarter{
+		width : 16% !important;
+	}
+	
+	table.table-responsive > tbody >tr > td > div.inform{
+		border-radius : 25px;
+	}
+	
+	table.table-nonborder{
+		margin-bottom : 0px;
+	}
+	table.table-nonborder > tbody > tr >td{
+		border-top : 0px;
+		max-width : 90px;
+		min-width : 20px;
+	}
+	
+	button.calculate{
+		width:25%;background-color:#94b7bb;border-radius:15px;color:black;font-weight:bolder;font-size : 16px;
+	}
+	#containerMenu{
+		width : 450px;
+		padding:0;
+	}
+	
+	div.tab-pane{
+		font-size : 16px;
+		height : 395px;
+		width : 450px;
+		border: 1px solid;
+		border-top : 0px solid;
+		border-bottom-left-radius : 8px;
+		border-bottom-right-radius : 8px;
+		border-top-left-radius : 15px;
+		border-top-right-radius : 15px;
+		border-color : #ddd;
+		-webkit-transition: all ease-in-out .3s;
+		-moz-transition: all ease-in-out .3s;
+		-ms-transition: all ease-in-out .3s;
+		-o-transition: all ease-in-out .3s;
+		transition: all ease-in-out .3s;
+	}
+	div.row-heading{
+		height : 49px;
+		min-height : 46px;
+		padding-top : 13px;
+		margin-left:0px !important;
+		margin-right:0px !important;
+		border-bottom : 1px solid;
+		border-bottom-left-radius : 15px;
+		border-bottom-right-radius : 15px;
+		border-bottom-color : #ddd;
+		border-radius : 15px;
+		-webkit-transition: all ease-in-out .3s;
+		-moz-transition: all ease-in-out .3s;
+		-ms-transition: all ease-in-out .3s;
+		-o-transition: all ease-in-out .3s;
+		transition: all ease-in-out .3s;
+	}
+
+	.row-containTblInput{
+		margin:15px 0px 0px 0px;
+		height:215px;
+		overflow-x:hidden;
+		overflow-y:auto;
+	}
+	table.containInput{
+		width : 430px;
+	}
+	
+	
+	table.containInput > tbody > tr > td{
+		border-top : 0px !important;
+		vertical-align:middle;
+	}
+	
+	table.containInput td.first{
+		width : 50%;
+	}
+	
+	table.containInput td.first div{
+		width : 119px;
+	}
+	table.containInput td.second{
+		width : 45%;
+	}
+	table.containInput td.three{
+		width : 9%;
+	}
+	
+	table.containInput td.tdMonthly{
+		text-align : right;
+		
+	}
+	table.totalCal {
+		margin-bottom : 0px;
+		width : 430px;
+	}
+	table.totalCal > tbody > tr > td {
+		border-top : transparent;
+	}
+	
+	table.totalCal td.one{
+		width : 47%;	
+	}
+	table.totalCal td.two{
+		width : 30%;
+	}
+	
+	table.totalCal td.money{
+		padding-left : 4px;	
+	}
+	
+	table.totalCal td.moneyTotal{
+		text-align : right;
+	}
+	table.next{
+		width : 100%;
+		margin-bottom : 0px;
+	}
+	
+	table.next td.one{
+		width : 48% !important;	
+	}
+	table.next td.two{
+		width : 26%  !important;
+	}
+	
+	table.next td.money{
+		padding-left : 342px;
+		padding-top : 20px;
+	}
+	
+	table.next td.money button{
+		width : 80px;
+		height : 35px;
+	}
+	table.next td{
+		border-top : 1px dashed #ddd !important;
+	}
+	
+	.labelChart{
+		position:absolute;
+		width:190px;
+		left:51%;
+		top:30%;
+		margin-top:-30px;
+		margin-left:-100px;
+		text-align:center;
+		font-weight:bold;
+	}
+	.labelTop{
+		position:absolute;
+		width:187px;
+		left:52%;
+		top:21%;
+		height : 184px;
+		margin-top:-30px;
+		margin-left:-100px;
+		text-align:center;
+		border-radius : 115px;
+		z-index : 1000;
+		border-color : red;
+		background: url("../../images/budget_planner/trickIE.png") no-repeat scroll top center ;
+	}
+	
+	div.labelChart span{
+		color : #06038d;
+	}
+	
+	div.labelChart p{
+		color : #5fc2eb;
+		font-size : 35px;
+	}
+	
+	div.labelChart p.exceed{
+		color : red;
+	}
+	
+	#placeholder {
+		width:100%;
+		height:330px;
+		margin:0 auto;
+	}
+	
+	#holder-canvas{
+		position: relative;
+		height: 500px;
+	}
+	
+	
+	
+	.table-responsive .img-responsive{
+		width : 35px;
+		height :  35px;
+	}
+	
+	.tenPersent .img-responsive{
+		width :30px;
+		height : 30px;
+	}
+	
+	.arrow  .img-responsive{
+		width :30px;
+		height : 30px;
+		padding-right : 5px;
+	}
+	
+	#flotTip{	
+        padding : 2px !important;     
+        size: 10 !important;  
+        opacity: 0.6 !important;
+	}
+	
+	
+	
+	#tooltip{
+		background-image : url("../../images/budget_planner/CB_speech_bubble.png");
+		width : 95px;
+		height : 65px;
+		font-size : 12px;
+		color: blue;
+		justify-content: center; /* align horizontal */
+		align-items: center; /* align vertical */
+		
+	}
+	.modal-dialog{
+		max-width :450px;
+	}
+	
+	.modal-content{
+		width : 448px;
+		border-radius : 20px;
+	}
+	.modal-header {
+		padding:10px;
+		border-bottom : transparent
+	}
+	
+	.modal-body {
+		margin-top : 25px;
+		padding-left : 30px;
+		color : #060392;
+		overflow-y : auto;
+		max-height : 200px;
+		width : 420px;
+		padding-left : 20px;
+	}
+	
+	.close{
+		opacity : 1;
+	}
+	
+	.modal-footer{
+		padding-left : 0px;
+		border-top : transparent;
+	}
+	.modal-footer table{
+		margin-bottom : 0px;
+	}
+	.modal-footer td{
+		border-top : transparent !important;
+	}
+	
+	.modal-footer td a{
+		cursor : pointer;
+	}
+	
+	.modal-footer td button{
+		font-weight : bold;
+		color : #060392;
+		border-radius : 10px;
+	}
+	
+	#myModal{
+		top : 5%;
+		width : 920px;
+		outline: none;
+	}
+	
+	
+	#myModal2{
+		top : 5%;
+		width : 920px;
+		outline: none;
+	}
+	#myModal2 .modal-content{
+		width : 448px;
+	}
+	
+	.dataInput{
+		background: url("../../images/budget_planner/grey_pound.png") no-repeat scroll left center ;
+		text-align : right;
+		padding-right: 5px;
+		border : 1px solid;
+		border-color : #ddd;
+		height : 30px;
+	}
+	
+	.dataInputBlack{
+		background: url("../../images/budget_planner/black_pound.png") no-repeat scroll left center ;
+		
+	}
+	
+	table.containInput select{
+	}
+	
+
+
+
+
+
+
+
+
+	
+	  
+	  

@@ -1,0 +1,236 @@
+@media (min-width: 320px) and (max-width: 480px){
+	span,select,button,input{
+		font-size : 12px !important;
+	}
+	
+	#containerMenu{
+		width :310px;
+	}
+	.container-fluid{
+		margin-left : 0px !important;
+		width : 310px;
+	}
+	h3{
+		padding-left : 0px !important;
+	}
+	.row-containTblInput{
+		margin:15px 0px 0px 0px;
+		height:250px;
+		overflow-x:hidden;
+		overflow-y:auto;
+	}
+	
+	.panel-default>.panel-heading{
+		background-color: transparent;
+		border-radius : 15px !important;
+		padding : 0px !important;
+		
+	}
+
+	div.panel-group{
+		width : 320px;
+	}
+	
+	div.panel-default{
+		border-color: transparent;
+		margin-bottom : 5px;
+		/*font-size : xx-small !important;*/
+	}
+	
+	.table-responsive .img-responsive{
+		width :  35px;
+		height : 35px;
+	}
+	
+	.tenPersent .img-responsive{
+		width :30px;
+		height : 30px;
+	}
+	.arrow  .img-responsive{
+		width :30px;
+		height : 30px;
+		padding-right : 10px;
+	}
+	
+	.table-responsive {
+		margin-bottom:0 !important;
+		border : 0 !important;
+	}
+	
+	table.table-responsive > tbody> tr> td.tenPersent{
+		width : 35px !important;
+	}
+	
+	table.table-responsive > tbody> tr> td.fifyPersent{
+		width : 50px !important;
+	}
+	table.table-responsive > tbody >tr > td.forty{
+		width : 200px;
+		
+	}
+	
+	.panel-group .panel-heading+.panel-collapse>.panel-body{
+		padding:0px;
+		border: 1px solid;
+		border-top: transparent;
+		border-radius: 15px;
+		border-left-color: #ddd;
+		border-right-color: #ddd;
+		border-bottom-color: #ddd;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;
+	}
+	div.row-heading{
+		height : 46px;
+		min-height : 30px;
+		padding-top : 13px;
+		margin-left:0px !important;
+		margin-right:0px !important;
+		border-bottom : 1px solid;
+		border-bottom-left-radius : 15px;
+		border-bottom-right-radius : 15px;
+		border-bottom-color : #ddd;
+		border-radius : 15px;
+		-webkit-transition: all ease-in-out .3s;
+		-moz-transition: all ease-in-out .3s;
+		-ms-transition: all ease-in-out .3s;
+		-o-transition: all ease-in-out .3s;
+		transition: all ease-in-out .3s;
+	}
+	
+	table.containInput{
+		width :300px;
+	}
+	table.containInput td.tdMonthly{
+		padding-right : 10px;
+	}
+	
+	
+	table.containInput td.first div{
+		width : 90px;
+		font-size : 12px;
+	}
+	
+	table.containInput td.first{
+		width : 100px;
+	}
+	
+	table.containInput td.second{
+		width : 100px
+	}
+	
+	table.containInput td.three{
+		width : 10px
+	}
+	
+	table.totalCal{
+		width : 300px;
+	}
+	
+	table.totalCal td.one{
+		width : 50%;	
+	}
+	table.totalCal td.two{
+		width : 24%;
+		padding-left : 2px;
+	}
+	table.totalCal td.money{
+		padding-left : 0px;
+	}
+	
+	table.totalCal td.three{
+		width : 8%
+	}
+	table.totalCal td.moneyTotal{
+		float : right;
+		padding-right :10px;
+	}
+	
+	
+	table.next{
+		width : 318px !important
+	}
+	
+	table.next td.money{
+		padding-left : 216px;
+	}
+	
+	.labelChart{
+		width : 135px;
+		left : 60%;
+	}
+	
+	.labelTop{
+		position:absolute;
+		width:163px;
+		left:56%;
+		top:23%;
+		height : 160px;
+		margin-top:-30px;
+		margin-left:-100px;
+		text-align:center;
+		border-radius : 115px;
+		z-index : 1000;
+		background: url("../../images/budget_planner/trickIE.png") no-repeat scroll top center ;
+	}
+	
+	#myModal{
+		width : 320px;
+		outline: none;
+		left :-2%;
+		top : 5%;
+		font-size : 12px;
+	}
+	
+	#myModal .modal-footer a{
+		font-size : 12px !important;
+	}
+	
+	#myModal .modal-footer button{
+		font-size : 12px !important;
+	}
+	#myModal .modal-content{
+		width : 310px;
+	}
+	#myModal .modal-body{
+		width : 300px;
+		padding-left : 20px;
+		text-align : left;
+	}
+	
+	#myModal2{
+		width : 320px;
+		outline: none;
+		left :-2%;
+		top : 5%;
+		font-size : 12px;
+	}
+	
+	#myModal2 .modal-footer a{
+		font-size : 12px !important;
+	}
+	
+	#myModal2 .modal-footer button{
+		font-size : 12px !important;
+	}
+	#myModal2 .modal-content{
+		width : 310px;
+	}
+	
+	#myModal2 .modal-body{
+		text-align : left;
+	}
+	
+	.dataInput {
+		background: url("../../images/budget_planner/grey-pound-320.png") no-repeat scroll left center ;
+		text-align : right;
+		padding-right : 5px;
+		border : 1px solid;
+		border-color : #ddd;
+	}
+	.dataInputBlack{
+		background: url("../../images/budget_planner/black-pound-320.png") no-repeat scroll left center ;
+	}
+}
+
+

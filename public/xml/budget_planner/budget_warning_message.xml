@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<holder>
+<popup>
+	<type>1</type>
+	<description>Not complete all field</description>
+	<color-message>blue</color-message>
+	<message>
+		<![CDATA[
+		<p>You have not completed all sections of the planner</p>
+		<p>You may have missed something.</p>
+		<p>Do you still wish to process?</p>
+		]]>
+	</message>
+</popup>
+<popup>
+	<type>2</type>
+	<description>Outgoings exceed income.</description>
+	<color-message>blue</color-message>
+	<message>
+		<![CDATA[
+		<p>Your outgoings exceed your income.</p>
+		<p>Have you entered the correct values?</p>
+		]]>
+	</message>
+</popup>
+</holder>
