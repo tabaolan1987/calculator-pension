@@ -177,7 +177,8 @@
 	#myModal{
 		width : 320px;
 		outline: none;
-		left :-1%;
+		left :-2%;
+		top : 5%;
 		font-size : 12px;
 	}
 	
@@ -200,7 +201,8 @@
 	#myModal2{
 		width : 320px;
 		outline: none;
-		left :-1%;
+		left :-2%;
+		top : 5%;
 		font-size : 12px;
 	}
 	

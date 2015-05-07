@@ -137,6 +137,7 @@
 		padding-left : 310px
 	}
 	#myModal{
+		top : 5%;
 		width : 430px;
 		font-size : 14px;
 		outline: none;
@@ -146,6 +147,7 @@
 	}
 	
 	#myModal2{
+		top : 5%;
 		width : 430px;
 		font-size : 14px;
 		outline: none;
