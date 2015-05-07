@@ -6,13 +6,9 @@
 	<color-message>blue</color-message>
 	<message>
 		<![CDATA[
-		<p>You have not completed all sections of the planner, do you still wish to proceed?</p>
-		<p>Close Brothers to edit text for pop up.</p>
-		<p>Only the warning text is editable, not styling e.g. colour, font or size</p>
-		<p>Links below are not editable as they are part of the flow.</p>
-		<p>Links below are not editable as they are part of the flow.</p>
-		<p>Links below are not editable as they are part of the flow.</p>
-		<p>Links below are not editable as they are part of the flow.</p>
+		<p>You have not completed all sections of the planner</p>
+		<p>You may have missed something.</p>
+		<p>Do you still wish to process?</p>
 		]]>
 	</message>
 </popup>
@@ -22,7 +18,8 @@
 	<color-message>blue</color-message>
 	<message>
 		<![CDATA[
-		<p>Outgoings exceed income.</p>
+		<p>Your outgoings exceed your income.</p>
+		<p>Have you entered the correct values?</p>
 		]]>
 	</message>
 </popup>

@@ -252,52 +252,7 @@
 		height: 500px;
 	}
 	
-	.modal-dialog{
-		max-width :450px;
-	}
 	
-	.modal-content{
-		width : 448px;
-		border-radius : 20px;
-	}
-	.modal-header {
-		padding:10px;
-		border-bottom : transparent
-	}
-	
-	.modal-body {
-		margin-top : 25px;
-		padding-left : 30px;
-		color : #060392;
-		overflow-y : auto;
-		height : 200px;
-		width : 420px;
-	}
-	
-	.close{
-		opacity : 1;
-	}
-	
-	.modal-footer{
-		padding:10px;
-		border-top : transparent;
-	}
-	.modal-footer table{
-		margin-bottom : 0px;
-	}
-	.modal-footer td{
-		border-top : transparent !important;
-	}
-	
-	.modal-footer td a{
-		cursor : pointer;
-	}
-	
-	.modal-footer td button{
-		font-weight : bold;
-		color : #060392;
-		border-radius : 10px;
-	}
 	
 	.table-responsive .img-responsive{
 		width : 35px;
@@ -333,22 +288,68 @@
 		align-items: center; /* align vertical */
 		
 	}
+	.modal-dialog{
+		max-width :450px;
+	}
+	
+	.modal-content{
+		width : 448px;
+		border-radius : 20px;
+	}
+	.modal-header {
+		padding:10px;
+		border-bottom : transparent
+	}
+	
+	.modal-body {
+		margin-top : 25px;
+		padding-left : 30px;
+		color : #060392;
+		overflow-y : auto;
+		max-height : 200px;
+		width : 420px;
+		padding-left : 20px;
+	}
+	
+	.close{
+		opacity : 1;
+	}
+	
+	.modal-footer{
+		padding-left : 0px;
+		border-top : transparent;
+	}
+	.modal-footer table{
+		margin-bottom : 0px;
+	}
+	.modal-footer td{
+		border-top : transparent !important;
+	}
+	
+	.modal-footer td a{
+		cursor : pointer;
+	}
+	
+	.modal-footer td button{
+		font-weight : bold;
+		color : #060392;
+		border-radius : 10px;
+	}
+	
 	#myModal{
-		top:5%;
-		right:32%;
+		top:1%;
+		width : 900px;
+		outline: none;
+	}
+	
+	
+	#myModal2{
+		top:1%;
+		width : 900px;
 		outline: none;
 	}
 	#myModal2 .modal-content{
 		width : 448px;
-	}
-	
-	#myModal2{
-		top:5%;
-		right:32%;
-		outline: none;
-	}
-	#myModal2 .modal-content{
-		width : 480px;
 	}
 	
 	.dataInput{

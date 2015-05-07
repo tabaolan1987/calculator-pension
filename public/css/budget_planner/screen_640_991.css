@@ -122,25 +122,7 @@
 		padding-left : 348px;
 	}
 	
-	#myModal{
-		top:5%;
-		right:0%;
-		left : 0%;
-		outline: none;
-	}
-	#myModal .modal-content{
-		width : 450px;
-	}
 	
-	#myModal2{
-		top:5%;
-		right:0%;
-		left : 0%;
-		outline: none;
-	}
-	#myModal2 .modal-content{
-		width : 490px;
-	}
 	
 	.labelTop{
 		position:: absolute;
@@ -154,5 +136,24 @@
 		border-radius: 115px;
 		z-index: 1000;
 		background: url("../../images/budget_planner/trickIE.png") no-repeat scroll top center ;
+	}
+	
+	
+	#myModal{
+		top:1%;
+		width : 470px;
+		outline: none;
+	}
+	#myModal .modal-content{
+		width : 450px;
+	}
+	
+	#myModal2{
+		top:1%;
+		width : 470px;
+		outline: none;
+	}
+	#myModal2 .modal-content{
+		width : 450px;
 	}
 }
