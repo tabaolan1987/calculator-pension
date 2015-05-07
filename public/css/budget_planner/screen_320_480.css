@@ -109,6 +109,7 @@
 	table.containInput td.first div{
 		width : 90px;
 		font-size : 12px;
+		word-wrap: break-word;
 	}
 	
 	table.containInput td.first{
