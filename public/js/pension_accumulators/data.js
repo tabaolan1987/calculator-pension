@@ -27,35 +27,46 @@ var coinPercent = 4;
 var current_forcecash_income = 0;
 var current_target = 0;
 function setupData(){
+	loadPrintInfor();
 	loaddAllAnnuity();
 	loadAllInformation();
 	loadAllWarning();
 	loadGrowthRate();
 	loadLTA();
-	loadPrintInfor();
+
 }
+
+function loadHtml(url, idDiv, option){
+	$.ajax({
+        url: url,
+		type: 'GET',
+        success: function(data) {
+			//console.log(data);
+           var content = $(data.responseText).find("#"+idDiv).html();
+			$("#"+option).html(content);
+        },
+        error: function() {
+            alert("An error occurred while processing XML file print.");
+        }
+    });
+}
+
+
 function loadPrintInfor(){
  $.ajax({
         type: "GET",
         url: "xml/pension_accumulators/print/print-title.xml",
         dataType: "xml",
         success: function(xml) {
-            $(xml).find('caveat-title').each(function() {
-                var cv = $(this).text();
-				$('#caveat-title').html(cv);
-            });
-			$(xml).find('caveat-content').each(function() {
-                var cv = $(this).text();
-				$('#caveat-content').html(cv);
-            });
-			$(xml).find('example-title').each(function() {
-                var cv = $(this).text();
-				$('#example-title').html(cv);
-            });
-			$(xml).find('example-content').each(function() {
-                var cv = $(this).text();
-				$('#example-content').html(cv);
-            });
+            var disClammer = $(xml).find('diclamer');
+			loadHtml($(xml).find('diclamer').attr('url'),$(xml).find('diclamer').attr('idDiv'),"disclamer");
+			
+			var importantText = $(xml).find('important');
+			loadHtml($(xml).find('important').attr('url'),$(xml).find('important').attr('idDiv'),"important-text");
+			
+			var assumption = $(xml).find('assump');
+			loadHtml( $(xml).find('assump').attr('url'), $(xml).find('assump').attr('idDiv'),"assump-text");
+			
             console.log("load xml  : print already!");
         },
         error: function() {

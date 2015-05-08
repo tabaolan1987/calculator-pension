@@ -327,7 +327,7 @@ function calculatePersonalPay(){
 		//if(percent == '' || typeof percent === 'undefined' || percent === null){
 			percent = getPercent_Contribute();
 			percent = percent*100;
-			$('#txt-you-paying-percent').val(fixed(percent));
+			$('#txt-you-paying-percent').val(percent);
 		//}
 	});
 	$('#txt-you-paying-percent').on('input',function(){
@@ -345,7 +345,7 @@ function calculateCompanyPay(){
 		//if(percent == '' || typeof percent === 'undefined' || percent === null){
 			percent = getPercent_Contribute_company();
 			percent = percent*100;
-			$('#txt-your-employer-percent').val(fixed(percent));
+			$('#txt-your-employer-percent').val(percent);
 		//}
 	});
 	$('#txt-your-employer-percent').on('input',function(){
@@ -411,12 +411,12 @@ function setTextToTextField(){
 	var cashContribute = round(getCash_Contribute());
 	var ContributePercent = getPercent_Contribute()*100;
 	$('#txt-you-paying-result').val(cashContribute);
-	$('#txt-you-paying-percent-result').val(fixed(ContributePercent));
+	$('#txt-you-paying-percent-result').val(ContributePercent);
 	
 	var cashContriCompany = round(getCash_Contribute_company());
 	var percentContriConpany = getPercent_Contribute_company()*100;
 	$('#txt-your-employer-result').val(cashContriCompany);
-	$('#txt-your-employer-percent-result').val(fixed(percentContriConpany));
+	$('#txt-your-employer-percent-result').val(percentContriConpany);
 	
 	var targetPension = $('#txt-target-pensions').val();
 	$('#txt-target-pensions-result').val(targetPension);
@@ -613,6 +613,11 @@ function updateDataPrint(){
 	$('.print-pound-amount').html(Number(tax_free_value).toLocaleString('en').split('.')[0]);
 	$('.print-pound-income').html(Number(forceCashIncome).toLocaleString('en').split('.')[0]);
 	$('.print-pound-shortfall').html(Number(shorFall).toLocaleString('en').split('.')[0]);
+	
+	var importantText = $("#important-text").html();
+	var assumptionText = $("#assump-text").html();
+	$("#important-print").html(importantText);
+	$("#assump-print").html(assumptionText);
 }
 function PrintElement(element)
 {

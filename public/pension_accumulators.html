@@ -14,10 +14,11 @@
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
       <script type="text/javascript" src="js/pension_accumulators/jquery-ui.js"></script>
       <script type="text/javascript" src="js/pension_accumulators/jquery-ui-slider-pips.js"></script>
-      <script type="text/javascript" src="js/pension_accumulators/cmg_pension_data_min.js"></script>
-      <script type="text/javascript" src="js/pension_accumulators/cmg_pension_formula_min.js"></script>
-      <script type="text/javascript" src="js/pension_accumulators/cmg_pension_action_min.js"></script>
-      <script type="text/javascript" src="js/pension_accumulators/cmg_pension_ui_min.js"></script>
+	  <script type="text/javascript" src="js/pension_accumulators/jquery.ajax-cross-origin.min.js"></script>
+      <script type="text/javascript" src="js/pension_accumulators/data.js"></script>
+      <script type="text/javascript" src="js/pension_accumulators/formula.js"></script>
+      <script type="text/javascript" src="js/pension_accumulators/action.js"></script>
+      <script type="text/javascript" src="js/pension_accumulators/ui.js"></script>
    </head>
    <body>
       <div class="container-fluid" id="wrapper">
@@ -250,8 +251,8 @@
             </div>
             <!--END .right-content-->
          </div>
-		 <div id="important-text" class="row">abc</div>
-		 <div id="assump-text" class="row">123</div>
+		 <div id="important-text" class="row"></div>
+		 <div id="assump-text" class="row"></div>
          <!--END #content-->
       </div>
       <!--END #wrapper-->
@@ -281,13 +282,14 @@
          </div>
       </div>
       <div id="box-print" style="display:none;">
-         <h4 id="caveat-title">Caveat Title</h4>
-         <div id="caveat-content">
+         <div id="disclamer">
             <p>The aim of this calculator is to give you an indication of how much you need to contribute to a pension and what you might get as a retirement income. The calculator should not be regarded as personal advice. If you are at all unsure, please contact us for advice.</p>
             <p>The figures are a guide and not guaranteed. Your final pension fund and the income available will depend on factors including the growth your fund achieves, contributions you make in future, charges, inflation, your retirement age, annuity rates at the time and the annuity options you choose.</p>
          </div>
-         <h4 id="example-title">Example Title</h4>
-         <div id="example-content">
+         <div id="important-print">
+            <p>Investment returns are not guaranteed and could be more or less than those used here. Past performance is not a guide to future returns. The value of investments can fall as well as rise, so you may get back less than you invest.</p>
+         </div>
+		  <div id="assump-print">
             <p>Investment returns are not guaranteed and could be more or less than those used here. Past performance is not a guide to future returns. The value of investments can fall as well as rise, so you may get back less than you invest.</p>
          </div>
          <div id="result-box" style="border: 2px dotted #ddd;padding: 10px;">
@@ -305,6 +307,9 @@
          	registerAction();
          	drawSlide();
          	drawRightContent();
+			$( window ).resize(function() {
+				drawRightContent();
+			});
          });
           
       </script>

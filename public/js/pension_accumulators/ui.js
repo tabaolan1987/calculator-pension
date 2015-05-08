@@ -14,6 +14,7 @@
 6.Date - 30-03-2015
 
 */
+var isCalculate = false;
 $.fn.animatecss = function (classes, callback) {
     return this.addClass(classes).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', callback);
 };
@@ -52,6 +53,7 @@ function setupCoin(coinBlue,coinRed){
 	$('#coin-container').html(html);
 }
 function fallingCoin(index) {
+		isCalculate = true;
 		var coin = "#coin"+index;
         $(coin).show();
         var heightContainer = $('#coin-container').height() - 25;
@@ -248,7 +250,7 @@ function hideRightContent(){
 
 function drawRightContent(){
 	var checkSize = checkScreenXsSM();
-	if(checkSize == true){
+	if(checkSize == true && isCalculate == false){
 		hideRightContent();
 	}else{
 		showRightContent();

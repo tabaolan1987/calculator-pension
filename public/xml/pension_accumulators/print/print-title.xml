@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <print>		
-<caveat-title>
-<![CDATA[Caveat Title]]>
-</caveat-title>
-<caveat-content>
-<![CDATA[
-<p>The aim of this calculator is to give you an indication of how much you need to contribute to a pension and what you might get as a retirement income. The calculator should not be regarded as personal advice. If you are at all unsure, please contact us for advice.</p>
-<p>The figures are a guide and not guaranteed. Your final pension fund and the income available will depend on factors including the growth your fund achieves, contributions you make in future, charges, inflation, your retirement age, annuity rates at the time and the annuity options you choose.</p>
-]]>
-
-</caveat-content>
-<example-title>
-<![CDATA[Example Title]]>
-</example-title>
-<example-content>
-<![CDATA[
-<p>Investment returns are not guaranteed and could be more or less than those used here. Past performance is not a guide to future returns. The value of investments can fall as well as rise, so you may get back less than you invest.</p>
-]]>
-</example-content>
+<diclamer url="http://c-mg.vn/content/pl/cmg/disclamer.html" idDiv="disclammer" />
+<important url="http://c-mg.vn/content/pl/cmg/important.html" idDiv="important" />
+<assump url="http://c-mg.vn/content/pl/cmg/assump.html" idDiv="assump" />
 </print>		
