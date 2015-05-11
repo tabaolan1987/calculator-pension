@@ -1,5 +1,5 @@
 #wrapper{
-	margin:5px 10px 20px 30px;
+	margin:0px 10px 20px 30px;
 }
 
 .title h3{
@@ -10,8 +10,51 @@
 #content{
 	border:3px dotted #ddd;
 	font-size: 14px;
+	display : none;
+}
+#disclamer-page{
+	font-size: 14px;
+	color: #777777;
+	padding-top  : 15px;
 }
 
+#disclamer-page  a{
+	cursor : pointer;
+	text-decoration : underline !important;
+}
+
+#disclamer-page  p{
+	margin-bottom : 25px !important;
+	
+}
+
+#important-text{
+	font-size: 14px;
+	color: #777777;
+}
+
+#important-text a{
+	text-decoration : underline !important;
+}
+#important-text p{
+	margin-bottom :25px;
+}
+#assump-text p{
+	margin-bottom :25px;
+}
+#assump-text a{
+	text-decoration : underline !important;
+}
+
+#assump-text{
+	font-size: 14px;
+	color: #777777;
+}
+
+#box-print a{
+	text-decoration : none !important;
+	color : black;
+}
 a,
 a:focus{
    outline: 0;

@@ -26,31 +26,31 @@ var totalCoin = 25;
 var coinPercent = 4;
 var current_forcecash_income = 0;
 var current_target = 0;
-function setupData(){
+function setupDisclammerPage(){
 	loadPrintInfor();
+}
+
+function accept(){
+hideDisclamer();
+setupData();
+registerAction();
+drawSlide();
+drawRightContent();
+$( window ).resize(function() {drawRightContent();});
+}
+function hideDisclamer(){
+$(".disclamer-page").hide();
+$("#content").show();
+$("#important-text").show();
+$("#assump-text").show();
+}
+function setupData(){
 	loaddAllAnnuity();
 	loadAllInformation();
 	loadAllWarning();
 	loadGrowthRate();
 	loadLTA();
-
 }
-
-function loadHtml(url, idDiv, option){
-	$.ajax({
-        url: url,
-		type: 'GET',
-        success: function(data) {
-			//console.log(data);
-           var content = $(data.responseText).find("#"+idDiv).html();
-			$("#"+option).html(content);
-        },
-        error: function() {
-            alert("An error occurred while processing XML file print.");
-        }
-    });
-}
-
 
 function loadPrintInfor(){
  $.ajax({
@@ -58,14 +58,18 @@ function loadPrintInfor(){
         url: "xml/pension_accumulators/print/print-title.xml",
         dataType: "xml",
         success: function(xml) {
-            var disClammer = $(xml).find('diclamer');
-			loadHtml($(xml).find('diclamer').attr('url'),$(xml).find('diclamer').attr('idDiv'),"disclamer");
+            var disclammerInfor = $(xml).find('disclamer-infor').text();
+			$('#disclamer-infor').html(disclammerInfor);
+			var disclammerLink = $(xml).find('disclamer-link').text();
+			$('#disclamer-link').html(disclammerLink);
 			
-			var importantText = $(xml).find('important');
-			loadHtml($(xml).find('important').attr('url'),$(xml).find('important').attr('idDiv'),"important-text");
+			var importantText = $(xml).find('important').text();
+			$("#important-text").hide();
+			$("#important-text").html(importantText);
 			
-			var assumption = $(xml).find('assump');
-			loadHtml( $(xml).find('assump').attr('url'), $(xml).find('assump').attr('idDiv'),"assump-text");
+			var assumption = $(xml).find('assump').text();
+			$("#assump-text").hide();
+			$("#assump-text").html(assumption);
 			
             console.log("load xml  : print already!");
         },

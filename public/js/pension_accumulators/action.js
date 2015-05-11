@@ -366,16 +366,12 @@ function registerActionResultTab(){
 		eneabledSummary()
 		var forceCashIncome = parseFloatCMG(getForecastIncome());
 		var targetPension = parseFloatCMG($('#txt-target-pensions').val());
-		console.log("current_forcecash_income : " + current_forcecash_income + " forceCashIncome "+ forceCashIncome);
-		console.log("current_target : " + current_target + " targetPension "+ targetPension);
 		if(parseFloatCMG(current_forcecash_income) !== forceCashIncome || parseFloatCMG(current_target) !== targetPension){
 			drawChart();
 			setTextToTextField();
 			setupSlide();
 			onChange();
-		}else{
-			console.log('====');
-		}	
+		}
 	});
 
 	$('#nextResult').on('click',function(){
@@ -540,6 +536,16 @@ function registerActionSummaryTab(){
 function setActionLink(){
 	$('.summary-link').on('click',function(e){
 		$('#results').trigger('click');
+		var id = $(this).attr("id");
+		if(id == "focus-income"){
+			$("#txt-target-pensions-result").focus();
+		}else if(id == "focus-contribution"){
+			$("#txt-you-paying-percent-result").focus();
+		}else if(id == "focus-retireAge"){
+			$('#age-to-retirement-result').find(".ui-corner-all").mouseenter();
+		}else if(id== "focus-tax"){
+			$('#percent-tax-free-result').find(".ui-corner-all").mouseenter();
+		}
 	});
 }
 function setupMessageSummary(){
@@ -616,6 +622,8 @@ function updateDataPrint(){
 	
 	var importantText = $("#important-text").html();
 	var assumptionText = $("#assump-text").html();
+	var disclamerText = $("#disclamer-infor").html();
+	$("#disclamer-print").html(disclamerText);
 	$("#important-print").html(importantText);
 	$("#assump-print").html(assumptionText);
 }
@@ -629,7 +637,7 @@ function Popup(data)
 {
 	var mywindow = window.open('', 'Close Brothers');
 	mywindow.document.write('<html><head><title>Pension Accumulators</title>');
-	/*optional stylesheet*/ //mywindow.document.write('<link rel="stylesheet" href="main.css" type="text/css" />');
+	mywindow.document.write('<style>a {text-decoration : none !important;color : black;}</style>');
 	mywindow.document.write('</head><body >');
 	mywindow.document.write(data);
 	mywindow.document.write('</body></html>');

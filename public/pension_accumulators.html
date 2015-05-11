@@ -14,7 +14,6 @@
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
       <script type="text/javascript" src="js/pension_accumulators/jquery-ui.js"></script>
       <script type="text/javascript" src="js/pension_accumulators/jquery-ui-slider-pips.js"></script>
-	  <script type="text/javascript" src="js/pension_accumulators/jquery.ajax-cross-origin.min.js"></script>
       <script type="text/javascript" src="js/pension_accumulators/data.js"></script>
       <script type="text/javascript" src="js/pension_accumulators/formula.js"></script>
       <script type="text/javascript" src="js/pension_accumulators/action.js"></script>
@@ -25,6 +24,20 @@
          <div class="row title">
             <h3>Pension Calculator</h3>
          </div>
+		 <div id="disclamer-page" class="row disclamer-page">
+		    <div id="disclamer" class="col-sm-12 col-md-5"  style="padding-left:0px">
+				<div id="disclamer-infor">
+				
+				</div>
+				<div id="disclamer-link">
+					<p>For more information about these calculators, please refer to the <a href="">important information</a> and <a href="">assumptions used</a>.</p>
+					<p>Before using the calculator, please click here to confirm you have read and understood these terms.</p>
+				</div>
+				<div style="text-align:center" id="button-accept">
+					<a style="background-color:#06038d;text-decoration: none !important;font-weight: bold;" id="accept-btn" onclick="accept();" class="btn btn-primary btnNext">accept</a>
+				</div>
+			</div> 
+		 </div>
          <!--END .title-->
          <div class="row" id="content">
             <div class="col-sm-12 col-md-7 left-content">
@@ -198,11 +211,11 @@
                         <p class="p-color">Your current plans:</p>
                         <p>Your chosen target income is <b>£</b><b class="summary-pound-pension">50,000</b> each year when you retire at age <b class="summary-retire-age">67</b>
                         <p>
-                        <p><a  data-toggle="tab" class="summary-link"  title="Change income required" alt="Change income required">Change income required</a> &nbsp;&nbsp;&nbsp;&nbsp; <a class="summary-link"  data-toggle="tab" title="Change retirement age" alt="Change retirement age">Change retirement age</a></p>
+                        <p><a  data-toggle="tab" class="summary-link" id="focus-income"  title="Change income required" alt="Change income required">change income required</a> &nbsp;&nbsp;&nbsp;&nbsp; <a class="summary-link"  data-toggle="tab" id="focus-retireAge" title="Change retirement age" alt="Change retirement age">change retirement age</a></p>
                         <p>Your future pension payments and any existing pensions you have included will will provide an income of <b>£</b><b class="summary-pound-income">10,200</b> a year from age <b class="summary-retire-age">67</b></p>
-                        <p><a  data-toggle="tab" class="summary-link"  title="Change contributions" alt="Change contributions">Change contributions</a></p>
+                        <p><a  data-toggle="tab" class="summary-link" id="focus-contribution"  title="Change contributions" alt="Change contributions">change contributions</a></p>
                         <p>Your chosen tax free cash amount is <b>£</b><b class="summary-pound-amount">85,694</b> (<b class="summary-percent-amount">25</b><b>%</b>)</p>
-                        <p><a class="summary-link"  title="Change tax free cash" alt="Change tax free cash">Change tax free cash</a></p>
+                        <p><a class="summary-link" id="focus-tax"  title="Change tax free cash" alt="Change tax free cash">change tax free cash</a></p>
                         <div class="align-right">
                            <span class="btn-note">Click here to change your growth rate</span> <span class="btn" id="btn-advanced" data-toggle="modal" data-target="#estimated-annual-modal">advanced</span>
                         </div>
@@ -251,8 +264,8 @@
             </div>
             <!--END .right-content-->
          </div>
-		 <div id="important-text" class="row"></div>
-		 <div id="assump-text" class="row"></div>
+		 <div class="row" id="important-text"></div>
+		 <div class="row" id="assump-text"></div>
          <!--END #content-->
       </div>
       <!--END #wrapper-->
@@ -282,7 +295,7 @@
          </div>
       </div>
       <div id="box-print" style="display:none;">
-         <div id="disclamer">
+         <div id="disclamer-print">
             <p>The aim of this calculator is to give you an indication of how much you need to contribute to a pension and what you might get as a retirement income. The calculator should not be regarded as personal advice. If you are at all unsure, please contact us for advice.</p>
             <p>The figures are a guide and not guaranteed. Your final pension fund and the income available will depend on factors including the growth your fund achieves, contributions you make in future, charges, inflation, your retirement age, annuity rates at the time and the annuity options you choose.</p>
          </div>
@@ -303,13 +316,7 @@
       <div id='check-ui' class="hidden-sm hidden-xs"></div>
       <script type="text/javascript" >
          $(document).ready(function(){
-         	setupData();
-         	registerAction();
-         	drawSlide();
-         	drawRightContent();
-			$( window ).resize(function() {
-				drawRightContent();
-			});
+			setupDisclammerPage();
          });
           
       </script>

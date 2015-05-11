@@ -143,27 +143,28 @@ function setHeightDiv(){
 }
 
 function animationShortFall(height,shortFall){
+	$('.shortfall').hide();
 	setTimeout(function(){
 		$('.top-arrow').show();
 		$(".arrow-mid").animate({"height":height}, "slow",function(){
 			$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0]);
-			$('.shortfall').fadeIn();
+			$('.shortfall').fadeIn(1000);
 		});
 	}, 200);
 }
 
 function animationIncomed(){
-	
+	$('#print-div').hide();	
 	setTimeout(function(){
 		$('.bot-arrow').show();
-		$('.print-div').hide();
 		var left =  $(".bot-arrow").offset().left;
 		$(".bot-arrow").css({left:left}).animate({"left":"10px"}, "slow",function(){
 			$('.bot-arrow-pension').show();
-			$('.print-div').show();
+			$('#print-div').fadeIn(2500);
+			
 		});
-		}, 400);
-
+	}, 1000);
+	
 }
 
 /*------------------------------------------------------*/
