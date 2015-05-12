@@ -204,10 +204,25 @@ function drawSlideResult(ageRetire,percentTaxFree){
 		drawChart();
     });
 }
+
+function drawSlideModalGrowRate(){
+	var labelStage = ["0","0.5","1","1.5","2","2.5","3"];
+	$("#slider-modal-growrate").slider({min: 0,max: 3,step: 0.5,value:1.5}).slider("pips", {rest: "label",step: 0.5,
+	label: labelStage}).slider("float").on("slidechange", function(e,ui) {
+		var value = $("#slider-modal-growrate").slider().slider('value');
+		$("#slider-modal-growrate").find('.ui-slider-tip').html(value+'%');
+    });
+	$("#slider-modal-growrate").find('.ui-corner-all').mouseover(function(){
+		var value = $("#slider-modal-growrate").slider().slider('value');
+		$("#slider-modal-growrate").find('.ui-slider-tip').html(value+'%');
+	});
+
+}
 /*--------------------------------------------*/
 function drawSlide(){
 drawSlideAboutYou();
-drawSlideResult(65,0)
+drawSlideResult(65,0);
+drawSlideModalGrowRate();
 }
 function showWarning(content){
 //will show warning.

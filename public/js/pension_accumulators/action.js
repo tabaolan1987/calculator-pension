@@ -327,7 +327,7 @@ function calculatePersonalPay(){
 		//if(percent == '' || typeof percent === 'undefined' || percent === null){
 			percent = getPercent_Contribute();
 			percent = percent*100;
-			$('#txt-you-paying-percent').val(percent);
+			$('#txt-you-paying-percent').val(fixed(percent));
 		//}
 	});
 	$('#txt-you-paying-percent').on('input',function(){
@@ -345,7 +345,7 @@ function calculateCompanyPay(){
 		//if(percent == '' || typeof percent === 'undefined' || percent === null){
 			percent = getPercent_Contribute_company();
 			percent = percent*100;
-			$('#txt-your-employer-percent').val(percent);
+			$('#txt-your-employer-percent').val(fixed(percent));
 		//}
 	});
 	$('#txt-your-employer-percent').on('input',function(){

@@ -185,7 +185,9 @@ function drawGrowRate(xml){
 		}
 	 });
 	 
-	 $('#estimated-annual-modal').find('.modal-body').append(html);
+	 $('#modal-grow').append(html);
+	 
+	 
 }
 function loadGrowthRate(){
 $.ajax({
