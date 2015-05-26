@@ -96,8 +96,10 @@ function getPercent_Contribute_company(){
 /*-----------------------------------------------------------------------------------*/
 /* tab results formula and value field */ 
 function getRisk_selection(){
-	var temp = growthRate[$("input:radio[name='an-grow-percent']:checked").val()];
-	return parseFloatCMG(temp);
+	var deduct_inflation_rate = growthRate[$("input:radio[name='an-grow-percent']:checked").val()];
+	var annual_charge = $('#slider-modal-growrate').slider().slider('value');
+	var riskSelection = deduct_inflation_rate - annual_charge;
+	return parseFloatCMG(riskSelection);
 }
 
 function getTax_Free_Value(){
