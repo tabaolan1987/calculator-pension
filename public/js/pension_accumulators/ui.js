@@ -168,6 +168,33 @@ function animationIncomed(){
 }
 
 /*------------------------------------------------------*/
+/* there are functions handle UI of disclamer */
+function registerLinkActionDisclamer(){
+	$('#disclamer-page').find('a').removeAttr('href');
+	$('#disclamer-page').find('a').click(function(){
+		var text = $(this).text();
+		var parentID = $(this).parent().parent().parent().attr('id');
+		if(text.toLowerCase() == "important assumptions" || text.toLowerCase() == "assumptions used"){
+			$('#'+parentID).hide();
+			$('#assump-div-top').find('a[id="back-assump"]').attr('lastparentID',parentID);
+			$('#assump-div-top').show();
+		}else if(text.toLowerCase() == "important information"){
+			$('#'+parentID).hide();
+			$('#important-div-top').find('a[id="back-important"]').attr('lastparentID',parentID);
+			$('#important-div-top').show();
+		}
+	});
+}
+
+function backAction(e){
+	var parentID = $(e).parent().parent().attr('id');
+	var lastParentID = $(e).attr('lastparentID');
+	$('#'+parentID).hide();
+	$('#'+lastParentID).show();
+}
+
+
+/*------------------------------------------------------*/
 /* there are functions handle UI of tab About you */
 function drawSlideRetirementAge(){
 	var labelStage = ["55","60","65","70","75"];

@@ -52,11 +52,12 @@ function registerHoverAction(){
 		$("#content-tooltip").show();
 	});
 	$("#content-tooltip").hover( 
-			function() {  $("#content-tooltip").show(); },
+			function() {  //$("#content-tooltip").show(); 
+			},
 			function() { $("#content-tooltip").hide(); }
 	);
 	$(document).on("mouseout",".icon-tooltip",function() {
-		$("#content-tooltip").hide();
+		//$("#content-tooltip").hide();
 	});
 	
 	

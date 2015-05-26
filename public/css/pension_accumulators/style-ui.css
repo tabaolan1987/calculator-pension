@@ -15,7 +15,6 @@
 #disclamer-page{
 	font-size: 14px;
 	color: #777777;
-	padding-top  : 15px;
 }
 
 #disclamer-page  a{
@@ -332,7 +331,7 @@ a:focus{
 	width:423px;
 	height:305px;
 	display:none;
-	z-index:999;
+	z-index:2000;
 	padding-left : 60px;
 	padding-right : 15px;
 	padding-top : 20px;
@@ -340,10 +339,11 @@ a:focus{
 }
 
 #infor-tooltip{
-	z-index : 1000;
+	z-index : 3000;
 	height:264px;
 	overflow-y : auto;
 }
+
 
 .row-rule .col-text{
 	height:29px;

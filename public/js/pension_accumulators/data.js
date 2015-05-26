@@ -65,13 +65,17 @@ function loadPrintInfor(){
 			
 			var importantText = $(xml).find('important').text();
 			$("#important-text").hide();
+			$("#important-div-top").hide();
 			$("#important-text").html(importantText);
+			$("#important-top").html(importantText);
 			
 			var assumption = $(xml).find('assump').text();
+			$("#assump-div-top").hide();
 			$("#assump-text").hide();
 			$("#assump-text").html(assumption);
-			
+			$("#assump-top").html(assumption);
             console.log("load xml  : print already!");
+			registerLinkActionDisclamer();
         },
         error: function() {
             alert("An error occurred while processing XML file print.");
