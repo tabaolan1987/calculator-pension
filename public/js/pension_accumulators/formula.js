@@ -18,21 +18,29 @@ function parseFloatCMG(number){
 	if(number == "" || typeof number == 'underfined'){
 		return 0;
 	}else{
-		return parseFloat(number);
+		return removeCommas(number);
 	}
 }
 
+function addCommas(number){
+	var temp = accounting.formatNumber(number);
+	return temp;
+}
+function removeCommas(number){
+	var temp  = accounting.unformat(number);
+	return temp;
+}
 /* tab about you formula and value field */
 function getYearToRetirement(){
 	var ageRetire = $('#age-to-retirement').slider().slider('value');
-	var currentAge = $("#txt-current-age").val();
+	var currentAge = parseFloatCMG($("#txt-current-age").val());
 	var year_to_retirement = ageRetire - currentAge;
-	return parseInt(year_to_retirement);
+	return parseFloatCMG(year_to_retirement);
 }
 function getTax_free_Percent(){
 	var taxFreeCash = $('#percent-tax-free').slider().slider('value');
 	var temp = taxFreeCash/100;
-	temp =  parseFloat(temp);
+	temp =  parseFloatCMG(temp);
 	return temp;
 }
 /*-----------------------------------------------------------------------------------*/
@@ -47,8 +55,8 @@ function getDefer_compound(){
 	var interRestOnPot = getInterestOnPot();
 	var yearToRetirement = getYearToRetirement();
 	var temp = totalDeferFund * Math.pow((1 + interRestOnPot/1),yearToRetirement);
-	temp =  parseFloat(temp);
-	return round(temp);
+	temp =  parseFloatCMG(temp);
+	return temp.toFixed(10);
 }
 function getCurrent_compound(){
 	var totalCurrentFund = $('#txt-current-pensions').val();
@@ -60,7 +68,7 @@ function getCurrent_compound(){
 	var yearToRetirement = getYearToRetirement();
 	var temp = totalCurrentFund * Math.pow((1 + interRestOnPot/1),yearToRetirement);
 	temp =  parseFloatCMG(temp);
-	return round(temp);
+	return temp.toFixed(10);
 }
 
 function getCash_Contribute(){
@@ -108,10 +116,9 @@ function getTax_Free_Value(){
 	var temp1 = parseFloatCMG(retirementPot*taxFreePercent);
 	var ltaValue = parseFloatCMG(LTA['value']);
 	if(temp1 < ltaValue){
-		return round(temp1);
+		return temp1;
 	}else{
-		
-		return round(ltaValue);
+		return ltaValue;
 	}
 }
 
@@ -135,7 +142,7 @@ function yourRetirementDate(){
 	var yearToRetirement = getYearToRetirement();
 	var d = new Date();
 	var year = d.getFullYear();
-	var temp = parseInt(year) + parseInt(yearToRetirement);
+	var temp = parseFloatCMG(year) + parseFloatCMG(yearToRetirement);
 	temp = parseFloatCMG(temp);
 	return round(temp);
 }
@@ -175,11 +182,14 @@ function getRetirementPot(){
 		var m2 = parseInt(yearToRetirement+1);
 		var f2 = Math.pow(m1,m2);
 		f2 = (f2 - 1)/parseFloatCMG(interestOnPot);
-		finalFormula = f1 * f2 - f1 + oneOffLumpsum + parseFloatCMG(current_compound) + parseFloatCMG(defer_compound);
+		f2 = f2.toFixed(10);
+		var f3 = f1*f2;
+		f3 = f3.toFixed(10);
+		finalFormula = f3 - f1 + oneOffLumpsum + parseFloatCMG(current_compound) + parseFloatCMG(defer_compound);;
 		finalFormula = parseFloatCMG(finalFormula);
 		////console.log("getRetirementPot " + round(finalFormula));
 	}
-	return round(finalFormula);
+	return finalFormula;
 	
 }
 
@@ -188,7 +198,7 @@ function getPotMinus_taxFreeCash(){
 	var taxFreeValue = parseFloatCMG(getTax_Free_Value());
 	var f1 = retirementPot - taxFreeValue;
 	f1 = parseFloatCMG(f1);
-	return round(f1);
+	return f1;
 }
 
 function getAnnuity_rate(){
@@ -197,20 +207,20 @@ function getAnnuity_rate(){
 	if(gender == male){
 		var temp = annuityMale[retirementAge];
 		temp = parseFloatCMG(temp);
-		return round(temp);
+		return temp;
 	}else if(gender == female){
 		var temp = annuityFemale[retirementAge];
 		temp =  parseFloatCMG(temp);
-		return round(temp);
+		return temp;
 	}
 }
 
 function getAnnuity_income(){
 	var potMinus_taxFreeCash = getPotMinus_taxFreeCash();
 	var annuity_rate = getAnnuity_rate();
-	var temp = (potMinus_taxFreeCash/100000) * annuity_rate;
+	var temp = (potMinus_taxFreeCash/10000) * annuity_rate;
 	temp = parseFloatCMG(temp);
-	return round(temp);
+	return temp;
 }
 function getFinalSalaryScheme(){
 	var temp = parseFloatCMG($('#txt-income-payable').val());

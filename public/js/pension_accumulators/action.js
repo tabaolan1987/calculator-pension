@@ -84,6 +84,8 @@ function registerActionAboutYou(){
 		}else{
 			disableTabSavings();
 		}
+		var number = addCommas($(this).val());
+		$(this).val(number);
 	});
 	$("input:radio[name=optradio]").change(function(){
 		var check = checkDataAboutYou();
@@ -247,6 +249,8 @@ function registerActionSavingTab(){
 		}else{
 			disableTabResult();
 		}
+		var number = addCommas($(this).val());
+		$(this).val(number);
 	});
 	
 	$('#nextSavings').click(function(){
@@ -335,6 +339,7 @@ function calculatePersonalPay(){
 		var cash = $('#txt-you-paying').val();
 		//if(cash == '' || typeof cash === 'undefined' || cash === null){
 			cash = round(getCash_Contribute());
+			cash = addCommas(cash);
 			$('#txt-you-paying').val(cash);
 		//}
 	});
@@ -353,6 +358,7 @@ function calculateCompanyPay(){
 		var cash = $('#txt-your-employer').val();
 		//if(cash == '' || typeof cash === 'undefined' || cash === null){
 			cash = round(getCash_Contribute_company());
+			cash = addCommas(cash);
 			$('#txt-your-employer').val(cash);
 		//}
 	});
@@ -459,6 +465,7 @@ function onChange(){
 		$('#txt-your-employer-percent').val(fixed($(this).val()));
 		var cash = $('#txt-your-employer-result').val();
 		cash = round(getCash_Contribute_company());
+		cash = addCommas(cash);
 		$('#txt-your-employer').val(cash);
 		$('#txt-your-employer-result').val(cash);
 		onChangeUI();	
@@ -477,6 +484,7 @@ function onChange(){
 		$('#txt-you-paying-percent').val(fixed($(this).val()));
 		var cash = $('#txt-you-paying-result').val();
 		cash = round(getCash_Contribute());
+		cash = addCommas(cash);
 		$('#txt-you-paying').val(cash);
 		$('#txt-you-paying-result').val(cash);
 		onChangeUI();
@@ -491,10 +499,16 @@ function onChange(){
 		onChangeUI();
 	});
 	$('#txt-target-pensions-result').on('change',function(){
-		$('#txt-target-pensions').val($(this).val());
+		var target = $(this).val();
+		target = addCommas(target);
+		$('#txt-target-pensions').val(target);
+		$(this).val(target);
 		onChangeUI();
 	});
 	$('#oneOffLumpSum').on('change',function(){
+		var target = $(this).val();
+		target = addCommas(target);
+		$(this).val(target);
 		onChangeUI();
 	});
 	
@@ -672,7 +686,13 @@ function updateDataPrint(){
 	$('.print-percent-amount').html(tax_free_percent);
 	$('.print-pound-amount').html(Number(tax_free_value).toLocaleString('en').split('.')[0]);
 	$('.print-pound-income').html(Number(forceCashIncome).toLocaleString('en').split('.')[0]);
-	$('.print-pound-shortfall').html(Number(shorFall).toLocaleString('en').split('.')[0]);
+	if(shortFall >0){
+		$('.print-pound-shortfall').html(Number(shorFall).toLocaleString('en').split('.')[0]);
+		$('#shortfall-print').show();
+	}else{
+		$('#shortfall-print').hide();
+	}
+	
 	
 	var importantText = $("#important-text").html();
 	var assumptionText = $("#assump-text").html();

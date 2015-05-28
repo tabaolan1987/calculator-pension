@@ -14,6 +14,7 @@
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
       <script type="text/javascript" src="js/pension_accumulators/jquery-ui.js"></script>
       <script type="text/javascript" src="js/pension_accumulators/jquery-ui-slider-pips.js"></script>
+	  <script type="text/javascript" src="js/pension_accumulators/numberformat.js"></script>
       <script type="text/javascript" src="js/pension_accumulators/data.js"></script>
       <script type="text/javascript" src="js/pension_accumulators/formula.js"></script>
       <script type="text/javascript" src="js/pension_accumulators/action.js"></script>
@@ -105,7 +106,7 @@
                         </div>
                      </div>
                      <div class="row row-rule">
-                        <div class="col-xs-10"><span id="target-pension" class="icon-tooltip"></span><span class="label-tooltip">How much income do you think will you want to live on when you retire (per year)?</span></div>
+                        <div class="col-xs-10"><span id="target-pension" class="icon-tooltip"></span><span class="label-tooltip">How much annual income do you think you will want when you retire?</span></div>
                         <div class="col-xs-2 pound"><input id="txt-target-pensions" type="text" onkeypress="return isNumberKey(event)"  class="form-control text-about-you" placeholder=""/></div>
                      </div>
                      <div class="row row-rule">
@@ -118,7 +119,7 @@
                   </div>
                   <div class="tab-pane" id="tab2">
                      <div class="box-monney-purchase" id="box-monney-purchase">
-                        <h3 class="tab-title">Money Purchase/Defined Contribution Schemes & AVCs</h3>
+                        <h3 class="tab-title">Money Purchase/Defined Contribution schemes & AVCs</h3>
                         <div class="row row-rule border-none">
                            <p>If you have any deferred pensions, what is the total fund value?</p>
                            <div class="col-xs-1"><span id="deferred-pensions" class="icon-tooltip"></span></div>
@@ -192,13 +193,13 @@
                         </div>
                      </div>
                      <div class="row row-rule">
-                        <div class="col-xs-7"><span id="tax-free-cash-result" class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider"> Percentage tax free cash?</span></div>
+                        <div class="col-xs-7"><span id="tax-free-cash-result" class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider"> Percentage tax free cash</span></div>
                         <div class="col-xs-5" id='container-percent-tax-free'>
                            <div id="percent-tax-free-result" class="slider-cash ui-slider"></div>
                         </div>
                      </div>
                      <div class="row row-rule align-right">
-                        <span class="btn-note">Click here to change your growth rate</span> <span class="btn" id="btn-advanced" data-toggle="modal" data-target="#estimated-annual-modal">advanced</span>
+                        <span class="btn-note">Click here to change your growth rate and/or charges</span> <span class="btn" id="btn-advanced" data-toggle="modal" data-target="#estimated-annual-modal">advanced</span>
                      </div>
                      <a id='nextResult' class="btn btn-primary btnNext">next</a>
                      <a id='backResult' class="btn btn-primary btnPrevious">back</a>
@@ -212,23 +213,23 @@
                            <li class="li-heading">You can reduce the difference by:</li>
                            <li>increasing  your contributions</li>
                            <li>delaying your retirement </li>
-                           <li>changing your target amount</li>
+                           <li>reducing your target income amount</li>
                            <li>reducing your tax free cash</li>
-                           <li>changing your investment fund growth rate</li>
+                           <li>increasing your investment fund growth rate (please note, this may also increase the risk) </li>
                         </ul>
                         <ul class="summary-excess-title" style="display:none;">
                            <li class="li-heading">You can reduce the difference by:</li>
-                           <li>decreasing  your contributions</li>
+                           <li>reducing your contributions</li>
                            <li>bringing forward your retirement</li>
-                           <li>changing your target amount</li>
+                           <li>increasing your target amount</li>
                            <li>increasing your tax free cash (if it is less than 25%)</li>
-                           <li>changing your investment fund growth rate</li>
+                           <li>reducing your investment fund growth rate</li>
                         </ul>
                         <p class="p-color">Your current plans:</p>
                         <p>Your chosen target income is <b>£</b><b class="summary-pound-pension">50,000</b> each year when you retire at age <b class="summary-retire-age">67</b>
                         <p>
                         <p><a  data-toggle="tab" class="summary-link" id="focus-income"  title="Change income required" alt="Change income required">change income required</a> &nbsp;&nbsp;&nbsp;&nbsp; <a class="summary-link"  data-toggle="tab" id="focus-retireAge" title="Change retirement age" alt="Change retirement age">change retirement age</a></p>
-                        <p>Your future pension payments and any existing pensions you have included will will provide an income of <b>£</b><b class="summary-pound-income">10,200</b> a year from age <b class="summary-retire-age">67</b></p>
+                        <p>Your future pension payments and any existing pensions you have included may provide an income of <b>£</b><b class="summary-pound-income">10,200</b> a year from age <b class="summary-retire-age">67</b></p>
                         <p><a  data-toggle="tab" class="summary-link" id="focus-contribution"  title="Change contributions" alt="Change contributions">change contributions</a></p>
                         <p>Your chosen tax free cash amount is <b>£</b><b class="summary-pound-amount">85,694</b> (<b class="summary-percent-amount">25</b><b>%</b>)</p>
                         <p><a class="summary-link" id="focus-tax"  title="Change tax free cash" alt="Change tax free cash">change tax free cash</a></p>
@@ -306,10 +307,10 @@
                </div>
                <div class="modal-body modal-estimated">
                   <div id="modal-grow" class="">
-					<div class="col-xs-12 col-sm-12"><span information-message="annual grow information" id="annual-grow-infor-popup"  class="icon-tooltip"></span><span class="label-tooltip">What is the estimated annual growth of your savings?</span></div>
+					<div class="col-xs-12 col-sm-12"><span information-message="annual grow information" id="annual-grow-infor-popup"  class="icon-tooltip"></span><span class="label-tooltip">What growth rate would you like your illustration to be based on?</span></div>
 				  </div>
 				  <div id="modal-slide-grow" class="">
-					<div class="col-xs-12 col-sm-12"><span information-message="annual charge information" id="annual-charge-infor-popup" class="icon-tooltip"></span><span class="label-tooltip">What is your annual management charge?</span></div>
+					<div class="col-xs-12 col-sm-12"><span information-message="annual charge information" id="annual-charge-infor-popup" class="icon-tooltip"></span><span class="label-tooltip">What overall charges would you like to include in your illustration?</span></div>
 					<div class="col-xs-7 col-xs-offset-1 col-sm-7 col-sm-offset-1" style="padding-top:15px;">
 						<div id="slider-modal-growrate" style="margin-left:4px" class="slider-cash ui-slider"></div>
 					</div>
@@ -333,8 +334,8 @@
             <h4>Your results:</h4>
             <p>Your chosen target income is <b>£</b><b class="print-pound-pension">50,000</b> each year when you retire at age <b class="print-retire-age">67</b>.</p>
             <p>Your chosen tax free cash amount is <b>£</b><b class="print-pound-amount">85,694</b> (<b class="print-percent-amount">25</b>%).</p>
-            <p>Your future pension payments and any existing pensions you have included will provide an income of <b>£</b><b class="print-pound-income">10,200</b> a year from age <b class="print-retire-age">67</b></p>
-            <p>You have a shortfall of <b>£</b><b class="print-pound-shortfall">39,800</b> per year.</p>
+            <p>Your future pension payments and any existing pensions you have included may provide an income of <b>£</b><b class="print-pound-income">10,200</b> a year from age <b class="print-retire-age">67</b></p>
+            <p id="shortfall-print">You have a shortfall of <b>£</b><b class="print-pound-shortfall">39,800</b> per year.</p>
          </div>
       </div>
       <div id='check-ui' class="hidden-sm hidden-xs"></div>

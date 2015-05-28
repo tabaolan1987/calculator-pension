@@ -184,6 +184,11 @@ function registerLinkActionDisclamer(){
 			$('#important-div-top').show();
 		}
 	});
+	
+	$("#important-text").find('a').removeAttr('href');
+	$('#important-text').find('a:contains("important assumptions")').click(function(){
+		  document.getElementById( 'assump-text' ).scrollIntoView();
+	});
 }
 
 function backAction(e){
@@ -222,17 +227,6 @@ function drawSlideResult(ageRetire,percentTaxFree){
 	var labelStage = ["0","5","10","15","20","25"];
 	$("#percent-tax-free-result").slider({min: 0,max: 25,step: 1,value:percentTaxFree}).slider("pips", {rest: "label",step: 5,
 	label: labelStage}).slider("float");
-}
-
-function checkDrawChart(value){
-	getTax_Free_Value();
-	if(isReturnLTA == true){
-		if(value != getPercentLtaWithPensionFound()){
-			$("#percent-tax-free-result").slider().slider('value',getPercentLtaWithPensionFound());
-		}
-	}else{
-		drawChart();
-	}
 }
 
 function drawSlideModalGrowRate(){
