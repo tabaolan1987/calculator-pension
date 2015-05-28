@@ -106,15 +106,31 @@ function getTax_Free_Value(){
 	var retirementPot = parseFloatCMG(getRetirementPot());
 	var taxFreePercent = getTax_free_Percent();
 	var temp1 = parseFloatCMG(retirementPot*taxFreePercent);
-	var temp2 = parseFloatCMG(LTA*(25/100));
-	if(temp1 <= temp2){
-		//console.log("temp1 :" + temp1)
+	var ltaValue = parseFloatCMG(LTA['value']);
+	if(temp1 < ltaValue){
 		return round(temp1);
 	}else{
-		//console.log("temp2 :"  + temp2)
-		return round(temp2);
+		
+		return round(ltaValue);
 	}
 }
+
+function getPensionFound(){
+	var retirementPot = parseFloatCMG(getRetirementPot());
+	var taxFreePercent = getTax_free_Percent();
+	var temp1 = parseFloatCMG(retirementPot*taxFreePercent);
+	var temp2 = parseFloatCMG(retirementPot * (1 - taxFreePercent));
+	var pensionFound = temp1+ temp2;
+	return parseFloatCMG(pensionFound);
+}
+
+function getPercentLtaWithPensionFound(){
+	var pensionFound = parseFloatCMG(getPensionFound());
+	var ltaValue = parseFloatCMG(LTA['value']);
+	var percent = (ltaValue/pensionFound)*100;
+	return round(percent);
+}
+
 function yourRetirementDate(){
 	var yearToRetirement = getYearToRetirement();
 	var d = new Date();
@@ -146,16 +162,25 @@ function getRetirementPot(){
 	////console.log("interestOnPot : " + interestOnPot);
 	var oneOffLumpsum = parseFloatCMG($('#oneOffLumpSum').val());
 	////console.log("oneOffLumpsum : " + oneOffLumpsum);
-	var f1 = (parseFloatCMG(cashContribute) + parseFloatCMG(cashContributeCompany))*12;
-	//////console.log("f1 : " + parseFloat(f1));
-	var m1 =  parseFloatCMG(interestOnPot)+1;
-	var m2 = parseInt(yearToRetirement+1);
-	var f2 = Math.pow(m1,m2);
-	f2 = (f2 - 1)/parseFloatCMG(interestOnPot);
-	var finalFormula = f1 * f2 - f1 + oneOffLumpsum + parseFloatCMG(current_compound) + parseFloatCMG(defer_compound);
-	finalFormula = parseFloatCMG(finalFormula);
-	////console.log("getRetirementPot " + round(finalFormula));
+	var finalFormula;
+	if(interestOnPot == 0){
+		finalFormula = parseFloatCMG(defer_compound) + parseFloatCMG(current_compound)
+		+ ((yearToRetirement*12)*parseFloatCMG(cashContribute)) 
+		+ ((yearToRetirement*12)*parseFloatCMG(cashContributeCompany)) 
+		+ parseFloatCMG(oneOffLumpsum);
+	}else{
+		var f1 = (parseFloatCMG(cashContribute) + parseFloatCMG(cashContributeCompany))*12;
+		//////console.log("f1 : " + parseFloat(f1));
+		var m1 =  parseFloatCMG(interestOnPot)+1;
+		var m2 = parseInt(yearToRetirement+1);
+		var f2 = Math.pow(m1,m2);
+		f2 = (f2 - 1)/parseFloatCMG(interestOnPot);
+		finalFormula = f1 * f2 - f1 + oneOffLumpsum + parseFloatCMG(current_compound) + parseFloatCMG(defer_compound);
+		finalFormula = parseFloatCMG(finalFormula);
+		////console.log("getRetirementPot " + round(finalFormula));
+	}
 	return round(finalFormula);
+	
 }
 
 function getPotMinus_taxFreeCash(){
@@ -203,14 +228,14 @@ function getForecastIncome(){
 
 function getForecast_percent_target(){
 	var forecastIncome = getForecastIncome();
-	var incomeYouWantTolive  = parseFloatCMG($('#txt-target-pensions-result').val());
+	var incomeYouWantTolive  = parseFloatCMG($('#txt-target-pensions').val());
 	var temp = forecastIncome/incomeYouWantTolive;
 	return parseFloatCMG(temp);
 }
 
 function getShortFall(){
-	var forecastIncome = getForecastIncome();
-	var incomeYouWantTolive  = parseFloatCMG($('#txt-target-pensions-result').val());
+	var forecastIncome = parseFloatCMG(getForecastIncome());
+	var incomeYouWantTolive  = parseFloatCMG($('#txt-target-pensions').val());
 	var temp  = incomeYouWantTolive - forecastIncome;
 	return parseFloatCMG(temp);
 }

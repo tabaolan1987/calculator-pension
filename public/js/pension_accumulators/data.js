@@ -19,13 +19,15 @@ var warningArray = new Array();
 var annuityMale = new Array();
 var annuityFemale = new Array();
 var growthRate = new Array();
-var LTA;
+var LTA = new Array();
+var isReturnLTA = false;
 var male = 1;
 var female = 2;
 var totalCoin = 25;
 var coinPercent = 4;
 var current_forcecash_income = 0;
 var current_target = 0;
+var loopFunction = false;
 function setupDisclammerPage(){
 	loadPrintInfor();
 }
@@ -224,11 +226,15 @@ $.ajax({
            $(xml).find('information').each(function() {
 				var active = $(this).find('active').text();
 				if(active == "true"){
-					LTA = $(this).find('value').text();
-					LTA = parseInt(LTA);
+					var vl= $(this).find('value').text();
+					var message = $(this).find('message-alert').text();
+					var config = $(this).find('config').text();
+					LTA['value'] = parseFloatCMG(parseInt(vl)*(25/100));
+					LTA['message'] = message;
+					LTA['show-popup'] = config;
 				}
             });
-            console.log("load xml: "  +  LTA +" already! ");
+           // console.log("load xml: "  +  LTA +" already! ");
         },
         error: function() {
             alert("An error occurred while processing XML file lta.");

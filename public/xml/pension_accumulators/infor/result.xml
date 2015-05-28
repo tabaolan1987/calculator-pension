@@ -45,4 +45,15 @@
 <p>This is capped at 25% of the current LTA (Lifetime  Allowance) determined by the government. Anything above that will be taxed at your normal rate.</p>
 <p>If your pension pot exceeds the current LTA value, your cash lump sum will be capped accordingly in this modeller.</p>]]></message>
 </infor>
+<infor>
+<id-element>annual-grow-infor-popup</id-element>
+<name>annual grow information</name>
+<message><![CDATA[<p>Select the percentage relating to the estimated annual growth of your fund.</p>]]></message>
+</infor>
+<infor>
+<id-element>annual-charge-infor-popup</id-element>
+<name>annual charge information</name>
+<message><![CDATA[<p>Change the percentage to match the charges you are paying on your current pension(s).</p>
+<p>The charges you pay have a direct impact on your fund.</p>]]></message>
+</infor>
 </infor_popups>
