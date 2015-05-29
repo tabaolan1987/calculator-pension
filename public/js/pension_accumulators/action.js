@@ -607,10 +607,10 @@ function setActionLink(){
 	});
 }
 function setupMessageSummary(){
-	var forceCashIncome = getForecastIncome();
-	var targetPension =  $('#txt-target-pensions').val();
+	var forceCashIncome = parseFloatCMG(getForecastIncome());
+	var targetPension =  parseFloatCMG($('#txt-target-pensions').val());
 	var percent_income = getForecast_percent_target();
-	percent_income = parseFloat(percent_income)*100;
+	percent_income = parseFloatCMG(percent_income)*100;
 	var tax_free_percent  = $('#percent-tax-free').slider().slider('value');
 	var retire_age = $("#age-to-retirement-result").slider().slider('value');
 	var tax_free_value = 0;
@@ -619,8 +619,8 @@ function setupMessageSummary(){
 	}else{
 		tax_free_value = getTax_Free_Value();
 	}
-	if(parseFloat(forceCashIncome) < parseFloat(targetPension)){
-		var shorFall = getShortFall();
+	if(parseFloatCMG(forceCashIncome) < parseFloatCMG(targetPension)){
+		var shorFall = parseFloatCMG(getShortFall());
 		$('.summary-pound-shortfall').html(Number(shorFall).toLocaleString('en').split('.')[0]);
 		showNormal();
 	}else{
@@ -667,8 +667,8 @@ function showExcess(){
 
 /*function print*/
 function updateDataPrint(){
-	var forceCashIncome = getForecastIncome();
-	var targetPension =  $('#txt-target-pensions').val();
+	var forceCashIncome = parseFloatCMG(getForecastIncome());
+	var targetPension = parseFloatCMG($('#txt-target-pensions').val());
 	var tax_free_percent  = $('#percent-tax-free').slider().slider('value');
 	var retire_age = $("#age-to-retirement-result").slider().slider('value');
 	var tax_free_value = 0;
@@ -677,7 +677,7 @@ function updateDataPrint(){
 	}else{
 		tax_free_value = getTax_Free_Value();
 	}
-	var shorFall = getShortFall();
+	var shorFall = parseFloatCMG(getShortFall());
 	$('.print-pound-pension').html(Number(targetPension).toLocaleString('en').split('.')[0]);
 	$('.print-retire-age').each(function(){
 		$(this).html(retire_age);
@@ -686,7 +686,7 @@ function updateDataPrint(){
 	$('.print-percent-amount').html(tax_free_percent);
 	$('.print-pound-amount').html(Number(tax_free_value).toLocaleString('en').split('.')[0]);
 	$('.print-pound-income').html(Number(forceCashIncome).toLocaleString('en').split('.')[0]);
-	if(shortFall >0){
+	if(shorFall >0){
 		$('.print-pound-shortfall').html(Number(shorFall).toLocaleString('en').split('.')[0]);
 		$('#shortfall-print').show();
 	}else{
