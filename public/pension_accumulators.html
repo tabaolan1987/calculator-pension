@@ -14,11 +14,11 @@
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
       <script type="text/javascript" src="js/pension_accumulators/jquery-ui.js"></script>
       <script type="text/javascript" src="js/pension_accumulators/jquery-ui-slider-pips.js"></script>
-	  <script type="text/javascript" src="js/pension_accumulators/numberformat.js"></script>
-      <script type="text/javascript" src="js/pension_accumulators/data.js"></script>
-      <script type="text/javascript" src="js/pension_accumulators/formula.js"></script>
-      <script type="text/javascript" src="js/pension_accumulators/action.js"></script>
-      <script type="text/javascript" src="js/pension_accumulators/ui.js"></script>
+	  <script type="text/javascript" src="js/pension_accumulators/accounting_min.js"></script>
+      <script type="text/javascript" src="js/pension_accumulators/cmg_data.js"></script>
+      <script type="text/javascript" src="js/pension_accumulators/cmg_formula.js"></script>
+      <script type="text/javascript" src="js/pension_accumulators/cmg_action.js"></script>
+      <script type="text/javascript" src="js/pension_accumulators/cmg_ui.js"></script>
    </head>
    <body>
       <div class="container-fluid" id="wrapper">
@@ -156,7 +156,7 @@
                         <div style="display:none" class="row row-rule final-salary border-none">
                            <p>Enter any income payable from Defined Benefit (Final Salary) company pensions (total per year).</p>
                            <div class="col-xs-1"><span id="income-payable" class="icon-tooltip"></span></div>
-                           <div class="col-xs-2 pound"><input onkeypress="return isNumberKey(event)" id="txt-income-payable" type="text" class="form-control" placeholder=""/></div>
+                           <div class="col-xs-2 pound"><input onkeypress="return isNumberKey(event)" id="txt-income-payable" type="text" class="form-control text-savings" placeholder=""/></div>
                         </div>
                      </div>
                      <!--END #box-defined-benefits-->
@@ -234,7 +234,7 @@
                         <p>Your chosen tax free cash amount is <b>£</b><b class="summary-pound-amount">85,694</b> (<b class="summary-percent-amount">25</b><b>%</b>)</p>
                         <p><a class="summary-link" id="focus-tax"  title="Change tax free cash" alt="Change tax free cash">change tax free cash</a></p>
                         <div class="align-right">
-                           <span class="btn-note">Click here to change your growth rate</span> <span class="btn" id="btn-advanced" data-toggle="modal" data-target="#estimated-annual-modal">advanced</span>
+                           <span class="btn-note">Click here to change your growth rate and/or charges</span> <span class="btn" id="btn-advanced" data-toggle="modal" data-target="#estimated-annual-modal">advanced</span>
                         </div>
                      </div>
                      <a id="backSummary" class="btn btn-primary btnPrevious">back</a>

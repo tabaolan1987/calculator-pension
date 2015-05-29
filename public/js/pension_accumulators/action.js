@@ -14,6 +14,7 @@
 6.Date - 30-03-2015
 
 */
+
 function registerAction(){
 	registerHoverAction();
 	registerActionAboutYou();
@@ -22,6 +23,7 @@ function registerAction(){
 	registerActionSummaryTab();
 	
 }
+
 /* this function handle the action hover the information image */
 function registerHoverAction(){
 	$(document).on("mouseover",".icon-tooltip",function() {
@@ -52,24 +54,23 @@ function registerHoverAction(){
 		$("#content-tooltip").show();
 	});
 	$("#content-tooltip").hover( 
-			function() {  //$("#content-tooltip").show(); 
+			function() {  $("#content-tooltip").show(); 
 			},
 			function() { $("#content-tooltip").hide(); }
 	);
 	$(document).on("mouseout",".icon-tooltip",function() {
-		//$("#content-tooltip").hide();
+		$("#content-tooltip").hide();
 	});
 	
 	
 }
 /* this function just allow user can type numberic only */
-function isNumberKey(evt)
-{
+function isNumberKey(evt){
 	var charCode = (evt.which) ? evt.which : event.keyCode;
    if (charCode != 46 && charCode > 31
-    && (charCode < 48 || charCode > 57))
-        return false;
-
+    && (charCode < 48 || charCode > 57)){
+		return false;
+	}
     return true;
 }
 
@@ -98,7 +99,7 @@ function registerActionAboutYou(){
 	
 
 	$('#nextAboutYou').click(function(){
-		//handle when user click next button in tab about you.
+		
 		var check = checkDataAboutYou();
 		if(check.length == 0){
 			eneableTabSavings();
@@ -132,7 +133,7 @@ function registerActionAboutYou(){
 			}else{
 				content = warningArray["validate-field"] +" "+ check[0];
 				for(var i =1; i < check.length;i++){
-					content = content+"," + check[i];
+					content = content+", " + check[i];
 				}
 				disableTabSavings();
 				showWarning(content + "!");
@@ -329,38 +330,34 @@ function isIncomeVisible(){
 function calculatePersonalPay(){
 	$('#txt-you-paying').on('input',function(){
 		var percent = $('#txt-you-paying-percent').val();
-		//if(percent == '' || typeof percent === 'undefined' || percent === null){
 			percent = getPercent_Contribute();
 			percent = percent*100;
 			$('#txt-you-paying-percent').val(fixed(percent));
-		//}
 	});
 	$('#txt-you-paying-percent').on('input',function(){
 		var cash = $('#txt-you-paying').val();
-		//if(cash == '' || typeof cash === 'undefined' || cash === null){
 			cash = round(getCash_Contribute());
 			cash = addCommas(cash);
 			$('#txt-you-paying').val(cash);
-		//}
 	});
 }
 
 function calculateCompanyPay(){
 	$('#txt-your-employer').on('input',function(){
 		var percent = $('#txt-your-employer-percent').val();
-		//if(percent == '' || typeof percent === 'undefined' || percent === null){
+		
 			percent = getPercent_Contribute_company();
 			percent = percent*100;
 			$('#txt-your-employer-percent').val(fixed(percent));
-		//}
+		
 	});
 	$('#txt-your-employer-percent').on('input',function(){
 		var cash = $('#txt-your-employer').val();
-		//if(cash == '' || typeof cash === 'undefined' || cash === null){
+		
 			cash = round(getCash_Contribute_company());
 			cash = addCommas(cash);
 			$('#txt-your-employer').val(cash);
-		//}
+		
 	});
 }
 /*-----------------------------------------------------------------*/
@@ -419,16 +416,15 @@ function setupSlide(checkLta){
 		cFP = getPercentLtaWithPensionFound();
 	}
 	drawSlideResult(rA,cFP);
-	//$('#percent-tax-free-result').slider().slider('value',cFP);
 }
 function setTextToTextField(){
-	var cashContribute = $('#txt-you-paying').val();//round(getCash_Contribute());
-	var ContributePercent = $('#txt-you-paying-percent').val();//getPercent_Contribute()*100;
+	var cashContribute = $('#txt-you-paying').val();
+	var ContributePercent = $('#txt-you-paying-percent').val();
 	$('#txt-you-paying-result').val(cashContribute);
 	$('#txt-you-paying-percent-result').val(ContributePercent);
 	
-	var cashContriCompany = $('#txt-your-employer').val();//round(getCash_Contribute_company());
-	var percentContriConpany = $('#txt-your-employer-percent').val();//getPercent_Contribute_company()*100;
+	var cashContriCompany = $('#txt-your-employer').val();
+	var percentContriConpany = $('#txt-your-employer-percent').val();
 	$('#txt-your-employer-result').val(cashContriCompany);
 	$('#txt-your-employer-percent-result').val(percentContriConpany);
 	
@@ -531,10 +527,7 @@ function onChange(){
 	
 	$('#estimated-annual-modal').on("hidden.bs.modal",function(e){
 		onChangeUI();
-	});
-	$("input:radio[name='an-grow-percent']").on('change',function(){
-	
-		//$('#estimated-annual-modal').modal('hide');
+		setupMessageSummary();
 	});
 }
 function onChangeUI(){
@@ -562,8 +555,6 @@ function showWarningLta(taxFree){
 	return false;
 }
 function drawChart(forceCashIncome,shortFall,targetPension){
-	//var forceCashIncome = getForecastIncome();
-	//var targetPension = $('#txt-target-pensions').val();
 	showRightContent();
 	showChartRight();
 	disableTxtField();
@@ -571,10 +562,8 @@ function drawChart(forceCashIncome,shortFall,targetPension){
 	$('.bot-arrow').hide();
 	setupMessage(forceCashIncome);
 	var coinBlue = getCoinBlue(forceCashIncome,targetPension);
-	//console.log(coinBlue);
 	var coinRed = getCoinRed(coinBlue);
 	$('.pound-annual-income').html(Number(targetPension).toLocaleString('en').split('.')[0]);
-	//prepare for setup coin
 	setupCoin(coinBlue,coinRed);
 	fallingCoin(1,forceCashIncome,shortFall,targetPension,coinBlue,coinRed);
 	current_forcecash_income = forceCashIncome;
@@ -715,8 +704,8 @@ function Popup(data)
 	mywindow.document.write('</head><body >');
 	mywindow.document.write(data);
 	mywindow.document.write('</body></html>');
-	mywindow.document.close(); // necessary for IE >= 10
-	mywindow.focus(); // necessary for IE >= 10
+	mywindow.document.close();
+	mywindow.focus(); 
 	mywindow.print();
 	mywindow.close();
 	return true;
