@@ -171,7 +171,7 @@ function backAction(e){
 	var parentID = $(e).parent().parent().attr('id');
 	var lastParentID = $(e).attr('lastparentID');
 	$('#'+parentID).hide();
-	$('#'+lastParentID).show();
+	$('#disclamer-div').show();
 }
 
 
