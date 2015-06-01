@@ -13,6 +13,7 @@ var current_forcecash_income = 0;
 var current_target = 0;
 var loopFunction = false;
 var registerChange = false;
+
 function setupDisclammerPage(){
 	loadPrintInfor();
 }

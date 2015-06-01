@@ -456,40 +456,51 @@ function eneabledTxtField(){
 }
 function onChange(){
 	$('#txt-your-employer-percent-result').on('change',function(){
-		$('#txt-your-employer-percent').val(fixed($(this).val()));
+		var vl = fixed($(this).val());
+		$('#txt-your-employer-percent').val(vl);
 		var cash = $('#txt-your-employer-result').val();
 		cash = round(getCash_Contribute_company());
 		cash = addCommas(cash);
 		$('#txt-your-employer').val(cash);
 		$('#txt-your-employer-result').val(cash);
+		$(this).val(addCommas(vl));
 		onChangeUI();	
 	});
-	$('#txt-your-employer-result').on('change',function(){
-		$('#txt-your-employer').val(fixed($(this).val()));
-		var percent = $('#txt-your-employer-percent-result').val();
-		percent = getPercent_Contribute_company();
-		percent = percent*100;
-		$('#txt-your-employer-percent-result').val(fixed(percent));
-		$('#txt-your-employer-percent').val(fixed(percent));
-		onChangeUI();
 	
-	});
 	$('#txt-you-paying-percent-result').on('change',function(){
-		$('#txt-you-paying-percent').val(fixed($(this).val()));
+		var vl = fixed($(this).val());
+		$('#txt-you-paying-percent').val(vl);
 		var cash = $('#txt-you-paying-result').val();
 		cash = round(getCash_Contribute());
 		cash = addCommas(cash);
 		$('#txt-you-paying').val(cash);
 		$('#txt-you-paying-result').val(cash);
+		$(this).val(addCommas(vl));
 		onChangeUI();
 	});
+	
+	$('#txt-your-employer-result').on('change',function(){
+		var vl = fixed($(this).val());
+		$('#txt-your-employer').val(vl);
+		var percent = $('#txt-your-employer-percent-result').val();
+		percent = getPercent_Contribute_company();
+		percent = percent*100;
+		$('#txt-your-employer-percent-result').val(fixed(percent));
+		$('#txt-your-employer-percent').val(fixed(percent));
+		$(this).val(addCommas(vl));
+		onChangeUI();
+	
+	});
+
 	$('#txt-you-paying-result').on('change',function(){
-		$('#txt-you-paying').val(fixed($(this).val()));
+		var vl = fixed($(this).val());
+		$('#txt-you-paying').val(vl);
 		var percent = $('#txt-you-paying-percent-result').val();
 		percent = getPercent_Contribute();
 		percent = percent*100;
 		$('#txt-you-paying-percent').val(fixed(percent));
 		$('#txt-you-paying-percent-result').val(fixed(percent));
+			$(this).val(addCommas(vl));
 		onChangeUI();
 	});
 	$('#txt-target-pensions-result').on('change',function(){
