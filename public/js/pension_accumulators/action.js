@@ -361,8 +361,6 @@ function calculateCompanyPay(){
 	});
 }
 /*-----------------------------------------------------------------*/
-
-var registerChange = false;
 /* this is action for tab results */
 function registerActionResultTab(){
 	$('a[id="results"]').on('shown.bs.tab', function (e) {
@@ -651,9 +649,6 @@ function showExcess(){
 	});
 }
 
-
-
-
 /*function print*/
 function updateDataPrint(){
 	var forceCashIncome = parseFloatCMG(getForecastIncome());
@@ -690,8 +685,8 @@ function updateDataPrint(){
 	$("#important-print").html(importantText);
 	$("#assump-print").html(assumptionText);
 }
-function PrintElement(element)
-{
+
+function PrintElement(element){
 	updateDataPrint();
 	Popup($(element).html());
 }

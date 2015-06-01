@@ -75,12 +75,6 @@ function fallingCoin(index,forceCashIncome,shortFall,targetPension,coinBlue,coin
 }
 
 function setHeightDiv(forceCashIncome,shortFall,targetPension,coinBlue,coinRed){
-		//alert(shortFall);
-	//var forceCashIncome = getForecastIncome();
-	//var shortFall = getShortFall();
-	//var targetPension = $('#txt-target-pensions').val();
-	//var coinBlue = getCoinBlue(forceCashIncome,targetPension);
-	//var coinRed = getCoinRed(coinBlue);
 	$('.pound-income-inform').html(Number(forceCashIncome).toLocaleString('en').split('.')[0]);
 	if(coinBlue > 5 & coinBlue < totalCoin & coinRed  > 5){
 		var heighTotalRed = (coinRed * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
@@ -119,10 +113,8 @@ function setHeightDiv(forceCashIncome,shortFall,targetPension,coinBlue,coinRed){
 		var isXs = checkScreenXsSM();
 		$('.arrow-mid').css('height',0);
 		if(isXs == true){
-			//$('.arrow-mid').css('height',0);
 			animationShortFall(heightMidInform,shortFall);
 		}else{
-			//$('.arrow-mid').css('height',0);
 			animationShortFall(heightMidInform -4,shortFall);
 		}
 		
@@ -245,7 +237,6 @@ function drawSlideModalGrowRate(){
 /*--------------------------------------------*/
 function drawSlide(){
 drawSlideAboutYou();
-//drawSlideResult(65,0);
 drawSlideModalGrowRate();
 }
 function showWarning(content){
