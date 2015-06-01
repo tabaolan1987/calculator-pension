@@ -1,1 +1,719 @@
-eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('3 3p(){2M();3b();2o();28();2E()}3 2M(){$(12).r("3i",".2x-G",3(){2 d=$(l).v("3e-2Y");2 e=3d[d];$("#2R-G").k(e);2 b=$("#u-G").3g();2 g=$(l).1X().1s-$(2P).3h();2 c=$("#u-G").1Y("3D-3q");2 h=c.3y("3A");6(h==-1){2 f=$(l).1X().1x;2 a=g-3w;$("#u-G").1Y({2J:"I",1s:a,1x:f+$(l).2I()})}q{2 f=$(l).1X().1x;2 a=g-3s;$("#u-G").1Y({2J:"I",1s:a,1x:f+$(l).2I()})}$("#u-G").V()});$("#u-G").3z(3(){$("#u-G").V()},3(){$("#u-G").T()});$(12).r("3v",".2x-G",3(){$("#u-G").T()})}3 3m(b){2 a=(b.2F)?b.2F:3k.3l;6(a!=46&&a>31&&(a<48||a>3B)){s D}s t}3 3b(){$(".1f-2e-m").r("Q",3(){2 a=1o();6(a.P==0){1E()}q{17()}2 b=13($(l).5());$(l).5(b)});$("Q:1B[1t=1N]").14(3(){2 a=1o();6(a.P==0){1E()}q{17()}});$("#3u").x(3(){2 a=1o();6(a.P==0){1E();$("#11").X("x")}q{2 c=a[0];6(c=="1a-1q-1n-1p"){u=16["1a-1q-1n-1p"];17();Z(u)}q{u=16["30-1y"]+" "+a[0];3a(2 b=1;b<a.P;b++){u=u+","+a[b]}17();Z(u+"!")}}});$("#11").x(3(){2 a=1o();6(a.P>0){2 c=a[0];6(c=="1a-1q-1n-1p"){u=16["1a-1q-1n-1p"];17();Z(u)}q{u=16["30-1y"]+" "+a[0];3a(2 b=1;b<a.P;b++){u=u+", "+a[b]}17();Z(u+"!")}s D}})}3 1E(){$("#11").v("1c","#3j");$("#11").v("15-1m","1i")}3 17(){$("#11").A("1c");$("#11").A("15-1m")}3 2c(){6($("Q:1B[1t=1N]").1r(":2n")){2 a=$("Q:1B[1t=1N]:2n").5();s a}s 0}3 1o(){2 d=3t 3x();2 e=$("#4-1l-E").5();6(e==""||3C e==="3n"||e===3r){d.1d("1l E")}2 b=2c();6(b==0){d.1d("3o")}2 c=$("#4-1l-1D").5();6(c==""||c==0){d.1d("1l 1D")}2 a=$("#4-F-C").5();6(a==""&a==0){d.1d("F U")}2 f=$(".3f").9().9("y");6(27(f)<27(e)){d.1d("1a-1q-1n-1p")}s d}3 2s(){$("#R").v("1c","#3J");$("#R").v("15-1m","1i")}3 1R(){$("#R").A("1c");$("#R").A("15-1m")}3 1C(){2 d=$("#4-45-C").5();6(d.P>0){s t}2 c=$("#4-1l-C").5();6(c.P>0){s t}2 a=$("#4-m-n").5();6(a.P>0){s t}2 b=$("#4-p-o").5();6(b.P>0){s t}s D}3 2o(){$("#R").x(3(){2 a=1C();6(a!=t){2 b=16["2q-2i-26-2a-1y"];Z(b);s D}});$("Q:1B[1t=47-1V]").14(3(){2 a=$(l).v("1k");6(a=="49"){$(".2h-1D").V()}q{$("#4-U-1Q").5(0);$(".2h-1D").T()}});$(".1f-11").r("Q",3(){2 a=1C();6(a==t){}q{1R()}2 b=13($(l).5());$(l).5(b)});$("#44").x(3(){6(1Z()){2 a=1C();6(a==t){2s();2f()}q{1R();2 c=16["2q-2i-26-2a-1y"];Z(c)}}q{6(1S()){6(2r()){2 b=$("#4-U-1Q").5();6(b==0){2 c=16["U-43"];Z(c)}q{$("#R").X("x")}}q{$("#R").X("x")}}}});$("#3Z").x(3(){6(1Z()){$("#2e-m").X("x")}q{6(1S()){2b()}}});2d();2u()}3 2f(){$(".1b-20-1W").T();$(".1b-1T-1U").V()}3 2b(){$(".1b-20-1W").V();$(".1b-1T-1U").T()}3 1Z(){6($(".1b-20-1W").1r(":25")){s t}q{s D}}3 1S(){6($(".1b-1T-1U").1r(":25")){s t}q{s D}}3 2r(){6($("#4-U-1Q").1r(":25")){s t}q{s D}}3 2d(){$("#4-m-n").r("Q",3(){2 a=$("#4-m-n-8").5();a=37();a=a*1e;$("#4-m-n-8").5(I(a))});$("#4-m-n-8").r("Q",3(){2 a=$("#4-m-n").5();a=1g(36());a=13(a);$("#4-m-n").5(a)})}3 2u(){$("#4-p-o").r("Q",3(){2 a=$("#4-p-o-8").5();a=35();a=a*1e;$("#4-p-o-8").5(I(a))});$("#4-p-o-8").r("Q",3(){2 a=$("#4-p-o").5();a=1g(2y());a=13(a);$("#4-p-o").5(a)})}2 1P=D;3 28(){$(\'a[1k="R"]\').r("2w.1H.1i",3(g){2 d=z(1A());2 b=z($("#4-F-C").5());2 c=1G();2 a=1u();2 f=1I(a);6(z(2X)!==d||z(2V)!==b){1O(d,c,b);2v();2k();6(1P==D){2j(f);2t()}1P=t}});$("#1L").r("x",3(){$("#w").X("x")});$("#1J").r("x",3(){$("#11").X("x")})}3 2v(){$("#w").v("1c","#40");$("#w").v("15-1m","1i")}3 39(b){2 c=41();$("#2p-1w").k(c);2 d=$("#E-Y-W").9().9("y");$("#E-1w").k(d);2 a=K(b).J("N").M(".")[0];$("#L-42-2p").k(a)}3 2j(b){2 c=$("#E-Y-W").9().9("y");2 a=$("#8-H-O").9().9("y");6(b==t){$("#2l-8-H-O").4a();$("#2l-8-H-O").k("<2m 1k=\'8-H-O-7\' 4b=\'9-4h 23-9\'></2m>");a=33()}4i(c,a)}3 2k(){2 b=$("#4-m-n").5();2 d=$("#4-m-n-8").5();$("#4-m-n-7").5(b);$("#4-m-n-8-7").5(d);2 e=$("#4-p-o").5();2 c=$("#4-p-o-8").5();$("#4-p-o-7").5(e);$("#4-p-o-8-7").5(c);2 a=$("#4-F-C").5();$("#4-F-C-7").5(a)}3 2Z(){$("#4-p-o-8-7").v("j","j");$("#4-p-o-7").v("j","j");$("#4-m-n-8-7").v("j","j");$("#4-m-n-7").v("j","j");$("#4-F-C-7").v("j","j");$("#1K").v("j","j");$("#B-15").v("j","j");$("#1L").v("j","j");$("#1J").v("j","j");$("#29-2g").v("j","j")}3 4g(){$("#4-p-o-8-7").A("j");$("#4-p-o-7").A("j");$("#4-m-n-8-7").A("j");$("#4-m-n-7").A("j");$("#4-F-C-7").A("j");$("#1K").A("j");$("#B-15").A("j");$("#1L").A("j");$("#1J").A("j");$("#29-2g").A("j")}3 2t(){$("#4-p-o-8-7").r("14",3(){$("#4-p-o-8").5(I($(l).5()));2 a=$("#4-p-o-7").5();a=1g(2y());a=13(a);$("#4-p-o").5(a);$("#4-p-o-7").5(a);S()});$("#4-p-o-7").r("14",3(){$("#4-p-o").5(I($(l).5()));2 a=$("#4-p-o-8-7").5();a=35();a=a*1e;$("#4-p-o-8-7").5(I(a));$("#4-p-o-8").5(I(a));S()});$("#4-m-n-8-7").r("14",3(){$("#4-m-n-8").5(I($(l).5()));2 a=$("#4-m-n-7").5();a=1g(36());a=13(a);$("#4-m-n").5(a);$("#4-m-n-7").5(a);S()});$("#4-m-n-7").r("14",3(){$("#4-m-n").5(I($(l).5()));2 a=$("#4-m-n-8-7").5();a=37();a=a*1e;$("#4-m-n-8").5(I(a));$("#4-m-n-8-7").5(I(a));S()});$("#4-F-C-7").r("14",3(){2 a=$(l).5();a=13(a);$("#4-F-C").5(a);$(l).5(a);S()});$("#1K").r("14",3(){2 a=$(l).5();a=13(a);$(l).5(a);S()});$("#8-H-O-7").9().9().r("38",3(c,b){2 a=$("#8-H-O-7").9().9("y");$("#8-H-O").9().9("y",a);6(1M==D){S()}q{1M=D}});$("#E-Y-W-7").9().9().r("38",3(c,b){2 a=$("#E-Y-W-7").9().9("y");$("#E-Y-W").9().9("y",a);S()});$("#4f-3c-34").r("3E.1H.34",3(a){S();21()})}3 S(){2 d=z(1A());2 b=z($("#4-F-C").5());2 c=1G();2 a=1u();2 e=1I(a);6(e==t){1M=t;$("#8-H-O-7").9().9("y",33())}1O(d,c,b)}3 1I(a){6(a==1j.y){6(1j["V-4c"]=="t"){Z(1j.2Y);1F=t;s t}}q{1F=D}s D}3 1O(e,c,b){4d();4e();2Z();$(".1s-32").T();$(".3Y-32").T();39(e);2 d=3K(e,b);2 a=3L(d);$(".L-3c-U").k(K(b).J("N").M(".")[0]);3M(d,a);3I(1,e,c,b,d,a);2X=e;2V=b}3 2E(){$(\'a[1k="w"]\').r("2w.1H.1i",3(a){21();2G()});$("#3G").r("x",3(a){$("#R").X("x")})}3 2G(){$(".w-3H").r("x",3(a){$("#R").X("x");2 b=$(l).v("1k");6(b=="18-U"){$("#4-F-C-7").18()}q{6(b=="18-3N"){$("#4-m-n-8-7").18()}q{6(b=="18-1a"){$("#E-Y-W-7").2H(".23-2D-2C").2W()}q{6(b=="18-H"){$("#8-H-O-7").2H(".23-2D-2C").2W()}}}}})}3 21(){2 g=z(1A());2 c=z($("#4-F-C").5());2 f=3O();f=z(f)*1e;2 h=$("#8-H-O").9().9("y");2 e=$("#E-Y-W-7").9().9("y");2 b=0;6(1F==t){b=1j.y}q{b=1u()}6(z(g)<z(c)){2 d=z(1G());$(".w-L-1z").k(K(d).J("N").M(".")[0]);2z()}q{2 a=g-c;$(".w-L-22").k(K(a).J("N").M(".")[0]);2A()}$(".w-L-1V").10(3(){$(l).k(K(c).J("N").M(".")[0])});$(".w-L-U").10(3(){$(l).k(K(g).J("N").M(".")[0])});$(".w-8").k(1g(f));$(".w-8-1v").k(h);$(".w-1w-E").10(3(){$(l).k(e)});$(".w-L-1v").k(K(b).J("N").M(".")[0])}3 2z(){$(".w-22-19").10(3(){$(l).T()});$(".w-2B-19").10(3(){$(l).V()})}3 2A(){$(".w-22-19").10(3(){$(l).V()});$(".w-2B-19").10(3(){$(l).T()})}3 2U(){2 a=z(1A());2 h=z($("#4-F-C").5());2 c=$("#8-H-O").9().9("y");2 i=$("#E-Y-W-7").9().9("y");2 g=0;6(1F==t){g=1j.y}q{g=1u()}2 d=z(1G());$(".B-L-1V").k(K(h).J("N").M(".")[0]);$(".B-1w-E").10(3(){$(l).k(i)});$(".B-8-1v").k(c);$(".B-L-1v").k(K(g).J("N").M(".")[0]);$(".B-L-U").k(K(a).J("N").M(".")[0]);6(d>0){$(".B-L-1z").k(K(d).J("N").M(".")[0]);$("#1z-B").V()}q{$("#1z-B").T()}2 e=$("#24-1f").k();2 b=$("#2T-1f").k();2 f=$("#2S-2R").k();$("#2S-B").k(f);$("#24-B").k(e);$("#2T-B").k(b)}3 3X(a){2U();2Q($(a).k())}3 2Q(b){2 a=2P.3R("","3Q 3P");a.12.1h("<k><2K><19>3S 3T</19>");a.12.1h("<2L>a {1f-3W : 3V !24;3U : 3F;}</2L>");a.12.1h("</2K><2N >");a.12.1h(b);a.12.1h("</2N></k>");a.12.2O();a.18();a.B();a.2O();s t};',62,267,'||var|function|txt|val|if|result|percent|slider||||||||||disabled|html|this|you|paying|employer|your|else|on|return|true|content|attr|summary|click|value|parseFloatCMG|removeAttr|print|pensions|false|age|target|tooltip|tax|fixed|toLocaleString|Number|pound|split|en|free|length|input|results|onChangeUI|hide|income|show|retirement|trigger|to|showWarning|each|savings|document|addCommas|change|data|warningArray|disableTabSavings|focus|title|retireAge|box|href|push|100|text|round|write|tab|LTA|id|current|toggle|than|checkDataAboutYou|currentAge|smaller|is|top|name|getTax_Free_Value|amount|retire|left|field|shortfall|getForecastIncome|radio|checkDataSaving|salary|eneableTabSavings|isReturnLTA|getShortFall|bs|showWarningLta|backResult|oneOffLumpSum|nextResult|loopFunction|optradio|drawChart|registerChange|payable|disableTabResult|isBox2Visible|defined|benefits|pension|purchase|offset|css|isBox1Visible|monney|setupMessageSummary|excess|ui|important|visible|least|parseInt|registerActionResultTab|btn|once|hiddenBox2|getGender|calculatePersonalPay|about|hiddenBox1|advanced|final|at|setupSlide|setTextToTextField|container|div|checked|registerActionSavingTab|year|enter|isIncomeVisible|eneableTabResult|onChange|calculateCompanyPay|eneabledSummary|shown|icon|getCash_Contribute_company|showNormal|showExcess|normal|all|corner|registerActionSummaryTab|which|setActionLink|find|width|position|head|style|registerHoverAction|body|close|window|Popup|infor|disclamer|assump|updateDataPrint|current_target|mouseenter|current_forcecash_income|message|disableTxtField|validate||arrow|getPercentLtaWithPensionFound|modal|getPercent_Contribute_company|getCash_Contribute|getPercent_Contribute|slidechange|setupMessage|for|registerActionAboutYou|annual|InformationArray|information|retirementAge|height|scrollTop|mouseover|tab2|event|keyCode|isNumberKey|undefined|gender|registerAction|image|null|76|new|nextAboutYou|mouseout|172|Array|indexOf|hover|480|57|typeof|background|hidden|black|backSummary|link|fallingCoin|tab3|getCoinBlue|getCoinRed|setupCoin|contribution|getForecast_percent_target|Brothers|Close|open|Pension|Accumulators|color|none|decoration|PrintElement|bot|backSavings|tab4|yourRetirementDate|per|able|nextSavings|deffered||company||yes|empty|class|popup|showRightContent|showChartRight|estimated|eneabledTxtField|cash|drawSlideResult'.split('|'),0,{}))
+/*
+----------------Information--------------------------------
+
+1.Pension Accumulators Action JS
+
+2.All function in this file manage the action of user in page.
+
+3.Version 1.0.0
+
+4.Company - Claybourne McGregor Consulting Ltd 
+
+5.Author - Lan.Ta 
+
+6.Date - 30-03-2015
+
+*/
+
+function registerAction(){
+	registerHoverAction();
+	registerActionAboutYou();
+	registerActionSavingTab();
+	registerActionResultTab();
+	registerActionSummaryTab();
+	
+}
+
+/* this function handle the action hover the information image */
+function registerHoverAction(){
+	$(document).on("mouseover",".icon-tooltip",function() {
+		var attrName = $(this).attr('information-message');
+		var content = InformationArray[attrName];
+		$("#infor-tooltip").html(content);
+		var height = $("#content-tooltip").height();
+		var top = $(this).offset().top - $(window).scrollTop();
+		var background = $("#content-tooltip").css('background-image');
+		var n = background.indexOf("480");
+		if(n == -1){
+			var left = $(this).offset().left;
+			var topTool =  top - 172;
+			$("#content-tooltip").css({
+				position: 'fixed',
+				top: topTool,
+				left: left + $(this).width()
+			});
+		}else{
+			var left = $(this).offset().left;
+			var topTool =  top - 76;
+			$("#content-tooltip").css({
+					position: 'fixed',
+					top: topTool,
+					left: left + $(this).width()
+			});
+		}
+		$("#content-tooltip").show();
+	});
+	$("#content-tooltip").hover( 
+			function() {  $("#content-tooltip").show(); 
+			},
+			function() { $("#content-tooltip").hide(); }
+	);
+	$(document).on("mouseout",".icon-tooltip",function() {
+		$("#content-tooltip").hide();
+	});
+	
+	
+}
+/* this function just allow user can type numberic only */
+function isNumberKey(evt){
+	var charCode = (evt.which) ? evt.which : event.keyCode;
+   if (charCode != 46 && charCode > 31
+    && (charCode < 48 || charCode > 57)){
+		return false;
+	}
+    return true;
+}
+
+
+/* there are actions for tab about you*/
+function registerActionAboutYou(){
+	
+	$('.text-about-you').on('input', function() {
+		var check = checkDataAboutYou();
+		if(check.length == 0){
+			eneableTabSavings();
+		}else{
+			disableTabSavings();
+		}
+		var number = addCommas($(this).val());
+		$(this).val(number);
+	});
+	$("input:radio[name=optradio]").change(function(){
+		var check = checkDataAboutYou();
+		if(check.length == 0){
+			eneableTabSavings();
+		}else{
+			disableTabSavings();
+		}
+	});
+	
+
+	$('#nextAboutYou').click(function(){
+		
+		var check = checkDataAboutYou();
+		if(check.length == 0){
+			eneableTabSavings();
+			$("#savings").trigger('click');
+		}else{
+			var caseWarning = check[0];
+			if(caseWarning == "retireAge-smaller-than-currentAge"){
+				content = warningArray["retireAge-smaller-than-currentAge"];
+				disableTabSavings();
+				showWarning(content);
+			}else{
+				content = warningArray["validate-field"] +" "+ check[0];
+				for(var i =1; i < check.length;i++){
+					content = content+"," + check[i];
+				}
+				disableTabSavings();
+				showWarning(content+"!");
+			}
+			
+		}
+	});
+	
+	$('#savings').click(function(){
+		var check = checkDataAboutYou();
+		if(check.length > 0){
+			var caseWarning = check[0];
+			if(caseWarning == "retireAge-smaller-than-currentAge"){
+				content = warningArray["retireAge-smaller-than-currentAge"];
+				disableTabSavings();
+				showWarning(content);
+			}else{
+				content = warningArray["validate-field"] +" "+ check[0];
+				for(var i =1; i < check.length;i++){
+					content = content+", " + check[i];
+				}
+				disableTabSavings();
+				showWarning(content + "!");
+			}
+			
+			return false;
+		}
+	});
+
+}
+
+function eneableTabSavings(){
+	$('#savings').attr('href','#tab2');
+	$('#savings').attr('data-toggle','tab');
+}
+
+function disableTabSavings(){
+	$('#savings').removeAttr('href');
+	$('#savings').removeAttr('data-toggle');
+}
+
+function getGender(){
+	if($("input:radio[name=optradio]").is(":checked")){
+		var gender = $("input:radio[name=optradio]:checked").val();
+		return gender;
+	}
+	return 0;
+
+}
+function checkDataAboutYou(){
+	var content = new Array();
+	var currentAge = $('#txt-current-age').val();
+	if(currentAge == "" || typeof currentAge === 'undefined' || currentAge === null){
+		content.push("current age");
+	}
+	var gender = getGender();
+	if(gender == 0){
+		content.push("gender");
+	}
+	var currentSalary = $('#txt-current-salary').val();
+	if(currentSalary=="" || currentSalary == 0){
+		content.push("current salary");
+	}
+	var targetPension = $('#txt-target-pensions').val();
+	if( targetPension == "" & targetPension == 0){
+		content.push("target income");
+	}
+	var ageRetire = $('.retirementAge').slider().slider('value');
+	if(parseInt(ageRetire) < parseInt(currentAge)){
+		content.push("retireAge-smaller-than-currentAge");
+	}
+	return content;
+}
+/*------------------------------------------------------------------------------------*/
+
+/* there are actions for savings tab */
+function eneableTabResult(){
+	$('#results').attr('href','#tab3');
+	$('#results').attr('data-toggle','tab');
+}
+
+function disableTabResult(){
+	$('#results').removeAttr('href');
+	$('#results').removeAttr('data-toggle');
+}
+
+function checkDataSaving(){
+	var deffer_pen = $('#txt-deffered-pensions').val();
+	if(deffer_pen.length > 0){
+		return true;
+	}
+	var current_pen = $('#txt-current-pensions').val();
+	if(current_pen.length > 0){
+		return true;
+	}
+	
+	var seft_pay =  $('#txt-you-paying').val();
+	if(seft_pay.length > 0){
+		return true;
+	}
+	
+	var company_pay = $('#txt-your-employer').val();
+	if(company_pay.length > 0){
+		return true;
+	}
+	
+	return false;
+}
+
+function registerActionSavingTab(){
+	
+	$('#results').click(function(){
+		var check = checkDataSaving();
+		if(check != true){
+			var content = warningArray["enter-at-least-once-field"];
+			showWarning(content);
+			return false;
+		}
+	});
+	$("input:radio[name=company-pension]").change(function(){
+		var val = $(this).attr("id");
+		if(val == "yes"){
+			$('.final-salary').show();
+		}else{
+			$('#txt-income-payable').val(0);
+			$('.final-salary').hide();
+		}
+	});
+	
+	$('.text-savings').on('input', function() {
+		var check = checkDataSaving();
+		if(check == true){
+			//eneableTabResult();
+		}else{
+			disableTabResult();
+		}
+		var number = addCommas($(this).val());
+		$(this).val(number);
+	});
+	
+	$('#nextSavings').click(function(){
+		if(isBox1Visible()){
+			var check = checkDataSaving();
+			if(check == true){
+				eneableTabResult();
+				hiddenBox1();
+			}else{
+				disableTabResult();
+				var content = warningArray["enter-at-least-once-field"];
+				showWarning(content);
+			}
+		}else if(isBox2Visible()){
+			if(isIncomeVisible()){
+				var vl = $('#txt-income-payable').val();
+				if(vl == 0){
+					var content = warningArray["income-able"];
+					showWarning(content);
+				}else{
+					$('#results').trigger('click');
+				}
+			}else{
+				$('#results').trigger('click');
+			}
+			
+		}
+	});
+	
+	$('#backSavings').click(function(){
+		if(isBox1Visible()){
+			$('#about-you').trigger('click');
+		}else if(isBox2Visible()){
+			hiddenBox2();
+		}
+	});
+	
+	calculatePersonalPay();
+	calculateCompanyPay();
+}
+
+
+function hiddenBox1(){
+	$('.box-monney-purchase').hide();
+	$('.box-defined-benefits').show();
+}
+
+function hiddenBox2(){
+	$('.box-monney-purchase').show();
+	$('.box-defined-benefits').hide();
+}
+function isBox1Visible(){
+	if($('.box-monney-purchase').is(":visible")){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function isBox2Visible(){
+	if($('.box-defined-benefits').is(":visible")){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function isIncomeVisible(){
+	if($('#txt-income-payable').is(':visible')){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function calculatePersonalPay(){
+	$('#txt-you-paying').on('input',function(){
+		var percent = $('#txt-you-paying-percent').val();
+			percent = getPercent_Contribute();
+			percent = percent*100;
+			$('#txt-you-paying-percent').val(fixed(percent));
+	});
+	$('#txt-you-paying-percent').on('input',function(){
+		var cash = $('#txt-you-paying').val();
+			cash = round(getCash_Contribute());
+			cash = addCommas(cash);
+			$('#txt-you-paying').val(cash);
+	});
+}
+
+function calculateCompanyPay(){
+	$('#txt-your-employer').on('input',function(){
+		var percent = $('#txt-your-employer-percent').val();
+		
+			percent = getPercent_Contribute_company();
+			percent = percent*100;
+			$('#txt-your-employer-percent').val(fixed(percent));
+		
+	});
+	$('#txt-your-employer-percent').on('input',function(){
+		var cash = $('#txt-your-employer').val();
+		
+			cash = round(getCash_Contribute_company());
+			cash = addCommas(cash);
+			$('#txt-your-employer').val(cash);
+		
+	});
+}
+/*-----------------------------------------------------------------*/
+/* this is action for tab results */
+var registerChange = false;
+function registerActionResultTab(){
+	$('a[id="results"]').on('shown.bs.tab', function (e) {
+		var forceCashIncome = parseFloatCMG(getForecastIncome());
+		var targetPension = parseFloatCMG($('#txt-target-pensions').val());
+		var shortFall = getShortFall();
+		var taxFree = getTax_Free_Value();
+		var checkLta = showWarningLta(taxFree);
+		if(parseFloatCMG(current_forcecash_income) !== forceCashIncome || parseFloatCMG(current_target) !== targetPension){
+			drawChart(forceCashIncome,shortFall,targetPension);
+			eneabledSummary();
+			setTextToTextField();
+			if(registerChange == false){
+				setupSlide(checkLta);
+				onChange();
+			}
+			registerChange = true;
+		}
+	});
+
+	$('#nextResult').on('click',function(){
+		$('#summary').trigger('click');
+	});
+	
+	$('#backResult').on('click',function(){
+		$('#savings').trigger('click');
+	});
+}
+
+function eneabledSummary(){
+	$('#summary').attr('href','#tab4');
+	$('#summary').attr('data-toggle','tab');
+}
+function setupMessage(forceCashIncome){
+	var yRD = yourRetirementDate();
+	$('#year-retire').html(yRD);
+	var rA = $('#age-to-retirement').slider().slider('value');
+	$('#age-retire').html(rA);
+	var forceCash = Number(forceCashIncome).toLocaleString('en').split('.')[0];
+	$('#pound-per-year').html(forceCash);
+}
+
+
+function setupSlide(checkLta){
+	var rA = $('#age-to-retirement').slider().slider('value');
+	//$("#age-to-retirement-result").slider().slider('value',rA);
+	var cFP = $('#percent-tax-free').slider().slider('value');
+	if(checkLta == true){
+		$('#container-percent-tax-free').empty();
+		$('#container-percent-tax-free').html("<div id='percent-tax-free-result' class='slider-cash ui-slider'></div>");
+		cFP = getPercentLtaWithPensionFound();
+	}
+	drawSlideResult(rA,cFP);
+}
+function setTextToTextField(){
+	var cashContribute = $('#txt-you-paying').val();
+	var ContributePercent = $('#txt-you-paying-percent').val();
+	$('#txt-you-paying-result').val(cashContribute);
+	$('#txt-you-paying-percent-result').val(ContributePercent);
+	
+	var cashContriCompany = $('#txt-your-employer').val();
+	var percentContriConpany = $('#txt-your-employer-percent').val();
+	$('#txt-your-employer-result').val(cashContriCompany);
+	$('#txt-your-employer-percent-result').val(percentContriConpany);
+	
+	var targetPension = $('#txt-target-pensions').val();
+	$('#txt-target-pensions-result').val(targetPension);
+}
+
+function disableTxtField(){
+	$('#txt-your-employer-percent-result').attr("disabled","disabled");
+	$('#txt-your-employer-result').attr("disabled","disabled");
+	$('#txt-you-paying-percent-result').attr("disabled","disabled");
+	$('#txt-you-paying-result').attr("disabled","disabled");
+	$('#txt-target-pensions-result').attr("disabled","disabled");
+	$('#oneOffLumpSum').attr("disabled","disabled");
+	$('#print-data').attr("disabled","disabled");
+	$('#nextResult').attr("disabled","disabled");
+	$('#backResult').attr("disabled","disabled");
+	$('#btn-advanced').attr("disabled","disabled");
+}
+function eneabledTxtField(){
+	$('#txt-your-employer-percent-result').removeAttr("disabled");
+	$('#txt-your-employer-result').removeAttr("disabled");
+	$('#txt-you-paying-percent-result').removeAttr("disabled");
+	$('#txt-you-paying-result').removeAttr("disabled");
+	$('#txt-target-pensions-result').removeAttr("disabled");
+	$('#oneOffLumpSum').removeAttr("disabled");
+	$('#print-data').removeAttr("disabled");
+	$('#nextResult').removeAttr("disabled");
+	$('#backResult').removeAttr("disabled");
+	$('#btn-advanced').removeAttr("disabled");
+}
+function onChange(){
+	$('#txt-your-employer-percent-result').on('change',function(){
+		var vl = fixed($(this).val());
+		$('#txt-your-employer-percent').val(vl);
+		var cash = $('#txt-your-employer-result').val();
+		cash = round(getCash_Contribute_company());
+		cash = addCommas(cash);
+		$('#txt-your-employer').val(cash);
+		$('#txt-your-employer-result').val(cash);
+		$(this).val(addCommas(vl));
+		onChangeUI();	
+	});
+	
+	$('#txt-you-paying-percent-result').on('change',function(){
+		var vl = fixed($(this).val());
+		$('#txt-you-paying-percent').val(vl);
+		var cash = $('#txt-you-paying-result').val();
+		cash = round(getCash_Contribute());
+		cash = addCommas(cash);
+		$('#txt-you-paying').val(cash);
+		$('#txt-you-paying-result').val(cash);
+		$(this).val(addCommas(vl));
+		onChangeUI();
+	});
+	
+	$('#txt-your-employer-result').on('change',function(){
+		var vl = fixed($(this).val());
+		$('#txt-your-employer').val(vl);
+		var percent = $('#txt-your-employer-percent-result').val();
+		percent = getPercent_Contribute_company();
+		percent = percent*100;
+		$('#txt-your-employer-percent-result').val(fixed(percent));
+		$('#txt-your-employer-percent').val(fixed(percent));
+		$(this).val(addCommas(vl));
+		onChangeUI();
+	
+	});
+
+	$('#txt-you-paying-result').on('change',function(){
+		var vl = fixed($(this).val());
+		$('#txt-you-paying').val(vl);
+		var percent = $('#txt-you-paying-percent-result').val();
+		percent = getPercent_Contribute();
+		percent = percent*100;
+		$('#txt-you-paying-percent').val(fixed(percent));
+		$('#txt-you-paying-percent-result').val(fixed(percent));
+		$(this).val(addCommas(vl));
+		onChangeUI();
+	});
+	$('#txt-target-pensions-result').on('change',function(){
+		var target = $(this).val();
+		target = addCommas(target);
+		$('#txt-target-pensions').val(target);
+		$(this).val(target);
+		onChangeUI();
+	});
+	$('#oneOffLumpSum').on('change',function(){
+		var target = $(this).val();
+		target = addCommas(target);
+		$(this).val(target);
+		onChangeUI();
+	});
+	
+	$("#percent-tax-free-result").slider().slider().on("slidechange", function(e,ui) {
+		var value = $("#percent-tax-free-result").slider().slider('value');
+		$("#percent-tax-free").slider().slider('value',value);
+		if(loopFunction == false){
+			onChangeUI();
+		}else{
+			loopFunction = false;
+		}
+		
+    });
+	
+	$("#age-to-retirement-result").slider().slider().on("slidechange", function(e,ui) {
+        var value = $("#age-to-retirement-result").slider().slider('value');
+		$("#age-to-retirement").slider().slider('value',value);
+		onChangeUI();
+    });
+	
+	$('#estimated-annual-modal').on("hidden.bs.modal",function(e){
+		onChangeUI();
+		setupMessageSummary();
+	});
+}
+function onChangeUI(){
+	var forceCashIncome = parseFloatCMG(getForecastIncome());
+	var targetPension = parseFloatCMG($('#txt-target-pensions').val());
+	var shortFall = getShortFall();
+	var taxFree = getTax_Free_Value();
+	var checkLta = showWarningLta(taxFree);
+	if(checkLta == true){
+		loopFunction = true;
+		$('#percent-tax-free-result').slider().slider('value',getPercentLtaWithPensionFound());
+	}
+	drawChart(forceCashIncome,shortFall,targetPension);
+}
+function showWarningLta(taxFree){
+	if(taxFree == LTA['value']){
+		if(LTA['show-popup'] == 'true'){
+			showWarning(LTA['message']);
+			isReturnLTA = true;
+			return true;
+		}
+	}else{
+		isReturnLTA = false;
+	}
+	return false;
+}
+function drawChart(forceCashIncome,shortFall,targetPension){
+	showRightContent();
+	showChartRight();
+	disableTxtField();
+	$('.top-arrow').hide();
+	$('.bot-arrow').hide();
+	setupMessage(forceCashIncome);
+	var coinBlue = getCoinBlue(forceCashIncome,targetPension);
+	var coinRed = getCoinRed(coinBlue);
+	$('.pound-annual-income').html(Number(targetPension).toLocaleString('en').split('.')[0]);
+	setupCoin(coinBlue,coinRed);
+	fallingCoin(1,forceCashIncome,shortFall,targetPension,coinBlue,coinRed);
+	current_forcecash_income = forceCashIncome;
+	current_target = targetPension;
+}
+/*------------------------------------------------------------------*/
+function registerActionSummaryTab(){
+	$('a[id="summary"]').on('shown.bs.tab', function (e) {
+		setupMessageSummary();
+		setActionLink();
+	});
+	$('#backSummary').on('click',function(e){
+		$('#results').trigger('click');
+	});
+	
+}
+function setActionLink(){
+	$('.summary-link').on('click',function(e){
+		$('#results').trigger('click');
+		var id = $(this).attr("id");
+		if(id == "focus-income"){
+			$("#txt-target-pensions-result").focus();
+		}else if(id == "focus-contribution"){
+			$("#txt-you-paying-percent-result").focus();
+		}else if(id == "focus-retireAge"){
+			$('#age-to-retirement-result').find(".ui-corner-all").mouseenter();
+		}else if(id== "focus-tax"){
+			$('#percent-tax-free-result').find(".ui-corner-all").mouseenter();
+		}
+	});
+}
+function setupMessageSummary(){
+	var forceCashIncome = parseFloatCMG(getForecastIncome());
+	var targetPension =  parseFloatCMG($('#txt-target-pensions').val());
+	var percent_income = getForecast_percent_target();
+	percent_income = parseFloatCMG(percent_income)*100;
+	var tax_free_percent  = $('#percent-tax-free').slider().slider('value');
+	var retire_age = $("#age-to-retirement-result").slider().slider('value');
+	var tax_free_value = 0;
+	if(isReturnLTA == true){
+		tax_free_value = LTA['value'];
+	}else{
+		tax_free_value = getTax_Free_Value();
+	}
+	if(parseFloatCMG(forceCashIncome) < parseFloatCMG(targetPension)){
+		var shorFall = parseFloatCMG(getShortFall());
+		$('.summary-pound-shortfall').html(Number(shorFall).toLocaleString('en').split('.')[0]);
+		showNormal();
+	}else{
+		var excess = forceCashIncome - targetPension;
+		$('.summary-pound-excess').html(Number(excess).toLocaleString('en').split('.')[0]);
+		showExcess();
+	}
+	$('.summary-pound-pension').each(function(){
+		$(this).html(Number(targetPension).toLocaleString('en').split('.')[0]);
+	});
+	$('.summary-pound-income').each(function(){
+		$(this).html(Number(forceCashIncome).toLocaleString('en').split('.')[0]);
+	})
+	$('.summary-percent').html(round(percent_income));
+	$('.summary-percent-amount').html(tax_free_percent);
+	$('.summary-retire-age').each(function(){
+		$(this).html(retire_age);
+	});
+	
+	$('.summary-pound-amount').html(Number(tax_free_value).toLocaleString('en').split('.')[0]);
+		
+}
+
+function showNormal(){
+	$('.summary-excess-title').each(function(){
+		$(this).hide();
+	});
+	$('.summary-normal-title').each(function(){
+		$(this).show();
+	});
+}
+
+function showExcess(){
+	$('.summary-excess-title').each(function(){
+		$(this).show();
+	});
+	$('.summary-normal-title').each(function(){
+		$(this).hide();
+	});
+}
+
+/*function print*/
+function updateDataPrint(){
+	var forceCashIncome = parseFloatCMG(getForecastIncome());
+	var targetPension = parseFloatCMG($('#txt-target-pensions').val());
+	var tax_free_percent  = $('#percent-tax-free').slider().slider('value');
+	var retire_age = $("#age-to-retirement-result").slider().slider('value');
+	var tax_free_value = 0;
+	if(isReturnLTA == true){
+		tax_free_value = LTA['value'];
+	}else{
+		tax_free_value = getTax_Free_Value();
+	}
+	var shorFall = parseFloatCMG(getShortFall());
+	$('.print-pound-pension').html(Number(targetPension).toLocaleString('en').split('.')[0]);
+	$('.print-retire-age').each(function(){
+		$(this).html(retire_age);
+	});
+	
+	$('.print-percent-amount').html(tax_free_percent);
+	$('.print-pound-amount').html(Number(tax_free_value).toLocaleString('en').split('.')[0]);
+	$('.print-pound-income').html(Number(forceCashIncome).toLocaleString('en').split('.')[0]);
+	if(shorFall >0){
+		$('.print-pound-shortfall').html(Number(shorFall).toLocaleString('en').split('.')[0]);
+		$('#shortfall-print').show();
+	}else{
+		$('#shortfall-print').hide();
+	}
+	
+	
+	var importantText = $("#important-text").html();
+	var assumptionText = $("#assump-text").html();
+	var disclamerText = $("#disclamer-infor").html();
+	$("#disclamer-print").html(disclamerText);
+	$("#important-print").html(importantText);
+	$("#assump-print").html(assumptionText);
+}
+
+function PrintElement(element){
+	updateDataPrint();
+	Popup($(element).html());
+}
+
+function Popup(data) 
+{
+	var mywindow = window.open('', 'Close Brothers');
+	mywindow.document.write('<html><head><title>Pension Accumulators</title>');
+	mywindow.document.write('<style>a {text-decoration : none !important;color : black;}</style>');
+	mywindow.document.write('</head><body >');
+	mywindow.document.write(data);
+	mywindow.document.write('</body></html>');
+	mywindow.document.close();
+	mywindow.focus(); 
+	mywindow.print();
+	mywindow.close();
+	return true;
+}

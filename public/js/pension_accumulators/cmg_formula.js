@@ -1,1 +1,277 @@
-eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('6 4(9){b(9==""||1n 9==\'1F\'){5 0}u{5 1A(9)}}6 1N(9){2 3=1u.1V(9);5 3}6 1A(9){2 3=1u.1M(9);5 3}6 z(){2 1r=$(\'#L-1K-1J\').e().e(\'t\');2 1C=4($("#8-l-L").7());2 1s=1r-1C;5 4(1s)}6 X(){2 1E=$(\'#g-1X-1W\').e().e(\'t\');2 3=1E/s;3=4(3);5 3}6 1k(){2 j=$(\'#8-1U-y\').7();b(j==""||j==\'1F\'){j=0}j=4(j);2 C=A();2 c=z();2 3=j*J.N((1+C/1),c);3=4(3);5 3.q(10)}6 1b(){2 r=$(\'#8-l-y\').7();b(r==""||1n r=="1L"){r=0}r=4($(\'#8-l-y\').7());2 C=A();2 c=z();2 3=r*J.N((1+C/1),c);3=4(3);5 3.q(10)}6 1m(){2 f=4($(\'#8-l-B\').7());2 1a=4($(\'#8-1c-1e-g\').7());2 3=((1a*f)/12)/s;3=4(3);5 3}6 1S(){2 f=4($(\'#8-l-B\').7());2 1f=4($(\'#8-1c-1e\').7());2 3=(1f/f)*12;3=4(3);5 3}6 19(){2 f=4($(\'#8-l-B\').7());2 1j=4($(\'#8-15-18-g\').7());2 3=((1j*f)/12)/s;3=4(3);5 3}6 1T(){2 f=4($(\'#8-l-B\').7());2 17=4($(\'#8-15-18\').7());2 3=(17/f)*12;3=4(3);5 3}6 1h(){2 14=1O[$("1P:1R[22=\'2h-2f-g\']:2d").7()];2 11=$(\'#e-2e-2j\').e().e(\'t\');2 Z=14-11;5 4(Z)}6 1D(){2 k=4(G());2 w=X();2 x=4(k*w);2 v=4(1d[\'t\']);b(x<v){5 x}u{5 v}}6 1l(){2 k=4(G());2 w=X();2 x=4(k*w);2 13=4(k*(1-w));2 D=x+13;5 4(D)}6 2n(){2 D=4(1l());2 v=4(1d[\'t\']);2 g=(v/D)*s;5 i(g)}6 2m(){2 c=z();2 d=S 2k();2 1g=d.1Y();2 3=4(1g)+4(c);3=4(3);5 i(3)}6 A(){2 3=1h()/s;3=4(3);5 3}6 G(){2 P=1k();2 U=1b();2 Q=1m();2 R=19();2 c=z();2 E=A();2 T=4($(\'#23\').7());2 o;b(E==0){o=4(P)+4(U)+((c*12)*4(Q))+((c*12)*4(R))+4(T)}u{2 m=(4(Q)+4(R))*12;2 1t=4(E)+1;2 1G=1I(c+1);2 p=J.N(1t,1G);p=(p-1)/4(E);p=p.q(10);2 H=m*p;H=H.q(10);o=H-m+T+4(U)+4(P);o=4(o)}5 o}6 1q(){2 k=4(G());2 1H=4(1D());2 m=k-1H;m=4(m);5 m}6 1o(){2 M=28();2 Y=$(\'#L-1K-1J\').e().e(\'t\');b(M==26){2 3=27[Y];3=4(3);5 3}u b(M==2p){2 3=25[Y];3=4(3);5 3}}6 1z(){2 1p=1q();2 1v=1o();2 3=(1p/20)*1v;3=4(3);5 3}6 1y(){2 3=4($(\'#8-2l-2i\').7());3=i(3);5 4(3)}6 W(){2 1w=4(1z());2 1x=1y();2 3=1w+1x;3=4(3);5 i(3)}6 2g(){2 h=W();2 I=4($(\'#8-1B-y\').7());2 3=h/I;5 4(3)}6 2c(){2 h=4(W());2 I=4($(\'#8-1B-y\').7());2 3=I-h;5 4(3)}6 29(h,K){b(4(h)>=4(K)){a=O}u{2 g=(h/K)*s;2 a=i(g);a=a/2a}a=1I(a);b(a==0){a=1}24.1Z("a 21 "+a);5 a}6 2b(V){b(V>=O){5 0}2 1i=O-V;5 1i}6 i(9){2 n=2o(9);n=J.i(n);2 F=S 16(n).q(0);5 F}6 1Q(9){2 F=S 16(9).q(1);5 F}',62,150,'||var|temp|parseFloatCMG|return|function|val|txt|number|coin|if|yearToRetirement||slider|currentSalary|percent|forecastIncome|round|totalDeferFund|retirementPot|current|f1||finalFormula|f2|toFixed|totalCurrentFund|100|value|else|ltaValue|taxFreePercent|temp1|pensions|getYearToRetirement|getInterestOnPot|salary|interRestOnPot|pensionFound|interestOnPot|newnumber|getRetirementPot|f3|incomeYouWantTolive|Math|targetPension|age|gender|pow|totalCoin|defer_compound|cashContribute|cashContributeCompany|new|oneOffLumpsum|current_compound|coinBlue|getForecastIncome|getTax_free_Percent|retirementAge|riskSelection||annual_charge||temp2|deduct_inflation_rate|your|Number|cashCompany|employer|getCash_Contribute_company|percentPaying|getCurrent_compound|you|LTA|paying|cashPaying|year|getRisk_selection|coinRed|percentCompany|getDefer_compound|getPensionFound|getCash_Contribute|typeof|getAnnuity_rate|potMinus_taxFreeCash|getPotMinus_taxFreeCash|ageRetire|year_to_retirement|m1|accounting|annuity_rate|annuity_income|salary_scheme|getFinalSalaryScheme|getAnnuity_income|removeCommas|target|currentAge|getTax_Free_Value|taxFreeCash|underfined|m2|taxFreeValue|parseInt|retirement|to|undefined|unformat|addCommas|growthRate|input|fixed|radio|getPercent_Contribute|getPercent_Contribute_company|deffered|formatNumber|free|tax|getFullYear|log|10000|blue|name|oneOffLumpSum|console|annuityFemale|male|annuityMale|getGender|getCoinBlue|coinPercent|getCoinRed|getShortFall|checked|modal|grow|getForecast_percent_target|an|payable|growrate|Date|income|yourRetirementDate|getPercentLtaWithPensionFound|parseFloat|female'.split('|'),0,{}))
+function parseFloatCMG(number){
+	if(number == "" || typeof number == 'underfined'){
+		return 0;
+	}else{
+		return removeCommas(number);
+	}
+}
+
+function addCommas(number){
+	var temp = accounting.formatNumber(number);
+	return temp;
+}
+function removeCommas(number){
+	var temp  = accounting.unformat(number);
+	return temp;
+}
+/* tab about you formula and value field */
+function getYearToRetirement(){
+	var ageRetire = $('#age-to-retirement').slider().slider('value');
+	var currentAge = parseFloatCMG($("#txt-current-age").val());
+	var year_to_retirement = ageRetire - currentAge;
+	return parseFloatCMG(year_to_retirement);
+}
+function getTax_free_Percent(){
+	var taxFreeCash = $('#percent-tax-free').slider().slider('value');
+	var temp = taxFreeCash/100;
+	temp =  parseFloatCMG(temp);
+	return temp;
+}
+/*-----------------------------------------------------------------------------------*/
+
+/* tab savings formula and value field */
+function getDefer_compound(){
+	var totalDeferFund = $('#txt-deffered-pensions').val();
+	if(totalDeferFund == "" || totalDeferFund == 'underfined'){
+		totalDeferFund = 0;
+	}
+	totalDeferFund = parseFloatCMG(totalDeferFund);
+	var interRestOnPot = getInterestOnPot();
+	var yearToRetirement = getYearToRetirement();
+	var temp = totalDeferFund * Math.pow((1 + interRestOnPot/1),yearToRetirement);
+	temp =  parseFloatCMG(temp);
+	return temp.toFixed(10);
+}
+function getCurrent_compound(){
+	var totalCurrentFund = $('#txt-current-pensions').val();
+	if(totalCurrentFund == "" || typeof totalCurrentFund == "undefined"){
+		totalCurrentFund = 0;
+	}
+	totalCurrentFund = parseFloatCMG($('#txt-current-pensions').val());
+	var interRestOnPot = getInterestOnPot();
+	var yearToRetirement = getYearToRetirement();
+	var temp = totalCurrentFund * Math.pow((1 + interRestOnPot/1),yearToRetirement);
+	temp =  parseFloatCMG(temp);
+	return temp.toFixed(10);
+}
+
+function getCash_Contribute(){
+	var currentSalary = parseFloatCMG($('#txt-current-salary').val());
+	var percentPaying = parseFloatCMG($('#txt-you-paying-percent').val());
+	var temp = ((percentPaying*currentSalary)/12)/100;
+	temp =  parseFloatCMG(temp);
+	return temp;
+}
+
+function getPercent_Contribute(){
+	var currentSalary = parseFloatCMG($('#txt-current-salary').val());
+	var cashPaying = parseFloatCMG($('#txt-you-paying').val());
+	var temp = (cashPaying/currentSalary)*12;
+	temp = parseFloatCMG(temp);
+	return temp;
+}
+
+function getCash_Contribute_company(){
+	var currentSalary = parseFloatCMG($('#txt-current-salary').val());
+	var percentCompany = parseFloatCMG($('#txt-your-employer-percent').val());
+	var temp = ((percentCompany*currentSalary)/12)/100;
+	temp =  parseFloatCMG(temp);
+	return temp;
+}
+function getPercent_Contribute_company(){
+	var currentSalary = parseFloatCMG($('#txt-current-salary').val());
+	var cashCompany = parseFloatCMG($('#txt-your-employer').val());
+	var temp = (cashCompany/currentSalary)*12;
+	temp =  parseFloatCMG(temp);
+	return temp;
+}
+/*-----------------------------------------------------------------------------------*/
+/* tab results formula and value field */ 
+function getRisk_selection(){
+	var deduct_inflation_rate = growthRate[$("input:radio[name='an-grow-percent']:checked").val()];
+	var annual_charge = $('#slider-modal-growrate').slider().slider('value');
+	var riskSelection = deduct_inflation_rate - annual_charge;
+	return parseFloatCMG(riskSelection);
+}
+
+function getTax_Free_Value(){
+	var retirementPot = parseFloatCMG(getRetirementPot());
+	var taxFreePercent = getTax_free_Percent();
+	var temp1 = parseFloatCMG(retirementPot*taxFreePercent);
+	var ltaValue = parseFloatCMG(LTA['value']);
+	if(temp1 < ltaValue){
+		return temp1;
+	}else{
+		return ltaValue;
+	}
+}
+
+function getPensionFound(){
+	var retirementPot = parseFloatCMG(getRetirementPot());
+	var taxFreePercent = getTax_free_Percent();
+	var temp1 = parseFloatCMG(retirementPot*taxFreePercent);
+	var temp2 = parseFloatCMG(retirementPot * (1 - taxFreePercent));
+	var pensionFound = temp1+ temp2;
+	return parseFloatCMG(pensionFound);
+}
+
+function getPercentLtaWithPensionFound(){
+	var pensionFound = parseFloatCMG(getPensionFound());
+	var ltaValue = parseFloatCMG(LTA['value']);
+	var percent = (ltaValue/pensionFound)*100;
+	return round(percent);
+}
+
+function yourRetirementDate(){
+	var yearToRetirement = getYearToRetirement();
+	var d = new Date();
+	var year = d.getFullYear();
+	var temp = parseFloatCMG(year) + parseFloatCMG(yearToRetirement);
+	temp = parseFloatCMG(temp);
+	return round(temp);
+}
+
+function getInterestOnPot(){
+	var temp = getRisk_selection()/100;
+	temp = parseFloatCMG(temp);
+	return temp;
+}
+
+function getRetirementPot(){
+	////console.log("---------------------------");
+	var defer_compound = getDefer_compound();
+	////console.log("defer_compound " +defer_compound);
+	var current_compound = getCurrent_compound();
+	////console.log("current_compound " + current_compound);
+	var cashContribute = getCash_Contribute();
+	////console.log("cashContribute " + cashContribute);
+	var cashContributeCompany = getCash_Contribute_company();
+	////console.log("cashContributeCompany  : " + cashContributeCompany);
+	var yearToRetirement = getYearToRetirement();
+	////console.log("yearToRetirement : " + yearToRetirement);
+	var interestOnPot = getInterestOnPot();
+	////console.log("interestOnPot : " + interestOnPot);
+	var oneOffLumpsum = parseFloatCMG($('#oneOffLumpSum').val());
+	////console.log("oneOffLumpsum : " + oneOffLumpsum);
+	var finalFormula;
+	if(interestOnPot == 0){
+		finalFormula = parseFloatCMG(defer_compound) + parseFloatCMG(current_compound)
+		+ ((yearToRetirement*12)*parseFloatCMG(cashContribute)) 
+		+ ((yearToRetirement*12)*parseFloatCMG(cashContributeCompany)) 
+		+ parseFloatCMG(oneOffLumpsum);
+	}else{
+		var f1 = (parseFloatCMG(cashContribute) + parseFloatCMG(cashContributeCompany))*12;
+		//////console.log("f1 : " + parseFloat(f1));
+		var m1 =  parseFloatCMG(interestOnPot)+1;
+		var m2 = parseInt(yearToRetirement+1);
+		var f2 = Math.pow(m1,m2);
+		f2 = (f2 - 1)/parseFloatCMG(interestOnPot);
+		f2 = f2.toFixed(10);
+		var f3 = f1*f2;
+		f3 = f3.toFixed(10);
+		finalFormula = f3 - f1 + oneOffLumpsum + parseFloatCMG(current_compound) + parseFloatCMG(defer_compound);;
+		finalFormula = parseFloatCMG(finalFormula);
+		////console.log("getRetirementPot " + round(finalFormula));
+	}
+	return finalFormula;
+	
+}
+
+function getPotMinus_taxFreeCash(){
+	var retirementPot = parseFloatCMG(getRetirementPot());
+	var taxFreeValue = parseFloatCMG(getTax_Free_Value());
+	var f1 = retirementPot - taxFreeValue;
+	f1 = parseFloatCMG(f1);
+	return f1;
+}
+
+function getAnnuity_rate(){
+	var gender = getGender();
+	var retirementAge = $('#age-to-retirement').slider().slider('value');
+	if(gender == male){
+		var temp = annuityMale[retirementAge];
+		temp = parseFloatCMG(temp);
+		return temp;
+	}else if(gender == female){
+		var temp = annuityFemale[retirementAge];
+		temp =  parseFloatCMG(temp);
+		return temp;
+	}
+}
+
+function getAnnuity_income(){
+	var potMinus_taxFreeCash = getPotMinus_taxFreeCash();
+	var annuity_rate = getAnnuity_rate();
+	var temp = (potMinus_taxFreeCash/10000) * annuity_rate;
+	temp = parseFloatCMG(temp);
+	return temp;
+}
+function getFinalSalaryScheme(){
+	var temp = parseFloatCMG($('#txt-income-payable').val());
+	temp = round(temp);
+	return parseFloatCMG(temp);
+}
+
+function getForecastIncome(){
+	var annuity_income =  parseFloatCMG(getAnnuity_income());
+	var salary_scheme = getFinalSalaryScheme();
+	var temp = annuity_income + salary_scheme;
+	temp = parseFloatCMG(temp);
+	return round(temp);
+}
+
+function getForecast_percent_target(){
+	var forecastIncome = getForecastIncome();
+	var incomeYouWantTolive  = parseFloatCMG($('#txt-target-pensions').val());
+	var temp = forecastIncome/incomeYouWantTolive;
+	return parseFloatCMG(temp);
+}
+
+function getShortFall(){
+	var forecastIncome = parseFloatCMG(getForecastIncome());
+	var incomeYouWantTolive  = parseFloatCMG($('#txt-target-pensions').val());
+	var temp  = incomeYouWantTolive - forecastIncome;
+	return parseFloatCMG(temp);
+}
+
+/*-----------------------------------------------------------------------------------*/
+
+/* tab summary formula and value field */ 
+
+
+function getCoinBlue(forecastIncome,targetPension){
+	
+	if(parseFloatCMG(forecastIncome) >= parseFloatCMG(targetPension) ){
+		coin = totalCoin;
+	}else{
+		var percent = (forecastIncome/targetPension)*100;
+		var coin = round(percent);
+		coin = coin/coinPercent;
+	}
+	coin = parseInt(coin);
+	if(coin == 0){
+		coin = 1;
+	}
+	console.log("coin blue " + coin);
+	return coin;
+}
+
+function getCoinRed(coinBlue){
+	if(coinBlue >= totalCoin){
+		return 0;
+	}
+	var coinRed = totalCoin - coinBlue;
+	return coinRed;
+	
+}
+
+function round(number) {
+    var n = parseFloat(number);
+    n =  Math.round(n);
+	var newnumber = new Number(n).toFixed(0);
+	return newnumber;
+}
+function fixed(number){
+	var newnumber = new Number(number).toFixed(1);
+	return newnumber;
+}

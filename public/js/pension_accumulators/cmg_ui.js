@@ -1,1 +1,273 @@
-eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('6 1r=1s;$.24.2l=8(1P,1X){B 13.2o(1P).2r(\'2q 2m 2n 2G 2C\',1X)};$.24.2c=8(18,b,1o,1n,1q){B 13.2B(8(){6 e=$(13);6 1V=e.2D().b;$({b:1V}).1m({b:b},{1o:1o,1n:1n,u:8(1l){6 1R=(1-1l/b)*18;e.j({2E:\'2A(\'+1R+\'2v)\',b:1l})},1q:1q||$.2u})})};8 2w(k,g){n(k>0){6 o="<h 1a=\'k\' I=\'2k\'></h>"}r{6 o="<h 1a=\'g\' I=\'2k\'></h>"}2x(6 i=2;i<=19;i++){n(i>k){o=o+"<h 1a=\'g\' I=\'p"+i+"\'></h>"}r{o=o+"<h 1a=\'k\' I=\'p"+i+"\'></h>"}}$(\'#p-X\').o(o)}8 1F(D,Z,t,1b,k,g){1r=A;6 p="#p"+D;$(p).s();6 1c=$(\'#p-X\').c()-25;1E.1H(\'1c :\'+1c);6 1j=$(p).c()/2-5;6 2e=1c-(1j*D);6 18=1h*(D%2===0?1:-1);$(p).2c(18,2e,2F-1j*D,\'2y\',8(){n(D<19){D=D+1;1F(D,Z,t,1b,k,g)}r{1E.1H(\'p 2z\');1w(Z,t,1b,k,g);2t()}})}8 1w(Z,t,1b,k,g){$(\'.1v-2s-2p\').o(1u(Z).1t(\'1y\').1N(\'.\')[0]);n(k>5&k<19&g>5){6 z=(g*($(\'.g\').c()/2-5))+($(\'.g\').c()/2);6 C=z-$(\'.d-b\').c()-$(\'.d-l\').c();$(\'.d-Y\').j(\'c\',0);6 Q=($(\'#p-X\').c()-25-z)/2-$(\'.l-d\').c()/2;$(\'.l-d\').j(\'m-b\',Q);$(\'#E-h\').j(\'m-b\',Q+9);O(C-2,t);N();B A}r n(k==19){$(\'.b-d\').w();6 m=($(\'#p-X\').c()-25)/2-$(\'.l-d\').c()/2;$(\'.l-d\').j(\'m-b\',m);$(\'#E-h\').j(\'m-b\',m+7);N();B A}r n(k<=5&k>3){6 z=(g*($(\'.g\').c()/2-5))+($(\'.g\').c()/2);6 C=z-$(\'.d-b\').c()-$(\'.d-l\').c();$(\'.d-Y\').j(\'c\',0);$(\'.l-d\').j(\'m-b\',\'0\');n(k==4){$(\'#E-h\').j(\'m-b\',"-1x")}r{$(\'#E-h\').j(\'m-b\',"33")}O(C-4,t);N();B A}r n(k<=3){g=21;6 z=(g*($(\'.g\').c()/2-5))+($(\'.g\').c()/2);6 C=z-$(\'.d-b\').c()-$(\'.d-l\').c();6 1B=1p();$(\'.d-Y\').j(\'c\',0);n(1B==A){O(C,t)}r{O(C-4,t)}$(\'.l-d\').j(\'m-b\',\'0\');$(\'#E-h\').j(\'m-b\',"-1x");N();B A}r n(g<=5){6 z=(2*($(\'.g\').c()/2-5))+($(\'.g\').c()/2);6 C=z-$(\'.d-b\').c()-$(\'.d-l\').c();$(\'.d-Y\').j(\'c\',31);6 Q=($(\'#p-X\').c()-25-$(\'.b-d\').c())/2-$(\'.l-d\').c()/2;$(\'.l-d\').j(\'m-b\',Q);$(\'#E-h\').j(\'m-b\',Q+7);O(C-2,t);N();B A}}8 O(c,t){$(\'.1k\').w();1L(8(){$(\'.b-d\').s();$(".d-Y").1m({"c":c},"1D",8(){$(\'.1v-1k\').o(1u(t).1t(\'1y\').1N(\'.\')[0]);$(\'.1k\').1J(1G)})},30)}8 N(){$(\'#E-h\').w();1L(8(){$(\'.l-d\').s();6 G=$(".l-d").35().G;$(".l-d").j({G:G}).1m({"G":"36"},"1D",8(){$(\'.l-d-3b\').s();$(\'#E-h\').1J(3c)})},1G)}8 3a(){$(\'#1I-1M\').x(\'a\').1z(\'1A\');$(\'#1I-1M\').x(\'a\').2d(8(){6 J=$(13).J();6 L=$(13).W().W().W().12(\'I\');n(J.1g()=="H 1f"||J.1g()=="1f 39"){$(\'#\'+L).w();$(\'#1d-h-b\').x(\'a[I="1C-1d"]\').12(\'1e\',L);$(\'#1d-h-b\').s()}r n(J.1g()=="H 37"){$(\'#\'+L).w();$(\'#H-h-b\').x(\'a[I="1C-H"]\').12(\'1e\',L);$(\'#H-h-b\').s()}});$("#H-J").x(\'a\').1z(\'1A\');$(\'#H-J\').x(\'a:2H("H 1f")\').2d(8(){2Y.2X(\'1d-J\').2N()})}8 2O(e){6 L=$(e).W().W().12(\'I\');6 2b=$(e).12(\'1e\');$(\'#\'+L).w();$(\'#\'+2b).s()}8 28(){6 K=["16","2f","1i","1h","17"];$("#2g-2i-1O").f({14:16,S:17,u:1,y:1i}).f("V",{T:"q",u:5,q:K}).f("R")}8 29(){6 K=["0","5","10","15","20","25"];$("#26-1T-1U").f({14:0,S:25,u:1}).f("V",{T:"q",u:5,q:K}).f("R")}8 22(){28();29()}8 2L(2j,1S){6 q=["16","2f","1i","1h","17"];$("#2g-2i-1O-27").f({14:16,S:17,u:1,y:2j}).f("V",{T:"q",u:5,q:q}).f("R");6 K=["0","5","10","15","20","25"];$("#26-1T-1U-27").f({14:0,S:25,u:1,y:1S}).f("V",{T:"q",u:5,q:K}).f("R")}8 1Z(){6 K=["0","0.5","1","1.5","2","2.5","3"];$("#f-F-M").f({14:0,S:3,u:0.5,y:1.5}).f("V",{T:"q",u:0.5,q:K}).f("R").2R("2S",8(e,U){6 y=$("#f-F-M").f().f(\'y\');$("#f-F-M").x(\'.U-f-23\').o(y+\'%\')});$("#f-F-M").x(\'.U-2T-2U\').2W(8(){6 y=$("#f-F-M").f().f(\'y\');$("#f-F-M").x(\'.U-f-23\').o(y+\'%\')})}8 2V(){22();1Z()}8 2Q(v){$(\'#1Y\').x(\'.F-2P\').o(v);$(\'#1Y\').F(\'s\')}8 2K(b,G,v){$(\'#11\').o(v);$(\'#11\').j(\'b\',b);$(\'#11\').j(\'G\',G);$(\'#11\').s()}8 2J(){$(\'#11\').w()}8 2I(){$(\'.P-v-1W\').s();$(\'.P-v-1Q\').w()}8 2M(){$(\'.P-v-1W\').w();$(\'.P-v-1Q\').s()}8 1p(){n($(\'#38-U\').2Z(":32")){B 1s}r{B A}}8 1K(){$(\'#P-v\').s()}8 2a(){$(\'#P-v\').w()}8 34(){6 2h=1p();n(2h==A&&1r==1s){2a()}r{1K()}}',62,199,'||||||var||function|||top|height|arrow||slider|coinRed|div||css|coinBlue|bot|margin|if|html|coin|label|else|show|shortFall|step|content|hide|find|value|heighTotalRed|true|return|heightMidInform|index|print|modal|left|important|id|text|labelStage|parentID|growrate|animationIncomed|animationShortFall|right|hieghtBlueDiv|float|max|rest|ui|pips|parent|container|mid|forceCashIncome||infor|attr|this|min||55|75|angle|totalCoin|class|targetPension|heightContainer|assump|lastparentID|assumptions|toLowerCase|70|65|heightImage|shortfall|now|animate|easing|duration|checkScreenXsSM|complete|isCalculate|false|toLocaleString|Number|pound|setHeightDiv|1px|en|removeAttr|href|isXs|back|slow|console|fallingCoin|1000|log|disclamer|fadeIn|showRightContent|setTimeout|page|split|retirement|classes|default|currentDeg|percentTaxFree|tax|free|startTop|draw|callback|warningModal|drawSlideModalGrowRate|||drawSlideAboutYou|tip|fn||percent|result|drawSlideRetirementAge|drawSlidePercentTaxFreeCash|hideRightContent|lastParentID|animateRotate|click|moveToBottom|60|age|checkSize|to|ageRetire|coin1|animatecss|mozAnimationEnd|MSAnimationEnd|addClass|inform|webkitAnimationEnd|one|income|eneabledTxtField|noop|deg|setupCoin|for|linear|done|rotate|each|animationend|position|transform|300|oanimationend|contains|showChartRight|hideInfor|showInfor|drawSlideResult|hideChartRight|scrollIntoView|backAction|body|showWarning|on|slidechange|corner|all|drawSlide|mouseover|getElementById|document|is|200|40|visible|19px|drawRightContent|offset|10px|information|check|used|registerLinkActionDisclamer|pension|2500'.split('|'),0,{}))
+var isCalculate = false;
+$.fn.animatecss = function (classes, callback) {
+    return this.addClass(classes).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', callback);
+};
+$.fn.animateRotate = function(angle, top, duration, easing, complete) {
+  return this.each(function() {
+    var $elem = $(this);
+    var startTop = $elem.position().top;
+    $({top: startTop}).animate({top: top}, {
+      duration: duration,
+      easing: easing,
+      step: function(now) {
+          var currentDeg = (1- now/top)*angle;
+        $elem.css({
+           transform: 'rotate(' + currentDeg + 'deg)',
+           top: now
+         });
+      },
+      complete: complete || $.noop
+    });
+  });
+};
+
+function setupCoin(coinBlue,coinRed){
+	if(coinBlue > 0){
+		var html = "<div class='coinBlue' id='coin1'></div>";
+	}else{
+		var html = "<div class='coinRed' id='coin1'></div>";
+	}
+	for(var i = 2 ; i <= totalCoin ;i++){
+		if(i > coinBlue){
+			html = html + "<div class='coinRed' id='coin"+i+"'></div>";
+		}else{
+			html = html + "<div class='coinBlue' id='coin"+i+"'></div>";
+		}	
+	}
+	$('#coin-container').html(html);
+}
+function fallingCoin(index,forceCashIncome,shortFall,targetPension,coinBlue,coinRed) {
+		isCalculate = true;
+		var coin = "#coin"+index;
+        $(coin).show();
+        var heightContainer = $('#coin-container').height() - 25;
+		console.log('heightContainer :' + heightContainer);
+        var heightImage = $(coin).height() / 2 - 5;
+        var moveToBottom = heightContainer - (heightImage * index);
+        var angle = 70 * (index % 2 === 0 ? 1 : -1);
+        $(coin).animateRotate(angle, moveToBottom, 300-heightImage*index, 'linear', function () {  
+            if (index < totalCoin) {
+                index = index + 1;
+                fallingCoin(index,forceCashIncome,shortFall,targetPension,coinBlue,coinRed);
+            }else{
+				//set visible and height
+				console.log('coin done');
+				setHeightDiv(forceCashIncome,shortFall,targetPension,coinBlue,coinRed);
+				eneabledTxtField();
+			}
+        });
+}
+
+function setHeightDiv(forceCashIncome,shortFall,targetPension,coinBlue,coinRed){
+	$('.pound-income-inform').html(Number(forceCashIncome).toLocaleString('en').split('.')[0]);
+	if(coinBlue > 5 & coinBlue < totalCoin & coinRed  > 5){
+		var heighTotalRed = (coinRed * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
+		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
+		$('.arrow-mid').css('height',0);
+		var hieghtBlueDiv = ($('#coin-container').height() - 25 - heighTotalRed)/2 - $('.bot-arrow').height()/2;
+		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
+		$('#print-div').css('margin-top',hieghtBlueDiv + 9);
+		animationShortFall(heightMidInform -2,shortFall);
+		animationIncomed();
+		return true;
+	}else if(coinBlue == totalCoin){
+		$('.top-arrow').hide();
+		var margin = ($('#coin-container').height() - 25)/2 - $('.bot-arrow').height()/2;
+		$('.bot-arrow').css('margin-top',margin);
+		$('#print-div').css('margin-top',margin + 7);
+		animationIncomed();
+		return true;
+	}else if(coinBlue <= 5 & coinBlue > 3){
+		var heighTotalRed = (coinRed * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
+		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
+		$('.arrow-mid').css('height',0);
+		$('.bot-arrow').css('margin-top','0');
+		if(coinBlue==4){
+			$('#print-div').css('margin-top',"-1px");
+		}else{
+			$('#print-div').css('margin-top',"19px");
+		}
+		animationShortFall(heightMidInform - 4,shortFall);
+		animationIncomed();
+		return true;
+	}else if(coinBlue <= 3){
+		coinRed = 21;
+		var heighTotalRed = (coinRed * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
+		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
+		var isXs = checkScreenXsSM();
+		$('.arrow-mid').css('height',0);
+		if(isXs == true){
+			animationShortFall(heightMidInform,shortFall);
+		}else{
+			animationShortFall(heightMidInform -4,shortFall);
+		}
+		
+		$('.bot-arrow').css('margin-top','0');
+		$('#print-div').css('margin-top',"-1px");
+		animationIncomed();
+		return true;
+	}else if(coinRed <= 5){
+		var heighTotalRed = (2 * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
+		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
+		$('.arrow-mid').css('height',40);
+		var hieghtBlueDiv = ($('#coin-container').height() - 25 - $('.top-arrow').height())/2 - $('.bot-arrow').height()/2;
+		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
+		$('#print-div').css('margin-top',hieghtBlueDiv + 7);
+		animationShortFall(heightMidInform -2,shortFall);
+		animationIncomed();
+		return true;
+	}
+}
+
+function animationShortFall(height,shortFall){
+	$('.shortfall').hide();
+	setTimeout(function(){
+		$('.top-arrow').show();
+		$(".arrow-mid").animate({"height":height}, "slow",function(){
+			$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0]);
+			$('.shortfall').fadeIn(1000);
+		});
+	}, 200);
+}
+
+function animationIncomed(){
+	$('#print-div').hide();	
+	setTimeout(function(){
+		$('.bot-arrow').show();
+		var left =  $(".bot-arrow").offset().left;
+		$(".bot-arrow").css({left:left}).animate({"left":"10px"}, "slow",function(){
+			$('.bot-arrow-pension').show();
+			$('#print-div').fadeIn(2500);
+		});
+	}, 1000);
+	
+}
+
+/*------------------------------------------------------*/
+/* there are functions handle UI of disclamer */
+function registerLinkActionDisclamer(){
+	$('#disclamer-page').find('a').removeAttr('href');
+	$('#disclamer-page').find('a').click(function(){
+		var text = $(this).text();
+		var parentID = $(this).parent().parent().parent().attr('id');
+		if(text.toLowerCase() == "important assumptions" || text.toLowerCase() == "assumptions used"){
+			$('#'+parentID).hide();
+			$('#assump-div-top').find('a[id="back-assump"]').attr('lastparentID',parentID);
+			$('#assump-div-top').show();
+		}else if(text.toLowerCase() == "important information"){
+			$('#'+parentID).hide();
+			$('#important-div-top').find('a[id="back-important"]').attr('lastparentID',parentID);
+			$('#important-div-top').show();
+		}
+	});
+	
+	$("#important-text").find('a').removeAttr('href');
+	$('#important-text').find('a:contains("important assumptions")').click(function(){
+		  document.getElementById( 'assump-text' ).scrollIntoView();
+	});
+}
+
+function backAction(e){
+	var parentID = $(e).parent().parent().attr('id');
+	var lastParentID = $(e).attr('lastparentID');
+	$('#'+parentID).hide();
+	$('#'+lastParentID).show();
+}
+
+
+/*------------------------------------------------------*/
+/* there are functions handle UI of tab About you */
+function drawSlideRetirementAge(){
+	var labelStage = ["55","60","65","70","75"];
+	$("#age-to-retirement").slider({min: 55,max: 75,step: 1,value:65}).slider("pips", {rest: "label",step: 5,
+	label: labelStage}).slider("float");
+}
+
+function drawSlidePercentTaxFreeCash(){
+	var labelStage = ["0","5","10","15","20","25"];
+	$("#percent-tax-free").slider({min: 0,max: 25,step: 1}).slider("pips", {rest: "label",step: 5,
+	label: labelStage}).slider("float");
+}
+function drawSlideAboutYou(){
+	drawSlideRetirementAge();
+	drawSlidePercentTaxFreeCash();
+}
+/*------------------------------------------------------------------*/
+
+/* there are functions handle UI of tab result*/
+function drawSlideResult(ageRetire,percentTaxFree){
+	var label = ["55","60","65","70","75"];
+	$("#age-to-retirement-result").slider({min: 55,max: 75,step: 1,value:ageRetire}).slider("pips", {rest: "label",step: 5,
+	label: label}).slider("float");
+	
+	var labelStage = ["0","5","10","15","20","25"];
+	$("#percent-tax-free-result").slider({min: 0,max: 25,step: 1,value:percentTaxFree}).slider("pips", {rest: "label",step: 5,
+	label: labelStage}).slider("float");
+}
+
+function drawSlideModalGrowRate(){
+	var labelStage = ["0","0.5","1","1.5","2","2.5","3"];
+	$("#slider-modal-growrate").slider({min: 0,max: 3,step: 0.5,value:1.5}).slider("pips", {rest: "label",step: 0.5,
+	label: labelStage}).slider("float").on("slidechange", function(e,ui) {
+		var value = $("#slider-modal-growrate").slider().slider('value');
+		$("#slider-modal-growrate").find('.ui-slider-tip').html(value+'%');
+    });
+	$("#slider-modal-growrate").find('.ui-corner-all').mouseover(function(){
+		var value = $("#slider-modal-growrate").slider().slider('value');
+		$("#slider-modal-growrate").find('.ui-slider-tip').html(value+'%');
+	});
+
+}
+/*--------------------------------------------*/
+function drawSlide(){
+drawSlideAboutYou();
+drawSlideModalGrowRate();
+}
+function showWarning(content){
+//will show warning.
+$('#warningModal').find('.modal-body').html(content);
+$('#warningModal').modal('show');
+}
+
+function showInfor(top,left,content){
+//will show Information.
+$('#infor').html(content);
+$('#infor').css('top',top);
+$('#infor').css('left',left);
+$('#infor').show();
+}
+
+function hideInfor(){
+$('#infor').hide();
+}
+function showChartRight(){
+$('.right-content-draw').show();
+$('.right-content-default').hide();
+}
+
+function hideChartRight(){
+$('.right-content-draw').hide();
+$('.right-content-default').show();
+}
+function checkScreenXsSM(){
+	if($('#check-ui').is(":visible")){
+		return false;
+	}else{
+		return true;
+	}
+}
+function showRightContent(){
+	$('#right-content').show();
+}
+function hideRightContent(){
+	$('#right-content').hide();
+}
+
+function drawRightContent(){
+	var checkSize = checkScreenXsSM();
+	if(checkSize == true && isCalculate == false){
+		hideRightContent();
+	}else{
+		showRightContent();
+	}
+}
