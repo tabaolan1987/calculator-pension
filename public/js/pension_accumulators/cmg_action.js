@@ -36,7 +36,7 @@ function registerHoverAction(){
 		var n = background.indexOf("480");
 		if(n == -1){
 			var left = $(this).offset().left;
-			var topTool =  top - 172;
+			var topTool =  top - 137;
 			$("#content-tooltip").css({
 				position: 'fixed',
 				top: topTool,
@@ -113,7 +113,7 @@ function registerActionAboutYou(){
 			}else{
 				content = warningArray["validate-field"] +" "+ check[0];
 				for(var i =1; i < check.length;i++){
-					content = content+"," + check[i];
+					content = content+", " + check[i];
 				}
 				disableTabSavings();
 				showWarning(content+"!");

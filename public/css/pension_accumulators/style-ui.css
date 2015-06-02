@@ -329,7 +329,7 @@ a:focus{
 #content-tooltip{
 	background:url(../../images/pension_accumulators/tooltip-bg.png) left center no-repeat;
 	width:423px;
-	height:305px;
+	height:270px;
 	display:none;
 	z-index:2000;
 	padding-left : 60px;
@@ -340,7 +340,7 @@ a:focus{
 
 #infor-tooltip{
 	z-index : 3000;
-	height:264px;
+	height:229px;
 	overflow-y : auto;
 }
 
@@ -548,7 +548,7 @@ a:focus{
 .right-content h3{
 	font-size: 19px;
 	color: #0f0d8f;
-	padding: 5px 0 0 20px;
+	padding: 5px 0 0 10px;
 }
 
 .top-arrow{
