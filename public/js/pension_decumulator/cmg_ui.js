@@ -1,20 +1,37 @@
-/*
-----------------Information--------------------------------
-
-1.Pension Accumulators UI JS
-
-2.All function in this file manage the UI in page.
-
-3.Version 1.0.0
-
-4.Company - Claybourne McGregor Consulting Ltd 
-
-5.Author - Lan.Ta 
-
-6.Date - 30-03-2015
-
-*/
 var isCalculate = false;
+/* there are functions handle UI of disclamer */
+function registerLinkActionDisclamer(){
+	$('#disclamer-page').find('a').removeAttr('href');
+	$('#disclamer-page').find('a').click(function(){
+		var text = $(this).text();
+		var parentID = $(this).parent().parent().parent().attr('id');
+		if(text.toLowerCase() == "important assumptions" || text.toLowerCase() == "assumptions used"){
+			$('#'+parentID).hide();
+			$('#assump-div-top').find('a[id="back-assump"]').attr('lastparentID',parentID);
+			$('#assump-div-top').show();
+		}else if(text.toLowerCase() == "important information"){
+			$('#'+parentID).hide();
+			$('#important-div-top').find('a[id="back-important"]').attr('lastparentID',parentID);
+			$('#important-div-top').show();
+		}
+	});
+	
+	$("#important-text").find('a').removeAttr('href');
+	$('#important-text').find('a:contains("important assumptions")').click(function(){
+		  document.getElementById( 'assump-text' ).scrollIntoView();
+	});
+}
+
+function backAction(e){
+	var parentID = $(e).parent().parent().attr('id');
+	var lastParentID = $(e).attr('lastparentID');
+	$('#'+parentID).hide();
+	$('#disclamer-div').show();
+}
+
+
+
+
 $.fn.animatecss = function (classes, callback) {
     return this.addClass(classes).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', callback);
 };
@@ -36,6 +53,8 @@ $.fn.animateRotate = function(angle, top, duration, easing, complete) {
     });
   });
 };
+
+
 
 function setupCoin(coinBlue,coinRed){
 	if(coinBlue > 0){
@@ -75,12 +94,6 @@ function fallingCoin(index,forceCashIncome,shortFall,targetPension,coinBlue,coin
 }
 
 function setHeightDiv(forceCashIncome,shortFall,targetPension,coinBlue,coinRed){
-		//alert(shortFall);
-	//var forceCashIncome = getForecastIncome();
-	//var shortFall = getShortFall();
-	//var targetPension = $('#txt-target-pensions').val();
-	//var coinBlue = getCoinBlue(forceCashIncome,targetPension);
-	//var coinRed = getCoinRed(coinBlue);
 	$('.pound-income-inform').html(Number(forceCashIncome).toLocaleString('en').split('.')[0]);
 	if(coinBlue > 5 & coinBlue < totalCoin & coinRed  > 5){
 		var heighTotalRed = (coinRed * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
@@ -119,10 +132,8 @@ function setHeightDiv(forceCashIncome,shortFall,targetPension,coinBlue,coinRed){
 		var isXs = checkScreenXsSM();
 		$('.arrow-mid').css('height',0);
 		if(isXs == true){
-			//$('.arrow-mid').css('height',0);
 			animationShortFall(heightMidInform,shortFall);
 		}else{
-			//$('.arrow-mid').css('height',0);
 			animationShortFall(heightMidInform -4,shortFall);
 		}
 		
@@ -168,72 +179,28 @@ function animationIncomed(){
 }
 
 /*------------------------------------------------------*/
-/* there are functions handle UI of disclamer */
-function registerLinkActionDisclamer(){
-	$('#disclamer-page').find('a').removeAttr('href');
-	$('#disclamer-page').find('a').click(function(){
-		var text = $(this).text();
-		var parentID = $(this).parent().parent().parent().attr('id');
-		if(text.toLowerCase() == "important assumptions" || text.toLowerCase() == "assumptions used"){
-			$('#'+parentID).hide();
-			$('#assump-div-top').find('a[id="back-assump"]').attr('lastparentID',parentID);
-			$('#assump-div-top').show();
-		}else if(text.toLowerCase() == "important information"){
-			$('#'+parentID).hide();
-			$('#important-div-top').find('a[id="back-important"]').attr('lastparentID',parentID);
-			$('#important-div-top').show();
-		}
-	});
-}
 
-function backAction(e){
-	var parentID = $(e).parent().parent().attr('id');
-	var lastParentID = $(e).attr('lastparentID');
-	$('#'+parentID).hide();
-	$('#'+lastParentID).show();
-}
+function drawCalendar(){
+	Calendar.setup({
+        inputField     :    "txt-birthday",     // id of the input field
+        ifFormat       :    "%b %e, %Y",      // format of the input field
+        button         :    "image-calendar-trigger",  // trigger for the calendar (button ID)
+        align          :    "Bl",           // alignment (defaults to "Bl") Tl
+        singleClick    :    true
+    });
+	
 
+}
 
 /*------------------------------------------------------*/
 /* there are functions handle UI of tab About you */
-function drawSlideRetirementAge(){
-	var labelStage = ["55","60","65","70","75"];
-	$("#age-to-retirement").slider({min: 55,max: 75,step: 1,value:65}).slider("pips", {rest: "label",step: 5,
-	label: labelStage}).slider("float");
-}
-
 function drawSlidePercentTaxFreeCash(){
 	var labelStage = ["0","5","10","15","20","25"];
 	$("#percent-tax-free").slider({min: 0,max: 25,step: 1}).slider("pips", {rest: "label",step: 5,
 	label: labelStage}).slider("float");
 }
-function drawSlideAboutYou(){
-	drawSlideRetirementAge();
-	drawSlidePercentTaxFreeCash();
-}
+
 /*------------------------------------------------------------------*/
-
-/* there are functions handle UI of tab result*/
-function drawSlideResult(ageRetire,percentTaxFree){
-	var label = ["55","60","65","70","75"];
-	$("#age-to-retirement-result").slider({min: 55,max: 75,step: 1,value:ageRetire}).slider("pips", {rest: "label",step: 5,
-	label: label}).slider("float");
-	
-	var labelStage = ["0","5","10","15","20","25"];
-	$("#percent-tax-free-result").slider({min: 0,max: 25,step: 1,value:percentTaxFree}).slider("pips", {rest: "label",step: 5,
-	label: labelStage}).slider("float");
-}
-
-function checkDrawChart(value){
-	getTax_Free_Value();
-	if(isReturnLTA == true){
-		if(value != getPercentLtaWithPensionFound()){
-			$("#percent-tax-free-result").slider().slider('value',getPercentLtaWithPensionFound());
-		}
-	}else{
-		drawChart();
-	}
-}
 
 function drawSlideModalGrowRate(){
 	var labelStage = ["0","0.5","1","1.5","2","2.5","3"];
@@ -249,11 +216,6 @@ function drawSlideModalGrowRate(){
 
 }
 /*--------------------------------------------*/
-function drawSlide(){
-drawSlideAboutYou();
-//drawSlideResult(65,0);
-drawSlideModalGrowRate();
-}
 function showWarning(content){
 //will show warning.
 $('#warningModal').find('.modal-body').html(content);

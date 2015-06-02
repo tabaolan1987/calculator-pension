@@ -1,19 +1,3 @@
-/*
-----------------Information--------------------------------
-
-1.Pension Accumulators Data JS
-
-2.All function in this file manage the data in page.
-
-3.Version 1.0.0
-
-4.Company - Claybourne McGregor Consulting Ltd 
-
-5.Author - Lan.Ta 
-
-6.Date - 30-03-2015
-
-*/
 var InformationArray = new Array();
 var warningArray = new Array();
 var annuityMale = new Array();
@@ -36,7 +20,8 @@ function accept(){
 hideDisclamer();
 setupData();
 registerAction();
-drawSlide();
+drawSlidePercentTaxFreeCash();
+drawCalendar();
 drawRightContent();
 $( window ).resize(function() {drawRightContent();});
 }
@@ -47,11 +32,11 @@ $("#important-text").show();
 $("#assump-text").show();
 }
 function setupData(){
-	loaddAllAnnuity();
+	//loaddAllAnnuity();
 	loadAllInformation();
-	loadAllWarning();
-	loadGrowthRate();
-	loadLTA();
+	//loadAllWarning();
+	//loadGrowthRate();
+	//loadLTA();
 }
 
 function loadPrintInfor(){
@@ -242,14 +227,13 @@ $.ajax({
     });
 }
 function loadAllWarning(){
-	loadWarning('about_you.xml');
-	loadWarning('savings.xml');
+	//loadWarning('about_you.xml');
+	//loadWarning('savings.xml');
 }
 
 function loadAllInformation(){
-	loadInformation('about_you.xml');
-	loadInformation('savings.xml');
-	loadInformation('result.xml');
+	loadInformation('details.xml');
+	//loadInformation('result.xml');
 }
 
 function loaddAllAnnuity(){

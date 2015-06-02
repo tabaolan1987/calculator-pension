@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <infor_popups>
 <infor>
-<id-element>current-age</id-element>
+<id-element>birthday-infor</id-element>
 <name>current-age</name>
 <message><![CDATA[<p>Current age</p>
 <p>Your pension forecast will be calculated using the time period between your current age and your chosen retirement age.</p>
@@ -22,26 +22,17 @@
 <p>Enter your gross salary (before deductions).</p>]]></message>
 </infor>
 <infor>
-<id-element>age-retirement</id-element>
-<name>age-retirement</name>
-<message><![CDATA[<p>Retirement age</p>
-<p>You cannot claim your state pension until you reach the State Pension age determined by the government. However, occupational and personal pensions can be started at any time from age 55 onwards.</p>
-<p>The age at which you choose to start your pensions has a significant impact on the amount of money you will receive.</P>
-<p>If you retire early, there will be less money in your pension pot and you will receive a smaller pension.</p>
-<p>This calculator does not include State Pension.</p>]]></message>
-</infor>
-<infor>
-<id-element>target-pension</id-element>
-<name>target-pension</name>
-<message><![CDATA[<p>Target income</p>
-<p>Enter the annual income amount that you  think you will need to maintain your desired lifestyle when you retire.</p>]]></message>
-</infor>
-<infor>
 <id-element>tax-free-cash</id-element>
 <name>tax-free-cash</name>
 <message><![CDATA[<p>Tax free cash</p>
 <p>You can take up to 25% of your pension pot as a tax free lump sum.</p>
 <p>This is capped at 25% of the current LTA (Lifetime  Allowance) determined by the government. Anything above that will be taxed at your normal rate.</p>
 <p>If your pension pot exceeds the current LTA value, your cash lump sum will be capped accordingly in this modeller.</p>]]></message>
+</infor>
+<infor>
+<id-element>target-pension</id-element>
+<name>target-pension</name>
+<message><![CDATA[<p>One of the factors that is used to calculate your annuity rate is an estimation of your expected mortality – how long you are likely to live.</p>
+<p>Annuity rates for women are lower than those for men because women have a longer life expectancy.</p>]]></message>
 </infor>
 </infor_popups>

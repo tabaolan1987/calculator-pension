@@ -10,7 +10,7 @@
 #content{
 	border:3px dotted #ddd;
 	font-size: 14px;
-	display : block;
+	display : none;
 }
 #disclamer-page{
 	font-size: 14px;
