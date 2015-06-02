@@ -1,5 +1,4 @@
-<!-- XML for Male Annuity purchase, based on HL -->		
-<annuityPurchase name="HL">		
+<annuityPurchase name="CB">		
 <annuity age="55" income="414.000" />		
 <annuity age="56" income="423.800" />		
 <annuity age="57" income="433.600" />		
