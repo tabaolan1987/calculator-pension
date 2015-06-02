@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Pension Calculator</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/pension_decumulator/animate.css">
+      <link rel="stylesheet" href="css/pension_decumulator/style-ui.css">
+      <!-- jQuery-ui-Slider-Pips -->
+      <link rel="stylesheet" href="css/pension_decumulator/jquery-ui.css">
+      <link rel="stylesheet" href="css/pension_decumulator/jquery-ui-slider-pips.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="js/pension_decumulator/jquery-ui.js"></script>
+      <script type="text/javascript" src="js/pension_decumulator/jquery-ui-slider-pips.js"></script>
+      <!--calendar-->
+      <link rel="stylesheet" type="text/css" media="all" href="css/pension_decumulator/calendar-win2k-cold-1.css" title="win2k-cold-1">
+      <script type="text/javascript" src="js/pension_decumulator/calendar.js"></script>
+      <script type="text/javascript" src="js/pension_decumulator/calendar-en.js"></script>
+      <script type="text/javascript" src="js/pension_decumulator/calendar-setup.js"></script>
+
+   </head>
+   <body>
+      <div class="container-fluid" id="wrapper">
+         <div class="row title">
+            <h3>Pension Calculator</h3>
+         </div><!--END .title-->
+         <div class="row" id="content">
+            <div class="col-sm-12 col-md-7 left-content">
+               <ul class="nav nav-tabs">
+                  <li class="active"><div class="mid"><div><a id='about-you' href="#tab1" data-toggle="tab">your details</a></div></div></li>
+                  <li><div class="mid"><div><a id='results' href="#tab2" data-toggle="tab">display results</a></div></div></li>
+               </ul>
+
+               <div class="tab-content">
+                  <div id="content-tooltip">
+                     <div id="infor-tooltip"></div>
+                  </div>
+                  <div class="tab-pane active" id="tab1">
+                     <div class="row row-rule">
+                        <div class="col-xs-10 col-sm-9"><span id="current-age" class="icon-tooltip"></span><span class="label-tooltip">What is your date of birth?</span></div>
+                        <div class="col-xs-2 col-calendar"><input id='txt-birthday' type="text" onkeypress="return isNumberKey(event)" class="form-control text-about-you input-birthday" placeholder=""/> <div class="wrap-img-calendar"><img src="images/pension_decumulator/calendar-bg.png" id="image-calendar-trigger" class="img-responsive" style="cursor: pointer;" title="Date selector" onmouseover="this.style.background='red';" onmouseout="this.style.background=''"/></div> </div>
+                     </div>
+                     <div class="row row-rule">
+                        <div class="col-xs-3"><span id="gender" class="icon-tooltip"></span><span class="label-tooltip">Male</span></div>
+                        <div class="col-xs-3"><input id='male' value='1' type="radio" name="optradio"><label for="male"></label></div>
+                        <div class="col-xs-3 radio-lable">Female</div>
+                        <div class="col-xs-3"><input id="female" type="radio" value='2' name="optradio"><label for="female"></label></div>
+                     </div>
+                     <div class="row row-rule">
+                        <div class="col-xs-10 col-sm-9"><span id="current-salary" class="icon-tooltip"></span><span class="label-tooltip">What is your existing fund value?</span></div>
+                        <div class="col-xs-2 pound"><input id='txt-current-salary' type="text" onkeypress="return isNumberKey(event)"  class="form-control text-about-you" placeholder=""/></div>
+                     </div>
+                     <div class="row row-rule">
+                        <div class="col-xs-7"><span id="age-retirement" class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider">What percentage would you like to take as tax free cash?</span></div>
+                        <div class="col-xs-5">
+                           <div id="age-to-retirement" class="retirementAge ui-slider"></div>
+                        </div>
+                     </div>
+                     <div class="row row-rule">
+                        <div class="col-xs-10 col-sm-9"><span id="target-pension" class="icon-tooltip"></span><span class="label-tooltip">How much annual income do you think you will want when you retire?</span></div>
+                        <div class="col-xs-2 pound"><input id="txt-target-pensions" type="text" onkeypress="return isNumberKey(event)"  class="form-control text-about-you" placeholder=""/></div>
+                     </div>
+                     <a id='nextAboutYou' class="btn btn-primary btnNext">calculate</a>
+                  </div><!--END #tab1-->
+
+                  <div class="tab-pane" id="tab2">
+                     <div id="wrap-tab">
+                        <p>According to the Office for National Statistics your estimated life expectancy from age <span class="display-result-age">55</span> is</p>
+                        <div class="row display-result-year-row">
+                           <div class="col-xs-2"><span id="target-pension" class="icon-tooltip"></div>
+                           <div class="col-xs-10 display-result-year expectancy-year">22 years</div>
+                        </div>
+                        <p class="color-blue">Based on the current values you have entered and a growth rate of <span class="display-result-percent">5</span>%, your funds may last you</p>
+                        <div class="row display-result-year-row">
+                           <div class="col-xs-2"></div>
+                           <div class="col-xs-10 display-result-year funds-year">23 years</div>
+                        </div>
+                        <ul class="summary-normal-title">
+                           <li class="li-heading">You can decrease the length of time your funds will last by:</li>
+                           <li>reducing the fund value used for your drawdown</li>
+                           <li>increasing your annual income</li>
+                           <li>increasing your tax free cash</li>
+                           <li>reducing your investment fund growth rate </li>
+                        </ul>
+                        <ul class="summary-excess-title" style="display:none;">
+                           <li class="li-heading">You can increase the length of time your funds will last by:</li>
+                           <li>increasing the fund value used for your drawdown</li>
+                           <li>reducing your annual income</li>
+                           <li>reducing your tax free cash</li>
+                           <li>increasing your investment fund growth rate (please note, this may also increase the risk)</li>
+                        </ul>
+                        <p class="title-link">Your existing fund value is <b>£</b><b class="display-result-pound-fund">300,000</b></p>
+                        <p class="p-link"><a  data-toggle="tab" class="display-result-link" id="focus-fund"  title="Change fund value" alt="Change fund value">change fund value</a></p>
+                        <p class="title-link">Your chosen annual income is <b>£</b><b class="display-result-pound-annual">200,000</b></p>
+                        <p class="p-link"><a  data-toggle="tab" class="display-result-link" id="focus-annual"  title="change income required" alt="change income required">change income required</a></p>
+                        <p class="title-link">Your chosen tax free cash amount is <b>£</b><b class="display-result-pound-amount">75,694</b> (<b class="display-result-percent-amount">25</b><b>%</b>)</p>
+                        <p class="p-link"><a class="display-result-link" id="focus-tax"  title="Change tax free cash" alt="Change tax free cash">change tax free cash</a></p>
+                        <div class="align-right">
+                           <div id="print-div"><a id="print-data" class="btn btn-primary btn-print" onclick="PrintElement('#box-print')" >print</a></div>
+                           <span class="btn-note">Click here to change your growth rate and/or charges</span> <span class="btn" id="btn-advanced" data-toggle="modal" data-target="#estimated-annual-modal">advanced</span>
+                        </div>
+                     </div>
+                  </div><!--END #tab2-->
+               </div>
+            </div><!--END .left-content-->
+
+            <div id='right-content' class="col-sm-12 col-md-5 right-content">
+               <!---->
+               <div class="right-content-draw" >
+                  <div class="draw-chart align-center" >
+                     <div class="row">
+                        <h3 class="align-center">To provide for an annual income of <br/> <b>£</b><b class="pound-annual-income">35,000</b></h3>
+                        <div class="col-xs-6">
+                           <div id="coin-title-left">Your funds need <br/> to last <br/><b>31 years</b></div>
+                           <div id="coin-container-left">
+                              <img class="img-responsive" src="images/pension_decumulator/col-coin-left.png" alt="" title="" />
+                           </div>
+                        </div>
+                        <div class="col-xs-6">
+                           <div id="coin-title-right">Your funds may <br/> last <br/><b>5 years</b></div>
+                           <div class="top-arrow">
+                                 <div class="arrow-top"></div>
+                                 <div class="arrow-mid">
+                                    <div class="shortfall">Shortfall </br> <span style="color:#da291c;">£</span><span class="pound-shortfall">39,800</span></div>
+                                 </div>
+                                 <div class="arrow-bot"></div>
+                           </div>
+                           <div id="coin-container-right">
+                              <img class="img-responsive" src="images/pension_decumulator/col-coin-right.png" alt="" title="" />
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="right-content-default align-center" style="display:none;">
+                  <img class="img-responsive" src="images/pension_decumulator/right-content-img.jpg" alt="" title="" />
+               </div>
+            </div>
+            <!--END .right-content-->
+         </div>
+         <!--END #content-->
+      </div>
+      <!--END #wrapper-->
+      <div class="modal fade" id="warningModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header" style="border-bottom:0px">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+                  <h4 class="modal-title" id="myModalLabel"></h4>
+               </div>
+               <div class="modal-body" style="text-align:center;color: #06038d;margin-bottom: 20px;">
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal fade" id="estimated-annual-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content" style="top:150px;">
+               <div class="modal-header" style="border-bottom:0px">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+                  <h4 class="modal-title" id="myModalLabel"></h4>
+               </div>
+               <div class="modal-body modal-estimated">
+                  <div id="modal-grow" class="">
+					<div class="col-xs-12 col-sm-12"><span information-message="annual grow information" id="annual-grow-infor-popup"  class="icon-tooltip"></span><span class="label-tooltip">What is the estimated annual growth of your savings?</span></div>
+				  </div>
+				  <div id="modal-slide-grow" class="">
+					<div class="col-xs-12 col-sm-12"><span information-message="annual charge information" id="annual-charge-infor-popup" class="icon-tooltip"></span><span class="label-tooltip">What is your annual management charge?</span></div>
+					<div class="col-xs-7 col-xs-offset-1 col-sm-7 col-sm-offset-1" style="padding-top:15px;">
+						<div id="slider-modal-growrate" style="margin-left:4px" class="slider-cash ui-slider"></div>
+					</div>
+				  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="box-print" style="display:none;">
+         <div id="disclamer-print" style="font-family: Helvetica Heue;">
+            <p>The aim of this calculator is to give you an indication of how much you need to contribute to a pension and what you might get as a retirement income. The calculator should not be regarded as personal advice. If you are at all unsure, please contact us for advice.</p>
+            <p>The figures are a guide and not guaranteed. Your final pension fund and the income available will depend on factors including the growth your fund achieves, contributions you make in future, charges, inflation, your retirement age, annuity rates at the time and the annuity options you choose.</p>
+         </div>
+         <div id="important-print" style="font-family: Helvetica Heue;">
+            <p>Investment returns are not guaranteed and could be more or less than those used here. Past performance is not a guide to future returns. The value of investments can fall as well as rise, so you may get back less than you invest.</p>
+         </div>
+		  <div id="assump-print" style="font-family: Helvetica Heue;">
+            <p>Investment returns are not guaranteed and could be more or less than those used here. Past performance is not a guide to future returns. The value of investments can fall as well as rise, so you may get back less than you invest.</p>
+         </div>
+         <div id="result-box" style="border: 2px solid #53565A;padding: 10px;font-family: Helvetica Heue;">
+            <h4>Your results:</h4>
+            <p>Your chosen target income is <b>£</b><b class="print-pound-pension">50,000</b> each year when you retire at age <b class="print-retire-age">67</b>.</p>
+            <p>Your chosen tax free cash amount is <b>£</b><b class="print-pound-amount">85,694</b> (<b class="print-percent-amount">25</b>%).</p>
+            <p>Your future pension payments and any existing pensions you have included will provide an income of <b>£</b><b class="print-pound-income">10,200</b> a year from age <b class="print-retire-age">67</b></p>
+            <p>You have a shortfall of <b>£</b><b class="print-pound-shortfall">39,800</b> per year.</p>
+         </div>
+      </div>
+      <div id='check-ui' class="hidden-sm hidden-xs"></div>
+      <script type="text/javascript" >
+         $(document).ready(function(){
+			//setupDisclammerPage();
+            Calendar.setup({
+                 inputField     :    "txt-birthday",     // id of the input field
+                 ifFormat       :    "%b %e, %Y",      // format of the input field
+                 button         :    "image-calendar-trigger",  // trigger for the calendar (button ID)
+                 align          :    "Bl",           // alignment (defaults to "Bl") Tl
+                 singleClick    :    true
+            });
+            
+            /*Calendar.setup({
+                 inputField     :    "txt-birthday",     // id of the input field
+                 ifFormat       :    "%B %e, %Y",      // format of the input field
+                 //button         :    "f_trigger_c",  // trigger for the calendar (button ID)
+                 align          :    "Bl",           // alignment (defaults to "Bl") Tl
+                 singleClick    :    true
+            });*/
+         });
+          
+      </script>
+   </body>
+</html>

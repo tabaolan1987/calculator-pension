@@ -1,25 +1,25 @@
 <!-- XML for Female Annuity purchase, based on HL -->
 <annuityPurchase name="HL">		
-<annuity age="55" income="414.000" />		
-<annuity age="56" income="423.800" />		
-<annuity age="57" income="433.600" />		
-<annuity age="58" income="443.400" />		
-<annuity age="59" income="453.200" />		
-<annuity age="60" income="463.000" />		
-<annuity age="61" income="479.400" />		
-<annuity age="62" income="495.800" />		
-<annuity age="63" income="512.200" />		
-<annuity age="64" income="528.600" />		
-<annuity age="65" income="545.000" />		
-<annuity age="66" income="563.200" />		
-<annuity age="67" income="581.400" />		
-<annuity age="68" income="599.600" />		
-<annuity age="69" income="617.800" />		
-<annuity age="70" income="636.000" />		
-<annuity age="71" income="663.200" />		
-<annuity age="72" income="690.400" />		
-<annuity age="73" income="717.600" />		
-<annuity age="74" income="744.800" />		
-<annuity age="75" income="772.000" />		
+<annuity age="55" income="3000" />		
+<annuity age="56" income="3600" />		
+<annuity age="57" income="4320" />		
+<annuity age="58" income="4920" />		
+<annuity age="59" income="5640" />		
+<annuity age="60" income="6240" />		
+<annuity age="61" income="6960" />		
+<annuity age="62" income="7560" />		
+<annuity age="63" income="8280" />		
+<annuity age="64" income="8880" />		
+<annuity age="65" income="9600" />		
+<annuity age="66" income="10200" />		
+<annuity age="67" income="10920" />		
+<annuity age="68" income="11520" />		
+<annuity age="69" income="12240" />		
+<annuity age="70" income="12840" />		
+<annuity age="71" income="13560" />		
+<annuity age="72" income="14160" />		
+<annuity age="73" income="14880" />		
+<annuity age="74" income="15480" />		
+<annuity age="75" income="16200" />		
 </annuityPurchase>
 
