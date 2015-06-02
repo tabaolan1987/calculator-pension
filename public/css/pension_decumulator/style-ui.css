@@ -247,7 +247,7 @@ a:focus{
 
 .wrap-img-calendar{
 	position: absolute;
-	right: -18px;
+	right: 14px;
 	top:4px;
 	width: 23px;
 	height: 24px;
@@ -262,6 +262,7 @@ a:focus{
 	margin-top:5px;
 	padding: 0 5px;
 	text-align:right;
+	width: 80%;
 }
 
 .row-rule input[type="radio"]{
@@ -502,6 +503,13 @@ a:focus{
 /*tab display result*/
 .display-result-year-row{
 	margin-bottom: 20px;
+	position: relative;
+}
+
+.display-result-icon{
+	position: absolute;
+	left:20px;
+	z-index: 99;
 }
 
 .display-result-year{
@@ -567,7 +575,7 @@ a:focus{
 }
 
 .tab-content .btnNext{
-	right:95px;
+	right:139px;
 }
 
 .tab-content .btnPrevious{
@@ -928,6 +936,10 @@ a:focus{
 	    width: 20px;
 	}
 
+	.row-rule input[type="text"]{
+		width: 100%;
+	}
+
 	/*bootstrap overide*/
 	.tab-pane .col-xs-10{
 		width: 70%;
@@ -1200,4 +1212,21 @@ a:focus{
 		width: 23.667%;
 	}
 
+}
+
+
+/*less than 480px*/
+@media screen and (max-width: 400px) {
+	.arrow-top{
+		background: url(../../images/pension_decumulator/arrow-top-bg-480.png) top center no-repeat;
+	}
+
+	.arrow-mid{
+		background: url(../../images/pension_decumulator/arrow-mid-bg-480.png) top center repeat-y;
+		font-size: 14px;
+	}
+
+	.arrow-bot{
+		background: url(../../images/pension_decumulator/arrow-bot-bg-480.png) top center no-repeat;
+	}
 }
