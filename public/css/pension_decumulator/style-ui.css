@@ -247,7 +247,7 @@ a:focus{
 
 .wrap-img-calendar{
 	position: absolute;
-	right: -18px;
+	right: 14px;
 	top:4px;
 	width: 23px;
 	height: 24px;
@@ -262,6 +262,7 @@ a:focus{
 	margin-top:5px;
 	padding: 0 5px;
 	text-align:right;
+	width: 80%;
 }
 
 .row-rule input[type="radio"]{
@@ -502,6 +503,13 @@ a:focus{
 /*tab display result*/
 .display-result-year-row{
 	margin-bottom: 20px;
+	position: relative;
+}
+
+.display-result-icon{
+	position: absolute;
+	left:13px;
+	z-index: 99;
 }
 
 .display-result-year{
@@ -926,6 +934,10 @@ a:focus{
 	    right: -9px;
 	    top: 2px;
 	    width: 20px;
+	}
+
+	.row-rule input[type="text"]{
+		width: 100%;
 	}
 
 	/*bootstrap overide*/
