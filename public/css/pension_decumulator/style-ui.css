@@ -1213,3 +1213,20 @@ a:focus{
 	}
 
 }
+
+
+/*less than 480px*/
+@media screen and (max-width: 400px) {
+	.arrow-top{
+		background: url(../../images/pension_decumulator/arrow-top-bg-480.png) top center no-repeat;
+	}
+
+	.arrow-mid{
+		background: url(../../images/pension_decumulator/arrow-mid-bg-480.png) top center repeat-y;
+		font-size: 14px;
+	}
+
+	.arrow-bot{
+		background: url(../../images/pension_decumulator/arrow-bot-bg-480.png) top center no-repeat;
+	}
+}
