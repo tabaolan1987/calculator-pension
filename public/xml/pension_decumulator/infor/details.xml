@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <infor_popups>
 <infor>
-<id-element>birthday-infor</id-element>
+<id-element>current-age</id-element>
 <name>current-age</name>
 <message><![CDATA[<p>Current age</p>
 <p>Your pension forecast will be calculated using the time period between your current age and your chosen retirement age.</p>
