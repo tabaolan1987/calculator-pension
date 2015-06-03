@@ -1,9 +1,4 @@
 var isCalculate = false;
-
-
-
-
-
 $.fn.animatecss = function (classes, callback) {
     return this.addClass(classes).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', callback);
 };
@@ -26,23 +21,24 @@ $.fn.animateRotate = function(angle, top, duration, easing, complete) {
   });
 };
 
-
-
-function setupCoin(coinBlue,coinRed){
-	if(coinBlue > 0){
-		var html = "<div class='coinBlue' id='coin1'></div>";
-	}else{
-		var html = "<div class='coinRed' id='coin1'></div>";
+function setupCoinBlue(coinblue){
+	var html;
+	for(var i = 0 ; i < coinblue;i++){
+		var index = i +1;
+		html = html + "<div class='coinBlue' id='coin"+index+"'></div>";
 	}
-	for(var i = 2 ; i <= totalCoin ;i++){
-		if(i > coinBlue){
-			html = html + "<div class='coinRed' id='coin"+i+"'></div>";
-		}else{
-			html = html + "<div class='coinBlue' id='coin"+i+"'></div>";
-		}	
-	}
-	$('#coin-container').html(html);
+	$('#coin-container-right').html(html);
 }
+
+function setupCoinGrey(coingrey){
+	var html;
+	for(var i = 0 ; i < coingrey;i++){
+		var index = i +1;
+		html = html + "<div class='coingrey' id='coin"+index+"'></div>";
+	}
+	$('#coin-container-left').html(html);
+}
+
 function fallingCoin(index,forceCashIncome,shortFall,targetPension,coinBlue,coinRed) {
 		isCalculate = true;
 		var coin = "#coin"+index;

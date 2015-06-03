@@ -15,6 +15,13 @@
 
 */
 
+function registerAction(){
+	registerHoverAction();
+	registerActionYourDetails();
+}
+
+
+
 /* there are functions handle UI of disclamer */
 function registerLinkActionDisclamer(){
 	$('#disclamer-page').find('a').removeAttr('href');
@@ -44,10 +51,6 @@ function backAction(e){
 	$('#disclamer-div').show();
 }
 
-
-function registerAction(){
-	registerHoverAction();
-}
 
 /* this function handle the action hover the information image */
 function registerHoverAction(){
@@ -102,8 +105,136 @@ function isNumberKey(evt){
 
 
 
+function registerActionYourDetails(){
+
+	$('.text-about-you').on('input', function() {
+		var check = checkDataYourDetail();
+		if(check.length == 0){
+			eneableTabResult();
+		}else{
+			disableTabResult();
+		}
+	});
+	
+	$('.text-about-you').on('blur', function() {
+		var number = addCommas($(this).val());
+		if(number == 0){
+			$(this).val("");
+		}else{
+			$(this).val(number);
+		}
+	});
+
+	$("input:radio[name=optradio]").change(function(){
+		var check = checkDataYourDetail();
+		if(check.length == 0){
+			eneableTabResult();
+		}else{
+			disableTabResult();
+		}
+	});
+	
+	$('#nextAboutYou').click(function(){
+		var check = checkDataYourDetail();
+		if(check.length == 0){
+			var fundValue = getFundValue();	
+			var taxfreePercent = getTaxFreePercent();
+			var taxfreeCash = getTaxFreeCash(fundValue,taxfreePercent);
+			eneableTabResult();
+			if(isReturnLTA == true){
+				showWarning(LTA['message']);
+				var percentChange = getPercentLTAwithPensionFound(fundValue);
+				$("#percent-tax-free").slider().slider("value",percentChange);
+			}else{
+				$("#results").trigger('click');
+			}
+		}else{
+			var caseWarning = check[0];
+			content = warningArray["validate-field"] +" "+ check[0];
+			for(var i =1; i < check.length;i++){
+				content = content+", " + check[i];
+			}
+			disableTabResult();
+			showWarning(content+"!");
+		}
+	});
+	
+	$('#results').click(function(){
+		var check = checkDataYourDetail();
+		if(check.length == 0){
+			var fundValue = getFundValue();	
+			var taxfreePercent = getTaxFreePercent();
+			var taxfreeCash = getTaxFreeCash(fundValue,taxfreePercent);
+			eneableTabResult();
+			if(isReturnLTA == true){
+				showWarning(LTA['message']);
+				var percentChange = getPercentLTAwithPensionFound(fundValue);
+				$("#percent-tax-free").slider().slider("value",percentChange);
+			}
+		}else{
+			var caseWarning = check[0];
+			content = warningArray["validate-field"] +" "+ check[0];
+			for(var i =1; i < check.length;i++){
+				content = content+", " + check[i];
+			}
+			disableTabResult();
+			showWarning(content+"!");
+			return false;
+		}
+	});
+	
+	
+}
+
+function checkDataYourDetail(){
+	var content = new Array();
+	var dob = $('#txt-birthday').val();
+	if(dob == "" || typeof dob === 'undefined' || dob === null){
+		content.push($('#txt-birthday').attr("alert-message"));
+	}
+	var gender = getGender();
+	if(gender == 0){
+		content.push($("#male").attr("alert-message"));
+	}
+	var currentSalary = $('#txt-current-salary').val();
+	if(currentSalary=="" || currentSalary == 0){
+		content.push($('#txt-current-salary').attr("alert-message"));
+	}
+	var targetPension = $('#txt-target-pensions').val();
+	if( targetPension == "" & targetPension == 0){
+		content.push($('#txt-target-pensions').attr("alert-message"));
+	}
+	return content;
+
+}
+
+function eneableTabResult(){
+	$('#results').attr('href','#tab2');
+	$('#results').attr('data-toggle','tab');
+}
+
+function disableTabResult(){
+	$('#results').removeAttr('href');
+	$('#results').removeAttr('data-toggle');
+}
 
 
+
+
+
+
+function registerActionResult(){
+
+}
+
+
+function updateFundNeedToLast(year){
+	$("#year-need-last").html(year);
+}
+
+function updateFundMayToLast(year){
+	$("#year-may-last").html(year);
+}
 
 
 

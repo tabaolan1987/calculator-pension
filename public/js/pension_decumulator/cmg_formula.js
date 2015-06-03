@@ -34,7 +34,17 @@ function removeCommas(number){
 	var temp  = accounting.unformat(number);
 	return temp;
 }
-
+function roundup(number){
+	number = removeCommas(number);
+	var temp = 0;
+	if(parseInt(number) == number){
+		temp = number;
+	}else{
+		temp =  parseInt(new Number(number).toFixed(0)) + 1;
+	}
+	
+	return temp;
+}
 function round(number) {
     var n = parseFloat(number);
     n =  Math.round(n);
@@ -68,7 +78,7 @@ function getFundValue(){
 	return fundValue;
 }
 
-function getTaxFreeCashPercent(){
+function getTaxFreePercent(){
 	var tax = $("#percent-tax-free").slider().slider("value");
 	return tax;
 }
@@ -117,6 +127,11 @@ function getTaxFreeCash(taxFreeCashPercent, fundValue){
 	}
 }
 
+function getPercentLTAwithPensionFound(fundValue){
+	var temp = (LTA['value']/parseFloatCMG(fundValue))*100;
+	return round(temp);
+}
+
 function getTotalRate(inflattion, manageCharge){
 	var totalRate = (parseFloatCMG(inflattion) - parseFloatCMG(manageCharge))/100;
 	return totalRate;
@@ -140,16 +155,50 @@ function getLifeExpectancy(currentAge,gender){
 		currentAge = 55;
 	}
 	if(gender == male){
-		return onsMale[currentAge]
+		return roundup(onsMale[currentAge]);
 	}else if(gender == female){
-		return onsFemale[currentAge]
+		return roundup(onsFemale[currentAge]);
 	}
 	return 0;
 }
 
 
+function getCoinBlue(yearMayLast,yearNeedLast){
+	if(yearMayLast == yearNeedLast){
+		return 25;
+	}else if(yearMayLast > yearNeedLast){
+		return 25;
+	}else if(yearMayLast < yearNeedLast){
+		var percent = (yearMayLast/yearNeedLast)*100;
+		var shortFall = 100 - percent;
+		if( shortFall < 21){
+			return 20;
+		}
+		var coin = new Number(percent/4).toFixed(0);
+		return coin;
+	}
+}
 
+function getCoinGrey(yearMayLast,yearNeedLast){
+	if(yearMayLast == yearNeedLast){
+		return 25;
+	}else if(yearNeedLast > yearMayLast){
+		return 25;
+	}else if(yearNeedLast < yearMayLast){
+		var percent = (yearNeedLast/yearMayLast)*100;
+		var different = 100 - percent;
+		if( different < 4){
+			return 24;
+		}
+		var coin = new Number(percent/4).toFixed(0);
+		return coin;
+	}
+}
 
+function getShortFall(coinBlue){
+	var shortFall = 25 - coinBlue;
+	return shortFall;
+}
 
 
 

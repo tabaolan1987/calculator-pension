@@ -35,7 +35,7 @@ $("#assump-text").show();
 function setupData(){
 	loaddAllONS();
 	loadAllInformation();
-	//loadAllWarning();
+	loadAllWarning();
 	loadGrowthRate();
 	loadLTA();
 }
@@ -224,7 +224,6 @@ $.ajax({
 }
 function loadAllWarning(){
 	loadWarning('details.xml');
-	//loadWarning('savings.xml');
 }
 
 function loadAllInformation(){
