@@ -224,21 +224,59 @@ function disableTabResult(){
 
 
 function registerActionResult(){
-
+	$('a[id="results"]').on('shown.bs.tab', function (e) {
+		var yearNeedLast = getLifeExpectancy();
+		var yearMayLast = 
+		 
+	});
 }
 
 
 function updateFundNeedToLast(year){
 	$("#year-need-last").html(year);
+	var coingrey = $('.coingrey').length;
+	var last = coingrey -1;
+	var top = ($("#coingrey"+last).position().top + 15) - $("#coin-title-left").height() ;
+	$("#coin-title-left").css("top",top+"px");
+	$("#coin-title-left").css("position","absolute");
+	$("#coin-title-left").fadeIn();
 }
 
-function updateFundMayToLast(year){
+function updateFundMayToLast(year,yearOfShortFall){
 	$("#year-may-last").html(year);
+	var coinBlue = $('.coinBlue').length;
+	if(coinBlue == totalCoin){
+		$("#coin-title-right").fadeIn();
+	}else if(coinBlue < totalCoin){
+		var coinForShortFall = totalCoin - coinBlue;
+		if(coinForShortFall > 5){
+			var heighAdded = coinForShortFall * ($('.coinBlue').height() / 2 - 5) - 54;
+			$("#coin-title-right").fadeIn(function(){
+				$(".top-arrow").css("top",100);
+				$(".top-arrow").css("position","relative");
+				animationShortFall(heighAdded,yearOfShortFall);
+			});
+		}else{
+			$("#coin-title-right").fadeIn(function(){
+				$(".top-arrow").css("top",100);
+				$(".top-arrow").css("position","relative");
+				animationShortFall(42,yearOfShortFall);
+			});
+		}
+		
+	}
+	
 }
 
 
 
-
+function test(){
+	setupCoinGrey(20);
+	fallingCoinGrey(0,33);
+	
+	setupCoinBlue(25);
+	fallingCoinBlue(0,33);
+}
 
 
 

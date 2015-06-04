@@ -598,8 +598,8 @@ a:focus{
 .top-arrow{
 	text-align: center;
 	z-index: 999;
-	position: relative;
 	margin-bottom: -10px;
+	display:none;
 }
 
 .arrow-top{
@@ -639,7 +639,7 @@ a:focus{
 	position:absolute;
 }
 
-.coinRed{
+.coingrey{
 	background: url(../../images/pension_decumulator/coin_red_horiontal_crop.png) top no-repeat;
 	width: 114px;
 	height: 50px;
@@ -655,21 +655,28 @@ a:focus{
 	display:none;
 }
 
-#coin-container{
-	height : 520px;
+#coin-container-left{
+	height : 615px;
+	width: 114px;
+	display: inline-block;
+}
+
+#coin-container-right{
+	height : 615px;
 	width: 114px;
 	display: inline-block;
 }
 
 #coin-title-left{
 	z-index: 999;
-	position: relative;
-	margin-bottom: -10px;
+	position: absolute;
 	background: url(../../images/pension_decumulator/title-coin-gray.png) bottom center no-repeat;
 	min-width: 172px;
 	min-height: 94px;
 	font-size: 17px;
 	color: #7a7a7a;
+	left:40px;
+	display:none;
 }
 
 #coin-title-right{
@@ -678,6 +685,11 @@ a:focus{
 	min-height: 94px;
 	font-size: 17px;
 	color: #06038d;
+	position: absolute;
+	z-index: 999;
+	left:40px;
+	display:none;
+	top : 6px;
 }
 
 .draw-chart-default{

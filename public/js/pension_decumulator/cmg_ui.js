@@ -22,104 +22,65 @@ $.fn.animateRotate = function(angle, top, duration, easing, complete) {
 };
 
 function setupCoinBlue(coinblue){
-	var html;
+	var html ="start";
 	for(var i = 0 ; i < coinblue;i++){
-		var index = i +1;
-		html = html + "<div class='coinBlue' id='coin"+index+"'></div>";
+		html = html + "<div class='coinBlue' id='coinBlue"+i+"'></div>";
 	}
+	html = html.replace("start","");
 	$('#coin-container-right').html(html);
 }
 
 function setupCoinGrey(coingrey){
-	var html;
+	var html ="start";
 	for(var i = 0 ; i < coingrey;i++){
-		var index = i +1;
-		html = html + "<div class='coingrey' id='coin"+index+"'></div>";
+		html = html + "<div class='coingrey' id='coingrey"+i+"'></div>";
 	}
+	html = html.replace("start","");
 	$('#coin-container-left').html(html);
 }
 
-function fallingCoin(index,forceCashIncome,shortFall,targetPension,coinBlue,coinRed) {
-		isCalculate = true;
-		var coin = "#coin"+index;
-        $(coin).show();
-        var heightContainer = $('#coin-container').height() - 25;
-		console.log('heightContainer :' + heightContainer);
-        var heightImage = $(coin).height() / 2 - 5;
-        var moveToBottom = heightContainer - (heightImage * index);
-        var angle = 70 * (index % 2 === 0 ? 1 : -1);
-        $(coin).animateRotate(angle, moveToBottom, 300-heightImage*index, 'linear', function () {  
-            if (index < totalCoin) {
-                index = index + 1;
-                fallingCoin(index,forceCashIncome,shortFall,targetPension,coinBlue,coinRed);
-            }else{
-				//set visible and height
-				console.log('coin done');
-				setHeightDiv(forceCashIncome,shortFall,targetPension,coinBlue,coinRed);
-				eneabledTxtField();
-			}
-        });
+
+function fallingCoinGrey(index,year){
+	isCalculate = true;
+	var coingrey = $('.coingrey').length;
+	if(index == coingrey){
+		updateFundNeedToLast(year);
+		return;
+	}
+	var coin = "#coingrey"+index;
+	$(coin).show();
+	var heightContainer = $('#coin-container-left').height() -50;
+	var heightImage = $(coin).height() / 2 - 5;
+	var moveToBottom = heightContainer - (heightImage * index);
+	var angle = 70 * (index % 2 === 0 ? 1 : -1);
+	$(coin).animateRotate(angle, moveToBottom, 300-heightImage*index, 'linear', function () {
+        if (index < coingrey) {
+            index = index + 1;
+            fallingCoinGrey(index,year);
+        }
+    });
 }
 
-function setHeightDiv(forceCashIncome,shortFall,targetPension,coinBlue,coinRed){
-	$('.pound-income-inform').html(Number(forceCashIncome).toLocaleString('en').split('.')[0]);
-	if(coinBlue > 5 & coinBlue < totalCoin & coinRed  > 5){
-		var heighTotalRed = (coinRed * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
-		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
-		$('.arrow-mid').css('height',0);
-		var hieghtBlueDiv = ($('#coin-container').height() - 25 - heighTotalRed)/2 - $('.bot-arrow').height()/2;
-		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
-		$('#print-div').css('margin-top',hieghtBlueDiv + 9);
-		animationShortFall(heightMidInform -2,shortFall);
-		animationIncomed();
-		return true;
-	}else if(coinBlue == totalCoin){
-		$('.top-arrow').hide();
-		var margin = ($('#coin-container').height() - 25)/2 - $('.bot-arrow').height()/2;
-		$('.bot-arrow').css('margin-top',margin);
-		$('#print-div').css('margin-top',margin + 7);
-		animationIncomed();
-		return true;
-	}else if(coinBlue <= 5 & coinBlue > 3){
-		var heighTotalRed = (coinRed * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
-		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
-		$('.arrow-mid').css('height',0);
-		$('.bot-arrow').css('margin-top','0');
-		if(coinBlue==4){
-			$('#print-div').css('margin-top',"-1px");
-		}else{
-			$('#print-div').css('margin-top',"19px");
-		}
-		animationShortFall(heightMidInform - 4,shortFall);
-		animationIncomed();
-		return true;
-	}else if(coinBlue <= 3){
-		coinRed = 21;
-		var heighTotalRed = (coinRed * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
-		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
-		var isXs = checkScreenXsSM();
-		$('.arrow-mid').css('height',0);
-		if(isXs == true){
-			animationShortFall(heightMidInform,shortFall);
-		}else{
-			animationShortFall(heightMidInform -4,shortFall);
-		}
-		
-		$('.bot-arrow').css('margin-top','0');
-		$('#print-div').css('margin-top',"-1px");
-		animationIncomed();
-		return true;
-	}else if(coinRed <= 5){
-		var heighTotalRed = (2 * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
-		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
-		$('.arrow-mid').css('height',40);
-		var hieghtBlueDiv = ($('#coin-container').height() - 25 - $('.top-arrow').height())/2 - $('.bot-arrow').height()/2;
-		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
-		$('#print-div').css('margin-top',hieghtBlueDiv + 7);
-		animationShortFall(heightMidInform -2,shortFall);
-		animationIncomed();
-		return true;
+
+function fallingCoinBlue(index,year,yearOfShortFall){
+	isCalculate = true;
+	var coinblue = $('.coinBlue').length;
+	if(index == coinblue){
+		updateFundMayToLast(year,yearOfShortFall);
+		return;
 	}
+	var coin = "#coinBlue"+index;
+	$(coin).show();
+	var heightContainer = $('#coin-container-right').height() - 50;
+	var heightImage = $(coin).height() / 2 - 5;
+	var moveToBottom = heightContainer - (heightImage * index);
+	var angle = 70 * (index % 2 === 0 ? 1 : -1);
+	$(coin).animateRotate(angle, moveToBottom, 300-heightImage*index, 'linear', function () {
+        if (index < coinblue) {
+                index = index + 1;
+                fallingCoinBlue(index,year);
+        }
+    });
 }
 
 function animationShortFall(height,shortFall){
@@ -127,24 +88,12 @@ function animationShortFall(height,shortFall){
 	setTimeout(function(){
 		$('.top-arrow').show();
 		$(".arrow-mid").animate({"height":height}, "slow",function(){
-			$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0]);
+			$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0] + " years");
 			$('.shortfall').fadeIn(1000);
 		});
 	}, 200);
 }
 
-function animationIncomed(){
-	$('#print-div').hide();	
-	setTimeout(function(){
-		$('.bot-arrow').show();
-		var left =  $(".bot-arrow").offset().left;
-		$(".bot-arrow").css({left:left}).animate({"left":"10px"}, "slow",function(){
-			$('.bot-arrow-pension').show();
-			$('#print-div').fadeIn(2500);
-		});
-	}, 1000);
-	
-}
 
 /*------------------------------------------------------*/
 

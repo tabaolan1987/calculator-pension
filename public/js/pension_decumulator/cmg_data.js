@@ -25,6 +25,7 @@ drawSlideModalGrowRate();
 drawCalendar();
 drawRightContent();
 $( window ).resize(function() {drawRightContent();});
+//test();
 }
 function hideDisclamer(){
 $(".disclamer-page").hide();

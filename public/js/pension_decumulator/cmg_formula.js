@@ -100,19 +100,23 @@ function getManagementCharge(){
 	return mnCharge;
 }
 
-function getInflationAdjust(growthRate){
+function getInflationAdjust(){
+	var growthRate = getGrowthRate()
 	var inFlat = growthRate[growthRate];
 	return inFlat;
 }
 
 
-function getCurrentAge(dob){
-	var currentAge = new Date().getFullYear() - new Date(dob).getFullYear;
+function getCurrentAge(){
+	var dob = getDOB();
+	var currentAge = new Date().getFullYear() - new Date(dob).getFullYear();
 	return currentAge;
 }
 
-function getFundPot(fundValue,taxFreeCash){
-	var fundPot = parseFloatCMG(fundValue) * ((100-parseFloatCMG(taxFreeCash))/100);
+function getFundPot(){
+	var fundValue = getFundValue();
+	var taxFreePercent = getTaxFreePercent();
+	var fundPot = parseFloatCMG(fundValue) * ((100-parseFloatCMG(taxFreePercent))/100);
 	return fundPot;
 }
 
@@ -132,7 +136,9 @@ function getPercentLTAwithPensionFound(fundValue){
 	return round(temp);
 }
 
-function getTotalRate(inflattion, manageCharge){
+function getTotalRate(){
+	var manageCharge = getManagementCharge();
+	var inflattion = getInflationAdjust();
 	var totalRate = (parseFloatCMG(inflattion) - parseFloatCMG(manageCharge))/100;
 	return totalRate;
 }
@@ -150,7 +156,9 @@ function decumulatorYears(fundPot, totalRate, annualIncome){
 	return deYear;
 }
 
-function getLifeExpectancy(currentAge,gender){
+function getLifeExpectancy(){
+	var currentAge = getCurrentAge();
+	var gender = getGender();
 	if(currentAge < 55){
 		currentAge = 55;
 	}
@@ -195,10 +203,7 @@ function getCoinGrey(yearMayLast,yearNeedLast){
 	}
 }
 
-function getShortFall(coinBlue){
-	var shortFall = 25 - coinBlue;
-	return shortFall;
-}
+
 
 
 
