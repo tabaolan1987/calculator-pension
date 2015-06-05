@@ -87,7 +87,7 @@ function registerActionAboutYou(){
 	});
 	
 	$('.text-about-you').on('blur', function() {
-		var number = addCommas($(this).val());
+		var number = addCommas(round($(this).val()));
 		$(this).val(number);
 	});
 	$("input:radio[name=optradio]").change(function(){
@@ -168,7 +168,7 @@ function getGender(){
 function checkDataAboutYou(){
 	var content = new Array();
 	var currentAge = $('#txt-current-age').val();
-	if(currentAge == "" || typeof currentAge === 'undefined' || currentAge === null){
+	if(currentAge == "" || typeof currentAge === 'undefined' || currentAge === null || currentAge == 0){
 		content.push("current age");
 	}
 	var gender = getGender();
@@ -180,7 +180,7 @@ function checkDataAboutYou(){
 		content.push("current salary");
 	}
 	var targetPension = $('#txt-target-pensions').val();
-	if( targetPension == "" & targetPension == 0){
+	if( targetPension == "" || targetPension == 0){
 		content.push("target income");
 	}
 	var ageRetire = $('.retirementAge').slider().slider('value');
@@ -204,21 +204,21 @@ function disableTabResult(){
 
 function checkDataSaving(){
 	var deffer_pen = $('#txt-deffered-pensions').val();
-	if(deffer_pen.length > 0){
+	if(deffer_pen.length > 0 & parseFloatCMG(deffer_pen) > 0){
 		return true;
 	}
 	var current_pen = $('#txt-current-pensions').val();
-	if(current_pen.length > 0){
+	if(current_pen.length > 0 & parseFloatCMG(current_pen) > 0){
 		return true;
 	}
 	
 	var seft_pay =  $('#txt-you-paying').val();
-	if(seft_pay.length > 0){
+	if(seft_pay.length > 0 & parseFloatCMG(seft_pay) > 0){
 		return true;
 	}
 	
 	var company_pay = $('#txt-your-employer').val();
-	if(company_pay.length > 0){
+	if(company_pay.length > 0 & parseFloatCMG(company_pay) > 0){
 		return true;
 	}
 	
@@ -248,21 +248,23 @@ function registerActionSavingTab(){
 	$('.text-savings').on('input', function() {
 		var check = checkDataSaving();
 		if(check == true){
-			eneableTabResult();
+			//eneableTabResult();
 		}else{
 			disableTabResult();
 		}
 		
 	});
+	
 	$('.text-savings').on('change', function() {
-		var number = addCommas($(this).val());
+		var number = addCommas(round($(this).val()));
 		$(this).val(number);
 	});
+	
 	$('#nextSavings').click(function(){
 		if(isBox1Visible()){
 			var check = checkDataSaving();
 			if(check == true){
-				eneableTabResult();
+				//eneableTabResult();
 				hiddenBox1();
 			}else{
 				disableTabResult();
@@ -272,7 +274,7 @@ function registerActionSavingTab(){
 		}else if(isBox2Visible()){
 			if(isIncomeVisible()){
 				var vl = $('#txt-income-payable').val();
-				if(vl == 0){
+				if(vl == "" || typeof vl === 'undefined' || vl === null || vl == 0){
 					var content = warningArray["income-able"];
 					showWarning(content);
 				}else{
@@ -290,6 +292,33 @@ function registerActionSavingTab(){
 			$('#about-you').trigger('click');
 		}else if(isBox2Visible()){
 			hiddenBox2();
+		}
+	});
+	$('#results').click(function(){
+		if(isBox1Visible()){
+			var check = checkDataSaving();
+			if(check == true){
+			}else{
+				disableTabResult();
+				var content = warningArray["enter-at-least-once-field"];
+				showWarning(content);
+			}
+		}else if(isBox2Visible()){
+			if(isIncomeVisible()){
+				var vl = $('#txt-income-payable').val();
+				if(vl == "" || typeof vl === 'undefined' || vl === null || vl == 0){
+					disableTabResult();
+					var content = warningArray["income-able"];
+					showWarning(content);
+					
+				}else{
+					eneableTabResult();
+					//$('#results').trigger('click');
+				}
+			}else{
+				eneableTabResult();
+				//$('#results').trigger('click');
+			}
 		}
 	});
 	
@@ -336,7 +365,7 @@ function calculatePersonalPay(){
 		var percent = $('#txt-you-paying-percent').val();
 		percent = getPercent_Contribute();
 		percent = percent*100;
-		$('#txt-you-paying-percent').val(addCommas(fixed3Decimal(percent)));
+		$('#txt-you-paying-percent').val(addCommas(fixed(percent)));
 		var vl = fixed($(this).val());
 		$(this).val(addCommas(vl));
 	});
@@ -345,7 +374,7 @@ function calculatePersonalPay(){
 		cash = round(getCash_Contribute());
 		cash = addCommas(cash);
 		$('#txt-you-paying').val(cash);
-		var vl = fixed3Decimal($(this).val());
+		var vl = fixed($(this).val());
 		$(this).val(addCommas(vl));
 	});
 }
@@ -355,7 +384,7 @@ function calculateCompanyPay(){
 		var percent = $('#txt-your-employer-percent').val();
 		percent = getPercent_Contribute_company();
 		percent = percent*100;
-		$('#txt-your-employer-percent').val(addCommas(fixed3Decimal(percent)));
+		$('#txt-your-employer-percent').val(addCommas(fixed(percent)));
 		var vl = fixed($(this).val());
 		$(this).val(addCommas(vl));
 	});
@@ -364,7 +393,7 @@ function calculateCompanyPay(){
 		cash = round(getCash_Contribute_company());
 		cash = addCommas(cash);
 		$('#txt-your-employer').val(cash);
-		var vl = fixed3Decimal($(this).val());
+		var vl = fixed($(this).val());
 		$(this).val(addCommas(vl));
 	});
 }
@@ -382,8 +411,8 @@ function registerActionResultTab(){
 			drawChart(forceCashIncome,shortFall,targetPension);
 			eneabledSummary();
 			setTextToTextField();
+			setupSlide(checkLta);
 			if(registerChange == false){
-				setupSlide(checkLta);
 				onChange();
 			}
 			registerChange = true;
@@ -421,6 +450,7 @@ function setupSlide(checkLta){
 		$('#container-percent-tax-free').empty();
 		$('#container-percent-tax-free').html("<div id='percent-tax-free-result' class='slider-cash ui-slider'></div>");
 		cFP = getPercentLtaWithPensionFound();
+		$('#percent-tax-free').slider().slider('value',cFP);
 	}
 	drawSlideResult(rA,cFP);
 }
@@ -465,7 +495,7 @@ function eneabledTxtField(){
 }
 function onChange(){
 	$('#txt-your-employer-percent-result').on('change',function(){
-		var vl = fixed3Decimal($(this).val());
+		var vl = fixed($(this).val());
 		$('#txt-your-employer-percent').val(vl);
 		var cash = $('#txt-your-employer-result').val();
 		cash = round(getCash_Contribute_company());
@@ -482,15 +512,15 @@ function onChange(){
 		var percent = $('#txt-your-employer-percent-result').val();
 		percent = getPercent_Contribute_company();
 		percent = percent*100;
-		$('#txt-your-employer-percent-result').val(fixed3Decimal(percent));
-		$('#txt-your-employer-percent').val(fixed3Decimal(percent));
+		$('#txt-your-employer-percent-result').val(fixed(percent));
+		$('#txt-your-employer-percent').val(fixed(percent));
 		$(this).val(addCommas(vl));
 		onChangeUI();
 	
 	});
 	
 	$('#txt-you-paying-percent-result').on('change',function(){
-		var vl = fixed3Decimal($(this).val());
+		var vl = fixed($(this).val());
 		$('#txt-you-paying-percent').val(vl);
 		var cash = $('#txt-you-paying-result').val();
 		cash = round(getCash_Contribute());
@@ -507,8 +537,8 @@ function onChange(){
 		var percent = $('#txt-you-paying-percent-result').val();
 		percent = getPercent_Contribute();
 		percent = percent*100;
-		$('#txt-you-paying-percent').val(fixed3Decimal(percent));
-		$('#txt-you-paying-percent-result').val(fixed3Decimal(percent));
+		$('#txt-you-paying-percent').val(fixed(percent));
+		$('#txt-you-paying-percent-result').val(fixed(percent));
 		$(this).val(addCommas(vl));
 		onChangeUI();
 	});
