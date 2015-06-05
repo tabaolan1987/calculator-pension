@@ -1,3 +1,5 @@
+/*! jQuery-ui-Slider-Pips - v1.10.0 - 2015-05-17
+* Copyright (c) 2015 Simon Goellner <simey.me@gmail.com>; Licensed MIT */
 
 // PIPS
 
@@ -67,7 +69,7 @@
                     this.resetClasses();
 
                     $pips
-                        .filter(".ui-slider-pip-" + value )
+                        .filter(".ui-slider-pip-" + this.classLabel(value) )
                         .addClass("ui-slider-pip-selected");
 
                 },
@@ -79,17 +81,41 @@
                     for( i = 0; i < values.length; i++ ) {
 
                         $pips
-                            .filter(".ui-slider-pip-" + values[i] )
+                            .filter(".ui-slider-pip-" + this.classLabel(values[i]) )
                             .addClass("ui-slider-pip-selected-" + (i+1) );
+
+                    }
+
+                    if ( slider.options.range ) {
+
+                        $pips.each(function(k,v) {
+
+                            var pipVal = $(v).children(".ui-slider-label").data("value");
+
+                            if( pipVal > values[0] && pipVal < values[1] ) {
+
+                                $(v).addClass("ui-slider-pip-inrange");
+
+                            }
+
+                        });
 
                     }
 
                 },
 
+                classLabel: function(value) {
+
+                    return value.toString().replace(".","-");
+
+                },
+
                 resetClasses: function() {
 
+                    var regex = /(^|\s*)(ui-slider-pip-selected|ui-slider-pip-inrange)(-{1,2}\d+|\s|$)/gi;
+
                     $pips.removeClass( function (index, css) {
-                        return ( css.match(/(^|\s)ui-slider-pip-selected(\S+|\s|$)/g) || [] ).join(" ");
+                        return ( css.match(regex) || [] ).join(" ");
                     });
 
                 }
@@ -253,6 +279,17 @@
 
                     }
 
+                    if ( slider.options.range ) {
+
+                        if( labelValue > slider.options.values[0] && 
+                            labelValue < slider.options.values[1] ) {
+
+                            classes += " ui-slider-pip-inrange";
+
+                        }
+
+                    }
+
                 } else {
 
                     if ( labelValue === slider.options.value ) {
@@ -300,12 +337,12 @@
             $pips = slider.element.find(".ui-slider-pip");
 
 
-
-            slider.element.on("mouseup.selectPip", ".ui-slider-label", function(e) {
-
-                e.stopPropagation();
-                labelClick( this );
-
+            slider.element.on("mousedown.selectPip", function() {
+                slider.element
+                    .off("mouseup.selectPip")
+                    .one("mouseup.selectPip", ".ui-slider-label", function() {
+                        labelClick( this );
+                    });
             });
 
 

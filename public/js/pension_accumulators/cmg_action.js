@@ -87,7 +87,8 @@ function registerActionAboutYou(){
 	});
 	
 	$('.text-about-you').on('blur', function() {
-		var number = addCommas(round($(this).val()));
+		var vl = parseFloatCMG($(this).val());
+		var number = addCommas(round(vl));
 		$(this).val(number);
 	});
 	$("input:radio[name=optradio]").change(function(){

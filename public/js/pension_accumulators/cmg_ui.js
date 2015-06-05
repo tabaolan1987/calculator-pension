@@ -220,8 +220,8 @@ function drawSlideModalGrowRate(){
 }
 /*--------------------------------------------*/
 function drawSlide(){
-drawSlideAboutYou();
-drawSlideModalGrowRate();
+//drawSlideAboutYou();
+//drawSlideModalGrowRate();
 }
 function showWarning(content){
 //will show warning.

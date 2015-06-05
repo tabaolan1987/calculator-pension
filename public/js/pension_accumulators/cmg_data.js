@@ -60,7 +60,6 @@ function loadPrintInfor(){
 			$("#assump-text").hide();
 			$("#assump-text").html(assumption);
 			$("#assump-top").html(assumption);
-            console.log("load xml  : print already!");
 			registerLinkActionDisclamer();
         },
         error: function() {
@@ -81,7 +80,7 @@ function loadInformation(xml){
 				$('#'+idEl).attr('information-message',name);
 				InformationArray[name] = message;
             });
-            console.log("load xml  : "  +  xml +" already!");
+            //console.log("load xml  : "  +  xml +" already!");
         },
         error: function() {
             alert("An error occurred while processing XML file Information.");
@@ -105,7 +104,7 @@ function loadWarning(xml){
 				var name = $(this).find('name').text();
 				warningArray[name] = message;
             });
-            console.log("load xml: "  +  xml +" already! ");
+            //console.log("load xml: "  +  xml +" already! ");
         },
         error: function() {
             alert("An error occurred while processing XML file warning.");
@@ -125,7 +124,7 @@ $.ajax({
 			   var income = $(this).attr('income');
 			   annuityMale[age] = income;
             });
-            console.log("load xml: "  +  xml +" already! ");
+            //console.log("load xml: "  +  xml +" already! ");
         },
         error: function() {
             alert("An error occurred while processing XML  male file annuity.");
@@ -143,7 +142,7 @@ $.ajax({
 			   var income = $(this).attr('income');
 			   annuityFemale[age] = income;
             });
-            console.log("load xml: "  +  xml +" already! ");
+            //console.log("load xml: "  +  xml +" already! ");
         },
         error: function() {
             alert("An error occurred while processing XML female file annuity.");
@@ -193,7 +192,7 @@ $.ajax({
 				growthRate[value] = deduct_inflation_rate;
             });
 			drawGrowRate(xml);
-            console.log("load xml: "  +  xml +" already! ");
+            //console.log("load xml: "  +  xml +" already! ");
         },
         error: function() {
             alert("An error occurred while processing XML file growth.");
