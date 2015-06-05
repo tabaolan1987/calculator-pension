@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>  Sharesave calculator</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/share_save/animate.css">
+      <link rel="stylesheet" href="css/share_save/style-ui.css">
+      <!-- jQuery-ui-Slider-Pips -->
+      <link rel="stylesheet" href="css/share_save/jquery-ui.css">
+      <link rel="stylesheet" href="css/share_save/jquery-ui-slider-pips.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="js/share_save/jquery-ui.js"></script>
+      <script type="text/javascript" src="js/share_save/jquery-ui-slider-pips.js"></script>
+
+   </head>
+   <body>
+      <div class="container-fluid" id="wrapper">
+         <div class="row title">
+            <h3>  Sharesave calculator</h3>
+         </div><!--END .title-->
+         <div class="row" id="content">
+            <div class="col-sm-12 col-md-7 left-content"><!--<div class="col-sm-12 col-md-7 left-content">-->
+               <ul class="nav nav-tabs">
+                  <li class="active"><div class="mid"><div><a id='about-you' href="#tab1" data-toggle="tab">share details</a></div></div></li>
+                  <li><div class="mid"><div><a id='results' href="#tab2" data-toggle="tab">return results</a></div></div></li>
+               </ul>
+
+               <div class="tab-content">
+                  <div id="content-tooltip">
+                     <div id="infor-tooltip"></div>
+                  </div>
+                  <div class="tab-pane active" id="tab1">
+                     <div class="row row-rule">
+                        <div class="col-xs-7 col-sm-8 col-md-9"><span id="current-age" class="icon-tooltip"></span><span class="label-tooltip">Monthly savings amount</span></div>
+                        <div class="col-xs-2 col-sm-3 col-md-2 pound">
+                           <div class="styled-select">
+                              <select class="form-control" id="sel1">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                              </select>
+                           </div>
+                        </div>                           
+                     </div>
+
+                      <div class="row row-rule">
+                        <div class="col-xs-7 col-sm-8 col-md-9"><span id="current-age" class="icon-tooltip"></span><span class="label-tooltip">Duration of savings</span></div>
+                        <div class="col-xs-2 col-sm-3 col-md-2 no-pound">
+                              <select class="form-control" id="sel1">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                              </select>
+                              <span class="unit">years</span>
+                        </div>
+                     </div>
+
+                     <div class="row row-rule">
+                        <div class="col-xs-7 col-sm-8 col-md-9"><span id="current-salary" class="icon-tooltip"></span><span class="label-tooltip">Option price</span></div>
+                        <div class="col-xs-2 col-sm-3 col-md-2 no-pound"><input id='txt-current-salary' type="text" onkeypress="return isNumberKey(event)"  class="form-control text-about-you" placeholder=""/><span class="unit">pence</span></div>
+                     </div>
+
+                     <div class="row row-rule">
+                        <div class="col-xs-7 col-sm-8 col-md-9"><span id="target-pension" class="icon-tooltip"></span><span class="label-tooltip">Estimated share price at sale</span></div>
+                        <div class="col-xs-2 col-sm-3 col-md-2 no-pound"><input id="txt-target-pensions" type="text" onkeypress="return isNumberKey(event)"  class="form-control text-about-you" placeholder=""/><span class="unit">pence</span></div>
+                     </div>
+                     <a id='nextAboutYou' class="btn btn-primary btnNext">calculate</a>
+                  </div><!--END #tab1-->
+
+                  <div class="tab-pane" id="tab2">
+                     <div class="estimated-return1">
+                        <div class="row">
+                           <div class="col-xs-6 draw-title">Your estimated return is:</div>
+                           <div class="col-xs-6 draw-title">Percentage change:</div>
+                        </div>
+
+                        <div class="row align-center">
+                           <div class="col-xs-6" id="draw-estimated" class="draw-chart"><img class="img-responsive" src="images/share_save/estimated-return.png" alt="" title="" /><span class="chart-title-estimated">£1,813.97<span></div>
+                           <div class="col-xs-6" id="draw-percentage" class="draw-chart"><img class="img-responsive" src="images/share_save/percentage-change.png" alt="" title="" /><span class="chart-title-percentage">21% <br/> Increase</span></div>
+                        </div>
+
+                        <div class="row row-return">
+                           <div class="col-xs-9">Total amount saved over <span class="return-result-unit">5</span> years</div>
+                           <div class="col-xs-3 col-sm-2 return-result-unit">£1,500</div>
+                        </div>
+
+                        <div class="row row-return">
+                           <div class="col-xs-9">Number of options</div>
+                           <div class="col-xs-3 col-sm-2 return-result-unit">111</div>
+                        </div>
+
+                        <div class="row row-return">
+                           <div class="col-xs-9">Estimated profit</div>
+                           <div class="col-xs-3 col-sm-2 return-result-unit">£313.97</div>
+                        </div>
+
+                        <div class="row row-return">
+                           <div class="col-xs-9">Percentage increase</div>
+                           <div class="col-xs-3 col-sm-2 return-result-unit">21%</div>
+                        </div>
+                        <a id="print-data" class="btn btn-primary btn-print" onclick="PrintElement('#box-print')" >print</a>
+                     </div>
+
+                     <div class="estimated-return2" style="display:none;">
+                        <div class="row row-return">
+                           <div class="col-xs-12">Based on the values you have entered, there will be  no return on your investment.</div>
+                        </div>
+                        <div class="row row-return">
+                           <div class="col-xs-12">Your capital, amounting to <span class="return-result-unit">£1,500</span> saved over <span class="return-result-unit">5</span> years, will be paid back to you at the end of that period.</div>
+                        </div>
+                     </div>
+
+                     <a class="btn btn-primary btnPrevious">back</a>
+                  </div><!--END #tab2-->
+               </div>
+            </div><!--END .left-content-->
+         </div>
+         <!--END #content-->
+      </div>
+      <!--END #wrapper-->
+      <div class="modal fade" id="warningModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header" style="border-bottom:0px">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+                  <h4 class="modal-title" id="myModalLabel"></h4>
+               </div>
+               <div class="modal-body" style="text-align:center;color: #06038d;margin-bottom: 20px;">
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal fade" id="estimated-annual-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content" style="top:150px;">
+               <div class="modal-header" style="border-bottom:0px">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+                  <h4 class="modal-title" id="myModalLabel"></h4>
+               </div>
+               <div class="modal-body modal-estimated">
+                  <div id="modal-grow" class="">
+					<div class="col-xs-12 col-sm-12"><span information-message="annual grow information" id="annual-grow-infor-popup"  class="icon-tooltip"></span><span class="label-tooltip">What is the estimated annual growth of your savings?</span></div>
+				  </div>
+				  <div id="modal-slide-grow" class="">
+					<div class="col-xs-12 col-sm-12"><span information-message="annual charge information" id="annual-charge-infor-popup" class="icon-tooltip"></span><span class="label-tooltip">What is your annual management charge?</span></div>
+					<div class="col-xs-7 col-xs-offset-1 col-sm-7 col-sm-offset-1" style="padding-top:15px;">
+						<div id="slider-modal-growrate" style="margin-left:4px" class="slider-cash ui-slider"></div>
+					</div>
+				  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="box-print" style="display:none;">
+         <div id="disclamer-print" style="font-family: Helvetica Heue;">
+            <p>The aim of this calculator is to give you an indication of how much you need to contribute to a pension and what you might get as a retirement income. The calculator should not be regarded as personal advice. If you are at all unsure, please contact us for advice.</p>
+            <p>The figures are a guide and not guaranteed. Your final pension fund and the income available will depend on factors including the growth your fund achieves, contributions you make in future, charges, inflation, your retirement age, annuity rates at the time and the annuity options you choose.</p>
+         </div>
+         <div id="important-print" style="font-family: Helvetica Heue;">
+            <p>Investment returns are not guaranteed and could be more or less than those used here. Past performance is not a guide to future returns. The value of investments can fall as well as rise, so you may get back less than you invest.</p>
+         </div>
+		  <div id="assump-print" style="font-family: Helvetica Heue;">
+            <p>Investment returns are not guaranteed and could be more or less than those used here. Past performance is not a guide to future returns. The value of investments can fall as well as rise, so you may get back less than you invest.</p>
+         </div>
+         <div id="result-box" style="border: 2px solid #53565A;padding: 10px;font-family: Helvetica Heue;">
+            <h4>Your results:</h4>
+            <p>Your chosen target income is <b>£</b><b class="print-pound-pension">50,000</b> each year when you retire at age <b class="print-retire-age">67</b>.</p>
+            <p>Your chosen tax free cash amount is <b>£</b><b class="print-pound-amount">85,694</b> (<b class="print-percent-amount">25</b>%).</p>
+            <p>Your future pension payments and any existing pensions you have included will provide an income of <b>£</b><b class="print-pound-income">10,200</b> a year from age <b class="print-retire-age">67</b></p>
+            <p>You have a shortfall of <b>£</b><b class="print-pound-shortfall">39,800</b> per year.</p>
+         </div>
+      </div>
+      <div id='check-ui' class="hidden-sm hidden-xs"></div>
+      <script type="text/javascript" >
+         $(document).ready(function(){
+			//setupDisclammerPage();
+         });
+          
+      </script>
+   </body>
+</html>
