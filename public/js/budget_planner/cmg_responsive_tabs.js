@@ -211,7 +211,6 @@ var fakewaffle = ( function ( $, fakewaffle ) {
 			var panelContents = $( panelGroup ).find( '.panel-body' );
 			$.each(panelContents,function(){
 				var idPanel = $(this).attr('id');
-				console.log('id panel :'  + idPanel);
 			    var $table = $(this).find('table.containInput');
 				var total = getTotalInput($table);
 				if(total > 0 && idPanel!=='calculate'){

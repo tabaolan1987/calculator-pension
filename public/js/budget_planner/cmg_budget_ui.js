@@ -57,7 +57,6 @@ function drawUI() {
             fakewaffle.responsiveTabs(['xs', 'sm']);
 			setHeightTabPane();
             disableCalculateBtn();
-            console.log("function ready!");
 			registerFunctionsForTab();
 			registerFunctionsForPanel();
 			registerFunctionForModal();
@@ -87,7 +86,6 @@ function loadWarning() {
                     $('#myModal2').find('.modal-body').css('color', color);
                 }
             });
-            console.log("modal already!");
         },
         error: function() {
             alert("An error occurred while processing XML file Modal.");
@@ -229,7 +227,14 @@ function setActive() {
     var imgActive = $($("#a1").find('td.tenPersent:eq(1) img'));
     imgActive.attr('src', 'images/budget_planner/arrow_open.png');
 }
+function checkIE8(){
+if (window.attachEvent && !window.addEventListener) {
+    return true;
+}else{
+	return false;
+}
 
+}
 function setHeightTabPane() {
     var sizeTabs = getSizeArray();
     if (sizeTabs >= 8 && fakewaffle.currentPosition != "panel"){
@@ -242,8 +247,16 @@ function setHeightTabPane() {
 			heightTabAdded  = $('#myTab').height() -( $('li:last-child').height());
 			heigtTableAdded = 215 + (numberAdded * 50);
 		}else{
-			heightTabAdded = $('#myTab').height() -( $('li:last-child').height());
-			heigtTableAdded = 215 + (numberAdded * 50) + 5;
+			var ie8 = checkIE8();
+			if(ie8 == true){
+				heightTabAdded = $('#myTab').height() -( $('li:last-child').height());
+				heigtTableAdded = 200 + (numberAdded * 50) + 5;
+				$('.row-heading').css('height',36+"px");
+				$('.row-heading').css('min-height',36+"px");
+			}else{
+				heightTabAdded = $('#myTab').height() -( $('li:last-child').height());
+				heigtTableAdded = 215 + (numberAdded * 50) + 5;
+			}
 		}
         $('.tab-pane').css('height',  (heightTabAdded -9) + "px");
         $('.tab-pane .row-containTblInput').css('height', (heigtTableAdded +19) + "px");
@@ -333,16 +346,6 @@ function showTooltip(x, y, contents) {
 		temp = name;
 	}
 	var table = $("<table style='margin-bottom:15px;overflow:hidden;height:100%;width:100%'><tbody><tr><td align='center'>"+temp + "<br>£" + Number(value).toLocaleString('en').split('.')[0] +"</td></tr></tbody></table>");
-    //var html = $("<div style='width:80px;margin-bottom : 10px'>" +temp + "<br>£" + Number(value).toLocaleString('en').split('.')[0] + "</div>");
-   // html.css('display' ,'-webkit-box');
-	//html.css('display', '-webkit-flex')
-	//html.css('display', '-moz-box');
-	//html.css('display' ,'-ms-flexbox');
-	//html.css('display', 'flex');
-    //html.css('-webkit-flex-align', 'center');
-	//html.css('-ms-flex-align', 'center');
-	//html.css('-webkit-align-items', 'center');
-	//html.css('align-items', 'center');
 	 $('#tooltip').html(table);
 	 $('#tooltip').css({
         position: 'absolute',

@@ -4,8 +4,9 @@ Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
   <head>
     <title>Budget Planner</title>
     <meta charset="utf-8">
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/budget_planner/bootstrap.min.css">
     <link rel="stylesheet" href="css/budget_planner/screen_lg.css">
 	<link rel="stylesheet" href="css/budget_planner/screen_320_480.css">
 	<link rel="stylesheet" href="css/budget_planner/screen_480_640.css">
@@ -13,14 +14,18 @@ Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/budget_planner/analytics.js"></script>
 	<script type="text/javascript" src="js/budget_planner/cmg_responsive_tabs_min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/budget_planner/excanvas.min.js"></script><![endif]-->
+    <script src="js/budget_planner/bootstrap.min.js"></script>
+	<!--[if lte IE 8]>
+	<script language="javascript" type="text/javascript" src="js/budget_planner/excanvas.min.js"></script>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
 	<script language="javascript" type="text/javascript" src="js/budget_planner/jquery.flot.js"></script>
 	<script type="text/javascript" src="js/budget_planner/jquery.flot.pie.js"></script>
 	<script type="text/javascript" src="js/budget_planner/jquery.flot.resize.js"></script>
-	<script type="text/javascript" src="js/budget_planner/cmg_budget_formula.js"></script>
-	<script type="text/javascript" src="js/budget_planner/cmg_budget_action.js"></script>
-	<script type="text/javascript" src="js/budget_planner/cmg_budget_ui.js"></script>
+	<script type="text/javascript" src="js/budget_planner/cmg_budget_formula_min.js"></script>
+	<script type="text/javascript" src="js/budget_planner/cmg_budget_action_min.js"></script>
+	<script type="text/javascript" src="js/budget_planner/cmg_budget_ui_min.js"></script>
   </head>
   <body>
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
