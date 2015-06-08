@@ -29,6 +29,8 @@
       -ms-transition: all ease-in-out .3s;
       -o-transition: all ease-in-out .3s;
       transition: all ease-in-out .3s;
+	 
+	 
     }
 	.nav > li > a {
 		padding : 0px;
@@ -68,6 +70,7 @@
 	
 	table.table-responsive > tbody >tr > td > div.inform{
 		border-radius : 25px;
+		
 	}
 	
 	table.table-nonborder{
@@ -80,7 +83,7 @@
 	}
 	
 	button.calculate{
-		width:25%;background-color:#94b7bb;border-radius:15px;color:black;font-weight:bolder;font-size : 16px;
+		width:25%;background-color:#94b7bb;border-radius:15px;color:black;font-weight:bolder;font-size : 16px;behavior: url(css/budget_planner/PIE.htc);
 	}
 	#containerMenu{
 		width : 450px;
@@ -93,16 +96,14 @@
 		width : 450px;
 		border: 1px solid;
 		border-top : 0px solid;
-		border-bottom-left-radius : 8px;
-		border-bottom-right-radius : 8px;
-		border-top-left-radius : 15px;
-		border-top-right-radius : 15px;
+		border-radius: 15px 15px 8px 8px;
 		border-color : #ddd;
 		-webkit-transition: all ease-in-out .3s;
 		-moz-transition: all ease-in-out .3s;
 		-ms-transition: all ease-in-out .3s;
 		-o-transition: all ease-in-out .3s;
 		transition: all ease-in-out .3s;
+		
 	}
 	div.row-heading{
 		height : 49px;
@@ -111,8 +112,6 @@
 		margin-left:0px !important;
 		margin-right:0px !important;
 		border-bottom : 1px solid;
-		border-bottom-left-radius : 15px;
-		border-bottom-right-radius : 15px;
 		border-bottom-color : #ddd;
 		border-radius : 15px;
 		-webkit-transition: all ease-in-out .3s;
@@ -120,6 +119,8 @@
 		-ms-transition: all ease-in-out .3s;
 		-o-transition: all ease-in-out .3s;
 		transition: all ease-in-out .3s;
+		
+		
 	}
 
 	.row-containTblInput{
@@ -227,6 +228,7 @@
 		z-index : 1000;
 		border-color : red;
 		background: url("../../images/budget_planner/trickIE.png") no-repeat scroll top center ;
+	   
 	}
 	
 	div.labelChart span{
@@ -296,6 +298,7 @@
 	.modal-content{
 		width : 448px;
 		border-radius : 20px;
+		behavior: url(css/budget_planner/PIE.htc);
 	}
 	.modal-header {
 		padding:10px;
@@ -370,7 +373,7 @@
 	table.containInput select{
 	}
 	
-
+	
 
 
 

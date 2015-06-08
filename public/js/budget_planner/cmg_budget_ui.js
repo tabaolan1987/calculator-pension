@@ -60,7 +60,7 @@ function drawUI() {
 			registerFunctionsForTab();
 			registerFunctionsForPanel();
 			registerFunctionForModal();
-			 tooltip();
+			tooltip();
         },
         error: function() {
             alert("An error occurred while processing XML file.");
