@@ -253,6 +253,7 @@ function setHeightTabPane() {
 				heigtTableAdded = 200 + (numberAdded * 50) + 5;
 				$('.row-heading').css('height',36+"px");
 				$('.row-heading').css('min-height',36+"px");
+				$('.next').find('.money').css('padding-top',"25px");
 			}else{
 				heightTabAdded = $('#myTab').height() -( $('li:last-child').height());
 				heigtTableAdded = 215 + (numberAdded * 50) + 5;
@@ -266,6 +267,7 @@ function setHeightTabPane() {
 	if(checkIE8() == true){
 		$('.row-heading').css('height',36+"px");
 		$('.row-heading').css('min-height',36+"px");
+		
 	}
 }
 
