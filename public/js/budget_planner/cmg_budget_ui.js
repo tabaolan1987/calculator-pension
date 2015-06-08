@@ -261,8 +261,12 @@ function setHeightTabPane() {
         $('.tab-pane').css('height',  (heightTabAdded -9) + "px");
         $('.tab-pane .row-containTblInput').css('height', (heigtTableAdded +19) + "px");
 		setHeight = false;
+		return false;
     }
-	
+	if(checkIE8() == true){
+		$('.row-heading').css('height',36+"px");
+		$('.row-heading').css('min-height',36+"px");
+	}
 }
 
 /* all functions below for create a chart*/
