@@ -184,7 +184,7 @@ function checkDataAboutYou(){
 	if( targetPension == "" || targetPension == 0){
 		content.push("target income");
 	}
-	var ageRetire = $('.retirementAge').slider().slider('value');
+	var ageRetire = $('#retirementAge').val();
 	if(parseInt(ageRetire) < parseInt(currentAge)){
 		content.push("retireAge-smaller-than-currentAge");
 	}
@@ -434,7 +434,7 @@ function eneabledSummary(){
 function setupMessage(forceCashIncome){
 	var yRD = yourRetirementDate();
 	$('#year-retire').html(yRD);
-	var rA = $('#age-to-retirement').slider().slider('value');
+	var rA = $('#age-to-retirement').val();
 	$('#age-retire').html(rA);
 	var forceCash = Number(forceCashIncome).toLocaleString('en').split('.')[0];
 	$('#pound-per-year').html(forceCash);
@@ -442,8 +442,8 @@ function setupMessage(forceCashIncome){
 
 
 function setupSlide(checkLta){
-	var rA = $('#age-to-retirement').slider().slider('value');
-	var cFP = $('#percent-tax-free').slider().slider('value');
+	var rA = $('#age-to-retirement').val();
+	var cFP = $('#percent-tax-free').val();
 	if(checkLta == true){
 		$('#container-percent-tax-free').empty();
 		$('#container-percent-tax-free').html("<div id='percent-tax-free-result' class='slider-cash ui-slider'></div>");

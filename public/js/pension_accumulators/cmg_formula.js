@@ -36,13 +36,13 @@ function removeCommas(number){
 }
 /* tab about you formula and value field */
 function getYearToRetirement(){
-	var ageRetire = $('#age-to-retirement').slider().slider('value');
+	var ageRetire = $('#age-to-retirement').val();
 	var currentAge = parseFloatCMG($("#txt-current-age").val());
 	var year_to_retirement = ageRetire - currentAge;
 	return parseFloatCMG(year_to_retirement);
 }
 function getTax_free_Percent(){
-	var taxFreeCash = $('#percent-tax-free').slider().slider('value');
+	var taxFreeCash = $('#percent-tax-free').val();
 	var temp = taxFreeCash/100;
 	temp =  parseFloatCMG(temp);
 	return temp;
@@ -109,7 +109,7 @@ function getPercent_Contribute_company(){
 /* tab results formula and value field */ 
 function getRisk_selection(){
 	var deduct_inflation_rate = growthRate[$("input:radio[name='an-grow-percent']:checked").val()];
-	var annual_charge = $('#slider-modal-growrate').slider().slider('value');
+	var annual_charge = parseFloatCMG($('#slider-modal-growrate').val());
 	var riskSelection = deduct_inflation_rate - annual_charge;
 	return parseFloatCMG(riskSelection);
 }
@@ -207,7 +207,7 @@ function getPotMinus_taxFreeCash(){
 
 function getAnnuity_rate(){
 	var gender = getGender();
-	var retirementAge = $('#age-to-retirement').slider().slider('value');
+	var retirementAge = $('#age-to-retirement').val();
 	if(gender == male){
 		var temp = annuityMale[retirementAge];
 		temp = parseFloatCMG(temp);
