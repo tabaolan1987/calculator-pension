@@ -297,6 +297,25 @@ a:focus{
    	background:url(../../images/pension_accumulators/radio-check.png) center bottom no-repeat;
 }
 
+/* IE8 uses \0 */
+@media all\0 {
+	.row-rule input[type="radio"]{
+	    display:inherit;
+	}
+
+	.row-rule input[type="radio"] + label{
+	    background:none;
+	    height: 28px;
+	    width: 26px;
+	    display:inline-block;
+	    padding: 0 0 0 0px;
+	}
+
+	.row-rule input[type="radio"]:checked + label{
+	   	background:none;
+	}
+}
+
 
 .row-rule .radio-lable{
 	padding-top:5px;
