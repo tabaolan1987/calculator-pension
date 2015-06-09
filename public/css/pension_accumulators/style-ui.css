@@ -12,7 +12,6 @@
 .title h3{
 	color:#06038d;
 	font-size: 20px;
-	margin-bottom: 0px;
 }
 
 #disclamer-div{
@@ -1202,4 +1201,15 @@ a:focus{
 		width: 23.667%;
 	}
 
+}
+
+
+/*less than 364px fix col coin*/
+@media screen and (max-width: 364px) {
+	#right-content .draw-chart .col-xs-4{
+		width: 41.6667%;
+	}
+	#right-content .draw-chart .col-xs-8{
+		width: 58.3333%;
+	}
 }
