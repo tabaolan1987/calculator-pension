@@ -10,7 +10,7 @@ $.fn.animateRotate = function(angle, top, duration, easing, complete) {
       duration: duration,
       easing: easing,
       step: function(now) {
-          var currentDeg = (1- now/top)*angle;
+        var currentDeg = (1- now/top)*angle;
         $elem.css({
            transform: 'rotate(' + currentDeg + 'deg)',
            top: now
@@ -180,14 +180,36 @@ function backAction(e){
 /* there are functions handle UI of tab About you */
 function drawSlideRetirementAge(){
 	var labelStage = ["55","60","65","70","75"];
-	$("#age-to-retirement").slider({min: 55,max: 75,step: 1,value:65}).slider("pips", {rest: "label",step: 5,
-	label: labelStage}).slider("float");
+	//$("#age-to-retirement").slider({min: 55,max: 75,step: 1,value:65}).slider("pips", {rest: "label",step: 5,
+	//label: labelStage}).slider("float");
+	$("#age-to-retirement").ionRangeSlider({
+            hide_min_max: true,
+            keyboard: true,
+			min : 55,
+			max : 75,
+			grid_margin : true,
+			grid_num : 5,
+            type: 'single',
+            step: 1,
+            grid: true
+    });
 }
 
 function drawSlidePercentTaxFreeCash(){
 	var labelStage = ["0","5","10","15","20","25"];
-	$("#percent-tax-free").slider({min: 0,max: 25,step: 1}).slider("pips", {rest: "label",step: 5,
-	label: labelStage}).slider("float");
+	//$("#percent-tax-free").slider({min: 0,max: 25,step: 1}).slider("pips", {rest: "label",step: 5,
+	//label: labelStage}).slider("float");
+	$("#percent-tax-free").ionRangeSlider({
+            hide_min_max: true,
+            keyboard: true,
+			min : 0,
+			max : 25,
+			grid_margin : true,
+			grid_num : 5,
+            type: 'single',
+            step: 1,
+            grid: true
+    });
 }
 function drawSlideAboutYou(){
 	drawSlideRetirementAge();
@@ -222,7 +244,7 @@ function drawSlideModalGrowRate(){
 /*--------------------------------------------*/
 function drawSlide(){
 drawSlideAboutYou();
-drawSlideModalGrowRate();
+//drawSlideModalGrowRate();
 }
 function showWarning(content){
 //will show warning.

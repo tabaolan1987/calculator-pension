@@ -249,7 +249,6 @@ function registerActionSavingTab(){
 	$('.text-savings').on('input', function() {
 		var check = checkDataSaving();
 		if(check == true){
-			//eneableTabResult();
 		}else{
 			disableTabResult();
 		}
@@ -265,7 +264,6 @@ function registerActionSavingTab(){
 		if(isBox1Visible()){
 			var check = checkDataSaving();
 			if(check == true){
-				//eneableTabResult();
 				hiddenBox1();
 			}else{
 				disableTabResult();
@@ -314,11 +312,11 @@ function registerActionSavingTab(){
 					
 				}else{
 					eneableTabResult();
-					//$('#results').trigger('click');
+				
 				}
 			}else{
 				eneableTabResult();
-				//$('#results').trigger('click');
+			
 			}
 		}
 	});
@@ -445,7 +443,6 @@ function setupMessage(forceCashIncome){
 
 function setupSlide(checkLta){
 	var rA = $('#age-to-retirement').slider().slider('value');
-	//$("#age-to-retirement-result").slider().slider('value',rA);
 	var cFP = $('#percent-tax-free').slider().slider('value');
 	if(checkLta == true){
 		$('#container-percent-tax-free').empty();
