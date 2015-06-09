@@ -219,7 +219,7 @@ function drawSlideAboutYou(){
 
 /* there are functions handle UI of tab result*/
 function drawSlideResult(ageRetire,percentTaxFree){
-	var label = ["55","60","65","70","75"];
+	//var label = ["55","60","65","70","75"];
 	//$("#age-to-retirement-result").slider({min: 55,max: 75,step: 1,value:ageRetire}).slider("pips", {rest: "label",step: 5,
 	//label: label}).slider("float");
 	$("#age-to-retirement-result").ionRangeSlider({
@@ -227,14 +227,18 @@ function drawSlideResult(ageRetire,percentTaxFree){
             keyboard: true,
 			min : 55,
 			max : 75,
+			from : ageRetire,
 			grid_margin : true,
 			grid_num : 5,
             type: 'single',
             step: 1,
-            grid: true
+            grid: true,
+			onChange: function () {
+				onChangeUI();
+			}
     });
 	
-	var labelStage = ["0","5","10","15","20","25"];
+	//var labelStage = ["0","5","10","15","20","25"];
 	//$("#percent-tax-free-result").slider({min: 0,max: 25,step: 1,value:percentTaxFree}).slider("pips", {rest: "label",step: 5,
 	//label: labelStage}).slider("float");
 	$("#percent-tax-free-result").ionRangeSlider({
@@ -242,11 +246,15 @@ function drawSlideResult(ageRetire,percentTaxFree){
             keyboard: true,
 			min : 0,
 			max : 25,
+			from : percentTaxFree,
 			grid_margin : true,
 			grid_num : 5,
             type: 'single',
             step: 1,
-            grid: true
+            grid: true,
+			onChange: function () {
+				onChangeUI();
+			}
     });
 }
 

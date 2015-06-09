@@ -445,10 +445,12 @@ function setupSlide(checkLta){
 	var rA = $('#age-to-retirement').val();
 	var cFP = $('#percent-tax-free').val();
 	if(checkLta == true){
-		$('#container-percent-tax-free').empty();
-		$('#container-percent-tax-free').html("<div id='percent-tax-free-result' class='slider-cash ui-slider'></div>");
+		//$('#container-percent-tax-free').empty();
+		//$('#container-percent-tax-free').html("<div id='percent-tax-free-result' class='slider-cash ui-slider'></div>");
 		cFP = getPercentLtaWithPensionFound();
-		$('#percent-tax-free').slider().slider('value',cFP);
+		$('#percent-tax-free').data("ionRangeSlider").update({
+			from: cFP
+		});
 	}
 	drawSlideResult(rA,cFP);
 }
@@ -558,22 +560,22 @@ function onChange(){
 		onChangeUI();
 	});
 	
-	$("#percent-tax-free-result").slider().slider().on("slidechange", function(e,ui) {
-		var value = $("#percent-tax-free-result").slider().slider('value');
-		$("#percent-tax-free").slider().slider('value',value);
-		if(loopFunction == false){
-			onChangeUI();
-		}else{
-			loopFunction = false;
-		}
+	//$("#percent-tax-free-result").slider().slider().on("slidechange", function(e,ui) {
+		//var value = $("#percent-tax-free-result").slider().slider('value');
+		//$("#percent-tax-free").slider().slider('value',value);
+		//if(loopFunction == false){
+			//onChangeUI();
+		//}else{
+			//loopFunction = false;
+		//}
 		
-    });
+    //});
 	
-	$("#age-to-retirement-result").slider().slider().on("slidechange", function(e,ui) {
-        var value = $("#age-to-retirement-result").slider().slider('value');
-		$("#age-to-retirement").slider().slider('value',value);
-		onChangeUI();
-    });
+	//$("#age-to-retirement-result").data("ionRangeSlider").on("slidechange", function(e,ui) {
+       // var value = $("#age-to-retirement-result").slider().slider('value');
+		//$("#age-to-retirement").slider().slider('value',value);
+		//onChangeUI();
+    //});
 	
 	$('#estimated-annual-modal').on("hidden.bs.modal",function(e){
 		onChangeUI();
@@ -581,14 +583,27 @@ function onChange(){
 	});
 }
 function onChangeUI(){
+	var ageRetire = $("#age-to-retirement-result").val();
+	$('#age-to-retirement').data("ionRangeSlider").update({
+			from: ageRetire
+	});
+	var percent = $('#percent-tax-free-result').val();
+	$('#percent-tax-free').data("ionRangeSlider").update({
+			from: percent
+	});
 	var forceCashIncome = parseFloatCMG(getForecastIncome());
 	var targetPension = parseFloatCMG($('#txt-target-pensions').val());
 	var shortFall = getShortFall();
 	var taxFree = getTax_Free_Value();
 	var checkLta = showWarningLta(taxFree);
 	if(checkLta == true){
-		loopFunction = true;
-		$('#percent-tax-free-result').slider().slider('value',getPercentLtaWithPensionFound());
+		var percentLTA = getPercentLtaWithPensionFound();
+		$('#percent-tax-free-result').data("ionRangeSlider").update({
+			from: percentLTA
+		});
+		$('#percent-tax-free').data("ionRangeSlider").update({
+			from: percentLTA
+		});
 	}
 	drawChart(forceCashIncome,shortFall,targetPension);
 }
@@ -650,8 +665,8 @@ function setupMessageSummary(){
 	var targetPension =  parseFloatCMG($('#txt-target-pensions').val());
 	var percent_income = getForecast_percent_target();
 	percent_income = parseFloatCMG(percent_income)*100;
-	var tax_free_percent  = $('#percent-tax-free').slider().slider('value');
-	var retire_age = $("#age-to-retirement-result").slider().slider('value');
+	var tax_free_percent  = $('#percent-tax-free').val();
+	var retire_age = $("#age-to-retirement-result").val();
 	var tax_free_value = 0;
 	if(isReturnLTA == true){
 		tax_free_value = LTA['value'];
@@ -705,8 +720,8 @@ function showExcess(){
 function updateDataPrint(){
 	var forceCashIncome = parseFloatCMG(getForecastIncome());
 	var targetPension = parseFloatCMG($('#txt-target-pensions').val());
-	var tax_free_percent  = $('#percent-tax-free').slider().slider('value');
-	var retire_age = $("#age-to-retirement-result").slider().slider('value');
+	var tax_free_percent  = $('#percent-tax-free').val();
+	var retire_age = $("#age-to-retirement-result").val();
 	var tax_free_value = 0;
 	if(isReturnLTA == true){
 		tax_free_value = LTA['value'];
