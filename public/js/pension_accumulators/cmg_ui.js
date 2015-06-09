@@ -41,7 +41,6 @@ function fallingCoin(index,forceCashIncome,shortFall,targetPension,coinBlue,coin
 		var coin = "#coin"+index;
         $(coin).show();
         var heightContainer = $('#coin-container').height() - 25;
-		console.log('heightContainer :' + heightContainer);
         var heightImage = $(coin).height() / 2 - 5;
         var moveToBottom = heightContainer - (heightImage * index);
         var angle = 70 * (index % 2 === 0 ? 1 : -1);
@@ -51,7 +50,6 @@ function fallingCoin(index,forceCashIncome,shortFall,targetPension,coinBlue,coin
                 fallingCoin(index,forceCashIncome,shortFall,targetPension,coinBlue,coinRed);
             }else{
 				//set visible and height
-				console.log('coin done');
 				setHeightDiv(forceCashIncome,shortFall,targetPension,coinBlue,coinRed);
 				eneabledTxtField();
 			}
@@ -233,8 +231,8 @@ function drawSlideResult(ageRetire,percentTaxFree){
             type: 'single',
             step: 1,
             grid: true,
-			onChange: function () {
-				onChangeUI();
+			onFinish: function () {
+				//onChangeUI();
 			}
     });
 	
@@ -252,7 +250,7 @@ function drawSlideResult(ageRetire,percentTaxFree){
             type: 'single',
             step: 1,
             grid: true,
-			onChange: function () {
+			onFinish: function () {
 				onChangeUI();
 			}
     });
@@ -275,7 +273,7 @@ function drawSlideModalGrowRate(){
 			min : 0,
 			max : 3,
 			grid_margin : true,
-			grid_num : 0.5,
+			grid_num : 1,
             type: 'single',
             step: 0.5,
             grid: true
@@ -285,7 +283,7 @@ function drawSlideModalGrowRate(){
 /*--------------------------------------------*/
 function drawSlide(){
 drawSlideAboutYou();
-//drawSlideModalGrowRate();
+drawSlideModalGrowRate();
 }
 function showWarning(content){
 //will show warning.

@@ -272,7 +272,7 @@ function getCoinBlue(forecastIncome,targetPension){
 	if(coin == 0){
 		coin = 1;
 	}
-	console.log("coin blue " + coin);
+	
 	return coin;
 }
 

@@ -102,7 +102,6 @@ function registerActionAboutYou(){
 	
 
 	$('#nextAboutYou').click(function(){
-		
 		var check = checkDataAboutYou();
 		if(check.length == 0){
 			eneableTabSavings();
@@ -445,8 +444,6 @@ function setupSlide(checkLta){
 	var rA = $('#age-to-retirement').val();
 	var cFP = $('#percent-tax-free').val();
 	if(checkLta == true){
-		//$('#container-percent-tax-free').empty();
-		//$('#container-percent-tax-free').html("<div id='percent-tax-free-result' class='slider-cash ui-slider'></div>");
 		cFP = getPercentLtaWithPensionFound();
 		$('#percent-tax-free').data("ionRangeSlider").update({
 			from: cFP
