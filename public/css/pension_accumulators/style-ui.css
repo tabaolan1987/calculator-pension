@@ -1184,6 +1184,11 @@ a:focus{
 	    right: 19px;
 	}
 
+	#important-text,
+	#assump-text{
+		padding: 0 10px;
+	}
+
 	/*bootstrap overide*/
 	.percent {
 	    padding: 0 18px;
