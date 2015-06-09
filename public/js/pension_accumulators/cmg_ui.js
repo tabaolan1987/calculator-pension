@@ -107,9 +107,10 @@ function setHeightDiv(forceCashIncome,shortFall,targetPension,coinBlue,coinRed){
 		animationIncomed();
 		return true;
 	}else if(coinRed <= 5){
+		console.log('height top-arrow:' + $('.top-arrow').height());
 		var heighTotalRed = (2 * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
 		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
-		$('.arrow-mid').css('height',40);
+		$('.arrow-mid').css('height',60);
 		var hieghtBlueDiv = ($('#coin-container').height() - 25 - $('.top-arrow').height())/2 - $('.bot-arrow').height()/2;
 		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
 		$('#print-div').css('margin-top',hieghtBlueDiv + 7);
@@ -220,8 +221,8 @@ function drawSlideModalGrowRate(){
 }
 /*--------------------------------------------*/
 function drawSlide(){
-//drawSlideAboutYou();
-//drawSlideModalGrowRate();
+drawSlideAboutYou();
+drawSlideModalGrowRate();
 }
 function showWarning(content){
 //will show warning.
