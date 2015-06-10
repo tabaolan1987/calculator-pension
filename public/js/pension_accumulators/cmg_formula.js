@@ -1,5 +1,5 @@
 function parseFloatCMG(number){
-	if(number == "" || typeof number == 'underfined' || isNaN(number)){
+	if(number == "" || typeof number == 'underfined'){
 		return 0;
 	}else{
 		return removeCommas(number);

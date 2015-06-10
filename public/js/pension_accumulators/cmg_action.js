@@ -143,6 +143,9 @@ function registerActionAboutYou(){
 			}
 			
 			return false;
+		}else{
+			eneableTabSavings();		
+
 		}
 	});
 
@@ -362,16 +365,14 @@ function isIncomeVisible(){
 
 function calculatePersonalPay(){
 	$('#txt-you-paying').on('change',function(){
-		var percent = $('#txt-you-paying-percent').val();
-		percent = getPercent_Contribute();
+		var percent =  getPercent_Contribute();
 		percent = percent*100;
 		$('#txt-you-paying-percent').val(addCommas(fixed(percent)));
 		var vl = fixed(parseFloatCMG($(this).val()));
 		$(this).val(addCommas(vl));
 	});
 	$('#txt-you-paying-percent').on('change',function(){
-		var cash = $('#txt-you-paying').val();
-		cash = round(getCash_Contribute());
+		var cash = round(getCash_Contribute());
 		cash = addCommas(cash);
 		$('#txt-you-paying').val(cash);
 		var vl = fixed(parseFloatCMG($(this).val()));
@@ -381,16 +382,14 @@ function calculatePersonalPay(){
 
 function calculateCompanyPay(){
 	$('#txt-your-employer').on('blur',function(){
-		var percent = $('#txt-your-employer-percent').val();
-		percent = getPercent_Contribute_company();
+		var percent = getPercent_Contribute_company();
 		percent = percent*100;
 		$('#txt-your-employer-percent').val(addCommas(fixed(percent)));
 		var vl = fixed(parseFloatCMG($(this).val()));
 		$(this).val(addCommas(vl));
 	});
 	$('#txt-your-employer-percent').on('blur',function(){
-		var cash = $('#txt-your-employer').val();
-		cash = round(getCash_Contribute_company());
+		var cash = round(getCash_Contribute_company());
 		cash = addCommas(cash);
 		$('#txt-your-employer').val(cash);
 		var vl = fixed(parseFloatCMG($(this).val()));
@@ -518,8 +517,7 @@ function onChange(){
 	$('#txt-your-employer-percent-result').on('change',function(){
 		var vl = fixed(parseFloatCMG($(this).val()));
 		$('#txt-your-employer-percent').val(vl);
-		var cash = $('#txt-your-employer-result').val();
-		cash = round(getCash_Contribute_company());
+		var cash = round(getCash_Contribute_company());
 		cash = addCommas(cash);
 		$('#txt-your-employer').val(cash);
 		$('#txt-your-employer-result').val(cash);
@@ -530,8 +528,7 @@ function onChange(){
 	$('#txt-your-employer-result').on('change',function(){
 		var vl = fixed(parseFloatCMG($(this).val()));
 		$('#txt-your-employer').val(vl);
-		var percent = $('#txt-your-employer-percent-result').val();
-		percent = getPercent_Contribute_company();
+		var percent = getPercent_Contribute_company();
 		percent = percent*100;
 		$('#txt-your-employer-percent-result').val(fixed(percent));
 		$('#txt-your-employer-percent').val(fixed(percent));
@@ -555,8 +552,7 @@ function onChange(){
 	$('#txt-you-paying-result').on('change',function(){
 		var vl = fixed(parseFloatCMG($(this).val()));
 		$('#txt-you-paying').val(vl);
-		var percent = $('#txt-you-paying-percent-result').val();
-		percent = getPercent_Contribute();
+		var percent = getPercent_Contribute();
 		percent = percent*100;
 		$('#txt-you-paying-percent').val(fixed(percent));
 		$('#txt-you-paying-percent-result').val(fixed(percent));
