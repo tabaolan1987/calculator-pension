@@ -156,6 +156,7 @@ a:focus{
 .nav-tabs li .mid div{
 	background:url(../../images/pension_accumulators/tab-bg-right.png) top right no-repeat;
 	height:49px;
+	border: none;
 }
 
 .nav-tabs li.active  .mid div,
@@ -802,33 +803,32 @@ a:focus{
 		text-decoration:none;
 	}
 
-	.nav-tabs li:nth-child(1) a{
+	.nav-tabs li.about-you a{
 		background:url(../../images/pension_accumulators/icon-about-you-480.png) top left no-repeat;
 	}
-	.nav-tabs li:nth-child(1).active a{
+	.nav-tabs li.about-you.active a{
 		background:url(../../images/pension_accumulators/icon-about-you-active-480.png) top left no-repeat;
 	}
 
-	.nav-tabs li:nth-child(2) a{
+	.nav-tabs li.savings a{
 		background:url(../../images/pension_accumulators/icon-savings-480.png) top left no-repeat;
 	}
-	.nav-tabs li:nth-child(2).active a,
-	.nav-tabs li:nth-child(2).parent-active a{
+	.nav-tabs li.savings.active a{
 		background:url(../../images/pension_accumulators/icon-savings-active-480.png) top left no-repeat;
 	}
 
-	.nav-tabs li:nth-child(3) a{
+	.nav-tabs li.results a{
 		background:url(../../images/pension_accumulators/icon-results-480.png) top left no-repeat;
 	}
-	.nav-tabs li:nth-child(3).active a{
+	.nav-tabs li.results.active a{
 		background:url(../../images/pension_accumulators/icon-results-active-480.png) top left no-repeat;
 	}
 
-	.nav-tabs li:nth-child(4) a{
+	.nav-tabs li.summary a{
 		background:url(../../images/pension_accumulators/icon-summary-480.png) top left no-repeat;
 	}
 
-	.nav-tabs li:nth-child(4).active a{
+	.nav-tabs li.summary.active a{
 		background:url(../../images/pension_accumulators/icon-summary-active-480.png) top left no-repeat;
 	}
 
@@ -1052,33 +1052,32 @@ a:focus{
 		text-decoration:none;
 	}
 
-	.nav-tabs li:nth-child(1) a{
+	.nav-tabs li.about-you a{
 		background:url(../../images/pension_accumulators/icon-about-you-320.png) top left no-repeat;
 	}
-	.nav-tabs li:nth-child(1).active a{
+	.nav-tabs li.about-you.active a{
 		background:url(../../images/pension_accumulators/icon-about-you-active-320.png) top left no-repeat;
 	}
 
-	.nav-tabs li:nth-child(2) a{
+	.nav-tabs li.savings a{
 		background:url(../../images/pension_accumulators/icon-savings-320.png) top left no-repeat;
 	}
-	.nav-tabs li:nth-child(2).active a,
-	.nav-tabs li:nth-child(2).parent-active a{
+	.nav-tabs li.savings.active a{
 		background:url(../../images/pension_accumulators/icon-savings-active-320.png) top left no-repeat;
 	}
 
-	.nav-tabs li:nth-child(3) a{
+	.nav-tabs li.results a{
 		background:url(../../images/pension_accumulators/icon-results-320.png) top left no-repeat;
 	}
-	.nav-tabs li:nth-child(3).active a{
+	.nav-tabs li.results.active a{
 		background:url(../../images/pension_accumulators/icon-results-active-320.png) top left no-repeat;
 	}
 
-	.nav-tabs li:nth-child(4) a{
+	.nav-tabs li.summary a{
 		background:url(../../images/pension_accumulators/icon-summary-320.png) top left no-repeat;
 	}
 
-	.nav-tabs li:nth-child(4).active a{
+	.nav-tabs li.summary.active a{
 		background:url(../../images/pension_accumulators/icon-summary-active-320.png) top left no-repeat;
 	}
 
@@ -1191,6 +1190,10 @@ a:focus{
 	#important-text,
 	#assump-text{
 		padding: 0 10px;
+	}
+
+	#disclamer-page{
+		padding-left: 10px;
 	}
 
 	/*bootstrap overide*/
