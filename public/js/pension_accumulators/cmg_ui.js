@@ -269,6 +269,7 @@ function drawSlideModalGrowRate(){
             keyboard: true,
 			min : 0,
 			max : 3,
+			from : 2.5,
 			grid_margin : true,
 			grid_num : 6,
             type: 'single',

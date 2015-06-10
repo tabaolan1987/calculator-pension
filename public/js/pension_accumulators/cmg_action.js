@@ -605,10 +605,12 @@ function onChangeUI(){
 	$('#age-to-retirement').data("ionRangeSlider").update({
 			from: ageRetire
 	});
+	$('#age-to-retirement').val(ageRetire);
 	var percent = $('#percent-tax-free-result').val();
 	$('#percent-tax-free').data("ionRangeSlider").update({
 			from: percent
 	});
+	$('#percent-tax-free').val(percent);
 	var forceCashIncome = parseFloatCMG(getForecastIncome());
 	var targetPension = parseFloatCMG($('#txt-target-pensions').val());
 	var shortFall = getShortFall();
@@ -619,9 +621,11 @@ function onChangeUI(){
 		$('#percent-tax-free-result').data("ionRangeSlider").update({
 			from: percentLTA
 		});
+		$('#percent-tax-free-result').val(percentLTA);
 		$('#percent-tax-free').data("ionRangeSlider").update({
 			from: percentLTA
 		});
+		$('#percent-tax-free').val(percentLTA);
 	}
 	drawChart(forceCashIncome,shortFall,targetPension);
 }
