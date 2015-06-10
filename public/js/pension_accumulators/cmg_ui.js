@@ -186,10 +186,11 @@ function drawSlideRetirementAge(){
 			min : 55,
 			max : 75,
 			grid_margin : true,
-			grid_num : 5,
+			//grid_num : 5,
             type: 'single',
             step: 1,
-            grid: true
+            grid: true,
+            force_edges: true
     });
 }
 
@@ -227,7 +228,7 @@ function drawSlideResult(ageRetire,percentTaxFree){
 			max : 75,
 			from : ageRetire,
 			grid_margin : true,
-			grid_num : 5,
+			//grid_num : 5,
             type: 'single',
             step: 1,
             grid: true,
@@ -273,7 +274,7 @@ function drawSlideModalGrowRate(){
 			min : 0,
 			max : 3,
 			grid_margin : true,
-			grid_num : 1,
+			grid_num : 6,
             type: 'single',
             step: 0.5,
             grid: true

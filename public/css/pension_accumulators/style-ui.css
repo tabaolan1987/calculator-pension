@@ -1211,3 +1211,22 @@ a:focus{
 		width: 58.3333%;
 	}
 }
+
+
+/*overide style slider*/
+.irs-grid-pol.small {
+    //display: none;
+}
+
+.irs-grid {
+   // height: 32px !important;
+}
+
+.irs-line{
+	//background: none !important;
+	//border-radius: 2px;
+}
+
+.irs-slider{
+
+}
