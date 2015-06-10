@@ -1825,7 +1825,11 @@
             for (i = 0; i < num; i++) {
 				//alert(Math.max(-this.coords.big_x[i], 0));
                 label = this.$cache.grid_labels[i][0];
-                label.style.marginLeft = Math.max(-this.coords.big_x[i], 0)+ "%";
+                var num1 = -this.coords.big_x[i];
+                if(!isNaN(num1) && num1!=Number.NEGATIVE_INFINITY && num1!=Number.POSITIVE_INFINITY ){  
+                    label.style.marginLeft = new String(num1) + "%";
+                }
+                
             }
         },
 
