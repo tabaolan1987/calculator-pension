@@ -293,7 +293,7 @@ a:focus{
     padding: 0 0 0 0px;
 }
 
-.row-rule input[type="radio"]:checked + label{
+.row-rule input[type="radio"] + label.selected{
    	background:url(../../images/pension_accumulators/radio-check.png) center bottom no-repeat;
 }
 
@@ -461,7 +461,7 @@ a:focus{
     display:none;
 }
 
-.modal input[type="radio"] + label{
+.modal input[type="radio"] + label.growrate-label{
     background:url(../../images/pension_accumulators/radio-popup.png) center bottom no-repeat;
     height: 28px;
     width: 26px;
@@ -469,7 +469,7 @@ a:focus{
     padding: 0 0 0 0px;
 }
 
-.modal input[type="radio"]:checked + label{
+.modal input[type="radio"] + label.growrate-label.selected{
     background:url(../../images/pension_accumulators/radio-popup-check.png) center bottom no-repeat;
 }
 

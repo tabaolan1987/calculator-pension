@@ -91,13 +91,22 @@ function registerActionAboutYou(){
 		var number = addCommas(round(vl));
 		$(this).val(number);
 	});
-	$("input:radio[name=optradio]").change(function(){
+	$(".radio-gender").click(function(){
+		$(".radio-gender").each(function(e){
+			$(this).removeClass("selected");
+			var idCheck = $(this).attr("for");
+			$("#"+idCheck).removeAttr("checked");
+		});
+		var idCheck = $(this).attr("for");
+		$("#"+idCheck).attr("checked","checked");
+		$(this).addClass("selected");
 		var check = checkDataAboutYou();
 		if(check.length == 0){
 			eneableTabSavings();
 		}else{
 			disableTabSavings();
 		}
+		
 	});
 	
 
@@ -109,11 +118,11 @@ function registerActionAboutYou(){
 		}else{
 			var caseWarning = check[0];
 			if(caseWarning == "retireAge-smaller-than-currentAge"){
-				content = warningArray["retireAge-smaller-than-currentAge"];
+				var content = warningArray["retireAge-smaller-than-currentAge"];
 				disableTabSavings();
 				showWarning(content);
 			}else{
-				content = warningArray["validate-field"] +" "+ check[0];
+				var content = warningArray["validate-field"] +" "+ check[0];
 				for(var i =1; i < check.length;i++){
 					content = content+", " + check[i];
 				}
@@ -129,11 +138,11 @@ function registerActionAboutYou(){
 		if(check.length > 0){
 			var caseWarning = check[0];
 			if(caseWarning == "retireAge-smaller-than-currentAge"){
-				content = warningArray["retireAge-smaller-than-currentAge"];
+				var content = warningArray["retireAge-smaller-than-currentAge"];
 				disableTabSavings();
 				showWarning(content);
 			}else{
-				content = warningArray["validate-field"] +" "+ check[0];
+				var content = warningArray["validate-field"] +" "+ check[0];
 				for(var i =1; i < check.length;i++){
 					content = content+", " + check[i];
 				}
@@ -235,8 +244,16 @@ function registerActionSavingTab(){
 			return false;
 		}
 	});
-	$("input:radio[name=company-pension]").change(function(){
-		var val = $(this).attr("id");
+	$(".income-payable").click(function(){
+		$(".income-payable").each(function(){
+			$(this).removeClass("selected");
+			var idCheck = $(this).attr("for");
+			$("#"+idCheck).removeAttr("checked");
+		});
+		$(this).addClass("selected");
+		var idCheck = $(this).attr("for");
+		$("#"+idCheck).attr("checked","checked");
+		var val = $(this).attr("for");
 		if(val == "yes"){
 			$('.final-salary').show();
 		}else{
@@ -424,6 +441,25 @@ function registerActionResultTab(){
 	$('#backResult').on('click',function(){
 		$('#savings').trigger('click');
 	});
+	
+	
+	$('#estimated-annual-modal').on("shown.bs.modal",function(e){
+		$(".growrate-label").on('click',function(){
+			$(".growrate-label").each(function(){
+				$(this).removeClass("selected");
+				var idCheck = $(this).attr("for");
+				$("#"+idCheck).removeAttr("checked");
+			});
+			var idCheck = $(this).attr("for");
+			$("#"+idCheck).attr("checked","checked");
+			$(this).addClass("selected");
+		});
+	});
+	$('#estimated-annual-modal').on("hidden.bs.modal",function(e){
+		onChangeUI();
+		setupMessageSummary();
+	});
+	
 }
 
 function eneabledSummary(){
@@ -574,10 +610,7 @@ function onChange(){
 		//onChangeUI();
     //});
 	
-	$('#estimated-annual-modal').on("hidden.bs.modal",function(e){
-		onChangeUI();
-		setupMessageSummary();
-	});
+	
 }
 function onChangeUI(){
 	var ageRetire = $("#age-to-retirement-result").val();
@@ -757,7 +790,7 @@ function PrintElement(element){
 
 function Popup(data) 
 {
-	var mywindow = window.open('', 'Close Brothers');
+	var mywindow = window.open('', 'CloseBrothers');
 	mywindow.document.write('<html><head><title>Pension Accumulators</title>');
 	mywindow.document.write('<style>a {text-decoration : none !important;color : black;}</style>');
 	mywindow.document.write('</head><body >');
