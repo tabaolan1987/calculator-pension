@@ -216,7 +216,7 @@ function drawSlideAboutYou(){
 /*------------------------------------------------------------------*/
 
 /* there are functions handle UI of tab result*/
-function drawSlideResult(ageRetire,percentTaxFree){
+function drawSlideResult(){
 	//var label = ["55","60","65","70","75"];
 	//$("#age-to-retirement-result").slider({min: 55,max: 75,step: 1,value:ageRetire}).slider("pips", {rest: "label",step: 5,
 	//label: label}).slider("float");
@@ -225,14 +225,12 @@ function drawSlideResult(ageRetire,percentTaxFree){
             keyboard: true,
 			min : 55,
 			max : 75,
-			from : ageRetire,
 			grid_margin : true,
-			//grid_num : 5,
             type: 'single',
             step: 1,
             grid: true,
 			onFinish: function () {
-				//onChangeUI();
+				onChangeUI();
 			}
     });
 	
@@ -244,7 +242,6 @@ function drawSlideResult(ageRetire,percentTaxFree){
             keyboard: true,
 			min : 0,
 			max : 25,
-			from : percentTaxFree,
 			grid_margin : true,
 			grid_num : 5,
             type: 'single',
@@ -284,6 +281,7 @@ function drawSlideModalGrowRate(){
 function drawSlide(){
 drawSlideAboutYou();
 drawSlideModalGrowRate();
+drawSlideResult();
 }
 function showWarning(content){
 //will show warning.

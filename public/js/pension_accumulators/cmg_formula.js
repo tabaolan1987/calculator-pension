@@ -139,6 +139,9 @@ function getPercentLtaWithPensionFound(){
 	var pensionFound = parseFloatCMG(getPensionFound());
 	var ltaValue = parseFloatCMG(LTA['value']);
 	var percent = (ltaValue/pensionFound)*100;
+	if(percent < 1){
+		percent = 1;
+	}
 	return round(percent);
 }
 
