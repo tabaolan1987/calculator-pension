@@ -154,7 +154,7 @@ function calculateInput(e){
 		$(e).closest('tr').find('.inputHidden').val(input);
 		$(e).addClass('dataInputBlack');
 		//$(e).css('background-image', image.replace('grey','black'));
-	}else if ($(e).val().trim() != '') {
+	}else if ($(e).val() != '') {
 		$(e).attr('title','Please enter a number');
         $(e).css('color', '#ff0000');
 		$(e).closest('tr').find('.monthly').html(0);

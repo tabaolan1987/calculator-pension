@@ -129,8 +129,6 @@ function drawFlotJs(){
 				}
 				index_data++;
 			}
-			
-           
         }
 		drawChart(data);
 		$('.labelChart').html('<span class="total">Total monthly disposable income</span> <p>£' + Number(savings).toLocaleString('en').split('.')[0] +'</p>');
@@ -203,7 +201,6 @@ function getDataSpecialCase(){
 	var totalPie = 100;
 	for(var j=index;j > 1;j--){
 		var per = parseFloat(getPersent(totalIncome, totalsArray["tab" + j]));
-		console.log('per again : ' + per);
 		if(totalPie > per){
 			var tooltip = combineToToolTip(j);
 			data[number] = {
@@ -220,7 +217,7 @@ function getDataSpecialCase(){
 				data : per,
 				color : tabColor["tab" + j]
 			}
-			console.log('return data 100');
+			
 			return data;
 		}else if(totalPie < per){
 			var tooltip = combineToToolTip(j);
@@ -229,7 +226,6 @@ function getDataSpecialCase(){
 				data : totalPie,
 				color : tabColor["tab" + j]
 			}
-			console.log('return data bigger than 100');
 			return data;
 		}
 	}

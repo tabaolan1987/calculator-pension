@@ -125,7 +125,7 @@
 
 	.row-containTblInput{
 		margin:15px 0px 0px 0px;
-		height:215px;
+		height:210px;
 		overflow-x:hidden;
 		overflow-y:auto;
 	}
@@ -207,7 +207,7 @@
 	
 	.labelChart{
 		position:absolute;
-		width:190px;
+		width:189px;
 		left:51%;
 		top:30%;
 		margin-top:-30px;
