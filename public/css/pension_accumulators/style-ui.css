@@ -124,6 +124,13 @@ a:focus{
 	min-height: 550px;
 }
 
+/* IE8 uses \0 */
+@media all\0 { 
+    .tab-pane{
+		min-height: 511px;
+	}
+} 
+
 .nav-tabs li{
 	background:url(../../images/pension_accumulators/tab-bg-left.png) top left no-repeat;
 	width:25%;
@@ -867,7 +874,7 @@ a:focus{
     	width: 20px;
 	}
 
-	.row-rule input[type="radio"]:checked + label{
+	.row-rule input[type="radio"] + label.selected{
 	    background:url(../../images/pension_accumulators/radio-check-480.png) center bottom no-repeat;
 	}
 
@@ -1103,7 +1110,7 @@ a:focus{
     	width: 21px;
 	}
 
-	.row-rule input[type="radio"]:checked + label{
+	.row-rule input[type="radio"] + label.selected{
 	    background:url(../../images/pension_accumulators/radio-check-320.png) center bottom no-repeat;
 	}
 

@@ -99,7 +99,8 @@
         background: #000;
     }
     .irs-grid-pol.small {
-        height: 4px;
+        //height: 4px;
+        display: none;
     }
     .irs-grid-text {
         position: absolute;
