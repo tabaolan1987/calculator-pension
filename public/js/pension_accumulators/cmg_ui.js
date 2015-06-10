@@ -186,7 +186,6 @@ function drawSlideRetirementAge(){
 			min : 55,
 			max : 75,
 			grid_margin : true,
-			grid_num : 5,
             type: 'single',
             step: 1,
             grid: true
