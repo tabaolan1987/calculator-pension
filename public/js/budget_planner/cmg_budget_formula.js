@@ -175,7 +175,6 @@ function drawFlotJs(){
 				dataClock[numberStart] = data[i];
 				numberStart--;
 			}
-			console.log(dataClock);
 			drawChart(dataClock);
 			var exceed = totalOutcome - totalIncome;
 			$('.labelChart').html('<span class="total">Total monthly disposable income</span> <p class="exceed">£ -' + Number(exceed).toLocaleString('en').split('.')[0] + '</p>');					

@@ -2,7 +2,7 @@
 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en">
   <head>
-    <title>Budget Planner</title>
+    <title>Budget planner</title>
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,21 +12,24 @@ Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 	<link rel="stylesheet" href="css/budget_planner/screen_480_640.css">
 	<link rel="stylesheet" href="css/budget_planner/screen_640_991.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script type="text/javascript" src="js/budget_planner/analytics.js"></script>
-	<script type="text/javascript" src="js/budget_planner/cmg_responsive_tabs_min.js"></script>
     <script src="js/budget_planner/bootstrap.min.js"></script>
 	<!--[if lte IE 8]>
-	<script language="javascript" type="text/javascript" src="js/budget_planner/excanvas.min.js"></script>
+    <script type="text/javascript">
+		var html5 = { 'elements': 'abbr article aside audio bdi data datalist details figcaption figure footer header hgroup mark meter nav output progress section summary time video' };
+    </script>	
 	<script src="js/budget_planner/html5shiv.min.js"></script>
     <script src="js/budget_planner/respond.min.js"></script>
+	<script language="javascript" type="text/javascript" src="js/budget_planner/excanvas.min.js"></script>
 	<![endif]-->
+	<script type="text/javascript" src="js/budget_planner/analytics.js"></script>
+	<script type="text/javascript" src="js/budget_planner/cmg_responsive_tabs_min.js"></script>
 	<script language="javascript" type="text/javascript" src="js/budget_planner/jquery.flot.js"></script>
 	<script type="text/javascript" src="js/budget_planner/jquery.flot.pie.js"></script>
 	<script type="text/javascript" src="js/budget_planner/jquery.flot.resize.js"></script>
 	<script type="text/javascript" src="js/budget_planner/accounting_min.js"></script>
-	<script type="text/javascript" src="js/budget_planner/cmg_budget_formula.js"></script>
-	<script type="text/javascript" src="js/budget_planner/cmg_budget_action.js"></script>
-	<script type="text/javascript" src="js/budget_planner/cmg_budget_ui.js"></script>
+	<script type="text/javascript" src="js/budget_planner/cmg_budget_formula_min.js"></script>
+	<script type="text/javascript" src="js/budget_planner/cmg_budget_action_min.js"></script>
+	<script type="text/javascript" src="js/budget_planner/cmg_budget_ui_min.js"></script>
   </head>
   <body>
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -42,7 +45,7 @@ Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 					<table class="table">
 						<tr>
 							<td><a class="btn pull-left" style="color:blue;text-decoration:underline" data-dismiss="modal">No, continue editing</a></td>
-							<td><button type="button" class="btn">Yes, calculate now</button></td>
+							<td><button id="modal-calculate-now" type="button" class="btn">Yes, calculate now</button></td>
 						</tr>
 					</table>
 				  </div>

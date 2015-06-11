@@ -229,9 +229,25 @@
 		padding-right : 5px;
 		border : 1px solid;
 		border-color : #ddd;
+		height : 22px;
 	}
 	.dataInputBlack{
 		background: url("../../images/budget_planner/black-pound-320.png") no-repeat scroll left center ;
+	}
+	
+	#placeholder {
+		width : 288px;
+	}
+	
+	::-webkit-input-placeholder {
+		color: #DEDEDE;
+		font-size : 12px;
+	}
+
+	input.dataInput:-ms-input-placeholder  {  
+		color: #DEDEDE !important;
+		font-size : 12px;
+		padding-bottom : 8px !important;		
 	}
 }
 

@@ -3,12 +3,13 @@
 <popup>
 	<type>1</type>
 	<description>Not complete all field</description>
-	<color-message>blue</color-message>
+	<color-message>#747678</color-message>
 	<message>
 		<![CDATA[
-		<p>You have not completed all sections of the planner</p>
-		<p>You may have missed something.</p>
-		<p>Do you still wish to process?</p>
+		<font size="3" Face="Arial" color="#747678">
+		<p>You have not completed all of the sections in the planner. It is possible that you may have missed something.</p>
+		<p>Do you still wish to proceed with the calculation?</p>
+		</font>
 		]]>
 	</message>
 </popup>
@@ -18,8 +19,10 @@
 	<color-message>blue</color-message>
 	<message>
 		<![CDATA[
-		<p>Your outgoings exceed your income.</p>
-		<p>Have you entered the correct values?</p>
+		<font size="3" Face="Arial" color="#747678">
+		<p>The total for the expenses you have entered exceeds your income.</p>
+		<p>Check that you have entered the correct values and re-calculate if appropriate.</p>
+		</font>
 		]]>
 	</message>
 </popup>

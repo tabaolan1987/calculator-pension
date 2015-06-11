@@ -196,7 +196,6 @@ var fakewaffle = ( function ( $, fakewaffle ) {
 			} );
 
 		} );
-
 	};
 
 	fakewaffle.panelToTab = function () {

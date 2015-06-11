@@ -100,6 +100,15 @@ $('button[data-target="#collapse-calculate"]').click(function() {
     }
 });
 
+$("#modal-calculate-now").click(function(){
+	if (fakewaffle.currentPosition == "panel" && checkIE8()) {
+		$('#modal').modal('hide');
+		disableCalculateBtn();
+        checkTotalOutcome();
+		$('#collapse-calculate').collapse('show');
+	}
+});
+
 $('#collapse-calculate').on('show.bs.collapse', function(e) {
     if (fakewaffle.currentPosition == "panel") {
         disableCalculateBtn();

@@ -2,45 +2,43 @@
 <categories>
 <category>
 <name>Income</name>
-<color-category>#53565a</color-category>
+<color-category>#747678</color-category>
 <image-category>CB_Income_new.png</image-category>
-<second-color-category>#96989a</second-color-category>
+<second-color-category>#bebfc2</second-color-category>
 <color-text-category>black</color-text-category>
-<color-tab>#96989a</color-tab>
+<color-tab>#bebfc2</color-tab>
 <title-tab>Record your regular income</title-tab>
 <item>Salary (after tax)</item>
 <item>Bonus (after tax)</item>
 <item>Property rental income</item>
 <item>Childcare vouchers</item>
 <item>Pension</item>
-<item>Maternity/Paternity pay</item>
-<item>Savings/Investments</item>
+<item>Maternity or Paternity pay</item>
+<item>Savings and Investments</item>
 </category>
 <category>
 <name>Household bills</name>
-<color-category>#FF8200</color-category>
+<color-category>#06038d</color-category>
 <image-category>CB_Household_bills_new.png</image-category>
-<color-tab>#feb264</color-tab>
-<second-color-category>#feb264</second-color-category>
+<second-color-category>#a3a0cd</second-color-category>
 <color-text-category>black</color-text-category>
-<title-tab>Record your household bill</title-tab>
-<items>
+<color-tab>#a3a0cd</color-tab>
+<title-tab>Record your household bills</title-tab>
 <item>Mortgage/rent</item>
 <item>Mortgage insurance</item>
 <item>Council tax</item>
 <item>Water</item>
 <item>Gas/electricity</item>
-<item>Telephone/broadband</item>
+<item>Telephone and broadband</item>
 <item>TV license</item>
-</items>
 </category>
 <category>
 <name>Living costs</name>
-<color-category>#BBA600</color-category>
+<color-category>#009fdf</color-category>
 <image-category>CB_Living_costs_new.png</image-category>
-<second-color-category>#d5c864</second-color-category>
+<second-color-category>#b2d8f6</second-color-category>
 <color-text-category>black</color-text-category>
-<color-tab>#d5c864</color-tab>
+<color-tab>#b2d8f6</color-tab>
 <title-tab>Record your living costs</title-tab>
 <item>Grocery shopping</item>
 <item>Clothes</item>
@@ -48,17 +46,17 @@
 <item>Pocket money</item>
 <item>Pets</item>
 <item>Eating out</item>
-<item>Toiletries/make up</item>
-<item>Perscriptions/medicine</item>
+<item>Toiletries and make up</item>
+<item>Prescriptions and medicine</item>
 </category>
 <category>
 <name>Travel</name>
-<color-category>#FFCD00</color-category>
+<color-category>#671e75</color-category>
 <image-category>CB_travel_new.png</image-category>
-<second-color-category>#fee064</second-color-category>
+<second-color-category>#af9dc3</second-color-category>
 <color-text-category>black</color-text-category>
-<color-tab>#fee064</color-tab>
-<title-tab>Record your travel</title-tab>
+<color-tab>#af9dc3</color-tab>
+<title-tab>Record your travel expenses</title-tab>
 <item>Train/tube</item>
 <item>Bus</item>
 <item>Petrol/diesel</item>
@@ -69,11 +67,11 @@
 </category>
 <category>
 <name>Repayments</name>
-<color-category>#00778B</color-category>
+<color-category>#ff8200</color-category>
 <image-category>CB_repayments_new.png</image-category>
-<second-color-category>#64acb8</second-color-category>
+<second-color-category>#e6b274</second-color-category>
 <color-text-category>black</color-text-category>
-<color-tab>#64acb8</color-tab>
+<color-tab>#e6b274</color-tab>
 <title-tab>Record your repayments</title-tab>
 <item>Credit card/s</item>
 <item>Personal loan</item>
@@ -84,12 +82,12 @@
 </category>
 <category>
 <name>Insurance</name>
-<color-category>#789D4A</color-category>
+<color-category>#78be20</color-category>
 <image-category>CB_insurance_new.png</image-category>
-<second-color-category>#acc390</second-color-category>
+<second-color-category>#b7cf87</second-color-category>
 <color-text-category>black</color-text-category>
-<color-tab>#acc390</color-tab>
-<title-tab>Record your insurance</title-tab>
+<color-tab>#b7cf87</color-tab>
+<title-tab>Record your insurance expenses</title-tab>
 <item>Life</item>
 <item>Income protection</item>
 <item>Critical illness</item>
@@ -102,9 +100,9 @@
 <name>Savings</name>
 <color-category>#CE0F69</color-category>
 <image-category>CB_savings_new.png</image-category>
-<second-color-category>#e06da3</second-color-category>
+<second-color-category>#eca39d</second-color-category>
 <color-text-category>black</color-text-category>
-<color-tab>#e06da3</color-tab>
+<color-tab>#eca39d</color-tab>
 <title-tab>Record your savings</title-tab>
 <item>For specific item</item>
 <item>Regular savings</item>
@@ -115,19 +113,32 @@
 </category>
 <category>
 <name>Leisure</name>
-<color-category>#671E75</color-category>
+<color-category>#ffcd00</color-category>
 <image-category>CB_leisure_new.png</image-category>
-<second-color-category>#a276aa</second-color-category>
+<second-color-category>#fae583</second-color-category>
 <color-text-category>black</color-text-category>
-<color-tab>#a276aa</color-tab>
-<title-tab>Record your leisure</title-tab>
+<color-tab>#fae583</color-tab>
+<title-tab>Record your leisure expenses</title-tab>
 <item>Gym</item>
 <item>Sports</item>
 <item>Cinema/theatre</item>
-<item>Books/magazines</item>
+<item>Books and magazines</item>
 <item>Hobbies</item>
 <item>Days out</item>
 <item>Lottery/gambling</item>
 <item>Pub/social</item>
+</category>
+<category>
+<name>Other</name>
+<color-category>#53565a</color-category>
+<image-category>CB_other_new.png</image-category>
+<second-color-category>#aeaeb8</second-color-category>
+<color-text-category>black</color-text-category>
+<color-tab>#aeaeb8</color-tab>
+<title-tab>Record your other expenses</title-tab>
+<item>Charitable donations</item>
+<item>Sponsorship</item>
+<item>Gifts</item>
+<item>Other</item>
 </category>
 </categories>
