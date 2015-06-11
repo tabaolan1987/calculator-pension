@@ -584,6 +584,12 @@ a:focus{
 	padding: 5px 0 0 15px;
 }
 
+.wrapper-pound-income{
+	width: 114px;
+	display: inline-block;
+	text-align: center;
+}
+
 .your-required-title{
 	display: inline-block;
 	width: 114px;

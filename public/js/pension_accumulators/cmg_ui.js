@@ -105,7 +105,7 @@ function setHeightDiv(forceCashIncome,shortFall,targetPension,coinBlue,coinRed){
 		animationIncomed();
 		return true;
 	}else if(coinRed <= 5){
-		console.log('height top-arrow:' + $('.top-arrow').height());
+		//console.log('height top-arrow:' + $('.top-arrow').height());
 		var heighTotalRed = (2 * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
 		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
 		$('.arrow-mid').css('height',60);
