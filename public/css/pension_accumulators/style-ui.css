@@ -447,7 +447,7 @@ a:focus{
 	background-color:#009fdf;
 	padding:3px 10px;
 	border-radius:5px;
-	margin-left:20px;
+	margin-left: 20px;
 	font-size:14px;
 }
 
@@ -563,11 +563,15 @@ a:focus{
 }
 
 .tab-content .btnNext{
-	right:28px;
+	right:25px;
 }
 
 .tab-content .btnPrevious{
-	left:28px;
+	left:25px;
+}
+
+.remove-padding-right{
+	padding-right: 0px;
 }
 
 /*right-content
@@ -1186,11 +1190,11 @@ a:focus{
 	}
 
 	.tab-content .btnPrevious{
-	    left: 19px;
+	    left: 15px;
 	}
 
 	.tab-content .btnNext {
-	    right: 19px;
+	    right: 15px;
 	}
 
 	#important-text,
