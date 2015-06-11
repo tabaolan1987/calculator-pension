@@ -356,6 +356,15 @@
 		width : 448px;
 	}
 	
+	#myModal3{
+		top : 5%;
+		width : 920px;
+		outline: none;
+	}
+	#myModal3 .modal-content{
+		width : 448px;
+	}
+	
 	.dataInput{
 		background: url("../../images/budget_planner/grey_pound.png") no-repeat scroll left center ;
 		text-align : right;

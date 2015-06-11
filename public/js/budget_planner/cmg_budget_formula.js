@@ -131,6 +131,9 @@ function drawFlotJs(){
 			}
         }
 		drawChart(data);
+		if(savings > 100){
+			$('#myModal3').modal('show');
+		}
 		$('.labelChart').html('<span class="total">Total monthly disposable income</span> <p>£' + Number(savings).toLocaleString('en').split('.')[0] +'</p>');
     } else if(totalIncome == totalOutcome){
         var index_data = 0;

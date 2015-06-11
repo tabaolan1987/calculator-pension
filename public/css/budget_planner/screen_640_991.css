@@ -157,6 +157,15 @@
 		width : 450px;
 	}
 	
+	#myModal3{
+		top : 5%;
+		width : 470px;
+		outline: none;
+	}
+	#myModal3 .modal-content{
+		width : 450px;
+	}
+	
 	#placeholder {
 		width : 100%;
 	}

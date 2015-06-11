@@ -26,4 +26,16 @@
 		]]>
 	</message>
 </popup>
+<popup>
+	<type>3</type>
+	<description>monthly disposable income > £100</description>
+	<color-message>blue</color-message>
+	<message>
+		<![CDATA[
+		<font size="3" Face="Arial" color="#747678">
+		<p>You may want to consider using some or all of this surplus to bolster your pension or other savings</p>
+		</font>
+		]]>
+	</message>
+</popup>
 </holder>

@@ -156,6 +156,16 @@
 		width : 420px;
 	}
 	
+	#myModal3{
+		top : 5%;
+		width : 430px;
+		font-size : 14px;
+		outline: none;
+	}
+	#myModal3 .modal-content{
+		width : 420px;
+	}
+	
 	.labelTop{
 		position:: absolute;
 		width: 187px;

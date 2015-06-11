@@ -84,6 +84,9 @@ function loadWarning() {
                 } else if (type == 2) {
                     $('#myModal2').find('.modal-body').html(message);
                     $('#myModal2').find('.modal-body').css('color', color);
+                }else if (type == 3) {
+                    $('#myModal3').find('.modal-body').html(message);
+                    $('#myModal3').find('.modal-body').css('color', color);
                 }
             });
         },
