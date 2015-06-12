@@ -64,7 +64,7 @@ function setHeightDiv(forceCashIncome,shortFall,targetPension,coinBlue,coinRed){
 		$('.arrow-mid').css('height',0);
 		var hieghtBlueDiv = ($('#coin-container').height() - 25 - heighTotalRed)/2 - $('.bot-arrow').height()/2;
 		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
-		$('#print-div').css('margin-top',hieghtBlueDiv + 9);
+		$('#print-div').css('margin-top',hieghtBlueDiv + 10);
 		animationShortFall(heightMidInform -2,shortFall);
 		animationIncomed();
 		return true;

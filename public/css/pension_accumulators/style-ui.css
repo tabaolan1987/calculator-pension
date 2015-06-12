@@ -953,7 +953,13 @@ a:focus{
 	.modal-body{
 	    font-size: 10px;
 	}
-
+	
+	#wrapper{
+		overflow-y : auto;
+		min-width : 320px;
+	}
+	
+	
 	.form-control{
 		font-size: 10px;
 	}
