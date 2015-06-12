@@ -78,7 +78,7 @@ function fallingCoinBlue(index,year,yearOfShortFall){
 	$(coin).animateRotate(angle, moveToBottom, 300-heightImage*index, 'linear', function () {
         if (index < coinblue) {
                 index = index + 1;
-                fallingCoinBlue(index,year);
+                fallingCoinBlue(index,year,yearOfShortFall);
         }
     });
 }
@@ -92,6 +92,43 @@ function animationShortFall(height,shortFall){
 			$('.shortfall').fadeIn(1000);
 		});
 	}, 200);
+}
+
+
+function updateFundNeedToLast(year){
+	$("#year-need-last").html(year);
+	var coingrey = $('.coingrey').length;
+	var last = coingrey -1;
+	var top = ($("#coingrey"+last).position().top + 15) - $("#coin-title-left").height() ;
+	$("#coin-title-left").css("top",top+"px");
+	$("#coin-title-left").css("position","absolute");
+	$("#coin-title-left").fadeIn();
+}
+
+function updateFundMayToLast(year,yearOfShortFall){
+	$("#year-may-last").html(year);
+	var coinBlue = $('.coinBlue').length;
+	if(coinBlue == totalCoin){
+		$("#coin-title-right").fadeIn();
+	}else if(coinBlue < totalCoin){
+		var coinForShortFall = totalCoin - coinBlue;
+		if(coinForShortFall > 5){
+			var heighAdded = coinForShortFall * ($('.coinBlue').height() / 2 - 5) - 54;
+			$("#coin-title-right").fadeIn(function(){
+				$(".top-arrow").css("top",100);
+				$(".top-arrow").css("position","relative");
+				animationShortFall(heighAdded,yearOfShortFall);
+			});
+		}else{
+			$("#coin-title-right").fadeIn(function(){
+				$(".top-arrow").css("top",100);
+				$(".top-arrow").css("position","relative");
+				animationShortFall(42,yearOfShortFall);
+			});
+		}
+		
+	}
+	
 }
 
 
@@ -112,25 +149,35 @@ function drawCalendar(){
 /*------------------------------------------------------*/
 /* there are functions handle UI of tab About you */
 function drawSlidePercentTaxFreeCash(){
-	var labelStage = ["0","5","10","15","20","25"];
-	$("#percent-tax-free").slider({min: 0,max: 25,step: 1}).slider("pips", {rest: "label",step: 5,
-	label: labelStage}).slider("float");
+	$("#percent-tax-free").ionRangeSlider({
+            hide_min_max: true,
+            keyboard: true,
+			min : 0,
+			max : 25,
+			grid_margin : true,
+			grid_num : 5,
+            type: 'single',
+            step: 1,
+            grid: true
+    });
 }
 
 /*------------------------------------------------------------------*/
 
 function drawSlideModalGrowRate(){
-	var labelStage = ["0","0.5","1","1.5","2","2.5","3"];
-	$("#slider-modal-growrate").slider({min: 0,max: 3,step: 0.5,value:1.5}).slider("pips", {rest: "label",step: 0.5,
-	label: labelStage}).slider("float").on("slidechange", function(e,ui) {
-		var value = $("#slider-modal-growrate").slider().slider('value');
-		$("#slider-modal-growrate").find('.ui-slider-tip').html(value+'%');
+	$("#slider-modal-growrate").ionRangeSlider({
+            hide_min_max: true,
+            keyboard: true,
+			min : 0,
+			max : 3,
+			from :1.5,
+			grid_margin : true,
+			grid_num : 6,
+            type: 'single',
+            step: 0.5,
+            grid: true
     });
-	$("#slider-modal-growrate").find('.ui-corner-all').mouseover(function(){
-		var value = $("#slider-modal-growrate").slider().slider('value');
-		$("#slider-modal-growrate").find('.ui-slider-tip').html(value+'%');
-	});
-
+	$("#slider-modal-growrate").val(1.5);
 }
 /*--------------------------------------------*/
 function showWarning(content){

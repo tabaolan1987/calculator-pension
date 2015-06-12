@@ -18,6 +18,7 @@
 function registerAction(){
 	registerHoverAction();
 	registerActionYourDetails();
+	registerActionResult();
 }
 
 
@@ -144,13 +145,16 @@ function registerActionYourDetails(){
 			if(isReturnLTA == true){
 				showWarning(LTA['message']);
 				var percentChange = getPercentLTAwithPensionFound(fundValue);
-				$("#percent-tax-free").slider().slider("value",percentChange);
+				$("#percent-tax-free").val(percentChange);
+				$('#percent-tax-free').data("ionRangeSlider").update({
+					from: percentChange
+				});
 			}else{
 				$("#results").trigger('click');
 			}
 		}else{
 			var caseWarning = check[0];
-			content = warningArray["validate-field"] +" "+ check[0];
+			var content = warningArray["validate-field"] +" "+ check[0];
 			for(var i =1; i < check.length;i++){
 				content = content+", " + check[i];
 			}
@@ -169,11 +173,14 @@ function registerActionYourDetails(){
 			if(isReturnLTA == true){
 				showWarning(LTA['message']);
 				var percentChange = getPercentLTAwithPensionFound(fundValue);
-				$("#percent-tax-free").slider().slider("value",percentChange);
+				$("#percent-tax-free").val(percentChange);
+				$('#percent-tax-free').data("ionRangeSlider").update({
+					from: percentChange
+				});
 			}
 		}else{
 			var caseWarning = check[0];
-			content = warningArray["validate-field"] +" "+ check[0];
+			var content = warningArray["validate-field"] +" "+ check[0];
 			for(var i =1; i < check.length;i++){
 				content = content+", " + check[i];
 			}
@@ -225,48 +232,29 @@ function disableTabResult(){
 
 function registerActionResult(){
 	$('a[id="results"]').on('shown.bs.tab', function (e) {
-		var yearNeedLast = getLifeExpectancy();
-		var yearMayLast = 
-		 
-	});
+		drawChart();
+	});	
 }
 
 
-function updateFundNeedToLast(year){
-	$("#year-need-last").html(year);
-	var coingrey = $('.coingrey').length;
-	var last = coingrey -1;
-	var top = ($("#coingrey"+last).position().top + 15) - $("#coin-title-left").height() ;
-	$("#coin-title-left").css("top",top+"px");
-	$("#coin-title-left").css("position","absolute");
-	$("#coin-title-left").fadeIn();
+function drawChart(){
+	var fundPot = getFundPot();
+	var totalRate = getTotalRate();
+	var annualIncome = getAnnualIncome();
+	var yearNeedLast = getLifeExpectancy();
+	var yearMayLast = decumulatorYears(fundPot,totalRate,annualIncome);
+	var shortFallYear = getShortFallYear(yearMayLast,yearNeedLast);
+	$(".expectancy-year").html(yearNeedLast + " years");
+	$(".funds-year").html(yearMayLast + " years");
+	var coinBlue = getCoinBlue(yearMayLast,yearNeedLast);
+	var coinGrey = getCoinGrey(yearMayLast,yearNeedLast);
+	setupCoinGrey(coinGrey);
+	fallingCoinGrey(0,yearNeedLast);
+	setupCoinBlue(coinBlue);
+	fallingCoinBlue(0,yearMayLast,shortFallYear);
 }
 
-function updateFundMayToLast(year,yearOfShortFall){
-	$("#year-may-last").html(year);
-	var coinBlue = $('.coinBlue').length;
-	if(coinBlue == totalCoin){
-		$("#coin-title-right").fadeIn();
-	}else if(coinBlue < totalCoin){
-		var coinForShortFall = totalCoin - coinBlue;
-		if(coinForShortFall > 5){
-			var heighAdded = coinForShortFall * ($('.coinBlue').height() / 2 - 5) - 54;
-			$("#coin-title-right").fadeIn(function(){
-				$(".top-arrow").css("top",100);
-				$(".top-arrow").css("position","relative");
-				animationShortFall(heighAdded,yearOfShortFall);
-			});
-		}else{
-			$("#coin-title-right").fadeIn(function(){
-				$(".top-arrow").css("top",100);
-				$(".top-arrow").css("position","relative");
-				animationShortFall(42,yearOfShortFall);
-			});
-		}
-		
-	}
-	
-}
+
 
 
 

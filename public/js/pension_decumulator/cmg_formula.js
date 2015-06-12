@@ -75,17 +75,17 @@ function getGender(){
 
 function getFundValue(){
 	var fundValue = $("#txt-current-salary").val();
-	return fundValue;
+	return parseFloatCMG(fundValue);
 }
 
 function getTaxFreePercent(){
-	var tax = $("#percent-tax-free").slider().slider("value");
+	var tax = $("#percent-tax-free").val();
 	return tax;
 }
 
 function getAnnualIncome(){
 	var annIn = $("#txt-target-pensions").val();
-	return annIn;
+	return parseFloatCMG(annIn);
 }
 
 function getGrowthRate(){
@@ -96,13 +96,13 @@ function getGrowthRate(){
 	return 0;
 }
 function getManagementCharge(){
-	var mnCharge = $("#slider-modal-growrate").slider().slider("value");
+	var mnCharge = $("#slider-modal-growrate").val();
 	return mnCharge;
 }
 
 function getInflationAdjust(){
-	var growthRate = getGrowthRate()
-	var inFlat = growthRate[growthRate];
+	var gr = parseFloatCMG(getGrowthRate());
+	var inFlat = growthRate[gr];
 	return inFlat;
 }
 
@@ -203,6 +203,13 @@ function getCoinGrey(yearMayLast,yearNeedLast){
 	}
 }
 
+function getShortFallYear(yearMayLast,yearNeedLast){
+	if(yearMayLast < yearNeedLast){
+		var shortFallYear = yearNeedLast - yearMayLast;
+		return shortFallYear;
+	}
+	return 0;
+}
 
 
 
