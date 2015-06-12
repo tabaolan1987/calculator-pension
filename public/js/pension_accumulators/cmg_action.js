@@ -666,9 +666,9 @@ function setActionLink(){
 		}else if(id == "focus-contribution"){
 			$("#txt-you-paying-percent-result").focus();
 		}else if(id == "focus-retireAge"){
-			$('#container-age-to-retirement-result').find(".ui-corner-all").mouseenter();
+			//$('#container-age-to-retirement-result').find(".ui-corner-all").mouseenter();
 		}else if(id== "focus-tax"){
-			$('#container-percent-tax-free').find(".irs-slider").click();
+			 //$('#container-percent-tax-free').find(".irs-slider").mouseover();
 		}
 	});
 }
@@ -705,7 +705,7 @@ function setupMessageSummary(){
 	$('.summary-retire-age').each(function(){
 		$(this).html(retire_age);
 	});
-	
+	tax_free_value = round(tax_free_value);
 	$('.summary-pound-amount').html(Number(tax_free_value).toLocaleString('en').split('.')[0]);
 		
 }
@@ -745,7 +745,7 @@ function updateDataPrint(){
 	$('.print-retire-age').each(function(){
 		$(this).html(retire_age);
 	});
-	
+	tax_free_value = round(tax_free_value);
 	$('.print-percent-amount').html(tax_free_percent);
 	$('.print-pound-amount').html(Number(tax_free_value).toLocaleString('en').split('.')[0]);
 	$('.print-pound-income').html(Number(forceCashIncome).toLocaleString('en').split('.')[0]);
