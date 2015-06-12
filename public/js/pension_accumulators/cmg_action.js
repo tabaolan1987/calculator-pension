@@ -500,6 +500,12 @@ function disableTxtField(){
 	$('#nextResult').attr("disabled","disabled");
 	$('#backResult').attr("disabled","disabled");
 	$('#btn-advanced').attr("disabled","disabled");
+	$('#percent-tax-free-result').data("ionRangeSlider").update({
+			disable: true
+	});
+	$('#age-to-retirement-result').data("ionRangeSlider").update({
+			disable: true
+	});
 }
 function eneabledTxtField(){
 	$('#txt-your-employer-percent-result').removeAttr("disabled");
@@ -512,6 +518,12 @@ function eneabledTxtField(){
 	$('#nextResult').removeAttr("disabled");
 	$('#backResult').removeAttr("disabled");
 	$('#btn-advanced').removeAttr("disabled");
+	$('#percent-tax-free-result').data("ionRangeSlider").update({
+			disable: false
+	});
+	$('#age-to-retirement-result').data("ionRangeSlider").update({
+			disable: false
+	});
 }
 function onChange(){
 	$('#txt-your-employer-percent-result').on('change',function(){
@@ -576,25 +588,7 @@ function onChange(){
 		$(this).val(target);
 		onChangeUI();
 	});
-	
-	//$("#percent-tax-free-result").slider().slider().on("slidechange", function(e,ui) {
-		//var value = $("#percent-tax-free-result").slider().slider('value');
-		//$("#percent-tax-free").slider().slider('value',value);
-		//if(loopFunction == false){
-			//onChangeUI();
-		//}else{
-			//loopFunction = false;
-		//}
-		
-    //});
-	
-	//$("#age-to-retirement-result").data("ionRangeSlider").on("slidechange", function(e,ui) {
-       // var value = $("#age-to-retirement-result").slider().slider('value');
-		//$("#age-to-retirement").slider().slider('value',value);
-		//onChangeUI();
-    //});
-	
-	
+
 }
 function onChangeUI(){
 	var ageRetire = $("#age-to-retirement-result").val();
@@ -672,9 +666,9 @@ function setActionLink(){
 		}else if(id == "focus-contribution"){
 			$("#txt-you-paying-percent-result").focus();
 		}else if(id == "focus-retireAge"){
-			$('#age-to-retirement-result').find(".ui-corner-all").mouseenter();
+			$('#container-age-to-retirement-result').find(".ui-corner-all").mouseenter();
 		}else if(id== "focus-tax"){
-			$('#percent-tax-free-result').find(".ui-corner-all").mouseenter();
+			$('#container-percent-tax-free').find(".irs-slider").click();
 		}
 	});
 }

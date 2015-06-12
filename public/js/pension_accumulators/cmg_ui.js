@@ -177,9 +177,6 @@ function backAction(e){
 /*------------------------------------------------------*/
 /* there are functions handle UI of tab About you */
 function drawSlideRetirementAge(){
-	var labelStage = ["55","60","65","70","75"];
-	//$("#age-to-retirement").slider({min: 55,max: 75,step: 1,value:65}).slider("pips", {rest: "label",step: 5,
-	//label: labelStage}).slider("float");
 	$("#age-to-retirement").ionRangeSlider({
             hide_min_max: true,
             keyboard: true,
@@ -191,12 +188,10 @@ function drawSlideRetirementAge(){
             grid: true,
             force_edges: true
     });
+    $("#age-to-retirement").val(55);
 }
 
 function drawSlidePercentTaxFreeCash(){
-	var labelStage = ["0","5","10","15","20","25"];
-	//$("#percent-tax-free").slider({min: 0,max: 25,step: 1}).slider("pips", {rest: "label",step: 5,
-	//label: labelStage}).slider("float");
 	$("#percent-tax-free").ionRangeSlider({
             hide_min_max: true,
             keyboard: true,
@@ -208,6 +203,7 @@ function drawSlidePercentTaxFreeCash(){
             step: 1,
             grid: true
     });
+    $("#percent-tax-free").val(0);
 }
 function drawSlideAboutYou(){
 	drawSlideRetirementAge();
@@ -217,9 +213,6 @@ function drawSlideAboutYou(){
 
 /* there are functions handle UI of tab result*/
 function drawSlideResult(){
-	//var label = ["55","60","65","70","75"];
-	//$("#age-to-retirement-result").slider({min: 55,max: 75,step: 1,value:ageRetire}).slider("pips", {rest: "label",step: 5,
-	//label: label}).slider("float");
 	$("#age-to-retirement-result").ionRangeSlider({
             hide_min_max: true,
             keyboard: true,
@@ -234,9 +227,6 @@ function drawSlideResult(){
 			}
     });
 	
-	//var labelStage = ["0","5","10","15","20","25"];
-	//$("#percent-tax-free-result").slider({min: 0,max: 25,step: 1,value:percentTaxFree}).slider("pips", {rest: "label",step: 5,
-	//label: labelStage}).slider("float");
 	$("#percent-tax-free-result").ionRangeSlider({
             hide_min_max: true,
             keyboard: true,
@@ -254,29 +244,20 @@ function drawSlideResult(){
 }
 
 function drawSlideModalGrowRate(){
-	var labelStage = ["0","0.5","1","1.5","2","2.5","3"];
-	//$("#slider-modal-growrate").slider({min: 0,max: 3,step: 0.5,value:1.5}).slider("pips", {rest: "label",step: 0.5,
-	//label: labelStage}).slider("float").on("slidechange", function(e,ui) {
-		//var value = $("#slider-modal-growrate").slider().slider('value');
-		//$("#slider-modal-growrate").find('.ui-slider-tip').html(value+'%');
-   // });
-	//$("#slider-modal-growrate").find('.ui-corner-all').mouseover(function(){
-		//var value = $("#slider-modal-growrate").slider().slider('value');
-		//$("#slider-modal-growrate").find('.ui-slider-tip').html(value+'%');
-	//});
+	
 	$("#slider-modal-growrate").ionRangeSlider({
             hide_min_max: true,
             keyboard: true,
 			min : 0,
 			max : 3,
-			from : 2.5,
+			from : 1.5,
 			grid_margin : true,
 			grid_num : 6,
             type: 'single',
             step: 0.5,
             grid: true
     });
-
+	$("#slider-modal-growrate").val(1.5);
 }
 /*--------------------------------------------*/
 function drawSlide(){
