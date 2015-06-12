@@ -984,6 +984,11 @@ a:focus{
 		padding: 0 5px;
 	}
 
+	.right-content{
+		min-height: 650px;
+		height : 650px;
+	}
+
 	.tab-pane .row-rule{
 		padding: 10px 0;
 	}
@@ -1224,6 +1229,10 @@ a:focus{
 
 /*less than 364px fix col coin*/
 @media screen and (max-width: 364px) {
+	#wrap-tab{
+		overflow: hidden;
+	}
+
 	#right-content .draw-chart .col-xs-4{
 		width: 41.6667%;
 	}
