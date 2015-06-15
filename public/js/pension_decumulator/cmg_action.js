@@ -258,20 +258,10 @@ function registerActionResult(){
 	});
 }
 
-function updateMessage(yearNeedLast,yearMayLast){
-	var fundValue = getFundValue();
-	var annualIncome = getAnnualIncome();
-	var taxPercen = getTaxFreePercent();
-	var taxfreeCash = getTaxFreeCash(fundValue,taxPercen);
-	$(".expectancy-year").html(yearNeedLast + " years");
-	$(".funds-year").html(yearMayLast + " years");
-	$('.display-result-pound-fund').html(addCommas(fundValue));
-	$('.display-result-pound-annual').html(addCommas(annualIncome));
-	$('.display-result-pound-amount').html(addCommas(taxfreeCash));
-	$('.display-result-percent-amount').html(addCommas(taxPercen));
-}
+
 
 function drawChart(){
+	showRightContent();
 	showChartRight();
 	var fundPot = getFundPot();
 	var totalRate = getTotalRate();
@@ -279,26 +269,38 @@ function drawChart(){
 	var yearNeedLast = getLifeExpectancy();
 	var yearMayLast = decumulatorYears(fundPot,totalRate,annualIncome);
 	var shortFallYear = getShortFallYear(yearMayLast,yearNeedLast);
-	updateMessage(yearNeedLast,yearMayLast);
+	updateMessage(yearNeedLast,yearMayLast,shortFallYear);
 	var coinBlue = getCoinBlue(yearMayLast,yearNeedLast);
 	var coinGrey = getCoinGrey(yearMayLast,yearNeedLast);
 	setupCoinGrey(coinGrey);
-	fallingCoinGrey(0,yearNeedLast);
 	setupCoinBlue(coinBlue);
+	fallingCoinGrey(0,yearNeedLast);
 	fallingCoinBlue(0,yearMayLast,shortFallYear);
 }
 
-
 function PrintElement(element){
-	updateDataPrint();
 	Popup($(element).html());
 }
 
+function updateMessage(yearNeedLast,yearMayLast,shortFallYear){
+	var fundValue = getFundValue();
+	var annualIncome = getAnnualIncome();
+	var taxPercen = getTaxFreePercent();
+	var taxfreeCash = getTaxFreeCash(fundValue,taxPercen);
+	$(".expectancy-year").html(yearNeedLast + " years");
+	$(".funds-year").html(yearMayLast + " years");
+	$('.pound-annual-income').html(addCommas(annualIncome));
+	$('.display-result-pound-fund').html(addCommas(fundValue));
+	$('.display-result-pound-annual').html(addCommas(annualIncome));
+	$('.display-result-pound-amount').html(addCommas(taxfreeCash));
+	$('.display-result-percent-amount').html(addCommas(taxPercen));
+}
+
 function Popup(data) {
-	var mywindow = window.open('', 'Close Brothers');
+	var mywindow = window.open('', 'CloseBrothers');
 	mywindow.document.write('<html><head><title>Pension Accumulators</title>');
 	mywindow.document.write('<style>a {text-decoration : none !important;color : black;}</style>');
-	mywindow.document.write('</head><body >');
+	mywindow.document.write('</head><body>');
 	mywindow.document.write(data);
 	mywindow.document.write('</body></html>');
 	mywindow.document.close();

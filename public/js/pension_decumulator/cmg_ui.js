@@ -22,15 +22,19 @@ $.fn.animateRotate = function(angle, top, duration, easing, complete) {
 };
 
 function setupCoinBlue(coinblue){
+	$("#coin-title-right").hide();
 	var html ="start";
 	for(var i = 0 ; i < coinblue;i++){
 		html = html + "<div class='coinBlue' id='coinBlue"+i+"'></div>";
 	}
 	html = html.replace("start","");
+	
 	$('#coin-container-right').html(html);
+	
 }
 
 function setupCoinGrey(coingrey){
+	$("#coin-title-left").hide();
 	var html ="start";
 	for(var i = 0 ; i < coingrey;i++){
 		html = html + "<div class='coingrey' id='coingrey"+i+"'></div>";
@@ -102,7 +106,9 @@ function updateFundNeedToLast(year){
 	var coingrey = $('.coingrey').length;
 	var last = coingrey -1;
 	var top = ($("#coingrey"+last).position().top + 15) - $("#coin-title-left").height() ;
-	$("#coin-title-left").css("top",top+"px");
+	var paddingTop = $("#coin-title-left").css("padding-top");
+	var numberAdded = accounting.unformat(paddingTop);
+	$("#coin-title-left").css("top",(top - numberAdded)+"px");
 	$("#coin-title-left").css("position","relative");
 	$("#coin-title-left").fadeIn();
 }

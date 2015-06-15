@@ -182,7 +182,11 @@ function getCoinBlue(yearMayLast,yearNeedLast){
 		if( shortFall < 21){
 			return 20;
 		}
-		var coin = new Number(percent/4).toFixed(0);
+		var temp = percent/4;
+		var coin = new Number(temp).toFixed(0);
+		if(coin == 0){
+			coin=1;
+		}
 		return coin;
 	}
 }

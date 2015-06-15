@@ -233,7 +233,7 @@ function loadAllWarning(){
 
 function loadAllInformation(){
 	loadInformation('details.xml');
-	//loadInformation('result.xml');
+	loadInformation('result.xml');
 }
 
 function loaddAllONS(){
