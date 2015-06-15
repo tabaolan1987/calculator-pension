@@ -94,11 +94,11 @@ a:focus{
 ---------------------------------------------------------------------------------------------------------------*/
 
 .left-content{
-	border-right:3px dotted #ddd;
+	//border-right:3px dotted #ddd;
 }
 
 .tab-content{
-	margin-top: 20px;	
+	margin-top: 40px;	
 }
 
 
@@ -575,7 +575,7 @@ a:focus{
 }
 
 .tab-content .btnNext{
-	right:139px;
+	right:40px;
 }
 
 .tab-content .btnPrevious{
@@ -588,6 +588,7 @@ a:focus{
 	overflow: hidden;
 	//min-height: 638px;
 	//height : 638px;
+	border-left: 3px dotted #ddd;
 }
 
 .right-content h3{
@@ -669,13 +670,12 @@ a:focus{
 
 #coin-title-left{
 	z-index: 999;
-	position: absolute;
+	position: relative;
 	background: url(../../images/pension_decumulator/title-coin-gray.png) bottom center no-repeat;
 	min-width: 172px;
 	min-height: 94px;
 	font-size: 17px;
 	color: #7a7a7a;
-	left:40px;
 	display:none;
 }
 
@@ -685,15 +685,20 @@ a:focus{
 	min-height: 94px;
 	font-size: 17px;
 	color: #06038d;
-	position: absolute;
+	position: relative;
 	z-index: 999;
-	left:40px;
 	display:none;
 	top : 6px;
 }
 
 .draw-chart-default{
 	padding-top: 50px;
+}
+
+.draw-chart{
+	min-height:700px;
+	height: 700px;
+	overflow: hidden;
 }
 
 /*overide slider css*/
@@ -716,10 +721,11 @@ a:focus{
 /*less than 991px*/
 @media screen and (max-width: 991px) {
 	.left-content{
-		border-right: none;
+		//border-right: none;
 	}
 
 	.right-content{
+		border-left: none;
 		border-top: 3px dotted #ddd;
 	}
 }
