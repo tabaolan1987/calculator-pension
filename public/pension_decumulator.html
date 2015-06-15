@@ -79,28 +79,28 @@
                   </div>
                   <div class="tab-pane active" id="tab1">
                      <div class="row row-rule">
-                        <div class="col-xs-9"><span id="current-age" class="icon-tooltip"></span><span class="label-tooltip">What is your date of birth?</span></div>
-                        <div class="col-xs-3 col-calendar"><input alert-message="date of birth" id='txt-birthday' type="text" onkeypress="return isNumberKey(event)" class="form-control input-birthday" placeholder=""/>
+                        <div class="col-xs-9 mobile-padding-left"><span id="current-age" class="icon-tooltip"></span><span class="label-tooltip">What is your date of birth?</span></div>
+                        <div class="col-xs-3 col-calendar"><input readonly="readonly" alert-message="date of birth" id='txt-birthday' type="text" onkeypress="return isNumberKey(event)" class="form-control input-birthday" placeholder=""/>
 						<div class="wrap-img-calendar"><img src="images/pension_decumulator/calendar-bg.png" id="image-calendar-trigger" class="img-responsive" style="cursor: pointer;" title="Date selector" onmouseover="this.style.background='red';" onmouseout="this.style.background=''"/></div> </div>
                      </div>
                      <div class="row row-rule">
-                        <div class="col-xs-3"><span id="gender" class="icon-tooltip"></span><span class="label-tooltip">Male</span></div>
+                        <div class="col-xs-3 mobile-padding-left"><span id="gender" class="icon-tooltip"></span><span class="label-tooltip">Male</span></div>
                         <div class="col-xs-3"><input alert-message="gender" id='male' value='1' type="radio" name="optradio"><label class="radio-gender" for="male"></label></div>
                         <div class="col-xs-3 radio-lable">Female</div>
                         <div class="col-xs-3"><input alert-message="gender" id="female" type="radio" value='2' name="optradio"><label class="radio-gender" for="female"></label></div>
                      </div>
                      <div class="row row-rule">
-                        <div class="col-xs-9"><span id="current-salary" class="icon-tooltip"></span><span class="label-tooltip">What is your existing fund value?</span></div>
+                        <div class="col-xs-9 mobile-padding-left"><span id="current-salary" class="icon-tooltip"></span><span class="label-tooltip">What is your existing fund value?</span></div>
                         <div class="col-xs-3 pound"><input alert-message="existing fund value"  maxlength="9" id='txt-current-salary' type="text" onkeypress="return isNumberKey(event)"  class="form-control text-about-you" placeholder=""/></div>
                      </div>
                      <div class="row row-rule">
-                        <div class="col-xs-7"><span id="tax-free-cash" class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider">What percentage would you like to take as tax free cash?</span></div>
+                        <div class="col-xs-7 mobile-padding-left"><span id="tax-free-cash" class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider">What percentage would you like to take as tax free cash?</span></div>
                         <div class="col-xs-5">
                            <div id="percent-tax-free" class="percentTax ui-slider"></div>
                         </div>
                      </div>
                      <div class="row row-rule">
-                        <div class="col-xs-9"><span id="target-pension" class="icon-tooltip"></span><span class="label-tooltip">How much annual income do you think you will want when you retire?</span></div>
+                        <div class="col-xs-9 mobile-padding-left"><span id="target-pension" class="icon-tooltip"></span><span class="label-tooltip">How much annual income do you think you will want when you retire?</span></div>
                         <div class="col-xs-3 pound"><input alert-message="desired income" id="txt-target-pensions" type="text" onkeypress="return isNumberKey(event)"  class="form-control text-about-you" placeholder=""/></div>
                      </div>
                      <a id='nextAboutYou' class="btn btn-primary btnNext">calculate</a>
@@ -148,8 +148,8 @@
 
             <div id='right-content' class="col-sm-12 col-md-5 right-content">
                <!---->
-               <div class="right-content-draw" >
-                  <div class="draw-chart align-center" >
+               <div class="right-content-draw">
+                  <div class="draw-chart align-center" style="display:none;">
                      <div class="row">
                         <h3 class="align-center">To provide for an annual income of <br/> <b>£</b><b class="pound-annual-income">35,000</b></h3>
                         <div id="chart-left" style="height : 615px" class="col-xs-6">
@@ -174,7 +174,7 @@
                      </div>
                   </div>
                </div>
-               <div class="right-content-default align-center" style="display:none;">
+               <div class="right-content-default align-center">
                   <img class="img-responsive" src="images/pension_decumulator/right-content-img.jpg" alt="" title="" />
                </div>
             </div>
