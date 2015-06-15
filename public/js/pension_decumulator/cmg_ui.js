@@ -91,7 +91,7 @@ function animationShortFall(height,shortFall){
 		$(".arrow-mid").animate({"height":height}, "slow",function(){
 			$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0] + " years");
 			$('.shortfall').fadeIn(1000);
-			$(".arrow-mid").css("padding-top",height/2-10+"px");
+			$(".arrow-mid").css("padding-top",height/2-22+"px");
 		});
 	}, 200);
 }
