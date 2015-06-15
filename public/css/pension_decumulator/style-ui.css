@@ -277,8 +277,20 @@ a:focus{
     padding: 0 0 0 0px;
 }
 
-.row-rule input[type="radio"]:checked + label{
+.row-rule input[type="radio"] + label.selected{
     background:url(../../images/pension_decumulator/radio-check.png) center bottom no-repeat;
+}
+
+.modal input[type="radio"] + label.growrate-label{
+    background:url(../../images/pension_decumulator/radio-popup.png) center bottom no-repeat;
+    height: 28px;
+    width: 26px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+}
+
+.modal input[type="radio"] + label.growrate-label.selected{
+    background:url(../../images/pension_decumulator/radio-popup-check.png) center bottom no-repeat;
 }
 
 .row-rule .radio-lable{

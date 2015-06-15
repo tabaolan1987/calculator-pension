@@ -166,10 +166,14 @@ function drawGrowRate(xml){
 		index++;
 		var value = $(this).attr('value');
 		var checked = $(this).attr('default');
+		var classAttr = "growrate-label";
+		if(checked!="false"){
+			classAttr = "growrate-label selected";
+		}
 		if(index == 1){
-			html = html + "<div class='col-xs-2 modal-value'><input type='radio' value='"+value+"' id='"+value+"-percent' "+checked+" name='an-grow-percent'><label for='"+value+"-percent'></label></div>";
+			html = html + "<div class='col-xs-2 modal-value'><input type='radio' value='"+value+"' id='"+value+"-percent' "+checked+" name='an-grow-percent'><label class='"+classAttr+"' for='"+value+"-percent'></label></div>";
 		}else{
-			html = html + "<div class='col-xs-2'><input type='radio' value='"+value+"' id='"+value+"-percent' "+checked+" name='an-grow-percent'><label for='"+value+"-percent'></label></div>";
+			html = html + "<div class='col-xs-2'><input type='radio' value='"+value+"' id='"+value+"-percent' "+checked+" name='an-grow-percent'><label class='"+classAttr+"' for='"+value+"-percent'></label></div>";
 		}
 	 });
 	 

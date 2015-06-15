@@ -125,8 +125,15 @@ function registerActionYourDetails(){
 			$(this).val(number);
 		}
 	});
-
-	$("input:radio[name=optradio]").change(function(){
+	$(".radio-gender").click(function(){
+		$(".radio-gender").each(function(e){
+			$(this).removeClass("selected");
+			var idCheck = $(this).attr("for");
+			$("#"+idCheck).removeAttr("checked");
+		});
+		var idCheck = $(this).attr("for");
+		$("#"+idCheck).attr("checked","checked");
+		$(this).addClass("selected");
 		var check = checkDataYourDetail();
 		if(check.length == 0){
 			eneableTabResult();
@@ -169,7 +176,6 @@ function registerActionYourDetails(){
 			var fundValue = getFundValue();	
 			var taxfreePercent = getTaxFreePercent();
 			var taxfreeCash = getTaxFreeCash(fundValue,taxfreePercent);
-			eneableTabResult();
 			if(isReturnLTA == true){
 				showWarning(LTA['message']);
 				var percentChange = getPercentLTAwithPensionFound(fundValue);
@@ -178,6 +184,7 @@ function registerActionYourDetails(){
 					from: percentChange
 				});
 			}
+			eneableTabResult();
 		}else{
 			var caseWarning = check[0];
 			var content = warningArray["validate-field"] +" "+ check[0];
@@ -234,8 +241,35 @@ function registerActionResult(){
 	$('a[id="results"]').on('shown.bs.tab', function (e) {
 		drawChart();
 	});	
+	$('#estimated-annual-modal').on("shown.bs.modal",function(e){
+		$(".growrate-label").on('click',function(){
+			$(".growrate-label").each(function(){
+				$(this).removeClass("selected");
+				var idCheck = $(this).attr("for");
+				$("#"+idCheck).removeAttr("checked");
+			});
+			var idCheck = $(this).attr("for");
+			$("#"+idCheck).attr("checked","checked");
+			$(this).addClass("selected");
+		});
+	});
+	$('#estimated-annual-modal').on("hidden.bs.modal",function(e){
+		drawChart();
+	});
 }
 
+function updateMessage(yearNeedLast,yearMayLast){
+	var fundValue = getFundValue();
+	var annualIncome = getAnnualIncome();
+	var taxPercen = getTaxFreePercent();
+	var taxfreeCash = getTaxFreeCash(fundValue,taxPercen);
+	$(".expectancy-year").html(yearNeedLast + " years");
+	$(".funds-year").html(yearMayLast + " years");
+	$('.display-result-pound-fund').html(addCommas(fundValue));
+	$('.display-result-pound-annual').html(addCommas(annualIncome));
+	$('.display-result-pound-amount').html(addCommas(taxfreeCash));
+	$('.display-result-percent-amount').html(addCommas(taxPercen));
+}
 
 function drawChart(){
 	var fundPot = getFundPot();
@@ -244,8 +278,7 @@ function drawChart(){
 	var yearNeedLast = getLifeExpectancy();
 	var yearMayLast = decumulatorYears(fundPot,totalRate,annualIncome);
 	var shortFallYear = getShortFallYear(yearMayLast,yearNeedLast);
-	$(".expectancy-year").html(yearNeedLast + " years");
-	$(".funds-year").html(yearMayLast + " years");
+	updateMessage(yearNeedLast,yearMayLast);
 	var coinBlue = getCoinBlue(yearMayLast,yearNeedLast);
 	var coinGrey = getCoinGrey(yearMayLast,yearNeedLast);
 	setupCoinGrey(coinGrey);
@@ -253,19 +286,6 @@ function drawChart(){
 	setupCoinBlue(coinBlue);
 	fallingCoinBlue(0,yearMayLast,shortFallYear);
 }
-
-
-
-
-
-function test(){
-	setupCoinGrey(20);
-	fallingCoinGrey(0,33);
-	
-	setupCoinBlue(25);
-	fallingCoinBlue(0,33);
-}
-
 
 
 function PrintElement(element){
