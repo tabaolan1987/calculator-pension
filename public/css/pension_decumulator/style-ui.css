@@ -686,7 +686,7 @@ a:focus{
 	position: relative;
 	background: url(../../images/pension_decumulator/title-coin-gray.png) bottom center no-repeat;
 	min-width: 172px;
-	min-height: 94px;
+	height: 94px;
 	font-size: 17px;
 	color: #7a7a7a;
 	display:none;
@@ -695,7 +695,7 @@ a:focus{
 #coin-title-right{
 	background: url(../../images/pension_decumulator/title-coin-blue.png) bottom center no-repeat;
 	min-width: 172px;
-	min-height: 94px;
+	height: 94px;
 	font-size: 17px;
 	color: #06038d;
 	position: relative;
