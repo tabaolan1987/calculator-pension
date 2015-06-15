@@ -261,6 +261,8 @@ function registerActionResult(){
 
 
 function drawChart(){
+	showRightContent();
+	showRightContent();
 	showChartRight();
 	var fundPot = getFundPot();
 	var totalRate = getTotalRate();

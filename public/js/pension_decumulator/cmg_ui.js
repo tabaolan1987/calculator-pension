@@ -102,7 +102,9 @@ function updateFundNeedToLast(year){
 	var coingrey = $('.coingrey').length;
 	var last = coingrey -1;
 	var top = ($("#coingrey"+last).position().top + 15) - $("#coin-title-left").height() ;
-	$("#coin-title-left").css("top",top+"px");
+	var paddingTop = $("#coin-title-left").css("padding-top");
+	var numberAdded = accounting.unformat(paddingTop);
+	$("#coin-title-left").css("top",(top-numberAdded)+"px");
 	$("#coin-title-left").css("position","relative");
 	$("#coin-title-left").fadeIn();
 }
