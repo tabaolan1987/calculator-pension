@@ -190,17 +190,17 @@ a:focus{
 	text-decoration:none;
 }
 
-.nav-tabs li:nth-child(1) a{
+.nav-tabs li.your-details a{
 	background:url(../../images/pension_decumulator/icon-about-you.png) top left no-repeat;
 }
-.nav-tabs li:nth-child(1).active a{
+.nav-tabs li.your-details.active a{
 	background:url(../../images/pension_decumulator/icon-about-you-active.png) top left no-repeat;
 }
 
-.nav-tabs li:nth-child(2) a{
+.nav-tabs li.display-results a{
 	background:url(../../images/pension_decumulator/icon-results.png) top left no-repeat;
 }
-.nav-tabs li:nth-child(2).active a{
+.nav-tabs li.display-results.active a{
 	background:url(../../images/pension_decumulator/icon-results-active.png) top left no-repeat;
 }
 
@@ -873,34 +873,18 @@ a:focus{
 		text-decoration:none;
 	}
 
-	.nav-tabs li:nth-child(1) a{
+	.nav-tabs li.your-details a{
 		background:url(../../images/pension_decumulator/icon-about-you-480.png) top left no-repeat;
 	}
-	.nav-tabs li:nth-child(1).active a{
+	.nav-tabs li.your-details.active a{
 		background:url(../../images/pension_decumulator/icon-about-you-active-480.png) top left no-repeat;
 	}
 
-	.nav-tabs li:nth-child(2) a{
+	.nav-tabs li.display-results a{
 		background:url(../../images/pension_decumulator/icon-savings-480.png) top left no-repeat;
 	}
-	.nav-tabs li:nth-child(2).active a,
-	.nav-tabs li:nth-child(2).parent-active a{
+	.nav-tabs li.display-results.active a{
 		background:url(../../images/pension_decumulator/icon-savings-active-480.png) top left no-repeat;
-	}
-
-	.nav-tabs li:nth-child(3) a{
-		background:url(../../images/pension_decumulator/icon-results-480.png) top left no-repeat;
-	}
-	.nav-tabs li:nth-child(3).active a{
-		background:url(../../images/pension_decumulator/icon-results-active-480.png) top left no-repeat;
-	}
-
-	.nav-tabs li:nth-child(4) a{
-		background:url(../../images/pension_decumulator/icon-summary-480.png) top left no-repeat;
-	}
-
-	.nav-tabs li:nth-child(4).active a{
-		background:url(../../images/pension_decumulator/icon-summary-active-480.png) top left no-repeat;
 	}
 
 	.nav-tabs li.active a{
@@ -945,7 +929,7 @@ a:focus{
     	width: 20px;
 	}
 
-	.row-rule input[type="radio"]:checked + label{
+	.row-rule input[type="radio"] + label.selected{
 	    background:url(../../images/pension_decumulator/radio-check-480.png) center bottom no-repeat;
 	}
 
@@ -1122,34 +1106,18 @@ a:focus{
 		text-decoration:none;
 	}
 
-	.nav-tabs li:nth-child(1) a{
+	.nav-tabs li.your-details a{
 		background:url(../../images/pension_decumulator/icon-about-you-320.png) top left no-repeat;
 	}
-	.nav-tabs li:nth-child(1).active a{
+	.nav-tabs li.your-details.active a{
 		background:url(../../images/pension_decumulator/icon-about-you-active-320.png) top left no-repeat;
 	}
 
-	.nav-tabs li:nth-child(2) a{
+	.nav-tabs li.display-results a{
 		background:url(../../images/pension_decumulator/icon-savings-320.png) top left no-repeat;
 	}
-	.nav-tabs li:nth-child(2).active a,
-	.nav-tabs li:nth-child(2).parent-active a{
+	.nav-tabs li.display-results.active a{
 		background:url(../../images/pension_decumulator/icon-savings-active-320.png) top left no-repeat;
-	}
-
-	.nav-tabs li:nth-child(3) a{
-		background:url(../../images/pension_decumulator/icon-results-320.png) top left no-repeat;
-	}
-	.nav-tabs li:nth-child(3).active a{
-		background:url(../../images/pension_decumulator/icon-results-active-320.png) top left no-repeat;
-	}
-
-	.nav-tabs li:nth-child(4) a{
-		background:url(../../images/pension_decumulator/icon-summary-320.png) top left no-repeat;
-	}
-
-	.nav-tabs li:nth-child(4).active a{
-		background:url(../../images/pension_decumulator/icon-summary-active-320.png) top left no-repeat;
 	}
 
 	.nav-tabs li.active a{
@@ -1180,7 +1148,7 @@ a:focus{
     	width: 21px;
 	}
 
-	.row-rule input[type="radio"]:checked + label{
+	.row-rule input[type="radio"] + label.selected{
 	    background:url(../../images/pension_decumulator/radio-check-320.png) center bottom no-repeat;
 	}
 
@@ -1279,7 +1247,7 @@ a:focus{
 }
 
 
-/*less than 480px*/
+/*less than 400px*/
 @media screen and (max-width: 400px) {
 	.arrow-top{
 		background: url(../../images/pension_decumulator/arrow-top-bg-480.png) top center no-repeat;
