@@ -34,6 +34,7 @@
 
 #important-text a{
 	text-decoration : underline !important;
+	cursor : pointer;
 }
 #important-text p{
 	margin-bottom :25px;

@@ -258,7 +258,30 @@ function registerActionResult(){
 	});
 }
 
-function updateMessage(yearNeedLast,yearMayLast){
+
+
+function drawChart(){
+	showChartRight();
+	var fundPot = getFundPot();
+	var totalRate = getTotalRate();
+	var annualIncome = getAnnualIncome();
+	var yearNeedLast = getLifeExpectancy();
+	var yearMayLast = decumulatorYears(fundPot,totalRate,annualIncome);
+	var shortFallYear = getShortFallYear(yearMayLast,yearNeedLast);
+	updateMessage(yearNeedLast,yearMayLast,shortFallYear);
+	var coinBlue = getCoinBlue(yearMayLast,yearNeedLast);
+	var coinGrey = getCoinGrey(yearMayLast,yearNeedLast);
+	setupCoinGrey(coinGrey);
+	fallingCoinGrey(0,yearNeedLast);
+	setupCoinBlue(coinBlue);
+	fallingCoinBlue(0,yearMayLast,shortFallYear);
+}
+
+function PrintElement(element){
+	Popup($(element).html());
+}
+
+function updateMessage(yearNeedLast,yearMayLast,shortFallYear){
 	var fundValue = getFundValue();
 	var annualIncome = getAnnualIncome();
 	var taxPercen = getTaxFreePercent();
@@ -271,34 +294,11 @@ function updateMessage(yearNeedLast,yearMayLast){
 	$('.display-result-percent-amount').html(addCommas(taxPercen));
 }
 
-function drawChart(){
-	showChartRight();
-	var fundPot = getFundPot();
-	var totalRate = getTotalRate();
-	var annualIncome = getAnnualIncome();
-	var yearNeedLast = getLifeExpectancy();
-	var yearMayLast = decumulatorYears(fundPot,totalRate,annualIncome);
-	var shortFallYear = getShortFallYear(yearMayLast,yearNeedLast);
-	updateMessage(yearNeedLast,yearMayLast);
-	var coinBlue = getCoinBlue(yearMayLast,yearNeedLast);
-	var coinGrey = getCoinGrey(yearMayLast,yearNeedLast);
-	setupCoinGrey(coinGrey);
-	fallingCoinGrey(0,yearNeedLast);
-	setupCoinBlue(coinBlue);
-	fallingCoinBlue(0,yearMayLast,shortFallYear);
-}
-
-
-function PrintElement(element){
-	updateDataPrint();
-	Popup($(element).html());
-}
-
 function Popup(data) {
-	var mywindow = window.open('', 'Close Brothers');
+	var mywindow = window.open('', 'CloseBrothers');
 	mywindow.document.write('<html><head><title>Pension Accumulators</title>');
 	mywindow.document.write('<style>a {text-decoration : none !important;color : black;}</style>');
-	mywindow.document.write('</head><body >');
+	mywindow.document.write('</head><body>');
 	mywindow.document.write(data);
 	mywindow.document.write('</body></html>');
 	mywindow.document.close();
