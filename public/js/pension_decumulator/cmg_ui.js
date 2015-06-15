@@ -201,11 +201,13 @@ $('#infor').hide();
 }
 function showChartRight(){
 $('.right-content-draw').show();
+$('.draw-chart').show();
 $('.right-content-default').hide();
 }
 
 function hideChartRight(){
 $('.right-content-draw').hide();
+$('.draw-chart').hide();
 $('.right-content-default').show();
 }
 function checkScreenXsSM(){
