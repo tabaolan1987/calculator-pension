@@ -586,8 +586,8 @@ a:focus{
 ---------------------------------------------------------------------------------------------------------------*/
 .right-content{
 	overflow: hidden;
-	//min-height: 638px;
-	//height : 638px;
+	min-height: 700px;
+	height : 700px;
 	border-left: 3px dotted #ddd;
 }
 
