@@ -262,7 +262,6 @@ function registerActionResult(){
 
 function drawChart(){
 	showRightContent();
-	showRightContent();
 	showChartRight();
 	var fundPot = getFundPot();
 	var totalRate = getTotalRate();
@@ -274,8 +273,8 @@ function drawChart(){
 	var coinBlue = getCoinBlue(yearMayLast,yearNeedLast);
 	var coinGrey = getCoinGrey(yearMayLast,yearNeedLast);
 	setupCoinGrey(coinGrey);
-	fallingCoinGrey(0,yearNeedLast);
 	setupCoinBlue(coinBlue);
+	fallingCoinGrey(0,yearNeedLast);
 	fallingCoinBlue(0,yearMayLast,shortFallYear);
 }
 
@@ -290,6 +289,7 @@ function updateMessage(yearNeedLast,yearMayLast,shortFallYear){
 	var taxfreeCash = getTaxFreeCash(fundValue,taxPercen);
 	$(".expectancy-year").html(yearNeedLast + " years");
 	$(".funds-year").html(yearMayLast + " years");
+	$('.pound-annual-income').html(addCommas(annualIncome));
 	$('.display-result-pound-fund').html(addCommas(fundValue));
 	$('.display-result-pound-annual').html(addCommas(annualIncome));
 	$('.display-result-pound-amount').html(addCommas(taxfreeCash));
