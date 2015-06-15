@@ -272,6 +272,7 @@ function updateMessage(yearNeedLast,yearMayLast){
 }
 
 function drawChart(){
+	showChartRight();
 	var fundPot = getFundPot();
 	var totalRate = getTotalRate();
 	var annualIncome = getAnnualIncome();
