@@ -237,7 +237,7 @@ function isNumberKey(evt,e)
    if (charCode != 46 && charCode > 31
     && (charCode < 48 || charCode > 57))
         return false;
-	if(event.keyCode == 13){
+	if(charCode == 13){
 		$(e).closest('tr').next().find(".dataInput").focus();
 		return false;
 	}
