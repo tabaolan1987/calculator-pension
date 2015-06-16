@@ -156,6 +156,7 @@ function calculateInput(e){
 	var image = $(e).css('background-image');
 	var type = $(e).parents('table').find("tr:eq(0) select").val();
 	if(checkNumeric(input)){
+		$(e).val(input);
 		$(e).removeAttr('title');
 		$(e).css('color','');
 		input = calculateInputBaseOnType(input,parseInt(type));
@@ -183,7 +184,6 @@ function calculateInput(e){
 
 function updateTotal(e){
 	var total = getTotalInput($(e).closest('table'));
-	//if(total > 0){
 		if(fakewaffle.currentPosition == "tabs"){
 			//update for tabs
 			$('ul#myTab li.active').find('table.table-nonborder td:eq(1) span').html('£'+Number(total).toLocaleString('en').split('.')[0]);
@@ -231,13 +231,16 @@ function getTotalInput(table){
 function checkNumeric(checkThis) {
     return checkThis >= 0 && !isNaN(parseFloat(checkThis)) && isFinite(checkThis);
 }
-function isNumberKey(evt)
+function isNumberKey(evt,e)
 {
 	var charCode = (evt.which) ? evt.which : event.keyCode;
    if (charCode != 46 && charCode > 31
     && (charCode < 48 || charCode > 57))
         return false;
-
+	if(event.keyCode == 13){
+		$(e).closest('tr').next().find(".dataInput").focus();
+		return false;
+	}
     return true;
 }
 
