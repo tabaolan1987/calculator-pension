@@ -183,8 +183,10 @@ function registerActionYourDetails(){
 				$('#percent-tax-free').data("ionRangeSlider").update({
 					from: percentChange
 				});
+				return false;
+			}else{
+				eneableTabResult();
 			}
-			eneableTabResult();
 		}else{
 			var caseWarning = check[0];
 			var content = warningArray["validate-field"] +" "+ check[0];
@@ -256,6 +258,12 @@ function registerActionResult(){
 	$('#estimated-annual-modal').on("hidden.bs.modal",function(e){
 		drawChart();
 	});
+	
+	$('.display-result-link').click(function(){
+		$('#about-you').trigger('click');
+		var id = $(this).attr('focus-to');
+		$('#'+id).focus();
+	});
 }
 
 
@@ -287,13 +295,42 @@ function updateMessage(yearNeedLast,yearMayLast,shortFallYear){
 	var annualIncome = getAnnualIncome();
 	var taxPercen = getTaxFreePercent();
 	var taxfreeCash = getTaxFreeCash(fundValue,taxPercen);
+	var currentAge = getCurrentAge();
+	if(currentAge < 55 || currentAge == 0){
+		currentAge = 55;
+	}
+	var grow_rate = getGrowthRate();
+	//results div
+	$('.result-year-retirement').html(addCommas(currentAge));
 	$(".expectancy-year").html(yearNeedLast + " years");
+	$('.result-growrate-percent').html(grow_rate);
 	$(".funds-year").html(yearMayLast + " years");
 	$('.pound-annual-income').html(addCommas(annualIncome));
 	$('.display-result-pound-fund').html(addCommas(fundValue));
 	$('.display-result-pound-annual').html(addCommas(annualIncome));
 	$('.display-result-pound-amount').html(addCommas(taxfreeCash));
 	$('.display-result-percent-amount').html(addCommas(taxPercen));
+	//print div
+	$('.print-fund-value').html(addCommas(fundValue));
+	$('.print-grow-rate').html(grow_rate);
+	$('.print-annual-income').html(addCommas(annualIncome));
+	$('.print-tax-free-cash').html(addCommas(taxfreeCash))
+	$('.print-tax-free-percent').html(addCommas(taxPercen));
+	$('.print-retirement-age').html(addCommas(currentAge));
+	$(".print-years-need-last").html(yearNeedLast);
+	$(".print-years-may-last").html(yearMayLast);
+	
+	//check shortfall
+	if(shortFallYear > 0){
+		$(".have-shortfall").show();
+		$(".no-shortfall").hide();
+		$(".funds-year").css("color","red");
+		$(".print-show-shortfall-inform").show();
+	}else{
+		$(".result-based-current").css("color","blue");
+		$(".funds-year").css("color","#777777");
+		$(".print-show-shortfall-inform").hide();
+	}
 }
 
 function Popup(data) {

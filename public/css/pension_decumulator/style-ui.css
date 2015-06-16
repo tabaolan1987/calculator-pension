@@ -460,8 +460,14 @@ a:focus{
     background:url(../../images/pension_decumulator/radio-popup-check.png) center bottom no-repeat;
 }
 
+
+#estimated-annual-modal .modal-dialog{
+	margin-top : 100px;
+}
+
 #estimated-annual-modal .modal-body{
 	overflow:hidden;
+
 }
 
 /*tab summary*/

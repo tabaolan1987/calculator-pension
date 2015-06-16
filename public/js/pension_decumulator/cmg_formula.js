@@ -122,7 +122,7 @@ function getFundPot(){
 
 function getTaxFreeCash(taxFreeCashPercent, fundValue){
 	var temp = parseFloatCMG(fundValue) * (parseFloatCMG(taxFreeCashPercent)/100);
-	if(parseFloatCMG(temp) < LTA['value']){
+	if(parseFloatCMG(temp) == parseFloatCMG(LTA['value']) ||parseFloatCMG(temp) < parseFloatCMG(LTA['value'])){
 		isReturnLTA = false;
 		return temp;
 	}else{
@@ -132,7 +132,7 @@ function getTaxFreeCash(taxFreeCashPercent, fundValue){
 }
 
 function getPercentLTAwithPensionFound(fundValue){
-	var temp = (LTA['value']/parseFloatCMG(fundValue))*100;
+	var temp = (parseFloatCMG(LTA['value'])/parseFloatCMG(fundValue))*100;
 	return round(temp);
 }
 
