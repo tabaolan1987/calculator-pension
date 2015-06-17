@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<growthrate>		
-<rate value="2" default="false" inflation_rate = "0.5" />		
-<rate value="5" default="checked" inflation_rate = "2.5" />			
-<rate value="8" default="false" inflation_rate = "4.5" />	
-</growthrate>		

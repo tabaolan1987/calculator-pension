@@ -1,26 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>  Sharesave calculator</title>
+      <title>Sharesave calculator</title>
       <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/share_save/bootstrap.min.css">
       <link rel="stylesheet" href="css/share_save/animate.css">
       <link rel="stylesheet" href="css/share_save/style-ui.css">
       <!-- jQuery-ui-Slider-Pips -->
-      <link rel="stylesheet" href="css/share_save/jquery-ui.css">
-      <link rel="stylesheet" href="css/share_save/jquery-ui-slider-pips.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-      <script type="text/javascript" src="js/share_save/jquery-ui.js"></script>
-      <script type="text/javascript" src="js/share_save/jquery-ui-slider-pips.js"></script>
-
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	  <script type="text/javascript" src="js/share_save/analytics.js"></script>
+	  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+        <script src="js/share_save/html5shiv.min.js"></script>
+        <script src="js/share_save/respond.min.js"></script>
+      <![endif]-->
+	  <script src="js/share_save/bootstrap.min.js"></script>
+	  <script type="text/javascript" src="js/share_save/accounting_min.js"></script>
    </head>
    <body>
       <div class="container-fluid" id="wrapper">
          <div class="row title">
-            <h3>  Sharesave calculator</h3>
+            <h3>Sharesave calculator</h3>
          </div><!--END .title-->
+		<div id="disclamer-page" class="row disclamer-page">
+		    <div id="disclamer-div" class="col-sm-12 col-md-12" style="padding-left:0px;padding-top:15px;">
+				<div id="disclamer-infor">
+				
+				</div>
+				<div id="disclamer-link">
+					<p>For more information about these calculators, please refer to the <a>important information</a> and <a>assumptions used</a>.</p>
+					<p>Before using the calculator, please click here to confirm you have read and understood these terms.</p>
+				</div>
+				<div id="button-accept">
+					<a style="background-color:#06038d;text-decoration: none !important;font-weight: bold;" id="accept-btn" onclick="accept();" class="btn btn-primary btnNext">accept</a>
+				</div>
+			</div>
+			<div id="important-div-top" class="col-sm-12 col-md-12" style="padding-left:0px;padding-top:0px">
+				<div id="important-top">
+				
+				</div>
+				<div id="button-accept">
+					<a onclick="backAction(this);" style="background-color:#777777;text-decoration: none !important;font-weight: bold;border-color:transparent" id="back-important" class="btn btn-primary btnNext">back</a>
+				</div>
+			</div>
+			<div id="assump-div-top" class="col-sm-12 col-md-12" style="padding-left:0px;padding-top:0px">
+				<div id="assump-top">
+				
+				</div>
+				<div id="button-accept">
+					<a onclick="backAction(this);" style="background-color:#777777;text-decoration: none !important;font-weight: bold;border-color:transparent" id="back-assump"  class="btn btn-primary btnNext">back</a>
+				</div>
+			</div>			
+		 </div>
          <div class="row" id="content">
             <div class="col-sm-12 col-md-7 left-content"><!--<div class="col-sm-12 col-md-7 left-content">-->
                <ul class="nav nav-tabs">
@@ -140,6 +174,8 @@
                </div>
             </div><!--END .left-content-->
          </div>
+		<div class="row" id="important-text"></div>
+		<div class="row" id="assump-text"></div>
          <!--END #content-->
       </div>
       <!--END #wrapper-->
@@ -155,27 +191,7 @@
             </div>
          </div>
       </div>
-      <div class="modal fade" id="estimated-annual-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-         <div class="modal-dialog">
-            <div class="modal-content" style="top:150px;">
-               <div class="modal-header" style="border-bottom:0px">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
-                  <h4 class="modal-title" id="myModalLabel"></h4>
-               </div>
-               <div class="modal-body modal-estimated">
-                  <div id="modal-grow" class="">
-					<div class="col-xs-12 col-sm-12"><span information-message="annual grow information" id="annual-grow-infor-popup"  class="icon-tooltip"></span><span class="label-tooltip">What is the estimated annual growth of your savings?</span></div>
-				  </div>
-				  <div id="modal-slide-grow" class="">
-					<div class="col-xs-12 col-sm-12"><span information-message="annual charge information" id="annual-charge-infor-popup" class="icon-tooltip"></span><span class="label-tooltip">What is your annual management charge?</span></div>
-					<div class="col-xs-7 col-xs-offset-1 col-sm-7 col-sm-offset-1" style="padding-top:15px;">
-						<div id="slider-modal-growrate" style="margin-left:4px" class="slider-cash ui-slider"></div>
-					</div>
-				  </div>
-               </div>
-            </div>
-         </div>
-      </div>
+	  
       <div id="box-print" style="display:none;">
          <div id="disclamer-print" style="font-family: Helvetica Heue;">
             <p>The aim of this calculator is to give you an indication of how much you need to contribute to a pension and what you might get as a retirement income. The calculator should not be regarded as personal advice. If you are at all unsure, please contact us for advice.</p>
