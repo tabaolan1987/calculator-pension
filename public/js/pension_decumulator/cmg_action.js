@@ -65,7 +65,7 @@ function registerHoverAction(){
 		var n = background.indexOf("480");
 		if(n == -1){
 			var left = $(this).offset().left;
-			var topTool =  top - 157;
+			var topTool =  top - 155;
 			$("#content-tooltip").css({
 				position: 'fixed',
 				top: topTool,
@@ -73,7 +73,7 @@ function registerHoverAction(){
 			});
 		}else{
 			var left = $(this).offset().left;
-			var topTool =  top - 83;
+			var topTool =  top - 75;
 			$("#content-tooltip").css({
 					position: 'fixed',
 					top: topTool,

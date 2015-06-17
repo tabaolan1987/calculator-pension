@@ -697,6 +697,7 @@ a:focus{
 	font-size: 17px;
 	color: #7a7a7a;
 	display:none;
+	padding-top: 5px;
 }
 
 #coin-title-right{
@@ -709,6 +710,7 @@ a:focus{
 	z-index: 999;
 	display:none;
 	top : 6px;
+	padding-top: 5px;
 }
 
 .draw-chart-default{
