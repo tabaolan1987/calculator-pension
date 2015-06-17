@@ -180,6 +180,7 @@ function drawSlideModalGrowRate(){
 			min : 0,
 			max : 3,
 			from :1.5,
+			postfix : "%",
 			grid_margin : true,
 			grid_num : 6,
             type: 'single',
