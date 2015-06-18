@@ -144,6 +144,10 @@ function updateFundMayToLast(year,yearOfShortFall){
 /*------------------------------------------------------*/
 
 function drawCalendar(){
+
+	//fix vertical-align mid for ie8
+	$("#txt-birthday").focus();
+
 	Calendar.setup({
         inputField     :    "txt-birthday",     // id of the input field
         ifFormat       :    "%b %e, %Y",      // format of the input field
