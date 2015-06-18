@@ -92,7 +92,7 @@ function animationShortFall(height,shortFall){
 	$('.shortfall').hide();
 	setTimeout(function(){
 		$('.top-arrow').show();
-		$(".arrow-mid").css("height",0);
+		//$(".arrow-mid").css("height",0);
 		$(".arrow-mid").animate({"height":height}, "slow",function(){
 			$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0] + " years");
 			$('.shortfall').fadeIn(1000);
@@ -180,6 +180,7 @@ function drawSlideModalGrowRate(){
 			min : 0,
 			max : 3,
 			from :1.5,
+			postfix : "%",
 			grid_margin : true,
 			grid_num : 6,
             type: 'single',
