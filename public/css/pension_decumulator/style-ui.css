@@ -255,9 +255,6 @@ a:focus{
 	height: 24px;
 }
 
-.input-birthday{
-}
-
 .row-rule input[type="text"]{
 	height:24px;
 	border:2px solid #ccc;
@@ -265,6 +262,10 @@ a:focus{
 	padding: 0 5px;
 	text-align:right;
 	width: 80%;
+}
+
+.calendar-wrap{
+	padding-left: 25px;
 }
 
 .row-rule input[type="radio"]{
