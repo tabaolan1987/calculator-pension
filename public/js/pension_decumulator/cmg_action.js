@@ -150,7 +150,9 @@ function registerActionYourDetails(){
 			var taxfreeCash = getTaxFreeCash(fundValue,taxfreePercent);
 			eneableTabResult();
 			if(isReturnLTA == true){
-				showWarning(LTA['message']);
+				if(LTA['show-popup'] == 'true'){
+					showWarning(LTA['message']);
+				}
 				var percentChange = getPercentLTAwithPensionFound(fundValue);
 				$("#percent-tax-free").val(percentChange);
 				$('#percent-tax-free').data("ionRangeSlider").update({
@@ -177,7 +179,9 @@ function registerActionYourDetails(){
 			var taxfreePercent = getTaxFreePercent();
 			var taxfreeCash = getTaxFreeCash(fundValue,taxfreePercent);
 			if(isReturnLTA == true){
-				showWarning(LTA['message']);
+				if(LTA['show-popup'] == 'true'){
+					showWarning(LTA['message']);
+				}
 				var percentChange = getPercentLTAwithPensionFound(fundValue);
 				$("#percent-tax-free").val(percentChange);
 				$('#percent-tax-free').data("ionRangeSlider").update({
