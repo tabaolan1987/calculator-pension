@@ -57,7 +57,7 @@ function fallingCoin(index,forceCashIncome,shortFall,targetPension,coinBlue,coin
 }
 
 function setHeightDiv(forceCashIncome,shortFall,targetPension,coinBlue,coinRed){
-	$('.pound-income-inform').html(Number(forceCashIncome).toLocaleString('en').split('.')[0]);
+	$('.pound-income-inform').html(addCommas(forceCashIncome));
 	if(coinBlue > 5 & coinBlue < totalCoin & coinRed  > 5){
 		var heighTotalRed = (coinRed * ($('.coinRed').height()/2 -5)) + ($('.coinRed').height()/2); 
 		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
@@ -122,7 +122,7 @@ function animationShortFall(height,shortFall){
 	setTimeout(function(){
 		$('.top-arrow').show();
 		$(".arrow-mid").animate({"height":height}, "slow",function(){
-			$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0]);
+			$('.pound-shortfall').html(addCommas(shortFall));
 			$('.shortfall').fadeIn(1000);
 		});
 	}, 200);
@@ -180,6 +180,7 @@ function drawSlideRetirementAge(){
             hide_min_max: true,
             keyboard: true,
 			min : 55,
+			from : 65,
 			max : 75,
 			grid_margin : true,
             type: 'single',
@@ -187,7 +188,7 @@ function drawSlideRetirementAge(){
             grid: true,
             force_edges: true
     });
-    $("#age-to-retirement").val(55);
+    $("#age-to-retirement").val(65);
 }
 
 function drawSlidePercentTaxFreeCash(){
@@ -250,6 +251,7 @@ function drawSlideModalGrowRate(){
 			min : 0,
 			max : 3,
 			from : 1.5,
+			postfix : "%",
 			grid_margin : true,
 			grid_num : 6,
             type: 'single',
@@ -311,4 +313,17 @@ function drawRightContent(){
 	}else{
 		showRightContent();
 	}
+}
+
+function showWarningLta(taxFree){
+	if(taxFree == LTA['value']){
+		if(LTA['show-popup'] == 'true'){
+			showWarning(LTA['message']);
+			isReturnLTA = true;
+			return true;
+		}
+	}else{
+		isReturnLTA = false;
+	}
+	return false;
 }

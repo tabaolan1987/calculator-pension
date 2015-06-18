@@ -187,7 +187,7 @@ function checkDataAboutYou(){
 	if( targetPension == "" || targetPension == 0){
 		content.push("target income");
 	}
-	var ageRetire = $('#retirementAge').val();
+	var ageRetire =   $("#age-to-retirement").val();
 	if(parseInt(ageRetire) < parseInt(currentAge)){
 		content.push("retireAge-smaller-than-currentAge");
 	}
@@ -409,7 +409,7 @@ function registerActionResultTab(){
 		setupSlide(checkLta);
 		setTextToTextField();
 		if(parseFloatCMG(current_forcecash_income) !== forceCashIncome || parseFloatCMG(current_target) !== targetPension){
-			drawChart(forceCashIncome,shortFall,targetPension);
+			drawChart(forceCashIncome,shortFall,targetPension,taxFree);
 			eneabledSummary();
 			if(registerChange == false){
 				onChange();
@@ -450,13 +450,14 @@ function eneabledSummary(){
 	$('#summary').attr('href','#tab4');
 	$('#summary').attr('data-toggle','tab');
 }
-function setupMessage(forceCashIncome){
+function setupMessage(forceCashIncome,targetPension){
 	var yRD = yourRetirementDate();
 	$('#year-retire').html(yRD);
 	var rA = $('#age-to-retirement').val();
 	$('#age-retire').html(rA);
-	var forceCash = Number(forceCashIncome).toLocaleString('en').split('.')[0];
+	var forceCash = addCommas(forceCashIncome);
 	$('#pound-per-year').html(forceCash);
+	$('.pound-annual-income').html(addCommas(targetPension));
 }
 
 
@@ -469,6 +470,11 @@ function setupSlide(checkLta){
 	$('#percent-tax-free-result').data("ionRangeSlider").update({
 			from: cFP
 	});
+	$('#percent-tax-free-result').val(cFP);
+	$('#percent-tax-free').data("ionRangeSlider").update({
+			from: cFP
+	});
+	$('#percent-tax-free').val(cFP);
 	$('#age-to-retirement-result').data("ionRangeSlider").update({
 			from: rA
 	});
@@ -617,39 +623,30 @@ function onChangeUI(){
 		});
 		$('#percent-tax-free').val(percentLTA);
 	}
-	drawChart(forceCashIncome,shortFall,targetPension);
+	drawChart(forceCashIncome,shortFall,targetPension,taxFree);
 }
-function showWarningLta(taxFree){
-	if(taxFree == LTA['value']){
-		if(LTA['show-popup'] == 'true'){
-			showWarning(LTA['message']);
-			isReturnLTA = true;
-			return true;
-		}
-	}else{
-		isReturnLTA = false;
-	}
-	return false;
-}
-function drawChart(forceCashIncome,shortFall,targetPension){
+
+function drawChart(forceCashIncome,shortFall,targetPension,taxFree){
 	showRightContent();
 	showChartRight();
 	disableTxtField();
 	$('.top-arrow').hide();
 	$('.bot-arrow').hide();
-	setupMessage(forceCashIncome);
+	setupMessage(forceCashIncome,targetPension);
 	var coinBlue = getCoinBlue(forceCashIncome,targetPension);
 	var coinRed = getCoinRed(coinBlue);
-	$('.pound-annual-income').html(Number(targetPension).toLocaleString('en').split('.')[0]);
+	
 	setupCoin(coinBlue,coinRed);
 	fallingCoin(1,forceCashIncome,shortFall,targetPension,coinBlue,coinRed);
 	current_forcecash_income = forceCashIncome;
 	current_target = targetPension;
+	setupMessageSummary(forceCashIncome,shortFall,targetPension,taxFree);
+	updateDataPrint(forceCashIncome,shortFall,targetPension,taxFree)
 }
 /*------------------------------------------------------------------*/
 function registerActionSummaryTab(){
 	$('a[id="summary"]').on('shown.bs.tab', function (e) {
-		setupMessageSummary();
+		//setupMessageSummary();
 		setActionLink();
 	});
 	$('#backSummary').on('click',function(e){
@@ -672,41 +669,32 @@ function setActionLink(){
 		}
 	});
 }
-function setupMessageSummary(){
-	var forceCashIncome = parseFloatCMG(getForecastIncome());
-	var targetPension =  parseFloatCMG($('#txt-target-pensions').val());
-	var percent_income = getForecast_percent_target();
-	percent_income = parseFloatCMG(percent_income)*100;
-	var tax_free_percent  = $('#percent-tax-free').val();
-	var retire_age = $("#age-to-retirement-result").val();
-	var tax_free_value = 0;
-	if(isReturnLTA == true){
-		tax_free_value = LTA['value'];
-	}else{
-		tax_free_value = getTax_Free_Value();
-	}
+function setupMessageSummary(forceCashIncome,shorFall,targetPension,tax_free_value){
+	var percent_income = getForecast_percent_target(forceCashIncome);
+	percent_income = round(parseFloatCMG(percent_income)*100);
+	var tax_free_percent  = $('#percent-tax-free-result').val();
+	var retire_age =  $("#age-to-retirement-result").val();
 	if(parseFloatCMG(forceCashIncome) < parseFloatCMG(targetPension)){
-		var shorFall = parseFloatCMG(getShortFall());
-		$('.summary-pound-shortfall').html(Number(shorFall).toLocaleString('en').split('.')[0]);
+		$('.summary-pound-shortfall').html(addCommas(shorFall));
 		showNormal();
 	}else{
 		var excess = forceCashIncome - targetPension;
-		$('.summary-pound-excess').html(Number(excess).toLocaleString('en').split('.')[0]);
+		$('.summary-pound-excess').html(addCommas(excess));
 		showExcess();
 	}
 	$('.summary-pound-pension').each(function(){
-		$(this).html(Number(targetPension).toLocaleString('en').split('.')[0]);
+		$(this).html(addCommas(targetPension));
 	});
 	$('.summary-pound-income').each(function(){
-		$(this).html(Number(forceCashIncome).toLocaleString('en').split('.')[0]);
+		$(this).html(addCommas(forceCashIncome));
 	})
-	$('.summary-percent').html(round(percent_income));
+	$('.summary-percent').html(addCommas(percent_income));
 	$('.summary-percent-amount').html(tax_free_percent);
 	$('.summary-retire-age').each(function(){
 		$(this).html(retire_age);
 	});
 	tax_free_value = round(tax_free_value);
-	$('.summary-pound-amount').html(Number(tax_free_value).toLocaleString('en').split('.')[0]);
+	$('.summary-pound-amount').html(addCommas(tax_free_value));
 		
 }
 
@@ -729,28 +717,20 @@ function showExcess(){
 }
 
 /*function print*/
-function updateDataPrint(){
-	var forceCashIncome = parseFloatCMG(getForecastIncome());
-	var targetPension = parseFloatCMG($('#txt-target-pensions').val());
-	var tax_free_percent  = $('#percent-tax-free').val();
+function updateDataPrint(forceCashIncome,shorFall,targetPension,tax_free_value){
+	var tax_free_percent  = $('#percent-tax-free-result').val();
 	var retire_age = $("#age-to-retirement-result").val();
-	var tax_free_value = 0;
-	if(isReturnLTA == true){
-		tax_free_value = LTA['value'];
-	}else{
-		tax_free_value = getTax_Free_Value();
-	}
-	var shorFall = parseFloatCMG(getShortFall());
-	$('.print-pound-pension').html(Number(targetPension).toLocaleString('en').split('.')[0]);
+	
+	$('.print-pound-pension').html(addCommas(targetPension));
 	$('.print-retire-age').each(function(){
 		$(this).html(retire_age);
 	});
 	tax_free_value = round(tax_free_value);
 	$('.print-percent-amount').html(tax_free_percent);
-	$('.print-pound-amount').html(Number(tax_free_value).toLocaleString('en').split('.')[0]);
-	$('.print-pound-income').html(Number(forceCashIncome).toLocaleString('en').split('.')[0]);
+	$('.print-pound-amount').html(addCommas(tax_free_value));
+	$('.print-pound-income').html(addCommas(forceCashIncome));
 	if(shorFall >0){
-		$('.print-pound-shortfall').html(Number(shorFall).toLocaleString('en').split('.')[0]);
+		$('.print-pound-shortfall').html(addCommas(shorFall));
 		$('#shortfall-print').show();
 	}else{
 		$('#shortfall-print').hide();
@@ -766,7 +746,6 @@ function updateDataPrint(){
 }
 
 function PrintElement(element){
-	updateDataPrint();
 	Popup($(element).html());
 }
 

@@ -243,9 +243,8 @@ function getForecastIncome(){
 	return round(temp);
 }
 
-function getForecast_percent_target(){
-	var forecastIncome = getForecastIncome();
-	var incomeYouWantTolive  = parseFloatCMG($('#txt-target-pensions').val());
+function getForecast_percent_target(forecastIncome){
+	var incomeYouWantTolive  = parseFloatCMG($('#txt-target-pensions-result').val());
 	var temp = forecastIncome/incomeYouWantTolive;
 	return parseFloatCMG(temp);
 }
