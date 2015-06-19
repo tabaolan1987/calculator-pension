@@ -107,6 +107,8 @@ a:focus{
 
 .left-content{
 	border-right:3px dotted #ddd;
+	min-height: 638px;
+	height : 638px;
 }
 
 .tab-content{
@@ -693,6 +695,8 @@ a:focus{
 @media screen and (max-width: 991px) {
 	.left-content{
 		border-right: none;
+		min-height: auto;
+		height : auto;
 	}
 
 	.right-content{
