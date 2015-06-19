@@ -583,16 +583,17 @@ function onChange(){
 
 	$('#txt-target-pensions-result').on('change',function(){
 		var target = parseFloatCMG($(this).val());
-		target = addCommas(target);
+		target = addCommas(round(target));
 		$('#txt-target-pensions').val(target);
 		$(this).val(target);
 		onChangeUI();
+		
 	});
 	$('#oneOffLumpSum').on('change',function(){
 		var target = parseFloatCMG($(this).val());
-		target = addCommas(target);
-		$(this).val(target);
+		target = addCommas(round(target));
 		onChangeUI();
+		$(this).val(target);
 	});
 
 }
@@ -608,7 +609,7 @@ function onChangeUI(){
 	});
 	$('#percent-tax-free').val(percent);
 	var forceCashIncome = parseFloatCMG(getForecastIncome());
-	var targetPension = parseFloatCMG($('#txt-target-pensions').val());
+	var targetPension = parseFloatCMG($('#txt-target-pensions-result').val());
 	var shortFall = getShortFall();
 	var taxFree = getTax_Free_Value();
 	var checkLta = showWarningLta(taxFree);

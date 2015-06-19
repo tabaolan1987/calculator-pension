@@ -317,11 +317,11 @@ function drawRightContent(){
 
 function showWarningLta(taxFree){
 	if(taxFree == LTA['value']){
+		isReturnLTA = true;
 		if(LTA['show-popup'] == 'true'){
-			showWarning(LTA['message']);
-			isReturnLTA = true;
-			return true;
+			showWarning(LTA['message']);	
 		}
+		return true;
 	}else{
 		isReturnLTA = false;
 	}
