@@ -17,6 +17,10 @@
 	padding-left: 0px;
 }
 
+.modal{
+	padding-right:0px!important;
+}
+
 #content{
 	border:3px dotted #ddd;
 	font-size: 14px;
