@@ -506,12 +506,7 @@ function disableTxtField(){
 	$('#nextResult').attr("disabled","disabled");
 	$('#backResult').attr("disabled","disabled");
 	$('#btn-advanced').attr("disabled","disabled");
-	$('#percent-tax-free-result').data("ionRangeSlider").update({
-			disable: true
-	});
-	$('#age-to-retirement-result').data("ionRangeSlider").update({
-			disable: true
-	});
+	
 }
 function eneabledTxtField(){
 	$('#txt-your-employer-percent-result').removeAttr("disabled");
@@ -524,12 +519,7 @@ function eneabledTxtField(){
 	$('#nextResult').removeAttr("disabled");
 	$('#backResult').removeAttr("disabled");
 	$('#btn-advanced').removeAttr("disabled");
-	$('#percent-tax-free-result').data("ionRangeSlider").update({
-			disable: false
-	});
-	$('#age-to-retirement-result').data("ionRangeSlider").update({
-			disable: false
-	});
+	
 }
 function onChange(){
 	$('#txt-your-employer-percent-result').on('change',function(){
