@@ -95,7 +95,8 @@ a:focus{
 ---------------------------------------------------------------------------------------------------------------*/
 
 .left-content{
-	//border-right:3px dotted #ddd;
+	border-right:3px dotted #ddd;
+	//height: 700px;
 	min-height: 700px;
 }
 
@@ -618,7 +619,6 @@ a:focus{
 	overflow: hidden;
 	min-height: 700px;
 	height : 700px;
-	border-left: 3px dotted #ddd;
 }
 
 .right-content h3{
@@ -749,9 +749,16 @@ a:focus{
 }
 
 /*less than 991px*/
+@media screen and (max-width: 1176px) {
+	#tab2 p {
+	    line-height: inherit;
+	}
+}
+
+/*less than 991px*/
 @media screen and (max-width: 991px) {
 	.left-content{
-		//border-right: none;
+		border-right: none;
 	}
 
 	.right-content{
@@ -831,7 +838,8 @@ a:focus{
 	}
 
 	.left-content{
-		min-height: inherit;
+		height: auto;
+		min-height: auto;
 	}
 
 	.tab-content .btnNext, .tab-content .btnPrevious, .btn-print{
