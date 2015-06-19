@@ -481,15 +481,20 @@ function setupSlide(checkLta){
 	
 }
 function setTextToTextField(){
-	var cashContribute = $('#txt-you-paying').val();
-	var ContributePercent = $('#txt-you-paying-percent').val();
-	$('#txt-you-paying-result').val(cashContribute);
-	$('#txt-you-paying-percent-result').val(ContributePercent);
 	
-	var cashContriCompany = $('#txt-your-employer').val();
+	var ContributePercent = $('#txt-you-paying-percent').val();
+	$('#txt-you-paying-percent-result').val(ContributePercent);
+	var cashContribute = round(getCash_Contribute());
+	$('#txt-you-paying').val(cashContribute);
+	$('#txt-you-paying-result').val(cashContribute);
+	
 	var percentContriConpany = $('#txt-your-employer-percent').val();
-	$('#txt-your-employer-result').val(cashContriCompany);
 	$('#txt-your-employer-percent-result').val(percentContriConpany);
+	
+	var cashContriCompany = round(getCash_Contribute_company());
+	$('#txt-your-employer').val(cashContriCompany);
+	$('#txt-your-employer-result').val(cashContriCompany);
+	
 	
 	var targetPension = $('#txt-target-pensions').val();
 	$('#txt-target-pensions-result').val(targetPension);
