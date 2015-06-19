@@ -926,13 +926,14 @@ a:focus{
 	}
 
 	#btn-advanced{
-		margin-left:3px;
+		margin-left:0px;
 		float: left;
 	}
 
 	.btn-note {
-	    display: inline-block;
-	    padding: 7px 9px 0;
+	    display: block;
+	    padding: 7px 9px 0 0;
+	    text-align: left;
 	}
 
 	/*bootstrap overide*/
@@ -1190,10 +1191,6 @@ a:focus{
 
 	#disclamer-div{
 		padding-left: 15px;
-	}
-
-	#btn-advanced{
-		margin-left:0px;
 	}
 
 	.btn-note {
