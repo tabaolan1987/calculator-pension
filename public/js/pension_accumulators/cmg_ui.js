@@ -202,6 +202,7 @@ function drawSlidePercentTaxFreeCash(){
             type: 'single',
             step: 1,
             grid: true
+			
     });
     $("#percent-tax-free").val(0);
 }
@@ -228,19 +229,23 @@ function drawSlideResult(){
     });
 	
 	$("#percent-tax-free-result").ionRangeSlider({
-            hide_min_max: true,
-            keyboard: true,
-			min : 0,
-			max : 25,
-			grid_margin : true,
-			grid_num : 5,
-            type: 'single',
-            step: 1,
-            grid: true,
-			onFinish: function () {
-				onChangeUI();
-			}
+        hide_min_max: true,
+        keyboard: true,
+		min : 0,
+		max : 25,
+		grid_margin : true,
+		grid_num : 5,
+        type: 'single',
+        step: 1,
+        grid: true,
+		onFinish: function () {
+			onChangeUI();
+		}
     });
+}
+
+function okay(){
+	alert('okay');
 }
 
 function drawSlideModalGrowRate(){

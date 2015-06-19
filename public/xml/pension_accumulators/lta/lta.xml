@@ -3,7 +3,7 @@
 <information>
 <year>2014/2015</year>
 <value><![CDATA[1250000]]></value>
-<active><![CDATA[true]]></active>
+<active><![CDATA[false]]></active>
 <message-alert>
 <![CDATA[
 <p>The maximum amount of tax free cash you can take is 25% of the Lifetime Allowance is £1.25 million of the tax year 2014/15.</p>
@@ -11,6 +11,21 @@
 <p>This value is likely to change if you are planning to retire after 2015.</p>
 ]]>
 </message-alert>
-<config><![CDATA[false]]></config>
+<config><![CDATA[true]]></config>
 </information>
+ <information>   
+<year>2014/2015</year> 
+<value><![CDATA[1250000]]></value> 
+<!-- Mark as true to use details for this tax year, otherwise false --> 
+<active><![CDATA[true]]></active> 
+<message-alert> 
+<![CDATA[       
+<p>The maximum amount of tax free cash you can take is 25% of the Lifetime Allowance is £1.25 million of the tax year 2014/15.</p> 
+<p>That means the most you can take tax free is £312,500.Your results will be based on a lump sum of this amount.</p> 
+<p>This value is likely to change if you are planning to retire after 2015.</p> 
+]]> 
+</message-alert> 
+<!-- Display pop up for cash lump sum over LTA, true to display, otherwise false --> 
+<config><![CDATA[true]]></config> 
+</information> 
 </lta>
