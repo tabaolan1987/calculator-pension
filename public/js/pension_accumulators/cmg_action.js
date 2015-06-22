@@ -441,7 +441,6 @@ function registerActionResultTab(){
 	});
 	$('#estimated-annual-modal').on("hidden.bs.modal",function(e){
 		onChangeUI();
-		setupMessageSummary();
 	});
 	
 }
@@ -637,7 +636,7 @@ function drawChart(forceCashIncome,shortFall,targetPension,taxFree){
 	current_forcecash_income = forceCashIncome;
 	current_target = targetPension;
 	setupMessageSummary(forceCashIncome,shortFall,targetPension,taxFree);
-	updateDataPrint(forceCashIncome,shortFall,targetPension,taxFree)
+	updateDataPrint(forceCashIncome,shortFall,targetPension,taxFree);
 }
 /*------------------------------------------------------------------*/
 function registerActionSummaryTab(){
