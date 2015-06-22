@@ -496,6 +496,7 @@ a:focus{
 	border: 3px solid #06038d;
 	margin:10px 0;
 	padding:10px;
+	overflow: hidden;
 }
 
 #wrap-tab .tab-title{
@@ -699,6 +700,7 @@ a:focus{
 @media screen and (max-width: 991px) {
 	.left-content{
 		border-right: none;
+		min-height: inherit;
 		min-height: auto;
 		height : auto;
 	}
@@ -1240,10 +1242,6 @@ a:focus{
 
 /*less than 364px fix col coin*/
 @media screen and (max-width: 364px) {
-	#wrap-tab{
-		overflow: hidden;
-	}
-
 	#right-content .draw-chart .col-xs-4{
 		width: 41.6667%;
 	}
