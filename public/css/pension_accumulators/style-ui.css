@@ -336,7 +336,7 @@ a:focus{
 
 .percent{
 	background:url(../../images/pension_accumulators/percent.png) bottom right no-repeat;
-	padding:0 25px;
+	padding:0 25px 0 20px;
 }
 
 .label-tooltip{
