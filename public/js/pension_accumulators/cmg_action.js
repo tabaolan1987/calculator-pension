@@ -484,6 +484,7 @@ function setTextToTextField(){
 	var ContributePercent = $('#txt-you-paying-percent').val();
 	$('#txt-you-paying-percent-result').val(ContributePercent);
 	var cashContribute = round(getCash_Contribute());
+	cashContribute = addCommas(cashContribute);
 	$('#txt-you-paying').val(cashContribute);
 	$('#txt-you-paying-result').val(cashContribute);
 	
@@ -491,6 +492,7 @@ function setTextToTextField(){
 	$('#txt-your-employer-percent-result').val(percentContriConpany);
 	
 	var cashContriCompany = round(getCash_Contribute_company());
+	cashContriCompany = addCommas(cashContriCompany);
 	$('#txt-your-employer').val(cashContriCompany);
 	$('#txt-your-employer-result').val(cashContriCompany);
 	
