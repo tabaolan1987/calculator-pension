@@ -171,7 +171,12 @@ function getGender(){
 }
 function checkDataAboutYou(){
 	var content = new Array();
+	var ageRetire =   $("#age-to-retirement").val();
 	var currentAge = $('#txt-current-age').val();
+	if(parseInt(ageRetire) < parseInt(currentAge)){
+		content.push("retireAge-smaller-than-currentAge");
+	}
+	
 	if(currentAge == "" || typeof currentAge === 'undefined' || currentAge === null || currentAge == 0){
 		content.push("current age");
 	}
@@ -187,10 +192,7 @@ function checkDataAboutYou(){
 	if( targetPension == "" || targetPension == 0){
 		content.push("target income");
 	}
-	var ageRetire =   $("#age-to-retirement").val();
-	if(parseInt(ageRetire) < parseInt(currentAge)){
-		content.push("retireAge-smaller-than-currentAge");
-	}
+	
 	return content;
 }
 /*------------------------------------------------------------------------------------*/
