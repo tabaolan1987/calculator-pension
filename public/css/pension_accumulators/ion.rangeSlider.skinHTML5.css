@@ -12,7 +12,7 @@
 }
 .irs-with-grid {
     height: 75px;
-    margin-top: -20px;
+    margin-top: -19px;
 }
 
 #tab1 .irs-with-grid {
@@ -94,7 +94,7 @@
 
 .irs-from, .irs-to, .irs-single {
     color: #777777;
-    font-size: 14px; line-height: 1.333;
+    font-size: 13px; line-height: 1.333;
     text-shadow: none;
     padding: 1px 2px;
     background: none;

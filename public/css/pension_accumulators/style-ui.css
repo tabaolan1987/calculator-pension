@@ -329,6 +329,10 @@ a:focus{
 	padding-left:20px;
 }
 
+.p-right-0{
+	padding-right: 0;
+}
+
 /*savings*/
 #tab2 .pound{
 	margin-left: 15px;
@@ -449,7 +453,7 @@ a:focus{
     font-size: 13px;
 }
 
-.row-btn-advanced{
+.tab-pane .row-btn-advanced{
 	text-align: right;
 	overflow: hidden;
 }
