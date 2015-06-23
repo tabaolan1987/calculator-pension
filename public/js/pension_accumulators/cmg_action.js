@@ -65,12 +65,18 @@ function registerHoverAction(){
 	
 }
 /* this function just allow user can type numberic only */
-function isNumberKey(evt){
+function isNumberKey(evt,e){
 	var charCode = (evt.which) ? evt.which : event.keyCode;
    if (charCode != 46 && charCode > 31
     && (charCode < 48 || charCode > 57)){
 		return false;
 	}
+	var vl = parseFloatCMG($(e).val());
+	var maxlength = $(e).attr("length");
+	if(vl.toString().length >= maxlength){
+		return false;
+	}
+	
     return true;
 }
 
@@ -80,14 +86,6 @@ function registerActionAboutYou(){
 	
 	$('.text-about-you').on('blur', function() {
 		var vl = parseFloatCMG($(this).val());
-		vl = round(vl);
-		var length = parseInt($(this).attr('length'));
-		if(vl.toString().length > length){
-			vl = vl.toString().substring(0,length);
-			$(this).attr('title','Please do not enter over ' + length + ' numbers!');
-		}else{
-			$(this).removeAttr('title');
-		}
 		var number = addCommas(round(vl));
 		$(this).val(number);
 		checkDataAboutYou();
@@ -160,7 +158,14 @@ function registerActionAboutYou(){
 		}
 	});
 	
-	$('#result').click(function(){
+	
+	$('a[id="about-you"]').on('shown.bs.tab', function (e) {
+		clickOnResult();
+	});
+}
+
+function clickOnResult(){
+	$('#results').click(function(){
 		var check = checkDataAboutYou();
 		if(check.length > 0){
 			var caseWarning = check[0];
@@ -178,12 +183,13 @@ function registerActionAboutYou(){
 			}
 			return false;
 		}else{
+			if(isCalculate == true){
+				eneableTabResult();
+			}
 			eneableTabSavings();		
 		}
 	});
-
 }
-
 function eneableTabSavings(){
 	$('#savings').attr('href','#tab2');
 	$('#savings').attr('data-toggle','tab');
@@ -266,9 +272,7 @@ function checkDataSaving(){
 	
 	return false;
 }
-
-function registerActionSavingTab(){
-	
+function overrideClickResult(){
 	$('#results').click(function(){
 		var check = checkDataSaving();
 		if(check != true){
@@ -277,6 +281,12 @@ function registerActionSavingTab(){
 			return false;
 		}
 	});
+}
+function registerActionSavingTab(){
+	$('a[id="results"]').on('shown.bs.tab', function (e) {
+		overrideClickResult();
+	});
+	
 	$(".income-payable").click(function(){
 		$(".income-payable").each(function(){
 			$(this).removeClass("selected");
@@ -300,15 +310,6 @@ function registerActionSavingTab(){
 		var number = addCommas(round(vl));
 		$(this).val(number);
 	});
-	
-	$('.text-savings').on('keydown', function() {
-		var vl = parseFloatCMG($(this).val());
-		if(vl == 0){
-			vl ="";
-		}
-		$(this).val(vl);
-	});
-	
 	
 	$('#nextSavings').click(function(){
 		if(isBox1Visible()){
@@ -470,18 +471,6 @@ function registerActionResultTab(){
 	
 	$('#backResult').on('click',function(){
 		$('#savings').trigger('click');
-	});
-	$('.rs').on('keydown',function(){
-		var vl = parseFloatCMG($(this).val());
-		if(vl == 0){
-			vl="";
-		}
-		$(this).val(vl);
-	});
-	
-	$('.rs').on('blur',function(){
-		var vl = parseFloatCMG($(this).val());
-		$(this).val(addCommas(vl));
 	});
 	
 	
