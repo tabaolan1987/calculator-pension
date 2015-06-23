@@ -440,6 +440,10 @@ a:focus{
 	position: relative;
 }
 
+#tab4 .row-btn-advanced {
+    min-height: 35px;
+}
+
 .btn-note{
 	color: #777777;
     font-size: 13px;
@@ -1256,10 +1260,14 @@ a:focus{
 	}
 }
 
-/*less than 364px fix col coin*/
+/*less than 348px fix advance button*/
 @media screen and (max-width: 348px) {
 	#btn-advanced {
 	    bottom: 10px;
+	}
+
+	#tab4 .row-btn-advanced {
+	    min-height: 45px;
 	}
 }
 
