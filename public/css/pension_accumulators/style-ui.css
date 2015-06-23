@@ -111,8 +111,8 @@ a:focus{
 
 .left-content{
 	border-right:3px dotted #ddd;
+	//height : 638px;
 	min-height: 638px;
-	height : 638px;
 }
 
 .tab-content{
@@ -590,7 +590,7 @@ a:focus{
 .right-content{
 	overflow: hidden;
 	min-height: 638px;
-	height : 638px;
+	//height : 638px;
 }
 
 .right-content h3{
