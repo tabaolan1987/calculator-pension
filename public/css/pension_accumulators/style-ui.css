@@ -436,6 +436,10 @@ a:focus{
 	padding-left:25px;
 }
 
+.row-btn-advanced{
+	position: relative;
+}
+
 .btn-note{
 	color: #777777;
     font-size: 13px;
@@ -928,13 +932,15 @@ a:focus{
 	}
 
 	#btn-advanced{
-		margin-left:0px;
-		float: left;
+		bottom: 6px;
+	    left: 0;
+	    margin: 0;
+	    position: absolute;
 	}
 
 	.btn-note {
 	    display: block;
-	    padding: 7px 9px 0 0;
+	    padding: 7px 10px 0 96px;
 	    text-align: left;
 	}
 
@@ -1195,8 +1201,8 @@ a:focus{
 		padding-left: 15px;
 	}
 
-	.btn-note {
-	    padding: 7px 0 0;
+	#btn-advanced {
+	    bottom: 3px;
 	}
 
 	.mobile-padding-left{
@@ -1247,6 +1253,13 @@ a:focus{
 	}
 	#right-content .draw-chart .col-xs-8{
 		width: 58.3333%;
+	}
+}
+
+/*less than 364px fix col coin*/
+@media screen and (max-width: 348px) {
+	#btn-advanced {
+	    bottom: 10px;
 	}
 }
 
