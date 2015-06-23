@@ -204,7 +204,6 @@ function drawSlidePercentTaxFreeCash(){
             type: 'single',
             step: 1,
             grid: true
-			
     });
     $("#percent-tax-free").val(0);
 }
@@ -226,7 +225,19 @@ function drawSlideResult(){
             step: 1,
             grid: true,
 			onFinish: function () {
-				onChangeUI();
+				var currentVal = $("#age-to-retirement-result").val();
+				var currentAge = $("#txt-current-age").val();
+				if(parseInt(currentAge) > parseInt(currentVal)){
+					var oldValue =  $("#age-to-retirement").val();
+					$("#age-to-retirement-result").data("ionRangeSlider").update({
+						from: oldValue
+					});
+					$("#age-to-retirement-result").val(oldValue);
+					var content = warningArray["retireAge-smaller-than-currentAge"];
+					showWarning(content);
+				}else{
+					onChangeUI();
+				}
 			}
     });
 	
