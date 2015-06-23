@@ -80,9 +80,20 @@ function registerActionAboutYou(){
 	
 	$('.text-about-you').on('blur', function() {
 		var vl = parseFloatCMG($(this).val());
+		vl = round(vl);
+		var length = parseInt($(this).attr('length'));
+		if(vl.toString().length > length){
+			vl = vl.toString().substring(0,length);
+			$(this).attr('title','Please do not enter over ' + length + ' numbers!');
+		}else{
+			$(this).removeAttr('title');
+		}
 		var number = addCommas(round(vl));
 		$(this).val(number);
+		checkDataAboutYou();
 	});
+	
+	
 	$(".radio-gender").click(function(){
 		$(".radio-gender").each(function(e){
 			$(this).removeClass("selected");
@@ -148,6 +159,28 @@ function registerActionAboutYou(){
 
 		}
 	});
+	
+	$('#result').click(function(){
+		var check = checkDataAboutYou();
+		if(check.length > 0){
+			var caseWarning = check[0];
+			if(caseWarning == "retireAge-smaller-than-currentAge"){
+				var content = warningArray["retireAge-smaller-than-currentAge"];
+				disableTabSavings();
+				showWarning(content);
+			}else{
+				var content = warningArray["validate-field"] +" "+ check[0];
+				for(var i =1; i < check.length;i++){
+					content = content+", " + check[i];
+				}
+				disableTabSavings();
+				showWarning(content + "!");
+			}
+			return false;
+		}else{
+			eneableTabSavings();		
+		}
+	});
 
 }
 
@@ -192,7 +225,10 @@ function checkDataAboutYou(){
 	if( targetPension == "" || targetPension == 0){
 		content.push("target income");
 	}
-	
+	if(content.length > 0){
+		disableTabSavings();
+		disableTabResult();
+	}
 	return content;
 }
 /*------------------------------------------------------------------------------------*/
@@ -263,6 +299,14 @@ function registerActionSavingTab(){
 		var vl = parseFloatCMG($(this).val());
 		var number = addCommas(round(vl));
 		$(this).val(number);
+	});
+	
+	$('.text-savings').on('keydown', function() {
+		var vl = parseFloatCMG($(this).val());
+		if(vl == 0){
+			vl ="";
+		}
+		$(this).val(vl);
 	});
 	
 	
@@ -426,6 +470,18 @@ function registerActionResultTab(){
 	
 	$('#backResult').on('click',function(){
 		$('#savings').trigger('click');
+	});
+	$('.rs').on('keydown',function(){
+		var vl = parseFloatCMG($(this).val());
+		if(vl == 0){
+			vl="";
+		}
+		$(this).val(vl);
+	});
+	
+	$('.rs').on('blur',function(){
+		var vl = parseFloatCMG($(this).val());
+		$(this).val(addCommas(vl));
 	});
 	
 	

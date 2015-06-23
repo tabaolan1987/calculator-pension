@@ -186,7 +186,9 @@ function drawSlideRetirementAge(){
             type: 'single',
             step: 1,
             grid: true,
-            force_edges: true
+			onFinish: function () {
+				checkDataAboutYou();
+			}
     });
     $("#age-to-retirement").val(65);
 }
@@ -244,9 +246,6 @@ function drawSlideResult(){
     });
 }
 
-function okay(){
-	alert('okay');
-}
 
 function drawSlideModalGrowRate(){
 	

@@ -652,6 +652,7 @@
         },
 
         pointerClick: function (target, e) {
+			
             e.preventDefault();
             var x = e.pageX || e.originalEvent.touches && e.originalEvent.touches[0].pageX;
             if (e.button === 2) {
