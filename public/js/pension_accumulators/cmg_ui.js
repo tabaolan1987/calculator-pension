@@ -226,12 +226,13 @@ function drawSlideResult(){
             grid: true,
 			onFinish: function () {
 				var currentVal = $("#age-to-retirement-result").val();
-				var currentAge = $("#age-to-retirement").val();
+				var currentAge = $("#txt-current-age").val();
 				if(parseInt(currentAge) > parseInt(currentVal)){
+					var oldValue =  $("#age-to-retirement").val();
 					$("#age-to-retirement-result").data("ionRangeSlider").update({
-						from: currentAge
+						from: oldValue
 					});
-					$("#age-to-retirement-result").val(currentAge);
+					$("#age-to-retirement-result").val(oldValue);
 					var content = warningArray["retireAge-smaller-than-currentAge"];
 					showWarning(content);
 				}else{
