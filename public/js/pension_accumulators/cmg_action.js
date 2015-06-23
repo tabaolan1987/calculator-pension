@@ -65,12 +65,18 @@ function registerHoverAction(){
 	
 }
 /* this function just allow user can type numberic only */
-function isNumberKey(evt){
+function isNumberKey(evt,e){
 	var charCode = (evt.which) ? evt.which : event.keyCode;
    if (charCode != 46 && charCode > 31
     && (charCode < 48 || charCode > 57)){
 		return false;
 	}
+	var vl = parseFloatCMG($(e).val());
+	var maxlength = $(e).attr("length");
+	if(vl.toString().length >= maxlength){
+		return false;
+	}
+	
     return true;
 }
 
@@ -82,7 +88,10 @@ function registerActionAboutYou(){
 		var vl = parseFloatCMG($(this).val());
 		var number = addCommas(round(vl));
 		$(this).val(number);
+		checkDataAboutYou();
 	});
+	
+	
 	$(".radio-gender").click(function(){
 		$(".radio-gender").each(function(e){
 			$(this).removeClass("selected");
@@ -148,9 +157,39 @@ function registerActionAboutYou(){
 
 		}
 	});
-
+	
+	
+	$('a[id="about-you"]').on('shown.bs.tab', function (e) {
+		clickOnResult();
+	});
 }
 
+function clickOnResult(){
+	$('#results').click(function(){
+		var check = checkDataAboutYou();
+		if(check.length > 0){
+			var caseWarning = check[0];
+			if(caseWarning == "retireAge-smaller-than-currentAge"){
+				var content = warningArray["retireAge-smaller-than-currentAge"];
+				disableTabSavings();
+				showWarning(content);
+			}else{
+				var content = warningArray["validate-field"] +" "+ check[0];
+				for(var i =1; i < check.length;i++){
+					content = content+", " + check[i];
+				}
+				disableTabSavings();
+				showWarning(content + "!");
+			}
+			return false;
+		}else{
+			if(isCalculate == true){
+				eneableTabResult();
+			}
+			eneableTabSavings();		
+		}
+	});
+}
 function eneableTabSavings(){
 	$('#savings').attr('href','#tab2');
 	$('#savings').attr('data-toggle','tab');
@@ -192,7 +231,10 @@ function checkDataAboutYou(){
 	if( targetPension == "" || targetPension == 0){
 		content.push("target income");
 	}
-	
+	if(content.length > 0){
+		disableTabSavings();
+		disableTabResult();
+	}
 	return content;
 }
 /*------------------------------------------------------------------------------------*/
@@ -230,9 +272,7 @@ function checkDataSaving(){
 	
 	return false;
 }
-
-function registerActionSavingTab(){
-	
+function overrideClickResult(){
 	$('#results').click(function(){
 		var check = checkDataSaving();
 		if(check != true){
@@ -241,6 +281,12 @@ function registerActionSavingTab(){
 			return false;
 		}
 	});
+}
+function registerActionSavingTab(){
+	$('a[id="results"]').on('shown.bs.tab', function (e) {
+		overrideClickResult();
+	});
+	
 	$(".income-payable").click(function(){
 		$(".income-payable").each(function(){
 			$(this).removeClass("selected");
@@ -264,7 +310,6 @@ function registerActionSavingTab(){
 		var number = addCommas(round(vl));
 		$(this).val(number);
 	});
-	
 	
 	$('#nextSavings').click(function(){
 		if(isBox1Visible()){

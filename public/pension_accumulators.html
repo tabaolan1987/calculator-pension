@@ -95,7 +95,7 @@
                   <div class="tab-pane active" id="tab1">
                      <div class="row row-rule">
                         <div class="col-xs-9 mobile-padding-left"><span id="current-age" class="icon-tooltip"></span><span class="label-tooltip">What is your current age?</span></div>
-                        <div class="col-xs-3"><input id='txt-current-age' maxlength="2" type="text" onkeypress="return isNumberKey(event)" class="form-control text-about-you input-age" placeholder=""/></div>
+                        <div class="col-xs-3"><input id='txt-current-age' length="2" type="text" onkeypress="return isNumberKey(event,this)" class="form-control text-about-you input-age" placeholder=""/></div>
                      </div>
                      <div class="row row-rule">
                         <div class="col-xs-3 mobile-padding-left"><span id="gender" class="icon-tooltip"></span><span class="label-tooltip">Male</span></div>
@@ -105,7 +105,7 @@
                      </div>
                      <div class="row row-rule">
                         <div class="col-xs-9 mobile-padding-left"><span id="current-salary" class="icon-tooltip"></span><span class="label-tooltip">What is your current annual salary before tax?</span></div>
-                        <div class="col-xs-3 pound"><input maxlength="7" id='txt-current-salary' type="text" onkeypress="return isNumberKey(event)"  class="form-control text-about-you" placeholder=""/></div>
+                        <div class="col-xs-3 pound"><input length="7" id='txt-current-salary' type="text" onkeypress="return isNumberKey(event,this)"  class="form-control text-about-you" placeholder=""/></div>
                      </div>
                      <div class="row row-rule">
                         <div class="col-xs-7 mobile-padding-left"><span id="age-retirement" class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider">At what age would you like to retire?</span></div>
@@ -115,7 +115,7 @@
                      </div>
                      <div class="row row-rule">
                         <div class="col-xs-9 mobile-padding-left"><span id="target-pension" class="icon-tooltip"></span><span class="label-tooltip">How much annual income do you think you will want when you retire?</span></div>
-                        <div class="col-xs-3 pound"><input maxlength="7" id="txt-target-pensions" type="text" onkeypress="return isNumberKey(event)"  class="form-control text-about-you" placeholder=""/></div>
+                        <div class="col-xs-3 pound"><input length="7" id="txt-target-pensions" type="text" onkeypress="return isNumberKey(event,this)"  class="form-control text-about-you" placeholder=""/></div>
                      </div>
                      <div class="row row-rule">
                         <div class="col-xs-7 mobile-padding-left"><span id="tax-free-cash" class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider">What percentage of your pension pot would you like to take as tax free cash?</span></div>
@@ -131,24 +131,24 @@
                         <div class="row row-rule border-none">
                            <p>If you have any deferred pensions, what is the total fund value?</p>
                            <div class="col-xs-1 mobile-padding-left"><span id="deferred-pensions" class="icon-tooltip"></span></div>
-                           <div class="col-xs-3 pound"><input maxlength="9" onkeypress="return isNumberKey(event)" id="txt-deffered-pensions" onkeypress="return isNumberKey(event)" type="text" class="form-control text-savings" placeholder=""/></div>
+                           <div class="col-xs-3 pound"><input length="9" onkeypress="return isNumberKey(event,this)" id="txt-deffered-pensions" onkeypress="return isNumberKey(event,this)" type="text" class="form-control text-savings" placeholder=""/></div>
                         </div>
                         <div class="row row-rule">
                            <p>What is the total fund value of your current pensions?</p>
                            <div class="col-xs-1 mobile-padding-left"><span id="current-pensions" class="icon-tooltip"></span></div>
-                           <div class="col-xs-3 pound"><input maxlength="9" onkeypress="return isNumberKey(event)" id="txt-current-pensions" type="text" onkeypress="return isNumberKey(event)" class="form-control text-savings" placeholder=""/></div>
+                           <div class="col-xs-3 pound"><input length="9" onkeypress="return isNumberKey(event,this)" id="txt-current-pensions" type="text" onkeypress="return isNumberKey(event,this)" class="form-control text-savings" placeholder=""/></div>
                         </div>
                         <div class="row row-rule">
                            <p>How much are you currently paying into your pension per month?</p>
                            <div class="col-xs-1 mobile-padding-left"><span id="you-paying" class="icon-tooltip"></span></div>
-                           <div class="col-xs-3 pound"><input maxlength="7"  onkeypress="return isNumberKey(event)" id="txt-you-paying" type="text" class="form-control" placeholder=""/></div>
-                           <div class="col-xs-3 percent"><input maxlength="3" onkeypress="return isNumberKey(event)" id="txt-you-paying-percent" type="text" class="form-control" placeholder=""/></div>
+                           <div class="col-xs-3 pound"><input length="7"  onkeypress="return isNumberKey(event,this)" id="txt-you-paying" type="text" class="form-control" placeholder=""/></div>
+                           <div class="col-xs-3 percent"><input length="3" onkeypress="return isNumberKey(event,this)" id="txt-you-paying-percent" type="text" class="form-control" placeholder=""/></div>
                         </div>
                         <div class="row row-rule">
                            <p>How much does your employer contribute towards your pension per month?</p>
                            <div class="col-xs-1 mobile-padding-left"><span id="your-employer" class="icon-tooltip"></span></div>
-                           <div class="col-xs-3 pound"><input maxlength="7" onkeypress="return isNumberKey(event)" id="txt-your-employer" type="text" class="form-control" placeholder=""/></div>
-                           <div class="col-xs-3 percent"><input maxlength="3" onkeypress="return isNumberKey(event)" id="txt-your-employer-percent" type="text" class="form-control" placeholder=""/></div>
+                           <div class="col-xs-3 pound"><input length="7" onkeypress="return isNumberKey(event,this)" id="txt-your-employer" type="text" class="form-control" placeholder=""/></div>
+                           <div class="col-xs-3 percent"><input length="3" onkeypress="return isNumberKey(event,this)" id="txt-your-employer-percent" type="text" class="form-control" placeholder=""/></div>
                         </div>
                      </div>
                      <!--END #box-monney-purchase-->
@@ -164,7 +164,7 @@
                         <div style="display:none" class="row row-rule final-salary border-none">
                            <p>Enter any income payable from Defined Benefit (Final Salary) company pensions (total per year).</p>
                            <div class="col-xs-1 mobile-padding-left"><span id="income-payable" class="icon-tooltip"></span></div>
-                           <div class="col-xs-3 pound"><input maxlength="7" onkeypress="return isNumberKey(event)" id="txt-income-payable" type="text" class="form-control text-savings" placeholder=""/></div>
+                           <div class="col-xs-3 pound"><input length="7" onkeypress="return isNumberKey(event,this)" id="txt-income-payable" type="text" class="form-control text-savings" placeholder=""/></div>
                         </div>
                      </div>
                      <!--END #box-defined-benefits-->
@@ -178,21 +178,21 @@
                      <div class="content-title mobile-padding-left">Change the values below to see the possible impact they may have.</div>
                      <div class="row row-rule">
                         <div class="col-md-7 col-xs-6 mobile-padding-left"><span id="you-paying-result" class="icon-tooltip"></span><span class="label-tooltip">Personal monthly contributions</span></div>
-                        <div class="col-md-2 col-xs-3 pound"><input maxlength="7" onkeypress="return isNumberKey(event)" id="txt-you-paying-result" type="text" class="form-control" placeholder=""/></div>
-                        <div class="col-md-3 col-xs-3 percent"><input maxlength="3" onkeypress="return isNumberKey(event)" id="txt-you-paying-percent-result" type="text" class="form-control" placeholder=""/></div>
+                        <div class="col-md-2 col-xs-3 pound"><input length="7" onkeypress="return isNumberKey(event,this)" id="txt-you-paying-result" type="text" class="form-control rs" placeholder=""/></div>
+                        <div class="col-md-3 col-xs-3 percent"><input length="3" onkeypress="return isNumberKey(event,this)" id="txt-you-paying-percent-result" type="text" class="form-control rs" placeholder=""/></div>
                      </div>
                      <div class="row row-rule">
                         <div class="col-md-7 col-xs-6 mobile-padding-left"><span id="your-employer-result" class="icon-tooltip"></span><span class="label-tooltip">Employer monthly contributions</span></div>
-                        <div class="col-md-2 col-xs-3 pound"><input maxlength="7" onkeypress="return isNumberKey(event)" id="txt-your-employer-result" type="text" class="form-control" placeholder=""/></div>
-                        <div class="col-md-3 col-xs-3 percent"><input maxlength="3" onkeypress="return isNumberKey(event)" id="txt-your-employer-percent-result" type="text" class="form-control" placeholder=""/></div>
+                        <div class="col-md-2 col-xs-3 pound"><input length="7" onkeypress="return isNumberKey(event,this)" id="txt-your-employer-result" type="text" class="form-control rs" placeholder=""/></div>
+                        <div class="col-md-3 col-xs-3 percent"><input length="3" onkeypress="return isNumberKey(event,this)" id="txt-your-employer-percent-result" type="text" class="form-control rs" placeholder=""/></div>
                      </div>
                      <div class="row row-rule">
                         <div class="col-xs-9 mobile-padding-left"><span id="one-off-lump" class="icon-tooltip"></span><span class="label-tooltip">Make a one-off lump sum payment</span></div>
-                        <div class="col-xs-3 pound"><input maxlength="7" onkeypress="return isNumberKey(event)" id="oneOffLumpSum" type="text" value=0 class="form-control" placeholder=""/></div>
+                        <div class="col-xs-3 pound"><input length="7" onkeypress="return isNumberKey(event,this)" id="oneOffLumpSum" type="text" value=0 class="form-control rs" placeholder=""/></div>
                      </div>
                      <div class="row row-rule">
                         <div class="col-xs-9 mobile-padding-left"><span id="target-pension-result" class="icon-tooltip"></span><span class="label-tooltip">Income you think you will want to live on</span></div>
-                        <div class="col-xs-3 pound"><input maxlength="7" onkeypress="return isNumberKey(event)" id="txt-target-pensions-result" type="text" class="form-control" placeholder=""/></div>
+                        <div class="col-xs-3 pound"><input length="7" onkeypress="return isNumberKey(event,this)" id="txt-target-pensions-result" type="text" class="form-control rs" placeholder=""/></div>
                      </div>
                      <div class="row row-rule">
                         <div class="col-xs-7 mobile-padding-left"><span id="age-retirement-result" class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider">Retirement age</span></div>
