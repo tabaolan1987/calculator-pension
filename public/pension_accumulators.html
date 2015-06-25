@@ -123,7 +123,7 @@
                            <input type="text" id="percent-tax-free" class="percentTaxFreeCast ui-slider"></input>
                         </div>
                      </div>
-                     <a id='nextAboutYou' class="btn btn-primary btnNext">next</a>
+                     
                   </div>
                   <div class="tab-pane" id="tab2">
                      <div class="box-monney-purchase" id="box-monney-purchase">
@@ -168,8 +168,7 @@
                         </div>
                      </div>
                      <!--END #box-defined-benefits-->
-                     <a id="nextSavings" class="btn btn-primary btnNext">next</a>
-                     <a id="backSavings" class="btn btn-primary btnPrevious">back</a>
+                     
                   </div>
                   <div class="tab-pane" id="tab3">
                      <h3 class="tab-title mobile-padding-left">Your forecast income if you retire in <span id="year-retire">2037</span> at age <span id="age-retire">67</span> is:</h3>
@@ -209,8 +208,7 @@
                      <div class="row row-rule align-right row-btn-advanced">
                         <span class="btn-note">Click here to change your growth rate and/or charges</span> <span class="btn" id="btn-advanced" data-toggle="modal" data-target="#estimated-annual-modal">advanced</span>
                      </div>
-                     <a id='nextResult' class="btn btn-primary btnNext">next</a>
-                     <a id='backResult' class="btn btn-primary btnPrevious">back</a>
+                     
                   </div>
                   <div class="tab-pane" id="tab4">
                      <div id="wrap-tab">
@@ -245,8 +243,20 @@
                            <span class="btn-note">Click here to change your growth rate and/or charges</span> <span class="btn" id="btn-advanced" data-toggle="modal" data-target="#estimated-annual-modal">advanced</span>
                         </div>
                      </div>
-                     <a id="backSummary" class="btn btn-primary btnPrevious">back</a>
+                     
                   </div>
+               </div>
+               <div class="row" id="tab-next-back">
+                  <!--next tab1-->
+                  <a id='nextAboutYou' class="btn btn-primary btnNext">next</a>
+                  <!--next tab2-->
+                  <a id="nextSavings" class="btn btn-primary btnNext" style="display:none;">next</a>
+                  <a id="backSavings" class="btn btn-primary btnPrevious" style="display:none;">back</a>
+                  <!--next tab3-->
+                  <a id='nextResult' class="btn btn-primary btnNext" style="display:none;">next</a>
+                  <a id='backResult' class="btn btn-primary btnPrevious" style="display:none;">back</a>
+                  <!--next tab4-->
+                  <a id="backSummary" class="btn btn-primary btnPrevious" style="display:none;">back</a>
                </div>
             </div>
             <!--END .left-content-->
@@ -274,9 +284,6 @@
                            <div>
                               <div class="bot-arrow">
                                  <div class="bot-arrow-pension" style="display:none;">Pension <br/> £<span class="pound-income-inform">39,800</span></div>
-                                 <div id="print-div" class="align-right">
-                                    <a id="print-data" class="btn btn-primary btn-print" onclick="PrintElement('#box-print')" >print</a>
-                                 </div>
                               </div>
                            </div>
                         </div>
@@ -285,6 +292,10 @@
                </div>
                <div class="right-content-default align-center">
                   <img class="img-responsive" src="images/pension_accumulators/right-content-img.jpg" alt="" title="" />
+               </div>
+               <div class="row">
+                  <div class="col-xs-4"></div>
+                  <div class="col-xs-8"><a id="print-data" class="btn btn-primary btn-print" onclick="PrintElement('#box-print')" >print</a></div>
                </div>
             </div>
             <!--END .right-content-->
