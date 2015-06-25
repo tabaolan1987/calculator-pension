@@ -120,9 +120,14 @@ function getTax_Free_Value(){
 	var temp1 = parseFloatCMG(retirementPot*taxFreePercent);
 	var ltaValue = parseFloatCMG(LTA['value']);
 	if(temp1 < ltaValue){
+		isReturnLTA = false;
 		return temp1;
 	}else{
-		return ltaValue;
+		isReturnLTA = true;
+		var percentLta = getPercentLtaWithPensionFound()/100;
+		var newVlue = parseFloatCMG(retirementPot*percentLta);
+		return newVlue;
+		//return ltaValue;
 	}
 }
 
@@ -142,7 +147,8 @@ function getPercentLtaWithPensionFound(){
 	if(percent < 1){
 		percent = 1;
 	}
-	return round(percent);
+	return parseInt(percent);
+	//return round(percent);
 }
 
 function yourRetirementDate(){

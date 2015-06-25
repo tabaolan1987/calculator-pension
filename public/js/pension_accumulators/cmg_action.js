@@ -454,10 +454,10 @@ function calculateCompanyPay(){
 var registerChange = false;
 function registerActionResultTab(){
 	$('a[id="results"]').on('shown.bs.tab', function (e) {
+		var taxFree = getTax_Free_Value();
 		var forceCashIncome = parseFloatCMG(getForecastIncome());
 		var targetPension = parseFloatCMG($('#txt-target-pensions').val());
 		var shortFall = getShortFall();
-		var taxFree = getTax_Free_Value();
 		var checkLta = showWarningLta(taxFree);
 		setupSlide(checkLta);
 		setTextToTextField();
@@ -549,7 +549,6 @@ function setTextToTextField(){
 	var percentContriConpany = $('#txt-your-employer-percent').val();
 	$('#txt-your-employer-percent-result').val(percentContriConpany);
 	
-	
 	if(changeTargetPen == true){
 		var cashContriCompany = round(getCash_Contribute_company());
 		cashContriCompany = addCommas(cashContriCompany);
@@ -613,6 +612,7 @@ function onChange(){
 		$('#txt-your-employer-percent').val(fixed(percent));
 		$(this).val(addCommas(vl));
 		onChangeUI();
+		changeTargetPen = false;
 	
 	});
 	
@@ -637,6 +637,7 @@ function onChange(){
 		$('#txt-you-paying-percent-result').val(fixed(percent));
 		$(this).val(addCommas(vl));
 		onChangeUI();
+		changeTargetPen = false;
 	});
 	
 	
