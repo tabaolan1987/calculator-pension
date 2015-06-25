@@ -120,7 +120,8 @@ a:focus{
 }
 
 .tab-content{
-	margin-top: 20px;	
+	margin-top: 20px;
+	height: 515px;
 }
 
 
@@ -559,8 +560,8 @@ a:focus{
 }
 
 /*next previous*/
-.tab-content .btnNext,
-.tab-content .btnPrevious,
+#tab-next-back .btnNext,
+#tab-next-back .btnPrevious,
 .btn-print{
 	position:absolute;
 	bottom:10px;
@@ -573,23 +574,23 @@ a:focus{
 .btn-print{
 	position: inherit;
 	bottom: 0;
-	margin: 25px 22px 0 0;
+	margin-left: 118px;
 }
 
-.tab-content .btnPrevious{
+#tab-next-back .btnPrevious{
 	background-color:#747678;
 }
 
-.tab-content .btnNext:hover,
-.tab-content .btnPrevious:hover{
+#tab-next-back .btnNext:hover,
+#tab-next-back .btnPrevious:hover{
 	background-color:#428bca;
 }
 
-.tab-content .btnNext{
+#tab-next-back .btnNext{
 	right:25px;
 }
 
-.tab-content .btnPrevious{
+#tab-next-back .btnPrevious{
 	left:25px;
 }
 
@@ -603,6 +604,11 @@ a:focus{
 	overflow: hidden;
 	min-height: 638px;
 	//height : 638px;
+}
+
+.right-content-draw,
+.right-content-default{
+	height: 603px;
 }
 
 .right-content h3{
@@ -723,6 +729,14 @@ a:focus{
 
 	.right-content{
 		border-top: 3px dotted #ddd;
+	}
+
+	.right-content-draw {
+	    height: auto;
+	}
+
+	.tab-content {
+	    height: auto;
 	}
 }
 
@@ -1202,7 +1216,7 @@ a:focus{
 	}
 
 	.btn-print {
-	    margin: 25px 2px 0 0;
+	     margin-left: 66px;
 	}
 
 	.title h3{
@@ -1265,6 +1279,10 @@ a:focus{
 	}
 	#right-content .draw-chart .col-xs-8{
 		width: 58.3333%;
+	}
+
+	.btn-print {
+	    margin-left: 96px;
 	}
 }
 
