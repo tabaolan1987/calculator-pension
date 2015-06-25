@@ -82,6 +82,7 @@ function isNumberKey(evt,e){
 
 
 /* there are actions for tab about you*/
+var changeTargetPen = false;
 function registerActionAboutYou(){
 	
 	$('.text-about-you').on('blur', function() {
@@ -91,6 +92,9 @@ function registerActionAboutYou(){
 		checkDataAboutYou();
 	});
 	
+	$('#txt-current-salary').on('change', function() {
+		changeTargetPen = true;
+	});
 	
 	$(".radio-gender").click(function(){
 		$(".radio-gender").each(function(e){
@@ -417,6 +421,7 @@ function calculatePersonalPay(){
 		$('#txt-you-paying-percent').val(addCommas(fixed(percent)));
 		var vl = fixed(parseFloatCMG($(this).val()));
 		$(this).val(addCommas(vl));
+		changeTargetPen = false;
 	});
 	$('#txt-you-paying-percent').on('change',function(){
 		var cash = round(getCash_Contribute());
@@ -434,6 +439,7 @@ function calculateCompanyPay(){
 		$('#txt-your-employer-percent').val(addCommas(fixed(percent)));
 		var vl = fixed(parseFloatCMG($(this).val()));
 		$(this).val(addCommas(vl));
+		changeTargetPen = false;
 	});
 	$('#txt-your-employer-percent').on('blur',function(){
 		var cash = round(getCash_Contribute_company());
@@ -530,18 +536,30 @@ function setTextToTextField(){
 	
 	var ContributePercent = $('#txt-you-paying-percent').val();
 	$('#txt-you-paying-percent-result').val(ContributePercent);
-	var cashContribute = round(getCash_Contribute());
-	cashContribute = addCommas(cashContribute);
-	$('#txt-you-paying').val(cashContribute);
-	$('#txt-you-paying-result').val(cashContribute);
+	if(changeTargetPen == true){
+		var cashContribute = round(getCash_Contribute());
+		cashContribute = addCommas(cashContribute);
+		$('#txt-you-paying').val(cashContribute);
+		$('#txt-you-paying-result').val(cashContribute);
+	}else{
+		var cashContribute = $('#txt-you-paying').val();
+		$('#txt-you-paying-result').val(cashContribute);
+	}
 	
 	var percentContriConpany = $('#txt-your-employer-percent').val();
 	$('#txt-your-employer-percent-result').val(percentContriConpany);
 	
-	var cashContriCompany = round(getCash_Contribute_company());
-	cashContriCompany = addCommas(cashContriCompany);
-	$('#txt-your-employer').val(cashContriCompany);
-	$('#txt-your-employer-result').val(cashContriCompany);
+	
+	if(changeTargetPen == true){
+		var cashContriCompany = round(getCash_Contribute_company());
+		cashContriCompany = addCommas(cashContriCompany);
+		$('#txt-your-employer').val(cashContriCompany);
+		$('#txt-your-employer-result').val(cashContriCompany);
+	}else{
+		var cashContriCompany = $('#txt-your-employer').val();
+		$('#txt-your-employer-result').val(cashContriCompany);
+	}
+	
 	
 	
 	var targetPension = $('#txt-target-pensions').val();
