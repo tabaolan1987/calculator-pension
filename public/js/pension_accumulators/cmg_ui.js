@@ -64,7 +64,7 @@ function setHeightDiv(forceCashIncome,shortFall,targetPension,coinBlue,coinRed){
 		$('.arrow-mid').css('height',0);
 		var hieghtBlueDiv = ($('#coin-container').height() - 25 - heighTotalRed)/2 - $('.bot-arrow').height()/2;
 		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
-		$('#print-div').css('margin-top',hieghtBlueDiv + 10.5);
+		//$('#print-div').css('margin-top',hieghtBlueDiv + 10.5);
 		animationShortFall(heightMidInform -2,shortFall);
 		animationIncomed();
 		return true;
@@ -72,7 +72,7 @@ function setHeightDiv(forceCashIncome,shortFall,targetPension,coinBlue,coinRed){
 		$('.top-arrow').hide();
 		var margin = ($('#coin-container').height() - 25)/2 - $('.bot-arrow').height()/2;
 		$('.bot-arrow').css('margin-top',margin);
-		$('#print-div').css('margin-top',margin + 10);
+		//$('#print-div').css('margin-top',margin + 10);
 		animationIncomed();
 		return true;
 	}else if(coinBlue <= 5 & coinBlue > 3){
@@ -81,9 +81,9 @@ function setHeightDiv(forceCashIncome,shortFall,targetPension,coinBlue,coinRed){
 		$('.arrow-mid').css('height',0);
 		$('.bot-arrow').css('margin-top','0');
 		if(coinBlue==4){
-			$('#print-div').css('margin-top',"2px");
+			//$('#print-div').css('margin-top',"2px");
 		}else{
-			$('#print-div').css('margin-top',"22px");
+			//$('#print-div').css('margin-top',"22px");
 		}
 		animationShortFall(heightMidInform - 4,shortFall);
 		animationIncomed();
@@ -101,7 +101,7 @@ function setHeightDiv(forceCashIncome,shortFall,targetPension,coinBlue,coinRed){
 		}
 		
 		$('.bot-arrow').css('margin-top','0');
-		$('#print-div').css('margin-top',"2px");
+		//$('#print-div').css('margin-top',"2px");
 		animationIncomed();
 		return true;
 	}else if(coinRed <= 5){
@@ -110,7 +110,7 @@ function setHeightDiv(forceCashIncome,shortFall,targetPension,coinBlue,coinRed){
 		$('.arrow-mid').css('height',60);
 		var hieghtBlueDiv = ($('#coin-container').height() - 25 - $('.top-arrow').height())/2 - $('.bot-arrow').height()/2;
 		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
-		$('#print-div').css('margin-top',hieghtBlueDiv + 10);
+		//$('#print-div').css('margin-top',hieghtBlueDiv + 10);
 		animationShortFall(heightMidInform -2,shortFall);
 		animationIncomed();
 		return true;
@@ -129,13 +129,13 @@ function animationShortFall(height,shortFall){
 }
 
 function animationIncomed(){
-	$('#print-div').hide();	
+	$('#print-data').hide();	
 	setTimeout(function(){
 		$('.bot-arrow').show();
 		var left =  $(".bot-arrow").offset().left;
 		$(".bot-arrow").css({left:left}).animate({"left":"10px"}, "slow",function(){
 			$('.bot-arrow-pension').show();
-			$('#print-div').fadeIn(2500);
+			$('#print-data').fadeIn(2500);
 		});
 	}, 1000);
 	
