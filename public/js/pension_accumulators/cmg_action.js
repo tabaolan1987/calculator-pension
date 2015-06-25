@@ -165,6 +165,10 @@ function registerActionAboutYou(){
 	
 	$('a[id="about-you"]').on('shown.bs.tab', function (e) {
 		clickOnResult();
+		hideButtonSavings();
+		hideButtonResult();
+		hideButtonSummary();
+		showButtonAb();
 	});
 }
 
@@ -287,8 +291,12 @@ function overrideClickResult(){
 	});
 }
 function registerActionSavingTab(){
-	$('a[id="results"]').on('shown.bs.tab', function (e) {
+	$('a[id="savings"]').on('shown.bs.tab', function (e) {
 		overrideClickResult();
+		hideButtonAb();
+		hideButtonResult();
+		hideButtonSummary();
+		showButtonSavings();
 	});
 	
 	$(".income-payable").click(function(){
@@ -469,6 +477,10 @@ function registerActionResultTab(){
 			}
 			registerChange = true;
 		}
+		hideButtonAb();
+		hideButtonSummary();
+		hideButtonSavings();
+		showButtonResult();
 	});
 
 	$('#nextResult').on('click',function(){
@@ -711,6 +723,10 @@ function registerActionSummaryTab(){
 	$('a[id="summary"]').on('shown.bs.tab', function (e) {
 		//setupMessageSummary();
 		setActionLink();
+		hideButtonAb();
+		hideButtonSavings();
+		hideButtonResult();
+		showButtonSummary();
 	});
 	$('#backSummary').on('click',function(e){
 		$('#results').trigger('click');

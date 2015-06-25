@@ -349,3 +349,38 @@ function showWarningLta(taxFree){
 	//}
 	//return false;
 }
+function hideButtonAb(){
+	$('#nextAboutYou').hide();
+}
+
+function showButtonAb(){
+		$('#nextAboutYou').show();
+}
+
+function hideButtonSavings(){
+	$('#nextSavings').hide();
+	$('#backSavings').hide();
+}
+
+function showButtonSavings(){
+	$('#nextSavings').show();
+	$('#backSavings').show();
+}
+
+function hideButtonResult(){
+	$('#nextResult').hide();
+	$('#backResult').hide();
+}
+
+function showButtonResult(){
+	$('#nextResult').show();
+	$('#backResult').show();
+}
+
+function hideButtonSummary(){
+	$('#backSummary').hide();
+}
+
+function showButtonSummary(){
+	$('#backSummary').show();
+}
