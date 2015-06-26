@@ -825,15 +825,16 @@ function updateDataPrint(forceCashIncome,shorFall,targetPension,tax_free_value){
 }
 
 function PrintElement(element){
-	Popup($(element).html());
+	Popup($(element).html()); 
 }
 
 function Popup(data) 
 {
 	var mywindow = window.open('', 'CloseBrothers');
 	mywindow.document.write('<html><head><title>Pension Accumulators</title>');
-	mywindow.document.write('<style>a {text-decoration : none !important;color : black;}</style>');
-	mywindow.document.write('</head><body >');
+	mywindow.document.write('<style type="text/css" media="print">*{font-family: Helvetica Neue!important}</style>');
+	mywindow.document.write('<style>a{text-decoration : none !important;color : black;}</style>');
+	mywindow.document.write('</head><body>');
 	mywindow.document.write(data);
 	mywindow.document.write('</body></html>');
 	mywindow.document.close();
