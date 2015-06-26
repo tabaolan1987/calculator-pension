@@ -121,7 +121,7 @@ a:focus{
 
 .tab-content{
 	margin-top: 20px;
-	height: 515px;
+	height: 570px;
 }
 
 
@@ -267,10 +267,6 @@ a:focus{
 }
 
 /*row content*/
-.tab-pane{
-	padding-bottom:40px;
-}
-
 .tab-pane .row-rule{
 	padding:20px 0;
 	margin:0 10px;
@@ -398,6 +394,10 @@ a:focus{
 
 .row-rule .label-slider{
 	margin-top:12px;
+}
+
+#tab3 .row-rule .label-slider{
+	margin-top:0px;
 }
 
 /*tab saving row content*/
@@ -608,7 +608,7 @@ a:focus{
 
 .right-content-draw,
 .right-content-default{
-	height: 603px;
+	height: 623px;
 }
 
 .right-content h3{
