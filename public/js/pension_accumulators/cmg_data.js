@@ -11,7 +11,8 @@ var totalCoin = 25;
 var coinPercent = 4;
 var current_forcecash_income = 0;
 var current_target = 0;
-var loopFunction = false;
+var currentTaxPercent = 0;
+var isUpdateField = false;
 function setupDisclammerPage(){
 	loadPrintInfor();
 }
@@ -124,7 +125,6 @@ $.ajax({
 			   var income = $(this).attr('income');
 			   annuityMale[age] = income;
             });
-            //console.log("load xml: "  +  xml +" already! ");
         },
         error: function() {
             alert("An error occurred while processing XML  male file annuity.");
@@ -142,7 +142,6 @@ $.ajax({
 			   var income = $(this).attr('income');
 			   annuityFemale[age] = income;
             });
-            //console.log("load xml: "  +  xml +" already! ");
         },
         error: function() {
             alert("An error occurred while processing XML female file annuity.");

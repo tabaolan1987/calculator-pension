@@ -90,6 +90,7 @@ function registerActionAboutYou(){
 		var number = addCommas(round(vl));
 		$(this).val(number);
 		checkDataAboutYou();
+		isUpdateField = true;
 	});
 	
 	$('#txt-current-salary').on('change', function() {
@@ -111,7 +112,7 @@ function registerActionAboutYou(){
 		}else{
 			disableTabSavings();
 		}
-		
+		isUpdateField = true;
 	});
 	
 
@@ -315,12 +316,14 @@ function registerActionSavingTab(){
 			$('#txt-income-payable').val(0);
 			$('.final-salary').hide();
 		}
+		
 	});
 	
 	$('.text-savings').on('blur', function() {
 		var vl = parseFloatCMG($(this).val());
 		var number = addCommas(round(vl));
 		$(this).val(number);
+		isUpdateField = true;
 	});
 	
 	$('#nextSavings').click(function(){
@@ -430,6 +433,7 @@ function calculatePersonalPay(){
 		var vl = fixed(parseFloatCMG($(this).val()));
 		$(this).val(addCommas(vl));
 		changeTargetPen = false;
+		isUpdateField = true;
 	});
 	$('#txt-you-paying-percent').on('change',function(){
 		var cash = round(getCash_Contribute());
@@ -437,6 +441,7 @@ function calculatePersonalPay(){
 		$('#txt-you-paying').val(cash);
 		var vl = fixed(parseFloatCMG($(this).val()));
 		$(this).val(addCommas(vl));
+		isUpdateField = true;
 	});
 }
 
@@ -448,6 +453,7 @@ function calculateCompanyPay(){
 		var vl = fixed(parseFloatCMG($(this).val()));
 		$(this).val(addCommas(vl));
 		changeTargetPen = false;
+		isUpdateField = true;
 	});
 	$('#txt-your-employer-percent').on('blur',function(){
 		var cash = round(getCash_Contribute_company());
@@ -455,6 +461,7 @@ function calculateCompanyPay(){
 		$('#txt-your-employer').val(cash);
 		var vl = fixed(parseFloatCMG($(this).val()));
 		$(this).val(addCommas(vl));
+		isUpdateField = true;
 	});
 }
 /*-----------------------------------------------------------------*/
@@ -462,14 +469,15 @@ function calculateCompanyPay(){
 var registerChange = false;
 function registerActionResultTab(){
 	$('a[id="results"]').on('shown.bs.tab', function (e) {
-		var taxFree = getTax_Free_Value();
-		var forceCashIncome = parseFloatCMG(getForecastIncome());
-		var targetPension = parseFloatCMG($('#txt-target-pensions').val());
-		var shortFall = getShortFall();
-		var checkLta = showWarningLta(taxFree);
-		setupSlide(checkLta);
-		setTextToTextField();
-		if(parseFloatCMG(current_forcecash_income) !== forceCashIncome || parseFloatCMG(current_target) !== targetPension){
+		//if(parseFloatCMG(current_forcecash_income) !== forceCashIncome || parseFloatCMG(current_target) !== targetPension){
+		if(isUpdateField == true){
+			var taxFree = getTax_Free_Value();
+			var forceCashIncome = parseFloatCMG(getForecastIncome(taxFree));
+			var targetPension = parseFloatCMG($('#txt-target-pensions').val());
+			var shortFall = getShortFall(forceCashIncome);
+			var checkLta = showWarningLta(taxFree);
+			setupSlide(checkLta);
+			setTextToTextField();
 			drawChart(forceCashIncome,shortFall,targetPension,taxFree);
 			eneabledSummary();
 			if(registerChange == false){
@@ -526,10 +534,10 @@ function setupMessage(forceCashIncome,targetPension){
 
 
 function setupSlide(checkLta){
-	var rA = $('#age-to-retirement').val();
-	var cFP = $('#percent-tax-free').val();
+	var cFP = currentTaxPercent*100;//$('#percent-tax-free').val();
 	if(checkLta == true){
 		cFP = getPercentLtaWithPensionFound();
+		cFP = round(cFP);
 	}
 	$('#percent-tax-free-result').data("ionRangeSlider").update({
 			from: cFP
@@ -539,6 +547,8 @@ function setupSlide(checkLta){
 			from: cFP
 	});
 	$('#percent-tax-free').val(cFP);
+	
+	var rA = $('#age-to-retirement').val();
 	$('#age-to-retirement-result').data("ionRangeSlider").update({
 			from: rA
 	});
@@ -677,18 +687,14 @@ function onChangeUI(){
 			from: ageRetire
 	});
 	$('#age-to-retirement').val(ageRetire);
-	var percent = $('#percent-tax-free-result').val();
-	$('#percent-tax-free').data("ionRangeSlider").update({
-			from: percent
-	});
-	$('#percent-tax-free').val(percent);
-	var forceCashIncome = parseFloatCMG(getForecastIncome());
-	var targetPension = parseFloatCMG($('#txt-target-pensions-result').val());
-	var shortFall = getShortFall();
 	var taxFree = getTax_Free_Value();
+	var forceCashIncome = parseFloatCMG(getForecastIncome(taxFree));
+	var targetPension = parseFloatCMG($('#txt-target-pensions-result').val());
+	var shortFall = getShortFall(forceCashIncome);
 	var checkLta = showWarningLta(taxFree);
 	if(checkLta == true){
 		var percentLTA = getPercentLtaWithPensionFound();
+		percentLTA = round(percentLTA);
 		$('#percent-tax-free-result').data("ionRangeSlider").update({
 			from: percentLTA
 		});
@@ -697,6 +703,12 @@ function onChangeUI(){
 			from: percentLTA
 		});
 		$('#percent-tax-free').val(percentLTA);
+	}else{
+		var percent =round(currentTaxPercent*100);
+		$('#percent-tax-free').data("ionRangeSlider").update({
+			from: percent
+		});
+		$('#percent-tax-free').val(percent);
 	}
 	drawChart(forceCashIncome,shortFall,targetPension,taxFree);
 }
@@ -710,18 +722,17 @@ function drawChart(forceCashIncome,shortFall,targetPension,taxFree){
 	setupMessage(forceCashIncome,targetPension);
 	var coinBlue = getCoinBlue(forceCashIncome,targetPension);
 	var coinRed = getCoinRed(coinBlue);
-	
 	setupCoin(coinBlue,coinRed);
 	fallingCoin(1,forceCashIncome,shortFall,targetPension,coinBlue,coinRed);
 	current_forcecash_income = forceCashIncome;
 	current_target = targetPension;
 	setupMessageSummary(forceCashIncome,shortFall,targetPension,taxFree);
 	updateDataPrint(forceCashIncome,shortFall,targetPension,taxFree);
+	isUpdateField = false;
 }
 /*------------------------------------------------------------------*/
 function registerActionSummaryTab(){
 	$('a[id="summary"]').on('shown.bs.tab', function (e) {
-		//setupMessageSummary();
 		setActionLink();
 		hideButtonAb();
 		hideButtonSavings();
@@ -751,7 +762,8 @@ function setActionLink(){
 function setupMessageSummary(forceCashIncome,shorFall,targetPension,tax_free_value){
 	var percent_income = getForecast_percent_target(forceCashIncome);
 	percent_income = round(parseFloatCMG(percent_income)*100);
-	var tax_free_percent  = $('#percent-tax-free-result').val();
+	var tax_free_percent  = currentTaxPercent *100;//$('#percent-tax-free-result').val();
+	tax_free_percent = fixed(tax_free_percent);
 	var retire_age =  $("#age-to-retirement-result").val();
 	if(parseFloatCMG(forceCashIncome) < parseFloatCMG(targetPension)){
 		$('.summary-pound-shortfall').html(addCommas(shorFall));
@@ -797,9 +809,9 @@ function showExcess(){
 
 /*function print*/
 function updateDataPrint(forceCashIncome,shorFall,targetPension,tax_free_value){
-	var tax_free_percent  = $('#percent-tax-free-result').val();
+	var tax_free_percent  = currentTaxPercent *100;//$('#percent-tax-free-result').val();
+	tax_free_percent = fixed(tax_free_percent);
 	var retire_age = $("#age-to-retirement-result").val();
-	
 	$('.print-pound-pension').html(addCommas(targetPension));
 	$('.print-retire-age').each(function(){
 		$(this).html(retire_age);

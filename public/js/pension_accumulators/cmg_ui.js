@@ -188,6 +188,7 @@ function drawSlideRetirementAge(){
             grid: true,
 			onFinish: function () {
 				checkDataAboutYou();
+				isUpdateField = true;
 			}
     });
     $("#age-to-retirement").val(65);
@@ -203,7 +204,12 @@ function drawSlidePercentTaxFreeCash(){
 			grid_num : 5,
             type: 'single',
             step: 1,
-            grid: true
+            grid: true,
+			onFinish: function () {
+				currentTaxPercent = $("#percent-tax-free").val()/100;
+				isUpdateField = true;
+				checkDataAboutYou();
+			}
     });
     $("#percent-tax-free").val(0);
 }
@@ -252,6 +258,7 @@ function drawSlideResult(){
         step: 1,
         grid: true,
 		onFinish: function () {
+			currentTaxPercent = $("#percent-tax-free-result").val()/100;
 			onChangeUI();
 		}
     });

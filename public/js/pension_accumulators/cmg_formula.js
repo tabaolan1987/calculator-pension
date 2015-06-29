@@ -42,10 +42,11 @@ function getYearToRetirement(){
 	return parseFloatCMG(year_to_retirement);
 }
 function getTax_free_Percent(){
-	var taxFreeCash = $('#percent-tax-free').val();
-	var temp = taxFreeCash/100;
-	temp =  parseFloatCMG(temp);
-	return temp;
+	//var taxFreeCash = $('#percent-tax-free').val();
+	//var temp = taxFreeCash/100;
+	//temp =  parseFloatCMG(temp);
+	//return temp;
+	return currentTaxPercent;
 }
 /*-----------------------------------------------------------------------------------*/
 
@@ -124,10 +125,11 @@ function getTax_Free_Value(){
 		return temp1;
 	}else{
 		isReturnLTA = true;
-		var percentLta = getPercentLtaWithPensionFound()/100;
-		var newVlue = parseFloatCMG(retirementPot*percentLta);
-		return newVlue;
-		//return ltaValue;
+		//var percentLta = getPercentLtaWithPensionFound()/100;
+		//var newVlue = parseFloatCMG(retirementPot*percentLta);
+		//return newVlue;
+		currentTaxPercent = getPercentLtaWithPensionFound()/100;
+		return ltaValue;
 	}
 }
 
@@ -147,7 +149,8 @@ function getPercentLtaWithPensionFound(){
 	if(percent < 1){
 		percent = 1;
 	}
-	return parseInt(percent);
+	return percent;
+	//return parseInt(percent);
 	//return round(percent);
 }
 
@@ -206,10 +209,10 @@ function getRetirementPot(){
 	
 }
 
-function getPotMinus_taxFreeCash(){
+function getPotMinus_taxFreeCash(taxFree){
 	var retirementPot = parseFloatCMG(getRetirementPot());
-	var taxFreeValue = parseFloatCMG(getTax_Free_Value());
-	var f1 = retirementPot - taxFreeValue;
+	//var taxFreeValue = parseFloatCMG(getTax_Free_Value());
+	var f1 = retirementPot - taxFree;
 	f1 = parseFloatCMG(f1);
 	return f1;
 }
@@ -228,8 +231,8 @@ function getAnnuity_rate(){
 	}
 }
 
-function getAnnuity_income(){
-	var potMinus_taxFreeCash = getPotMinus_taxFreeCash();
+function getAnnuity_income(taxFree){
+	var potMinus_taxFreeCash = getPotMinus_taxFreeCash(taxFree);
 	var annuity_rate = getAnnuity_rate();
 	var temp = (potMinus_taxFreeCash/10000) * annuity_rate;
 	temp = parseFloatCMG(temp);
@@ -241,8 +244,8 @@ function getFinalSalaryScheme(){
 	return parseFloatCMG(temp);
 }
 
-function getForecastIncome(){
-	var annuity_income =  parseFloatCMG(getAnnuity_income());
+function getForecastIncome(taxFree){
+	var annuity_income =  parseFloatCMG(getAnnuity_income(taxFree));
 	var salary_scheme = getFinalSalaryScheme();
 	var temp = annuity_income + salary_scheme;
 	temp = parseFloatCMG(temp);
@@ -255,8 +258,8 @@ function getForecast_percent_target(forecastIncome){
 	return parseFloatCMG(temp);
 }
 
-function getShortFall(){
-	var forecastIncome = parseFloatCMG(getForecastIncome());
+function getShortFall(forecastIncome){
+	//var forecastIncome = parseFloatCMG(getForecastIncome());
 	var incomeYouWantTolive  = parseFloatCMG($('#txt-target-pensions').val());
 	var temp  = incomeYouWantTolive - forecastIncome;
 	return parseFloatCMG(temp);
