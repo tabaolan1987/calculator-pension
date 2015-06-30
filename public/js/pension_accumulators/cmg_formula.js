@@ -125,9 +125,6 @@ function getTax_Free_Value(){
 		return temp1;
 	}else{
 		isReturnLTA = true;
-		//var percentLta = getPercentLtaWithPensionFound()/100;
-		//var newVlue = parseFloatCMG(retirementPot*percentLta);
-		//return newVlue;
 		currentTaxPercent = getPercentLtaWithPensionFound()/100;
 		return ltaValue;
 	}

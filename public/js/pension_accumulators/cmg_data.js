@@ -14,7 +14,7 @@ var current_target = 0;
 var currentTaxPercent = 0;
 var isUpdateField = false;
 var enterCash = false;
-var enterEmployeeCash = false
+var enterEmployeeCash = false;
 function setupDisclammerPage(){
 	loadPrintInfor();
 }
