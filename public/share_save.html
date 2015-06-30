@@ -6,8 +6,12 @@
 	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="css/share_save/bootstrap.min.css">
+      <link rel="stylesheet" href="css/share_save/bootstrap-overload-min.css">
       <link rel="stylesheet" href="css/share_save/animate.css">
       <link rel="stylesheet" href="css/share_save/style-ui.css">
+      <!-- style for select box and styles needed by jScrollPane -->
+      <link type="text/css" href="css/share_save/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+      <link type="text/css" href="css/share_save/select-box-style.css" rel="stylesheet" media="all" />
       <!-- jQuery-ui-Slider-Pips -->
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	  <script type="text/javascript" src="js/share_save/analytics.js"></script>
@@ -19,6 +23,15 @@
       <![endif]-->
 	  <script src="js/share_save/bootstrap.min.js"></script>
 	  <script type="text/javascript" src="js/share_save/accounting_min.js"></script>
+
+    <!--js for select box-->
+    <!-- the mousewheel plugin - optional to provide mousewheel support -->
+    <script type="text/javascript" src="js/share_save/jquery.mousewheel.js"></script>
+    <!-- the jScrollPane script -->
+    <script type="text/javascript" src="js/share_save/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="js/share_save/select-box.js"></script>
+
+
    </head>
    <body>
       <div class="container-fluid" id="wrapper">
@@ -56,10 +69,10 @@
 			</div>			
 		 </div>
          <div class="row" id="content">
-            <div class="col-sm-12 col-md-7 left-content"><!--<div class="col-sm-12 col-md-7 left-content">-->
+            <div class="col-xs-12 left-content"><!--<div class="col-sm-12 col-md-7 left-content">-->
                <ul class="nav nav-tabs">
-                  <li class="active"><div class="mid"><div><a id='about-you' href="#tab1" data-toggle="tab">share details</a></div></div></li>
-                  <li><div class="mid"><div><a id='results' href="#tab2" data-toggle="tab">return results</a></div></div></li>
+                  <li class="active share-details"><div class="mid"><div><a id='share-details' href="#tab1" data-toggle="tab">share details</a></div></div></li>
+                  <li class="results"><div class="mid"><div><a id='results' href="#tab2" data-toggle="tab">return results</a></div></div></li>
                </ul>
 
                <div class="tab-content">
@@ -68,60 +81,28 @@
                   </div>
                   <div class="tab-pane active" id="tab1">
                      <div class="row row-rule">
-                        <div class="col-xs-7 col-sm-8 col-md-9"><span id="current-age" class="icon-tooltip"></span><span class="label-tooltip">Monthly savings amount</span></div>
-                        <div class="col-xs-2 col-sm-3 col-md-2 pound">
-                           <div class="styled-select">
-                              <select class="form-control" id="sel1">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                              </select>
-                           </div>
+                        <div class="col-xs-7 col-sm-8 col-md-9 mobile-padding-left"><span id="current-age" class="icon-tooltip"></span><span class="label-tooltip">Monthly savings amount</span></div>
+                        <div class="col-xs-5 col-ms-4 col-sm-3 col-md-2 pound">
+                              <input readonly="readonly" type="text" id="myText" name="myText" value="25.00" selectBoxOptions="5.00;10.00;15.00;20.00;25.00;30.00;35.00;40.00;45.00;50.00;55.00;60.00">
                         </div>                           
                      </div>
 
                       <div class="row row-rule">
-                        <div class="col-xs-7 col-sm-8 col-md-9"><span id="current-age" class="icon-tooltip"></span><span class="label-tooltip">Duration of savings</span></div>
-                        <div class="col-xs-2 col-sm-3 col-md-2 no-pound">
-                              <select class="form-control" id="sel1">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                              </select>
+                        <div class="col-xs-7 col-sm-8 col-md-9 mobile-padding-left"><span id="current-age" class="icon-tooltip"></span><span class="label-tooltip">Duration of savings</span></div>
+                        <div class="col-xs-5 col-ms-4 col-sm-3 col-md-2 no-pound">
+                              <input readonly="readonly" type="text" id="myText2" name="myText2" value="3" selectBoxOptions="3;5">
                               <span class="unit">years</span>
                         </div>
                      </div>
 
                      <div class="row row-rule">
-                        <div class="col-xs-7 col-sm-8 col-md-9"><span id="current-salary" class="icon-tooltip"></span><span class="label-tooltip">Option price</span></div>
-                        <div class="col-xs-2 col-sm-3 col-md-2 no-pound"><input id='txt-current-salary' type="text" onkeypress="return isNumberKey(event)"  class="form-control text-about-you" placeholder=""/><span class="unit">pence</span></div>
+                        <div class="col-xs-7 col-sm-8 col-md-9 mobile-padding-left"><span id="current-salary" class="icon-tooltip"></span><span class="label-tooltip">Option price</span></div>
+                        <div class="col-xs-5 col-ms-4 col-sm-3 col-md-2 no-pound"><input id='txt-current-salary' type="text" onkeypress="return isNumberKey(event)"  class="form-control text-about-you" placeholder=""/><span class="unit">pence</span></div>
                      </div>
 
                      <div class="row row-rule">
-                        <div class="col-xs-7 col-sm-8 col-md-9"><span id="target-pension" class="icon-tooltip"></span><span class="label-tooltip">Estimated share price at sale</span></div>
-                        <div class="col-xs-2 col-sm-3 col-md-2 no-pound"><input id="txt-target-pensions" type="text" onkeypress="return isNumberKey(event)"  class="form-control text-about-you" placeholder=""/><span class="unit">pence</span></div>
+                        <div class="col-xs-7 col-sm-8 col-md-9 mobile-padding-left"><span id="target-pension" class="icon-tooltip"></span><span class="label-tooltip">Estimated share price at sale</span></div>
+                        <div class="col-xs-5 col-ms-4 col-sm-3 col-md-2 no-pound"><input id="txt-target-pensions" type="text" onkeypress="return isNumberKey(event)"  class="form-control text-about-you" placeholder=""/><span class="unit">pence</span></div>
                      </div>
                      <a id='nextAboutYou' class="btn btn-primary btnNext">calculate</a>
                   </div><!--END #tab1-->
@@ -198,28 +179,35 @@
          </div>
       </div>
 	  
-      <div id="box-print" style="display:none;">
-         <div id="disclamer-print" style="font-family: Helvetica Heue;">
-            <p>The aim of this calculator is to give you an indication of how much you need to contribute to a pension and what you might get as a retirement income. The calculator should not be regarded as personal advice. If you are at all unsure, please contact us for advice.</p>
-            <p>The figures are a guide and not guaranteed. Your final pension fund and the income available will depend on factors including the growth your fund achieves, contributions you make in future, charges, inflation, your retirement age, annuity rates at the time and the annuity options you choose.</p>
-         </div>
-         <div id="important-print" style="font-family: Helvetica Heue;">
-            <p>Investment returns are not guaranteed and could be more or less than those used here. Past performance is not a guide to future returns. The value of investments can fall as well as rise, so you may get back less than you invest.</p>
-         </div>
-		  <div id="assump-print" style="font-family: Helvetica Heue;">
-            <p>Investment returns are not guaranteed and could be more or less than those used here. Past performance is not a guide to future returns. The value of investments can fall as well as rise, so you may get back less than you invest.</p>
-         </div>
-         <div id="result-box" style="border: 2px solid #53565A;padding: 10px;font-family: Helvetica Heue;">
+      <div id="box-print" style="display:none; font-family: Helvetica Heue;">
+        <div id="disclamer-print">
+            <p>The aim of this calculator is to give you an indication of the possible return on your savings at the end of your investment period. The calculator should not be regarded as personal advice. If you are at all unsure, please contact us for advice.</p>
+        </div>
+        <h4>Information</h4>
+        <div id="important-print">
+            <p>Past performance is not a guide to future returns. The value of investments can fall as well as rise, however if that happens, you will not lose your investment capital which will be paid back to you at the end of the term.</p>
+        </div>
+        <h4>Assumptions</h4>
+		    <div id="assump-print">
+            <p>List of assumptions here</p>
+        </div>
+        <div id="result-box" style="border: 2px solid #53565A;padding: 10px;">
             <h4>Your results:</h4>
-            <p>Your chosen target income is <b>£</b><b class="print-pound-pension">50,000</b> each year when you retire at age <b class="print-retire-age">67</b>.</p>
-            <p>Your chosen tax free cash amount is <b>£</b><b class="print-pound-amount">85,694</b> (<b class="print-percent-amount">25</b>%).</p>
-            <p>Your future pension payments and any existing pensions you have included will provide an income of <b>£</b><b class="print-pound-income">10,200</b> a year from age <b class="print-retire-age">67</b></p>
-            <p>You have a shortfall of <b>£</b><b class="print-pound-shortfall">39,800</b> per year.</p>
-         </div>
-      </div>
+            <p>Your estimated return is <b>£</b><b class="print-???">1,813,97</b>.</p>
+            <p>Your total amount saved over <span class="print-???">5</span> years is <b>£</b><b class="print-???">1,500</b>.</p>
+            <p>Your estimated profit is <b>£</b><b class="print-???">313.97</b>.</p>
+            <p>The estimated increase on your investment is <b class="print-???">21</b><b>%</b>.</p>
+            <h4>Capital Gains Tax</h4>
+            <p>Assuming that your full Capital Gains Tax allowance is available, you will only need to pay tax if your profit exceeds £<span class="print-???">11,100</span>.</p>
+            <p>You may have other chargeable assets that could impact your remaining allowance. If you are not sure, please speak to a financial advisor.</p>
+        </div>
+      </div><!--END #box-print-->
       <div id='check-ui' class="hidden-sm hidden-xs"></div>
       <script type="text/javascript" >
          $(document).ready(function(){
+            createEditableSelect(document.getElementById("myText"));
+            createEditableSelect(document.getElementById("myText2"));
+            //createEditableSelect(document.getElementById("myText2"));
 			//setupDisclammerPage();
          });
           
