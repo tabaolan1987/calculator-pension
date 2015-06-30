@@ -176,8 +176,14 @@ function getRetirementPot(){
 	var current_compound = getCurrent_compound();
 	////console.log("current_compound " + current_compound);
 	var cashContribute = getCash_Contribute();
+	if(enterCash == true){
+		cashContribute = $('#txt-you-paying').val();
+	}
 	////console.log("cashContribute " + cashContribute);
 	var cashContributeCompany = getCash_Contribute_company();
+	if(enterEmployeeCash == true){
+		cashContributeCompany = $('#txt-your-employer').val();
+	}
 	////console.log("cashContributeCompany  : " + cashContributeCompany);
 	var yearToRetirement = getYearToRetirement();
 	////console.log("yearToRetirement : " + yearToRetirement);

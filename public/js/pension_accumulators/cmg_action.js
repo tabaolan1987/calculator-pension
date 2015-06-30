@@ -434,6 +434,7 @@ function calculatePersonalPay(){
 		$(this).val(addCommas(vl));
 		changeTargetPen = false;
 		isUpdateField = true;
+		enterCash  = true;
 	});
 	$('#txt-you-paying-percent').on('change',function(){
 		var cash = round(getCash_Contribute());
@@ -442,6 +443,7 @@ function calculatePersonalPay(){
 		var vl = fixed(parseFloatCMG($(this).val()));
 		$(this).val(addCommas(vl));
 		isUpdateField = true;
+		enterCash = false;
 	});
 }
 
@@ -454,6 +456,7 @@ function calculateCompanyPay(){
 		$(this).val(addCommas(vl));
 		changeTargetPen = false;
 		isUpdateField = true;
+		enterEmployeeCash = true;
 	});
 	$('#txt-your-employer-percent').on('blur',function(){
 		var cash = round(getCash_Contribute_company());
@@ -462,6 +465,7 @@ function calculateCompanyPay(){
 		var vl = fixed(parseFloatCMG($(this).val()));
 		$(this).val(addCommas(vl));
 		isUpdateField = true;
+		enterEmployeeCash = false;
 	});
 }
 /*-----------------------------------------------------------------*/
@@ -563,6 +567,7 @@ function setTextToTextField(){
 		cashContribute = addCommas(cashContribute);
 		$('#txt-you-paying').val(cashContribute);
 		$('#txt-you-paying-result').val(cashContribute);
+		enterCash = false;
 	}else{
 		var cashContribute = $('#txt-you-paying').val();
 		$('#txt-you-paying-result').val(cashContribute);
@@ -576,6 +581,7 @@ function setTextToTextField(){
 		cashContriCompany = addCommas(cashContriCompany);
 		$('#txt-your-employer').val(cashContriCompany);
 		$('#txt-your-employer-result').val(cashContriCompany);
+		enterEmployeeCash = false;
 	}else{
 		var cashContriCompany = $('#txt-your-employer').val();
 		$('#txt-your-employer-result').val(cashContriCompany);
@@ -622,7 +628,8 @@ function onChange(){
 		$('#txt-your-employer').val(cash);
 		$('#txt-your-employer-result').val(cash);
 		$(this).val(addCommas(vl));
-		onChangeUI();	
+		enterEmployeeCash = false;		
+		onChangeUI();
 	});
 	
 	$('#txt-your-employer-result').on('change',function(){
@@ -633,6 +640,7 @@ function onChange(){
 		$('#txt-your-employer-percent-result').val(fixed(percent));
 		$('#txt-your-employer-percent').val(fixed(percent));
 		$(this).val(addCommas(vl));
+		enterEmployeeCash = true;		
 		onChangeUI();
 		changeTargetPen = false;
 	
@@ -647,6 +655,7 @@ function onChange(){
 		$('#txt-you-paying').val(cash);
 		$('#txt-you-paying-result').val(cash);
 		$(this).val(addCommas(vl));
+		enterCash = false;
 		onChangeUI();
 	});
 	
@@ -658,6 +667,7 @@ function onChange(){
 		$('#txt-you-paying-percent').val(fixed(percent));
 		$('#txt-you-paying-percent-result').val(fixed(percent));
 		$(this).val(addCommas(vl));
+		enterCash = true;
 		onChangeUI();
 		changeTargetPen = false;
 	});
