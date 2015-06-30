@@ -245,6 +245,7 @@ function disableTabResult(){
 
 function registerActionResult(){
 	$('a[id="results"]').on('shown.bs.tab', function (e) {
+		
 		drawChart();
 	});	
 	$('#estimated-annual-modal').on("shown.bs.modal",function(e){
@@ -281,13 +282,14 @@ function drawChart(){
 	var yearNeedLast = getLifeExpectancy();
 	var yearMayLast = decumulatorYears(fundPot,totalRate,annualIncome);
 	var shortFallYear = getShortFallYear(yearMayLast,yearNeedLast);
-	updateMessage(yearNeedLast,yearMayLast,shortFallYear);
+	
 	var coinBlue = getCoinBlue(yearMayLast,yearNeedLast);
 	var coinGrey = getCoinGrey(yearMayLast,yearNeedLast);
 	setupCoinGrey(coinGrey);
 	setupCoinBlue(coinBlue);
 	fallingCoinGrey(0,yearNeedLast);
 	fallingCoinBlue(0,yearMayLast,shortFallYear);
+	updateMessage(yearNeedLast,yearMayLast,shortFallYear);
 }
 
 function PrintElement(element){

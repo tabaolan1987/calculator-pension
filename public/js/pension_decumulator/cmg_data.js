@@ -12,6 +12,7 @@ var coinPercent = 4;
 var current_forcecash_income = 0;
 var current_target = 0;
 var loopFunction = false;
+var currentPercent = 0;
 function setupDisclammerPage(){
 	loadPrintInfor();
 }
