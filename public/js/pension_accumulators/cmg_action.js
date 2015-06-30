@@ -427,6 +427,7 @@ function isIncomeVisible(){
 
 function calculatePersonalPay(){
 	$('#txt-you-paying').on('change',function(){
+		currentCash = $(this).val();
 		var percent =  getPercent_Contribute();
 		percent = percent*100;
 		$('#txt-you-paying-percent').val(addCommas(fixed(percent)));
@@ -435,6 +436,7 @@ function calculatePersonalPay(){
 		changeTargetPen = false;
 		isUpdateField = true;
 		enterCash  = true;
+		
 	});
 	$('#txt-you-paying-percent').on('change',function(){
 		var cash = round(getCash_Contribute());
@@ -449,6 +451,7 @@ function calculatePersonalPay(){
 
 function calculateCompanyPay(){
 	$('#txt-your-employer').on('blur',function(){
+		currentEmployeeCash = $(this).val();
 		var percent = getPercent_Contribute_company();
 		percent = percent*100;
 		$('#txt-your-employer-percent').val(addCommas(fixed(percent)));
@@ -457,6 +460,7 @@ function calculateCompanyPay(){
 		changeTargetPen = false;
 		isUpdateField = true;
 		enterEmployeeCash = true;
+		
 	});
 	$('#txt-your-employer-percent').on('blur',function(){
 		var cash = round(getCash_Contribute_company());
@@ -639,6 +643,7 @@ function onChange(){
 		percent = percent*100;
 		$('#txt-your-employer-percent-result').val(fixed(percent));
 		$('#txt-your-employer-percent').val(fixed(percent));
+		currentEmployeeCash = $(this).val();
 		$(this).val(addCommas(vl));
 		enterEmployeeCash = true;		
 		onChangeUI();
@@ -666,6 +671,7 @@ function onChange(){
 		percent = percent*100;
 		$('#txt-you-paying-percent').val(fixed(percent));
 		$('#txt-you-paying-percent-result').val(fixed(percent));
+		currentCash = $(this).val();
 		$(this).val(addCommas(vl));
 		enterCash = true;
 		onChangeUI();

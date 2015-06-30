@@ -174,12 +174,12 @@ function getRetirementPot(){
 	////console.log("current_compound " + current_compound);
 	var cashContribute = getCash_Contribute();
 	if(enterCash == true){
-		cashContribute = $('#txt-you-paying').val();
+		cashContribute = fixed2Decimal(currentCash);
 	}
 	////console.log("cashContribute " + cashContribute);
 	var cashContributeCompany = getCash_Contribute_company();
 	if(enterEmployeeCash == true){
-		cashContributeCompany = $('#txt-your-employer').val();
+		cashContributeCompany = fixed2Decimal(currentEmployeeCash);
 	}
 	////console.log("cashContributeCompany  : " + cashContributeCompany);
 	var yearToRetirement = getYearToRetirement();
@@ -312,5 +312,11 @@ function fixed(number){
 
 function fixed3Decimal(number){
 	var newnumber = new Number(number).toFixed(3);
+	return newnumber;
+}
+
+
+function fixed2Decimal(number){
+	var newnumber = new Number(number).toFixed(2);
 	return newnumber;
 }
