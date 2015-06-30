@@ -1,0 +1,12 @@
+@media print{
+	body{
+		font-family: Arial Black !important;
+	}
+
+}
+
+@media screen{
+	body{
+		font-family: Arial Black !important;
+	}
+}
