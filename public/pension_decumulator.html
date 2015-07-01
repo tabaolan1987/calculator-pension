@@ -34,7 +34,7 @@
    <body>
       <div class="container-fluid" id="wrapper">
          <div class="row title">
-            <h3>Pension Calculator</h3>
+            <h3>Pension Decumulation</h3>
          </div><!--END .title-->
 		<div id="disclamer-page" class="row disclamer-page">
 		    <div id="disclamer-div" class="col-sm-12 col-md-12" style="padding-left:0px;padding-top:15px;">
@@ -91,7 +91,7 @@
                      </div>
                      <div class="row row-rule">
                         <div class="col-xs-7 col-sm-9 col-md-8 mobile-padding-left"><span id="current-salary" class="icon-tooltip"></span><span class="label-tooltip">What is your existing fund value?</span></div>
-                        <div class="col-xs-5 col-sm-3 col-md-4"><div class="pound"><input alert-message="existing fund value"  maxlength="9" id='txt-current-salary' type="text" onkeypress="return isNumberKey(event)"  class="form-control text-about-you" placeholder=""/></div></div>
+                        <div class="col-xs-5 col-sm-3 col-md-4"><div class="pound"><input alert-message="existing fund value"  length="9" id='txt-current-salary' type="text" onkeypress="return isNumberKey(event,this)"  class="form-control text-about-you" placeholder=""/></div></div>
                      </div>
                      <div class="row row-rule">
                         <div class="col-xs-7 mobile-padding-left"><span id="tax-free-cash" class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider">What percentage would you like to take as tax free cash?</span></div>
@@ -101,7 +101,7 @@
                      </div>
                      <div class="row row-rule">
                         <div class="col-xs-7 col-sm-9 col-md-8 mobile-padding-left"><span id="target-pension" class="icon-tooltip"></span><span class="label-tooltip">How much annual income do you think you will want when you retire?</span></div>
-                        <div class="col-xs-5 col-sm-3 col-md-4"><div class="pound"><input alert-message="desired income" id="txt-target-pensions" type="text" onkeypress="return isNumberKey(event)"  class="form-control text-about-you" placeholder=""/></div></div>
+                        <div class="col-xs-5 col-sm-3 col-md-4"><div class="pound"><input alert-message="desired income" length="9"  id="txt-target-pensions" type="text" onkeypress="return isNumberKey(event,this)"  class="form-control text-about-you" placeholder=""/></div></div>
                      </div>
                      <a id='nextAboutYou' class="btn btn-primary btnNext">calculate</a>
                   </div><!--END #tab1-->
@@ -219,7 +219,7 @@
          </div>
       </div>
       <div id="box-print" style="display:none;">
-         <div id="disclamer-print" style="font-family: Helvetica Neue Light;">
+         <div id="disclamer-print">
             <p>This calculator is designed to reflect the length of time your expected retirement income will last based on the information you provide to us.</p>
             <p>All figures are based on a number of important assumptions about the future.  The actual length of time your pot will last could be more or less than the results provided in this calculator.</p>
             <p>This tool is not advice and should not be used as the basis for making any retirement decisions.  Before you make any decisions, we strongly recommend you talk to a pension specialist of a financial adviser.</p>
@@ -231,11 +231,11 @@
             <p>This calculator does not include state pension entitlements.</p>
             <p>The amount of tax free cash you can take is  limited by HMRC.  For further information, please speak to a pension specialist or a financial adviser</p>
          </div>
-		  <div id="assump-print" style="font-family: Helvetica Neue Light;">
+		  <div id="assump-print">
             <h5><b>Assumptions used</b></h5>
             <p><b>Inflation</b>- the calculator allows for annual investment growth of 2%, 5% or 8%. Inflation is assumed to be 2.5% if investment growth is 5%. For 2% growth, inflation is 0.5% and for 8% growth it is 4.5%. These assumptions are set down by the Financial Conduct Authority for pension projections. The default setting is 5% and can be changed in advanced options.</p>
          </div>
-         <div id="result-box" style="page-break-before:always;border: 2px solid #53565A;padding: 10px;font-family: Helvetica Neue Light;">
+         <div id="result-box" style="page-break-before:always;border: 2px solid #53565A;padding: 10px;">
             <h4><b>Your results:</b></h4>
             <p>Your existing fund value is <b>£</b><b class="print-fund-value">200,000</b>.</p>
             <p>Your chosen annual income is <b>£</b><b class="print-annual-income">35,000</b>.</p>

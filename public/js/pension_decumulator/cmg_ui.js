@@ -172,7 +172,11 @@ function drawSlidePercentTaxFreeCash(){
 			grid_num : 5,
             type: 'single',
             step: 1,
-            grid: true
+            grid: true,
+			onFinish: function () {
+				isUpdate = true;
+				currentTaxPercent = $("#percent-tax-free").val();
+			}
     });
 }
 

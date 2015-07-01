@@ -94,10 +94,16 @@ function registerHoverAction(){
 	
 }
 /* this function just allow user can type numberic only */
-function isNumberKey(evt){
+function isNumberKey(evt,e){
 	var charCode = (evt.which) ? evt.which : event.keyCode;
    if (charCode != 46 && charCode > 31
     && (charCode < 48 || charCode > 57)){
+		return false;
+	}
+	
+	var vl = parseFloatCMG($(e).val());
+	var maxlength = $(e).attr("length");
+	if(vl.toString().length >= maxlength){
 		return false;
 	}
     return true;
@@ -107,23 +113,33 @@ function isNumberKey(evt){
 
 
 function registerActionYourDetails(){
-
-	$('.text-about-you').on('input', function() {
-		var check = checkDataYourDetail();
-		if(check.length == 0){
-			eneableTabResult();
-		}else{
-			disableTabResult();
-		}
-	});
 	
-	$('.text-about-you').on('blur', function() {
-		var number = addCommas($(this).val());
+	
+	$('#txt-birthday').on('change',function(){
+		isUpdate = true;
+	});
+	$('#txt-current-salary').on('blur', function() {
+		currentSalary = parseFloatCMG($(this).val());
+		var number = parseFloatCMG($(this).val());
+		number = addCommas(round(number));
 		if(number == 0){
 			$(this).val("");
 		}else{
 			$(this).val(number);
 		}
+		isUpdate = true;
+	});
+	
+	$('#txt-target-pensions').on('blur', function() {
+		currentIncome = parseFloatCMG($(this).val());
+		var number = parseFloatCMG($(this).val());
+		number = addCommas(round(number));
+		if(number == 0){
+			$(this).val("");
+		}else{
+			$(this).val(number);
+		}
+		isUpdate = true;
 	});
 	$(".radio-gender").click(function(){
 		$(".radio-gender").each(function(e){
@@ -140,6 +156,7 @@ function registerActionYourDetails(){
 		}else{
 			disableTabResult();
 		}
+		isUpdate = true;
 	});
 	
 	$('#nextAboutYou').click(function(){
@@ -154,6 +171,7 @@ function registerActionYourDetails(){
 					showWarning(LTA['message']);
 				}
 				var percentChange = getPercentLTAwithPensionFound(fundValue);
+				percentChange = round(percentChange);
 				$("#percent-tax-free").val(percentChange);
 				$('#percent-tax-free').data("ionRangeSlider").update({
 					from: percentChange
@@ -183,6 +201,7 @@ function registerActionYourDetails(){
 					showWarning(LTA['message']);
 				}
 				var percentChange = getPercentLTAwithPensionFound(fundValue);
+				percentChange = round(percentChange);
 				$("#percent-tax-free").val(percentChange);
 				$('#percent-tax-free').data("ionRangeSlider").update({
 					from: percentChange
@@ -245,8 +264,10 @@ function disableTabResult(){
 
 function registerActionResult(){
 	$('a[id="results"]').on('shown.bs.tab', function (e) {
+		if(isUpdate == true){
+			drawChart();
+		}
 		
-		drawChart();
 	});	
 	$('#estimated-annual-modal').on("shown.bs.modal",function(e){
 		$(".growrate-label").on('click',function(){
@@ -290,10 +311,11 @@ function drawChart(){
 	fallingCoinGrey(0,yearNeedLast);
 	fallingCoinBlue(0,yearMayLast,shortFallYear);
 	updateMessage(yearNeedLast,yearMayLast,shortFallYear);
+	isUpdate = false;
 }
 
 function PrintElement(element){
-	Popup($(element).html());
+	Popup($(element).html(),'Helvetica Neue');
 }
 
 function updateMessage(yearNeedLast,yearMayLast,shortFallYear){
@@ -314,14 +336,15 @@ function updateMessage(yearNeedLast,yearMayLast,shortFallYear){
 	$('.pound-annual-income').html(addCommas(annualIncome));
 	$('.display-result-pound-fund').html(addCommas(fundValue));
 	$('.display-result-pound-annual').html(addCommas(annualIncome));
-	$('.display-result-pound-amount').html(addCommas(taxfreeCash));
-	$('.display-result-percent-amount').html(addCommas(taxPercen));
+	$('.display-result-pound-amount').html(addCommas(round(taxfreeCash)));
+	$('.display-result-percent-amount').html(addCommas(fixed2Decimal(taxPercen)));
+	
 	//print div
 	$('.print-fund-value').html(addCommas(fundValue));
 	$('.print-grow-rate').html(grow_rate);
 	$('.print-annual-income').html(addCommas(annualIncome));
-	$('.print-tax-free-cash').html(addCommas(taxfreeCash))
-	$('.print-tax-free-percent').html(addCommas(taxPercen));
+	$('.print-tax-free-cash').html(addCommas(round(taxfreeCash)));
+	$('.print-tax-free-percent').html(addCommas(fixed2Decimal(taxPercen)));
 	$('.print-retirement-age').html(addCommas(currentAge));
 	$(".print-years-need-last").html(yearNeedLast);
 	$(".print-years-may-last").html(yearMayLast);
@@ -339,9 +362,11 @@ function updateMessage(yearNeedLast,yearMayLast,shortFallYear){
 	}
 }
 
-function Popup(data) {
+function Popup(data,font) {
 	var mywindow = window.open('', 'CloseBrothers');
 	mywindow.document.write('<html><head><title>Pension Accumulators</title>');
+	mywindow.document.write('<style type="text/css">@media print{div{font-family: "'+font+'" !important;}}</style>');
+	mywindow.document.write('<style type="text/css">@media screen{div{font-family:"'+font+'" !important;}}</style>');
 	mywindow.document.write('<style>a {text-decoration : none !important;color : black;}</style>');
 	mywindow.document.write('</head><body>');
 	mywindow.document.write(data);

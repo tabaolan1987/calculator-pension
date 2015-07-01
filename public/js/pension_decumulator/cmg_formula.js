@@ -56,6 +56,12 @@ function fixed(number){
 	return newnumber;
 }
 
+
+function fixed2Decimal(number){
+	var newnumber = new Number(number).toFixed(3);
+	return newnumber;
+}
+
 function fixed3Decimal(number){
 	var newnumber = new Number(number).toFixed(3);
 	return newnumber;
@@ -74,17 +80,17 @@ function getGender(){
 }
 
 function getFundValue(){
-	var fundValue = $("#txt-current-salary").val();
+	var fundValue = currentSalary;//$("#txt-current-salary").val();
 	return parseFloatCMG(fundValue);
 }
 
 function getTaxFreePercent(){
-	var tax = $("#percent-tax-free").val();
+	var tax = currentTaxPercent;//$("#percent-tax-free").val();
 	return tax;
 }
 
 function getAnnualIncome(){
-	var annIn = $("#txt-target-pensions").val();
+	var annIn = currentIncome;//$("#txt-target-pensions").val();
 	return parseFloatCMG(annIn);
 }
 
@@ -133,7 +139,8 @@ function getTaxFreeCash(taxFreeCashPercent, fundValue){
 
 function getPercentLTAwithPensionFound(fundValue){
 	var temp = (parseFloatCMG(LTA['value'])/parseFloatCMG(fundValue))*100;
-	return round(temp);
+	currentTaxPercent = temp;
+	return temp;
 }
 
 function getTotalRate(){
