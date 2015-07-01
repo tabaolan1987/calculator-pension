@@ -11,6 +11,6 @@
 <p>This value is likely to change if you are planning to retire after 2015.</p>
 ]]>
 </message-alert>
-<config><![CDATA[false]]></config>
+<config><![CDATA[true]]></config>
 </information>
 </lta>

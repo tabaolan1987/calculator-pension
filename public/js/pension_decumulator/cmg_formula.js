@@ -122,7 +122,7 @@ function getFundPot(){
 
 function getTaxFreeCash(taxFreeCashPercent, fundValue){
 	var temp = parseFloatCMG(fundValue) * (parseFloatCMG(taxFreeCashPercent)/100);
-	if(parseFloatCMG(temp) == parseFloatCMG(LTA['value']) ||parseFloatCMG(temp) < parseFloatCMG(LTA['value'])){
+	if(parseFloatCMG(temp) == parseFloatCMG(LTA['value']) || parseFloatCMG(temp) < parseFloatCMG(LTA['value'])){
 		isReturnLTA = false;
 		return temp;
 	}else{
