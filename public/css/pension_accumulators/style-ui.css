@@ -133,6 +133,7 @@ a:focus{
 
 .tab-pane{
 	min-height: 550px;
+	padding-bottom: 40px;
 }
 
 /* IE8 uses \0 */
