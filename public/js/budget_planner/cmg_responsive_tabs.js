@@ -186,7 +186,7 @@ var fakewaffle = ( function ( $, fakewaffle ) {
 					.appendTo( $( destinationId ) );
 				//update total for panel	
 				if(total > 0){
-					$( destinationId ).parents().find("div.panel-default:eq("+index+") table.table-nonborder td:eq(1) span").html('£'+total);
+					$( destinationId ).parents().find("div.panel-default:eq("+index+") table.table-nonborder td:eq(1) span").html('£'+addCommas(total));
 					$( destinationId ).parents().find("div.panel-default:eq("+index+")").find('.table-responsive').find('tr:eq(0)').find('td.tenPersent img.validate').removeClass('hidden');
 				}else{
 					$( destinationId ).parents().find("div.panel-default:eq("+index+") table.table-nonborder td:eq(1) span").html('');
@@ -213,7 +213,7 @@ var fakewaffle = ( function ( $, fakewaffle ) {
 			    var $table = $(this).find('table.containInput');
 				var total = getTotalInput($table);
 				if(total > 0 && idPanel!=='calculate'){
-					$("ul#myTab a[data-target='#"+idPanel+"']").find('table.table-nonborder td:eq(1) span').html('£'+total);
+					$("ul#myTab a[data-target='#"+idPanel+"']").find('table.table-nonborder td:eq(1) span').html('£'+addCommas(total));
 					$("ul#myTab a[data-target='#"+idPanel+"']").find('.table-responsive').find('tr:eq(0)').find('td.tenPersent img.validate').removeClass('hidden');
 				}else{
 					$("ul#myTab a[data-target='#"+idPanel+"']").find('table.table-nonborder td:eq(1) span').html('');

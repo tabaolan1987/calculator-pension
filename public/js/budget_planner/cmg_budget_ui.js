@@ -354,7 +354,7 @@ function showTooltip(x, y, contents) {
 	}else{
 		temp = name;
 	}
-	var table = $("<table style='margin-bottom:15px;overflow:hidden;height:100%;width:100%'><tbody><tr><td align='center'>"+temp + "<br>£" + Number(value).toLocaleString('en').split('.')[0] +"</td></tr></tbody></table>");
+	var table = $("<table style='margin-bottom:15px;overflow:hidden;height:100%;width:100%'><tbody><tr><td align='center'>"+temp + "<br>£" + addCommas(value)+"</td></tr></tbody></table>");
 	 $('#tooltip').html(table);
 	 $('#tooltip').css({
         position: 'absolute',

@@ -30,6 +30,32 @@ var Monthly_multiplicand = 1;
 var Yearly_multiplicand = 0.08333333333;
 /*-----end-------------------------------*/
 
+function parseFloatCMG(number){
+	if(number == "" || typeof number == 'underfined'){
+		return 0;
+	}else{
+		return removeCommas(number);
+	}
+}
+
+function addCommas(number){
+	number = removeCommas(number);
+	var temp = 0;
+	if(parseInt(number) == number){
+		temp = accounting.formatNumber(number);
+	}else{
+		var length = decimalPlaces(number);
+		temp = accounting.formatNumber(number,length,",",".");
+	}
+	
+	return temp;
+}
+
+function removeCommas(number){
+	var temp  = accounting.unformat(number);
+	return temp;
+}
+
 function round(number) {
     var n = parseFloat(number);
     n =  Math.round(n);
@@ -135,7 +161,7 @@ function drawFlotJs(){
 			setTimeout(function(){ $('#myModal3').modal('show');}, 2000);
 			
 		}
-		$('.labelChart').html('<span class="total">Total monthly <br/>disposable income</span> <p>£' + Number(savings).toLocaleString('en').split('.')[0] +'</p>');
+		$('.labelChart').html('<span class="total">Total monthly <br/>disposable income</span> <p>£' + addCommas(savings)+'</p>');
     } else if(totalIncome == totalOutcome){
         var index_data = 0;
         for (var i = 2; i <= getSizeArray(); i++) {
@@ -169,7 +195,7 @@ function drawFlotJs(){
 			}
 			drawChart(data);
 			var exceed = totalOutcome - totalIncome;
-			$('.labelChart').html('<span class="total">Total monthly <br/>disposable income</span> <p class="exceed">£ -' + Number(exceed).toLocaleString('en').split('.')[0] + '</p>');				
+			$('.labelChart').html('<span class="total">Total monthly <br/>disposable income</span> <p class="exceed">£ -' + addCommas(exceed) + '</p>');				
 		}else{
 			//case 2 : overlap
 			data = getDataSpecialCase();
@@ -181,7 +207,7 @@ function drawFlotJs(){
 			}
 			drawChart(dataClock);
 			var exceed = totalOutcome - totalIncome;
-			$('.labelChart').html('<span class="total">Total monthly <br/>disposable income</span> <p class="exceed">£ -' + Number(exceed).toLocaleString('en').split('.')[0] + '</p>');					
+			$('.labelChart').html('<span class="total">Total monthly <br/>disposable income</span> <p class="exceed">£ -' + addCommas(exceed) + '</p>');					
 		}
 		
 	}

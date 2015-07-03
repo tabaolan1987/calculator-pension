@@ -160,7 +160,7 @@ function calculateInput(e){
 		$(e).removeAttr('title');
 		$(e).css('color','');
 		input = calculateInputBaseOnType(input,parseInt(type));
-		$(e).closest('tr').find('.monthly').html(Number(input).toLocaleString('en').split('.')[0]);
+		$(e).closest('tr').find('.monthly').html(addCommas(input));
 		$(e).closest('tr').find('.inputHidden').val(input);
 		$(e).addClass('dataInputBlack');
 		//$(e).css('background-image', image.replace('grey','black'));
@@ -186,16 +186,16 @@ function updateTotal(e){
 	var total = getTotalInput($(e).closest('table'));
 		if(fakewaffle.currentPosition == "tabs"){
 			//update for tabs
-			$('ul#myTab li.active').find('table.table-nonborder td:eq(1) span').html('£'+Number(total).toLocaleString('en').split('.')[0]);
+			$('ul#myTab li.active').find('table.table-nonborder td:eq(1) span').html('£'+addCommas(total));
 			$('ul#myTab li.active').find('.table-responsive').find('tr:eq(0)').find('td.tenPersent img.validate').removeClass('hidden');
-			$(e).parents().find('.tab-pane.active .table.totalCal span.totalMonthly').html(Number(total).toLocaleString('en').split('.')[0]);
+			$(e).parents().find('.tab-pane.active .table.totalCal span.totalMonthly').html(addCommas(total));
 			var idArray = $(e).parents().find('.tab-pane.active').attr('id');
 			updateNumberToArray(idArray,total);
 		}else{
 			//update for panel
-			$(e).parents().find('div.active.panel-body').find('.table.totalCal span.totalMonthly').html(Number(total).toLocaleString('en').split('.')[0]);
+			$(e).parents().find('div.active.panel-body').find('.table.totalCal span.totalMonthly').html(addCommas(total));
 			var idArray = $(e).parents().find('div.panel-default div.active.panel-body').attr('id');
-			$(e).parents().find("a[href='#collapse-"+idArray+"']").find('table.table-nonborder td:eq(1) span').html('£'+Number(total).toLocaleString('en').split('.')[0]);
+			$(e).parents().find("a[href='#collapse-"+idArray+"']").find('table.table-nonborder td:eq(1) span').html('£'+addCommas(total));
 			$(e).parents().find("a[href='#collapse-"+idArray+"']").find('.table-responsive').find('tr:eq(0)').find('td.tenPersent img.validate').removeClass('hidden');
 			updateNumberToArray(idArray,total);
 		}
