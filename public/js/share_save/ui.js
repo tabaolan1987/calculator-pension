@@ -39,14 +39,4 @@ $('#warningModal').find('.modal-body').html(content);
 $('#warningModal').modal('show');
 }
 
-function showInfor(top,left,content){
-//will show Information.
-$('#infor').html(content);
-$('#infor').css('top',top);
-$('#infor').css('left',left);
-$('#infor').show();
-}
 
-function hideInfor(){
-$('#infor').hide();
-}
