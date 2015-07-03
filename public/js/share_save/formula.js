@@ -90,7 +90,7 @@ function getMonthlySaving(){
 }
 
 function getDurationSaving(){
-	var temp = $('#monthlySavings').val();
+	var temp = $('#durationTime').val();
 	return parseFloatCMG(temp);
 }
 
@@ -101,7 +101,7 @@ function getAmountSaved(MonthlySaving, DurationSaving){
 }
 
 function getNumberOption(AmountSaved,OptionPrice){
-	var temp = AmountSaved / (OptionPrice*100);
+	var temp = AmountSaved/OptionPrice*100;
 	return round(temp);
 }
 

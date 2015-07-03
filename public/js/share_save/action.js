@@ -202,6 +202,20 @@ function registerActionResult(){
 			var amountSaved = getAmountSaved(monthlySave,durationSave);
 			var numOption = getNumberOption(amountSaved,opPrice);
 			var optValueSold= getOptionValueIfSold(numOption,estimatedShare);
+			var estimateProfit  = getEstimateProfit(optValueSold,amountSaved);
+			var percentIncrease = getPercentIncrease(optValueSold,amountSaved);
+			if(estimateProfit > 0 ){
+				showWarning(CGT);
+				$('.estimated-return1').show();
+				$('.estimated-return2').hide();
+				updateMessage(durationSave,amountSaved,numOption,optValueSold,estimateProfit,percentIncrease);
+			}else{
+				//show the zero value
+				$('.estimated-return1').hide();
+				$('.estimated-return2').show();
+				$('#special-duration-time').html(durationSave);
+				$('#special-amount-saved').html(addCommas(round(amountSaved)));
+			}
 			isUpdateField = false;
 		}
 	});
@@ -210,4 +224,44 @@ function registerActionResult(){
 		$("#share-details").trigger('click');
 	});
 	
+}
+
+function updateMessage(durationSave,amountSaved,numOption,optValueSold,estimateProfit,percentIncrease){
+	//update Message for result.
+	$('.chart-title-estimated').find('span').html(addCommas(fixed2Decimal(optValueSold)));
+	$('.chart-title-percentage').find('span').html(percentIncrease);
+	$('#result-duration-time').html(durationSave);
+	$('#result-amount-save').html(addCommas(round(amountSaved)));
+	$('#result-numOpt').html(addCommas(round(numOption)));
+	$('#result-estimate-profit').find('span').html(addCommas(fixed2Decimal(estimateProfit)));
+	$('#result-percent-increase').find('span').html(percentIncrease);
+	//update Message for print.
+	
+	$('.print-estimate').html(addCommas(fixed2Decimal(optValueSold)));
+	$('.print-duration-save').html(durationSave);
+	$('.print-amount-saved').html(addCommas(round(amountSaved)));
+	$('.print-estimated-profit').html(addCommas(fixed2Decimal(estimateProfit)));
+	$('.print-percent-increase').html(percentIncrease);
+}
+
+
+function PrintElement(element){
+	Popup($(element).html(),"Helvetica Neue"); 
+}
+
+function Popup(data,font) 
+{
+	var mywindow = window.open('', 'CloseBrothers');
+	mywindow.document.write('<html><head><title>Pension Accumulators</title>');
+	mywindow.document.write('<style type="text/css">@media print{div{font-family: "'+font+'" !important;}}</style>');
+	mywindow.document.write('<style type="text/css">@media screen{div{font-family:"'+font+'" !important;}}</style>');
+	mywindow.document.write('<style>a{text-decoration : none !important;color : black;}</style>');
+	mywindow.document.write('</head><body>');
+	mywindow.document.write(data);
+	mywindow.document.write('</body></html>');
+	mywindow.document.close();
+	mywindow.focus(); 
+	mywindow.print();
+	mywindow.close();
+	return true;
 }

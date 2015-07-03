@@ -118,32 +118,32 @@
                         <div class="row align-center">
                             <div class="col-xs-6" id="draw-estimated" class="draw-chart">
                               <img class="img-responsive" src="images/share_save/estimated-return.png" alt="" title="" />
-                              <span class="chart-title-estimated">£1,813.97</span>
+                              <span class="chart-title-estimated">£<span>1,813.97</span></span>
                             </div>
                             <div class="col-xs-6" id="draw-percentage" class="draw-chart">
                               <img class="img-responsive" src="images/share_save/percentage-change.png" alt="" title="" />
-                              <span class="chart-title-percentage">21% <br/> Increase</span>
+                              <span class="chart-title-percentage"><span>21</span>% <br/> Increase</span>
                             </div>
                         </div>
 
                         <div class="row row-return">
-                           <div class="col-xs-9">Total amount saved over <span class="return-result-unit">5</span> years</div>
-                           <div class="col-xs-3 col-sm-2 return-result-unit">£1,500</div>
+                           <div class="col-xs-9">Total amount saved over <span id="result-duration-time" class="return-result-unit">5</span> years</div>
+                           <div id="result-amount-save" class="col-xs-3 col-sm-2 return-result-unit">£1,500</div>
                         </div>
 
                         <div class="row row-return">
                            <div class="col-xs-9">Number of options</div>
-                           <div class="col-xs-3 col-sm-2 return-result-unit">111</div>
+                           <div id="result-numOpt" class="col-xs-3 col-sm-2 return-result-unit">111</div>
                         </div>
 
                         <div class="row row-return">
                            <div class="col-xs-9">Estimated profit</div>
-                           <div class="col-xs-3 col-sm-2 return-result-unit">£313.97</div>
+                           <div id="result-estimate-profit" class="col-xs-3 col-sm-2 return-result-unit">£<span>313.97</span></div>
                         </div>
 
                         <div class="row row-return">
                            <div class="col-xs-9">Percentage increase</div>
-                           <div class="col-xs-3 col-sm-2 return-result-unit">21%</div>
+                           <div id="result-percent-increase" class="col-xs-3 col-sm-2 return-result-unit"><span>21</span>%</div>
                         </div>
                         <a id="print-data" class="btn btn-primary btn-print" onclick="PrintElement('#box-print')" >print</a>
                      </div>
@@ -194,13 +194,15 @@
         </div>
         <div id="result-box" style="border: 2px solid #53565A;padding: 10px;">
             <h4>Your results:</h4>
-            <p>Your estimated return is <b>£</b><b class="print-???">1,813,97</b>.</p>
-            <p>Your total amount saved over <span class="print-???">5</span> years is <b>£</b><b class="print-???">1,500</b>.</p>
-            <p>Your estimated profit is <b>£</b><b class="print-???">313.97</b>.</p>
-            <p>The estimated increase on your investment is <b class="print-???">21</b><b>%</b>.</p>
-            <h4>Capital Gains Tax</h4>
-            <p>Assuming that your full Capital Gains Tax allowance is available, you will only need to pay tax if your profit exceeds £<span class="print-???">11,100</span>.</p>
-            <p>You may have other chargeable assets that could impact your remaining allowance. If you are not sure, please speak to a financial advisor.</p>
+            <p>Your estimated return is <b>£</b><b class="print-estimate">1,813,97</b>.</p>
+            <p>Your total amount saved over <span class="print-duration-save">5</span> years is <b>£</b><b class="print-amount-saved">1,500</b>.</p>
+            <p>Your estimated profit is <b>£</b><b class="print-estimated-profit">313.97</b>.</p>
+            <p>The estimated increase on your investment is <b class="print-percent-increase">21</b><b>%</b>.</p>
+            <div id="print-CGT">
+				<h4>Capital Gains Tax</h4>
+				<p>Assuming that your full Capital Gains Tax allowance is available, you will only need to pay tax if your profit exceeds £11,100.</p>
+				<p>You may have other chargeable assets that could impact your remaining allowance. If you are not sure, please speak to a financial advisor.</p>
+			</div>
         </div>
       </div><!--END #box-print-->
       <div id='check-ui' class="hidden-sm hidden-xs"></div>

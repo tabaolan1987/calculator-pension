@@ -39,6 +39,7 @@ $("#assump-text").show();
 function setupData(){
 	loadAllInformation();
 	loadAllWarning();
+	loadCGT();
 }
 
 function loadPrintInfor(){
@@ -116,6 +117,7 @@ $.ajax({
         success: function(xml) {
            $(xml).find('information').each(function() {
 				CGT = $(this).find('message-alert').text();
+				$('#print-CGT').html(CGT);
             });
         },
         error: function() {
