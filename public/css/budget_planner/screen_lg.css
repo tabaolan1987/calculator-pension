@@ -1,4 +1,8 @@
-    span,input,button{
+    body{
+		font-family : Arial;
+	
+	}
+	span,input,button{
 		font-size :16px;
 	}
 	::-webkit-input-placeholder {
