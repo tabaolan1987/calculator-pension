@@ -4,8 +4,4 @@
 <name>validate-field</name>
 <message><![CDATA[Please enter your]]></message>
 </warning-simple>
-<warning-special>
-<name>retireAge-smaller-than-currentAge</name>
-<message><![CDATA[<p>something will be write in here for special</p>]]></message>
-</warning-special>
 </warning_popups>

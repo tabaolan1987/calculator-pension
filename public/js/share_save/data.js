@@ -16,18 +16,9 @@
 */
 var InformationArray = new Array();
 var warningArray = new Array();
-var annuityMale = new Array();
-var annuityFemale = new Array();
-var growthRate = new Array();
-var LTA = new Array();
-var isReturnLTA = false;
-var male = 1;
-var female = 2;
-var totalCoin = 25;
-var coinPercent = 4;
-var current_forcecash_income = 0;
-var current_target = 0;
-var loopFunction = false;
+var CGT;
+var isUpdateField = false;
+
 function setupDisclammerPage(){
 	loadPrintInfor();
 }
@@ -35,10 +26,9 @@ function setupDisclammerPage(){
 function accept(){
 hideDisclamer();
 setupData();
+drawMonthly();
+drawSaving();
 registerAction();
-drawSlide();
-drawRightContent();
-$( window ).resize(function() {drawRightContent();});
 }
 function hideDisclamer(){
 $(".disclamer-page").hide();
@@ -47,17 +37,14 @@ $("#important-text").show();
 $("#assump-text").show();
 }
 function setupData(){
-	loaddAllAnnuity();
 	loadAllInformation();
 	loadAllWarning();
-	loadGrowthRate();
-	loadLTA();
 }
 
 function loadPrintInfor(){
  $.ajax({
         type: "GET",
-        url: "xml/pension_decumulator/print/print-title.xml",
+        url: "xml/share_save/print/print-title.xml",
         dataType: "xml",
         success: function(xml) {
             var disclammerInfor = $(xml).find('disclamer-infor').text();
@@ -76,7 +63,6 @@ function loadPrintInfor(){
 			$("#assump-text").hide();
 			$("#assump-text").html(assumption);
 			$("#assump-top").html(assumption);
-            console.log("load xml  : print already!");
 			registerLinkActionDisclamer();
         },
         error: function() {
@@ -87,7 +73,7 @@ function loadPrintInfor(){
 function loadInformation(xml){
  $.ajax({
         type: "GET",
-        url: "xml/pension_decumulator/infor/" + xml,
+        url: "xml/share_save/infor/" + xml,
         dataType: "xml",
         success: function(xml) {
             $(xml).find('infor').each(function() {
@@ -97,7 +83,6 @@ function loadInformation(xml){
 				$('#'+idEl).attr('information-message',name);
 				InformationArray[name] = message;
             });
-            console.log("load xml  : "  +  xml +" already!");
         },
         error: function() {
             alert("An error occurred while processing XML file Information.");
@@ -108,7 +93,7 @@ function loadInformation(xml){
 function loadWarning(xml){
  $.ajax({
         type: "GET",
-        url: "xml/pension_decumulator/warning/" + xml,
+        url: "xml/share_save/warning/" + xml,
         dataType: "xml",
         success: function(xml) {
             $(xml).find('warning-simple').each(function() {
@@ -116,12 +101,6 @@ function loadWarning(xml){
 				var name = $(this).find('name').text();
 				warningArray[name] = message;
             });
-			$(xml).find('warning-special').each(function() {
-                var message = $(this).find('message').text();
-				var name = $(this).find('name').text();
-				warningArray[name] = message;
-            });
-            console.log("load xml: "  +  xml +" already! ");
         },
         error: function() {
             alert("An error occurred while processing XML file warning.");
@@ -129,112 +108,15 @@ function loadWarning(xml){
     });
 }
 
-
-function loadAnnuityMale(){
+function loadCGT(){
 $.ajax({
         type: "GET",
-        url: "xml/pension_decumulator/annuity/MaleAnnuity.xml",
-        dataType: "xml",
-        success: function(xml) {
-            $(xml).find('annuity').each(function() {
-               var age = $(this).attr('age');
-			   var income = $(this).attr('income');
-			   annuityMale[age] = income;
-            });
-            console.log("load xml: "  +  xml +" already! ");
-        },
-        error: function() {
-            alert("An error occurred while processing XML  male file annuity.");
-        }
-    });
-}
-function loadAnnuityFemale(){
-$.ajax({
-        type: "GET",
-        url: "xml/pension_decumulator/annuity/FemaleAnnuity.xml",
-        dataType: "xml",
-        success: function(xml) {
-           $(xml).find('annuity').each(function() {
-               var age = $(this).attr('age');
-			   var income = $(this).attr('income');
-			   annuityFemale[age] = income;
-            });
-            console.log("load xml: "  +  xml +" already! ");
-        },
-        error: function() {
-            alert("An error occurred while processing XML female file annuity.");
-        }
-    });
-}
-function drawGrowRate(xml){
-	 var index = 0;
-	 var html ="";
-	 $(xml).find('rate').each(function() {
-		index++;
-		var value = $(this).attr('value');
-		if(index == 1){
-			html = "<div class='col-xs-2 modal-value'><span class='label-percent'>"+value+"%</span></div>";
-		}else{
-			html = html + "<div class='col-xs-2'><span class='label-percent'>"+value+"%</span></div>";
-		}
-	 });
-	 html = html + "<div class='clearfix'></div>";
-	 index = 0;
-	 $(xml).find('rate').each(function() {
-		index++;
-		var value = $(this).attr('value');
-		var checked = $(this).attr('default');
-		if(index == 1){
-			html = html + "<div class='col-xs-2 modal-value'><input type='radio' value='"+value+"' id='"+value+"-percent' "+checked+" name='an-grow-percent'><label for='"+value+"-percent'></label></div>";
-		}else{
-			html = html + "<div class='col-xs-2'><input type='radio' value='"+value+"' id='"+value+"-percent' "+checked+" name='an-grow-percent'><label for='"+value+"-percent'></label></div>";
-		}
-	 });
-	 
-	 $('#modal-grow').append(html);
-	 
-	 
-}
-function loadGrowthRate(){
-$.ajax({
-        type: "GET",
-        url: "xml/pension_decumulator/growthRate/growthrate.xml",
-        dataType: "xml",
-        success: function(xml) {
-           $(xml).find('rate').each(function() {
-				var value = $(this).attr('value');
-				var inflation_rate = $(this).attr('inflation_rate');
-				var df = $(this).attr('default');
-				var deduct_inflation_rate = ((parseFloat(value)*100)/100) - parseFloat(inflation_rate);
-				growthRate[value] = deduct_inflation_rate;
-            });
-			drawGrowRate(xml);
-            console.log("load xml: "  +  xml +" already! ");
-        },
-        error: function() {
-            alert("An error occurred while processing XML file growth.");
-        }
-    });
-}
-
-function loadLTA(){
-$.ajax({
-        type: "GET",
-        url: "xml/pension_decumulator/lta/lta.xml",
+        url: "xml/share_save/cgt/cgt.xml",
         dataType: "xml",
         success: function(xml) {
            $(xml).find('information').each(function() {
-				var active = $(this).find('active').text();
-				if(active == "true"){
-					var vl= $(this).find('value').text();
-					var message = $(this).find('message-alert').text();
-					var config = $(this).find('config').text();
-					LTA['value'] = parseFloatCMG(parseInt(vl)*(25/100));
-					LTA['message'] = message;
-					LTA['show-popup'] = config;
-				}
+				CGT = $(this).find('message-alert').text();
             });
-           // console.log("load xml: "  +  LTA +" already! ");
         },
         error: function() {
             alert("An error occurred while processing XML file lta.");
@@ -242,17 +124,10 @@ $.ajax({
     });
 }
 function loadAllWarning(){
-	loadWarning('about_you.xml');
-	loadWarning('savings.xml');
+	loadWarning('share_detail.xml');
 }
 
 function loadAllInformation(){
-	loadInformation('about_you.xml');
-	loadInformation('savings.xml');
-	loadInformation('result.xml');
+	loadInformation('share_detail.xml');
 }
 
-function loaddAllAnnuity(){
-	loadAnnuityMale();
-	loadAnnuityFemale();
-}

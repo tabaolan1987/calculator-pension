@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<lta>
+<cgt>
 <information>
-<year>2014/2015</year>
-<value><![CDATA[1250000]]></value>
-<active><![CDATA[true]]></active>
 <message-alert>
 <![CDATA[
 <p>The maximum amount of tax free cash you can take is 25% of the Lifetime Allowance is £1.25 million of the tax year 2014/15.</p>
@@ -11,6 +8,5 @@
 <p>This value is likely to change if you are planning to retire after 2015.</p>
 ]]>
 </message-alert>
-<config><![CDATA[true]]></config>
 </information>
-</lta>
+</cgt>

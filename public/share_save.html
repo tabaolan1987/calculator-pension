@@ -23,22 +23,23 @@
       <![endif]-->
 	  <script src="js/share_save/bootstrap.min.js"></script>
 	  <script type="text/javascript" src="js/share_save/accounting_min.js"></script>
-
     <!--js for select box-->
     <!-- the mousewheel plugin - optional to provide mousewheel support -->
     <script type="text/javascript" src="js/share_save/jquery.mousewheel.js"></script>
     <!-- the jScrollPane script -->
     <script type="text/javascript" src="js/share_save/jquery.jscrollpane.min.js"></script>
     <script type="text/javascript" src="js/share_save/select-box.js"></script>
-
-
+	<script type="text/javascript" src="js/share_save/data.js"></script>
+	<script type="text/javascript" src="js/share_save/formula.js"></script>
+	<script type="text/javascript" src="js/share_save/ui.js"></script>
+	<script type="text/javascript" src="js/share_save/action.js"></script>
    </head>
    <body>
       <div class="container-fluid" id="wrapper">
          <div class="row title">
             <h3>Sharesave calculator</h3>
          </div><!--END .title-->
-		<div style="display:none;" id="disclamer-page" class="row disclamer-page">
+		<div id="disclamer-page" class="row disclamer-page">
 		    <div id="disclamer-div" class="col-sm-12 col-md-12" style="padding-left:0px;padding-top:15px;">
 				<div id="disclamer-infor">
 				
@@ -68,11 +69,11 @@
 				</div>
 			</div>			
 		 </div>
-         <div class="row" id="content">
+         <div class="row" id="content" style="display:none;">
             <div class="col-xs-12 left-content"><!--<div class="col-sm-12 col-md-7 left-content">-->
                <ul class="nav nav-tabs">
                   <li class="active share-details"><div class="mid"><div><a id='share-details' href="#tab1" data-toggle="tab">share details</a></div></div></li>
-                  <li class="results"><div class="mid"><div><a id='results' href="#tab2" data-toggle="tab">return results</a></div></div></li>
+                  <li class="results"><div class="mid"><div><a id='results'>return results</a></div></div></li>
                </ul>
 
                <div class="tab-content">
@@ -81,30 +82,30 @@
                   </div>
                   <div class="tab-pane active" id="tab1">
                      <div class="row row-rule">
-                        <div class="col-xs-7 col-sm-8 col-md-9 mobile-padding-left"><span id="current-age" class="icon-tooltip"></span><span class="label-tooltip">Monthly savings amount</span></div>
+                        <div class="col-xs-7 col-sm-8 col-md-9 mobile-padding-left"><span id="infor-monthly-savings" class="icon-tooltip"></span><span class="label-tooltip">Monthly savings amount</span></div>
                         <div class="col-xs-5 col-ms-4 col-sm-3 col-md-2 pound">
-                              <input readonly="readonly" type="text" id="myText" name="myText" value="25.00" selectBoxOptions="5.00;10.00;15.00;20.00;25.00;30.00;35.00;40.00;45.00;50.00;55.00;60.00">
+                              <input readonly="readonly" class='read-only' type="text" id="monthlySavings" name="monthlySavings" value="25.00" selectBoxOptions="5.00;10.00;15.00;20.00;25.00;30.00;35.00;40.00;45.00;50.00;55.00;60.00">
                         </div>                           
                      </div>
 
                       <div class="row row-rule">
-                        <div class="col-xs-7 col-sm-8 col-md-9 mobile-padding-left"><span id="current-age" class="icon-tooltip"></span><span class="label-tooltip">Duration of savings</span></div>
+                        <div class="col-xs-7 col-sm-8 col-md-9 mobile-padding-left"><span id="infor-duration-time" class="icon-tooltip"></span><span class="label-tooltip">Duration of savings</span></div>
                         <div class="col-xs-5 col-ms-4 col-sm-3 col-md-2 no-pound">
-                              <input readonly="readonly" type="text" id="myText2" name="myText2" value="3" selectBoxOptions="3;5">
+                              <input readonly="readonly" class='read-only' type="text" id="durationTime" name="durationTime" value="3" selectBoxOptions="3;5">
                               <span class="unit">years</span>
                         </div>
                      </div>
 
                      <div class="row row-rule">
-                        <div class="col-xs-7 col-sm-8 col-md-9 mobile-padding-left"><span id="current-salary" class="icon-tooltip"></span><span class="label-tooltip">Option price</span></div>
-                        <div class="col-xs-5 col-ms-4 col-sm-3 col-md-2 no-pound"><input id='txt-current-salary' type="text" onkeypress="return isNumberKey(event)"  class="form-control text-about-you" placeholder=""/><span class="unit">pence</span></div>
+                        <div class="col-xs-7 col-sm-8 col-md-9 mobile-padding-left"><span id="infor-option-price" class="icon-tooltip"></span><span class="label-tooltip">Option price</span></div>
+                        <div class="col-xs-5 col-ms-4 col-sm-3 col-md-2 no-pound"><input length="9" id='txt-option-price' type="text" onkeypress="return isNumberKey(event,this)"  class="form-control text-about-you" placeholder=""/><span class="unit">pence</span></div>
                      </div>
 
                      <div class="row row-rule">
-                        <div class="col-xs-7 col-sm-8 col-md-9 mobile-padding-left"><span id="target-pension" class="icon-tooltip"></span><span class="label-tooltip">Estimated share price at sale</span></div>
-                        <div class="col-xs-5 col-ms-4 col-sm-3 col-md-2 no-pound"><input id="txt-target-pensions" type="text" onkeypress="return isNumberKey(event)"  class="form-control text-about-you" placeholder=""/><span class="unit">pence</span></div>
+                        <div class="col-xs-7 col-sm-8 col-md-9 mobile-padding-left"><span id="infor-estimated-share" class="icon-tooltip"></span><span class="label-tooltip">Estimated share price at sale</span></div>
+                        <div class="col-xs-5 col-ms-4 col-sm-3 col-md-2 no-pound"><input length="9" id="txt-estimated-share" type="text" onkeypress="return isNumberKey(event,this)"  class="form-control text-about-you" placeholder=""/><span class="unit">pence</span></div>
                      </div>
-                     <a id='nextAboutYou' class="btn btn-primary btnNext">calculate</a>
+                     <a id='Calculate' class="btn btn-primary btnNext">calculate</a>
                   </div><!--END #tab1-->
 
                   <div class="tab-pane" id="tab2">
@@ -156,7 +157,7 @@
                         </div>
                      </div>
 
-                     <a class="btn btn-primary btnPrevious">back</a>
+                     <a id="BackResults" class="btn btn-primary btnPrevious">back</a>
                   </div><!--END #tab2-->
                </div>
             </div><!--END .left-content-->
@@ -205,10 +206,7 @@
       <div id='check-ui' class="hidden-sm hidden-xs"></div>
       <script type="text/javascript" >
          $(document).ready(function(){
-            createEditableSelect(document.getElementById("myText"));
-            createEditableSelect(document.getElementById("myText2"));
-            //createEditableSelect(document.getElementById("myText2"));
-			//setupDisclammerPage();
+			setupDisclammerPage();
          });
           
       </script>
