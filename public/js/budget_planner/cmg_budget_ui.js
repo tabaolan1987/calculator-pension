@@ -360,7 +360,7 @@ function showTooltip(x, y, contents) {
         position: 'absolute',
         top: y - 65,
         left: x - 95 / 2,
-		'z-index':'100',
+		'z-index':'1000',
 		'padding' : '0 7px 10px 7px'
     });
 	$('#tooltip').show();
