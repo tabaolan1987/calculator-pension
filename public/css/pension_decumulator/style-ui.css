@@ -597,6 +597,7 @@ a:focus{
 	background-color: #06038d;
 	height:25px;
 	padding:2px 12px;
+	font-weight: bold;
 }
 
 #wrap-tab .btn-print{
