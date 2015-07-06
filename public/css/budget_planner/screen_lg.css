@@ -286,9 +286,9 @@
 	
 	
 	#tooltip{
-		background-image : url("../../images/budget_planner/CB_speech_bubble.png");
-		width : 95px;
-		height : 65px;
+		background : url("../../images/budget_planner/CB_speech_bubble.png") top left no-repeat;
+		width : 7.938em;
+		height : 5.38em;
 		font-size : 12px;
 		color: blue;
 		justify-content: center; /* align horizontal */
