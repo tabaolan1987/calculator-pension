@@ -158,6 +158,8 @@ a:focus{
 .nav-tabs li .mid{
 	background:url(../../images/pension_accumulators/tab-bg-mid.png) top left repeat-x;
 	height:49px;
+	border: none;
+	outline: 0;
 }
 
 .nav-tabs li.active .mid,
@@ -169,11 +171,29 @@ a:focus{
 	background:url(../../images/pension_accumulators/tab-bg-right.png) top right no-repeat;
 	height:49px;
 	border: none;
+	outline: 0;
 }
 
-.nav-tabs li.active  .mid div,
-.nav-tabs li.parent-active  .mid div{
+.nav-tabs li.active  .mid div{
 	background:url(../../images/pension_accumulators/tab-bg-right-active.png) top right no-repeat;
+	position: relative;
+}
+
+.fix-bg-ie8{
+	display: none;
+}
+
+/* IE8 uses \0 */
+@media all\0 { 
+	.fix-bg-ie8{
+		background-color: #fff;
+		width: 1px;
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 49px;
+	}
 }
 
 .nav-tabs li:first-child{
@@ -202,10 +222,10 @@ a:focus{
 }
 
 .nav-tabs li a{
-	height:38px;
+	height:39px;
 	padding-left:44px;
 	display:inline-block;
-	line-height:38px;
+	line-height:39px;
 	margin:6px 0 0 5px;
 	color:#06038d;
 	width: 90%;
@@ -307,6 +327,7 @@ a:focus{
     width: 26px;
     display:inline-block;
     padding: 0 0 0 0px;
+    max-width: inherit;
 }
 
 .row-rule input[type="radio"] + label.selected{
@@ -783,7 +804,7 @@ a:focus{
 	.nav-tabs li{
 		background:url(../../images/pension_accumulators/tab-bg-left-480.png) top left no-repeat;
 		height:38px;
-		padding-left:11px;
+		padding-left:10px;
 	}
 
 	.nav-tabs li.active,
@@ -1046,7 +1067,7 @@ a:focus{
 	.nav-tabs li{
 		background:url(../../images/pension_accumulators/tab-bg-left-320.png) top left no-repeat;
 		height:25px;
-		padding-left:7px;
+		padding-left:6px;
 	}
 
 	.nav-tabs li.active,
