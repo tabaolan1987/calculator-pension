@@ -5,4 +5,15 @@
 <name>estimated_life_expectancy</name>
 <message><![CDATA[<p>estimated life expectancy</p>]]></message>
 </infor>
+<infor>
+<id-element>annual-grow-infor-popup</id-element>
+<name>annual grow information</name>
+<message><![CDATA[<p>Select the percentage relating to the estimated annual growth of your fund.</p>]]></message>
+</infor>
+<infor>
+<id-element>annual-charge-infor-popup</id-element>
+<name>annual charge information</name>
+<message><![CDATA[<p>Change the percentage to match the charges you are paying on your current pension(s).</p>
+<p>The charges you pay have a direct impact on your fund.</p>]]></message>
+</infor>
 </infor_popups>

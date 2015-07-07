@@ -94,7 +94,7 @@ function animationShortFall(height,shortFall){
 		$('.top-arrow').show();
 		//$(".arrow-mid").css("height",0);
 		$(".arrow-mid").animate({"height":height}, "slow",function(){
-			$('.pound-shortfall').html(Number(shortFall).toLocaleString('en').split('.')[0] + " years");
+			$('.pound-shortfall').html(getStringYear(shortFall));
 			$('.shortfall').fadeIn(1000);
 			$(".arrow-mid").css("padding-top",height/2-22+"px");
 		});
@@ -150,7 +150,10 @@ function drawCalendar(){
         ifFormat       :    "%b %e, %Y",      // format of the input field
         button         :    "image-calendar-trigger",  // trigger for the calendar (button ID)
         align          :    "Bl",           // alignment (defaults to "Bl") Tl
-        singleClick    :    true
+        singleClick    :    true,
+		onUpdate : function (){
+			isUpdate = true;
+		}
     });
 	
 	//fix vertical-align mid for ie8

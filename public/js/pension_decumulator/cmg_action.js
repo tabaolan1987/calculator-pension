@@ -114,10 +114,6 @@ function isNumberKey(evt,e){
 
 function registerActionYourDetails(){
 	
-	
-	$('#txt-birthday').on('change',function(){
-		isUpdate = true;
-	});
 	$('#txt-current-salary').on('blur', function() {
 		currentSalary = parseFloatCMG($(this).val());
 		var number = parseFloatCMG($(this).val());
@@ -164,7 +160,7 @@ function registerActionYourDetails(){
 		if(check.length == 0){
 			var fundValue = getFundValue();	
 			var taxfreePercent = getTaxFreePercent();
-			var taxfreeCash = getTaxFreeCash(fundValue,taxfreePercent);
+			var taxfreeCash = getTaxFreeCash(taxfreePercent,fundValue);
 			eneableTabResult();
 			if(isReturnLTA == true){
 				if(LTA['show-popup'] == 'true'){
@@ -195,7 +191,7 @@ function registerActionYourDetails(){
 		if(check.length == 0){
 			var fundValue = getFundValue();	
 			var taxfreePercent = getTaxFreePercent();
-			var taxfreeCash = getTaxFreeCash(fundValue,taxfreePercent);
+			var taxfreeCash = getTaxFreeCash(taxfreePercent,fundValue);
 			if(isReturnLTA == true){
 				if(LTA['show-popup'] == 'true'){
 					showWarning(LTA['message']);
@@ -330,9 +326,9 @@ function updateMessage(yearNeedLast,yearMayLast,shortFallYear){
 	var grow_rate = getGrowthRate();
 	//results div
 	$('.result-year-retirement').html(addCommas(currentAge));
-	$(".expectancy-year").html(yearNeedLast + " years");
+	$(".expectancy-year").html(getStringYear(yearNeedLast));
 	$('.result-growrate-percent').html(grow_rate);
-	$(".funds-year").html(yearMayLast + " years");
+	$(".funds-year").html(getStringYear(yearMayLast));
 	$('.pound-annual-income').html(addCommas(annualIncome));
 	$('.display-result-pound-fund').html(addCommas(fundValue));
 	$('.display-result-pound-annual').html(addCommas(annualIncome));
@@ -346,19 +342,20 @@ function updateMessage(yearNeedLast,yearMayLast,shortFallYear){
 	$('.print-tax-free-cash').html(addCommas(round(taxfreeCash)));
 	$('.print-tax-free-percent').html(addCommas(fixed2Decimal(taxPercen)));
 	$('.print-retirement-age').html(addCommas(currentAge));
-	$(".print-years-need-last").html(yearNeedLast);
-	$(".print-years-may-last").html(yearMayLast);
+	$(".print-years-need-last").html(getStringYear(yearNeedLast));
+	$(".print-years-may-last").html(getStringYear(yearMayLast));
 	
 	//check shortfall
 	if(shortFallYear > 0){
-		$('.print-shortfall-year').html(getStringShortFall(shortFallYear));
+		$('.print-shortfall-year').html(getStringYear(shortFallYear));
 		$(".have-shortfall").show();
 		$(".no-shortfall").hide();
 		$(".funds-year").css("color","red");
+		$(".result-based-current").css("color","#777777");
 		$(".print-show-shortfall-inform").show();
 	}else{
 		$(".result-based-current").css("color","blue");
-		$(".funds-year").css("color","#777777");
+		$(".funds-year").css("color","blue");
 		$(".print-show-shortfall-inform").hide();
 	}
 }

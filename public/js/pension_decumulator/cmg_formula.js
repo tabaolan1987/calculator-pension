@@ -127,8 +127,9 @@ function getFundPot(){
 }
 
 function getTaxFreeCash(taxFreeCashPercent, fundValue){
+
 	var temp = parseFloatCMG(fundValue) * (parseFloatCMG(taxFreeCashPercent)/100);
-	if(parseFloatCMG(temp) == parseFloatCMG(LTA['value']) || parseFloatCMG(temp) < parseFloatCMG(LTA['value'])){
+	if(parseFloatCMG(fixed2Decimal(temp)) == parseFloatCMG(LTA['value']) || parseFloatCMG(fixed2Decimal(temp)) < parseFloatCMG(LTA['value'])){
 		isReturnLTA = false;
 		return temp;
 	}else{
@@ -222,11 +223,11 @@ function getShortFallYear(yearMayLast,yearNeedLast){
 	return 0;
 }
 
-function getStringShortFall(shortfall){
-	if(shortfall == 1){
+function getStringYear(year){
+	if(year == 1){
 		return "1 year";
-	}else if(shortfall > 1){
-		var temp = shortfall + " years";
+	}else if(year > 1){
+		var temp = year + " years";
 		return temp;
 	}
 	return null;
