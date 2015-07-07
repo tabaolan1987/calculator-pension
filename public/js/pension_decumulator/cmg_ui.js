@@ -160,7 +160,8 @@ function drawCalendar(){
 	    inputField : "txt-birthday",
 	    trigger    : "image-calendar-trigger",
 	    ifFormat       :    "%b %e, %Y",      // format of the input field
-	    onSelect   : function() { this.hide() }
+	    onSelect   : function() { this.hide() ;isUpdate=true;}
+		
 	});
 	
 	//fix vertical-align mid for ie8
