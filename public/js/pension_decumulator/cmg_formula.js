@@ -40,7 +40,7 @@ function roundup(number){
 	if(parseInt(number) == number){
 		temp = number;
 	}else{
-		temp =  parseInt(new Number(number).toFixed(0)) + 1;
+		temp =  parseInt(number) + 1;
 	}
 	
 	return temp;
@@ -220,6 +220,16 @@ function getShortFallYear(yearMayLast,yearNeedLast){
 		return shortFallYear;
 	}
 	return 0;
+}
+
+function getStringShortFall(shortfall){
+	if(shortfall == 1){
+		return "1 year";
+	}else if(shortfall > 1){
+		var temp = shortfall + " years";
+		return temp;
+	}
+	return null;
 }
 
 

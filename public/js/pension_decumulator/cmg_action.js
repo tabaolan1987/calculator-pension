@@ -351,6 +351,7 @@ function updateMessage(yearNeedLast,yearMayLast,shortFallYear){
 	
 	//check shortfall
 	if(shortFallYear > 0){
+		$('.print-shortfall-year').html(getStringShortFall(shortFallYear));
 		$(".have-shortfall").show();
 		$(".no-shortfall").hide();
 		$(".funds-year").css("color","red");
