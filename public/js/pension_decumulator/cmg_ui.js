@@ -145,7 +145,7 @@ function updateFundMayToLast(year,yearOfShortFall){
 
 function drawCalendar(){
 
-	Calendar.setup({
+	/*Calendar.setup({
         inputField     :    "txt-birthday",     // id of the input field
         ifFormat       :    "%b %e, %Y",      // format of the input field
         button         :    "image-calendar-trigger",  // trigger for the calendar (button ID)
@@ -154,12 +154,19 @@ function drawCalendar(){
 		onUpdate : function (){
 			isUpdate = true;
 		}
-    });
+    });*/
+
+    Calendar.setup({
+	    inputField : "txt-birthday",
+	    trigger    : "image-calendar-trigger",
+	    ifFormat       :    "%b %e, %Y",      // format of the input field
+	    onSelect   : function() { this.hide() }
+	});
 	
 	//fix vertical-align mid for ie8
-	$("#image-calendar-trigger").click(function(){
+	/*$("#image-calendar-trigger").click(function(){
 	    $("#txt-birthday").focus();
-	});
+	});*/
 
 }
 
