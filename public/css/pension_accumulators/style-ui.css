@@ -218,6 +218,7 @@ a:focus{
 	margin:6px 0 0 5px;
 	color:#06038d;
 	width: 90%;
+	font-size: 13px;
 }
 
 .nav-tabs li.active a,
