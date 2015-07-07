@@ -4,6 +4,8 @@
 
 #wrapper{
 	margin:0px 10px 20px 30px;
+	min-width: 320px;
+    overflow-y: auto;
 }
 
 .title h3{
@@ -146,9 +148,26 @@ a:focus{
 	height:49px;
 }
 
-.nav-tabs li.active  .mid div,
-.nav-tabs li.parent-active  .mid div{
+.nav-tabs li.active  .mid div{
 	background:url(../../images/pension_decumulator/tab-bg-right-active.png) top right no-repeat;
+	position: relative;
+}
+
+.fix-bg-ie8{
+	display: none;
+}
+
+/* IE8 uses \0 */
+@media all\0 { 
+	.fix-bg-ie8{
+		background-color: #fff;
+		width: 1px;
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 49px;
+	}
 }
 
 .nav-tabs li:first-child{
@@ -177,10 +196,10 @@ a:focus{
 }
 
 .nav-tabs li a{
-	height:38px;
+	height:39px;
 	padding-left:60px;
 	display:inline-block;
-	line-height:38px;
+	line-height:39px;
 	margin:6px 0 0 5px;
 	color:#06038d;
 	width: 90%;
@@ -273,7 +292,8 @@ a:focus{
 	padding-left: 25px;
 }
 
-.row-rule input[type="radio"]{
+.row-rule input[type="radio"],
+.modal input[type="radio"]{
     display:none;
 }
 
@@ -283,6 +303,7 @@ a:focus{
     width: 26px;
     display:inline-block;
     padding: 0 0 0 0px;
+    max-width: inherit;
 }
 
 .row-rule input[type="radio"] + label.selected{
@@ -290,15 +311,16 @@ a:focus{
 }
 
 .modal input[type="radio"] + label.growrate-label{
-    background:url(../../images/pension_decumulator/radio-popup.png) center bottom no-repeat;
+    background:url(../../images/pension_decumulator/radio.png) center bottom no-repeat;
     height: 28px;
     width: 26px;
     display:inline-block;
     padding: 0 0 0 0px;
+    max-width: inherit;
 }
 
 .modal input[type="radio"] + label.growrate-label.selected{
-    background:url(../../images/pension_decumulator/radio-popup-check.png) center bottom no-repeat;
+    background:url(../../images/pension_decumulator/radio-check-blue.png) center bottom no-repeat;
 }
 
 .row-rule .radio-lable{
@@ -450,23 +472,6 @@ a:focus{
 	clear: both;
 }
 
-.modal input[type="radio"]{
-    display:none;
-}
-
-.modal input[type="radio"] + label{
-    background:url(../../images/pension_decumulator/radio-popup.png) center bottom no-repeat;
-    height: 28px;
-    width: 26px;
-    display:inline-block;
-    padding: 0 0 0 0px;
-}
-
-.modal input[type="radio"]:checked + label{
-    background:url(../../images/pension_decumulator/radio-popup-check.png) center bottom no-repeat;
-}
-
-
 #estimated-annual-modal .modal-dialog{
 	margin-top : 100px;
 }
@@ -592,6 +597,7 @@ a:focus{
 	background-color: #06038d;
 	height:25px;
 	padding:2px 12px;
+	font-weight: bold;
 }
 
 #wrap-tab .btn-print{
@@ -885,8 +891,7 @@ a:focus{
 		height:38px;
 	}
 
-	.nav-tabs li.active  .mid div,
-	.nav-tabs li.parent-active  .mid div{
+	.nav-tabs li.active  .mid div{
 		background:url(../../images/pension_decumulator/tab-bg-right-active-480.png) top right no-repeat;
 	}
 
@@ -1124,8 +1129,7 @@ a:focus{
 		height:25px;
 	}
 
-	.nav-tabs li.active  .mid div,
-	.nav-tabs li.parent-active  .mid div{
+	.nav-tabs li.active  .mid div{
 		background:url(../../images/pension_decumulator/tab-bg-right-active-320.png) top right no-repeat;
 	}
 
