@@ -37,6 +37,11 @@
         height: 8px;
     }
 
+
+.modal-dialog .irs-line {
+     height: 8px; top: 35px;
+}
+
 .irs-bar {
     height: 10px; top: 33px;
     //border-top: 1px solid #428bca;
