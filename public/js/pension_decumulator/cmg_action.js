@@ -95,15 +95,17 @@ function registerHoverAction(){
 }
 /* this function just allow user can type numberic only */
 function isNumberKey(evt,e){
-	var charCode = (evt.which) ? evt.which : event.keyCode;
+   var charCode = (evt.which) ? evt.which : event.keyCode;
    if (charCode != 46 && charCode > 31
     && (charCode < 48 || charCode > 57)){
 		return false;
-	}
+	}else if(evt.keyCode == 46 || evt.keyCode == 8){
+		return true;
+	} 
 	
-	var vl = parseFloatCMG($(e).val());
-	var maxlength = $(e).attr("length");
-	if(vl.toString().length >= maxlength){
+	var vl = parseFloatCMG($(e).val()) +"";
+	var maxlength = parseFloatCMG($(e).attr("length"));
+	if(vl.length >= maxlength){
 		return false;
 	}
     return true;
