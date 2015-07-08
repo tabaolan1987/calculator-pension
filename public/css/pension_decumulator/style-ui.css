@@ -144,30 +144,26 @@ a:focus{
 }
 
 .nav-tabs li .mid div{
-	background:url(../../images/pension_decumulator/tab-bg-right.png) top right no-repeat;
+	//background:url(../../images/pension_decumulator/tab-bg-right.png) top right no-repeat;
 	height:49px;
-}
-
-.nav-tabs li.active  .mid div{
-	background:url(../../images/pension_decumulator/tab-bg-right-active.png) top right no-repeat;
 	position: relative;
 }
 
-.fix-bg-ie8{
-	display: none;
+.nav-tabs li.active  .mid div{
+	//background:url(../../images/pension_decumulator/tab-bg-right-active.png) top right no-repeat;
 }
 
-/* IE8 uses \0 */
-@media all\0 { 
-	.fix-bg-ie8{
-		background-color: #fff;
-		width: 1px;
-		display: block;
-		position: absolute;
-		top: 0;
-		right: 0;
-		height: 49px;
-	}
+.nav-tabs li .mid div .fix-bg-ie8{
+	background:url(../../images/pension_decumulator/tab-bg-right.png) top right no-repeat;
+	height:49px;
+	width: 14px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.nav-tabs li.active  .mid div .fix-bg-ie8{
+	background:url(../../images/pension_decumulator/tab-bg-right-active.png) top right no-repeat;
 }
 
 .nav-tabs li:first-child{
@@ -863,6 +859,10 @@ a:focus{
 
 	.tab-pane .row-rule{
 		padding: 10px 0;
+	}
+
+	.fix-bg-ie8{
+		display: none;
 	}
 
 	.nav-tabs li{
