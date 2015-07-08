@@ -110,16 +110,6 @@ function registerHoverAction(){
 
 function registerActionShareDetail(){
 	
-	$('#monthlySavings').on('change',function(){
-		alert('here');
-		isUpdateField = true;
-	});
-	
-	$('#durationTime').on('change',function(){
-		alert('here');
-		isUpdateField = true;
-	});
-	
 	
 	$('#txt-option-price').on('blur', function() {
 		currentOptionPrice = parseFloatCMG($(this).val());
