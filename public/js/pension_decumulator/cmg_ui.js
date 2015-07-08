@@ -159,11 +159,12 @@ function drawCalendar(){
     var cal = Calendar.setup({
 	    inputField : "txt-birthday",
 	    trigger    : "image-calendar-trigger",
+		dateFormat : "%b %e, %Y",
 	    onSelect   : function() { this.hide() ;isUpdate=true;}
 		
 	});
 	
-	cal.manageFields("image-calendar-trigger", "txt-birthday", "%b %e, %Y");
+	//cal.manageFields("image-calendar-trigger", "txt-birthday", "%b %e, %Y");
 	
 	//fix vertical-align mid for ie8
 	/*$("#image-calendar-trigger").click(function(){

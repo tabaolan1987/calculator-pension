@@ -4,4 +4,8 @@
 <name>validate-field</name>
 <message><![CDATA[Please enter your]]></message>
 </warning-simple>
+<warning-simple>
+<name>validate-field</name>
+<message><![CDATA[Please enter your]]></message>
+</warning-simple>
 </warning_popups>
