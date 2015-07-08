@@ -156,13 +156,14 @@ function drawCalendar(){
 		}
     });*/
 
-    Calendar.setup({
+    var cal = Calendar.setup({
 	    inputField : "txt-birthday",
 	    trigger    : "image-calendar-trigger",
-	    ifFormat       :    "%b %e, %Y",      // format of the input field
 	    onSelect   : function() { this.hide() ;isUpdate=true;}
 		
 	});
+	
+	cal.manageFields("image-calendar-trigger", "txt-birthday", "%b %e, %Y");
 	
 	//fix vertical-align mid for ie8
 	/*$("#image-calendar-trigger").click(function(){
