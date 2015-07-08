@@ -93,10 +93,11 @@ function animationShortFall(height,shortFall){
 	setTimeout(function(){
 		$('.top-arrow').show();
 		//$(".arrow-mid").css("height",0);
+		$(".arrow-mid").css("padding-top","0px");
 		$(".arrow-mid").animate({"height":height}, "slow",function(){
 			$('.pound-shortfall').html(getStringYear(shortFall));
 			$('.shortfall').fadeIn(1000);
-			$(".arrow-mid").css("padding-top",height/2-22+"px");
+			$(".arrow-mid").css("padding-top",(height/2-22)+"px");
 		});
 	}, 200);
 }
