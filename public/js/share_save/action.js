@@ -110,7 +110,13 @@ function registerHoverAction(){
 
 function registerActionShareDetail(){
 	
-	$('.selectBoxInput').on('change',function(){
+	$('#monthlySavings').on('change',function(){
+		alert('here');
+		isUpdateField = true;
+	});
+	
+	$('#durationTime').on('change',function(){
+		alert('here');
 		isUpdateField = true;
 	});
 	

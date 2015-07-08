@@ -75,6 +75,7 @@
 	
 	function selectOptionValue()
 	{
+		isUpdateField = true;
 		var parentNode = this.parentNode.parentNode.parentNode.parentNode;
 		var textInput = parentNode.getElementsByTagName('INPUT')[0];
 		textInput.value = this.innerHTML;	
