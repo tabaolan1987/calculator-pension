@@ -5,7 +5,7 @@
 <message><![CDATA[Please enter your]]></message>
 </warning-simple>
 <warning-simple>
-<name>validate-field</name>
-<message><![CDATA[Please enter your]]></message>
+<name>current-age-equal-zero</name>
+<message><![CDATA[Your current age is now equal zero so please choose another date of birth]]></message>
 </warning-simple>
 </warning_popups>

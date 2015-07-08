@@ -177,12 +177,17 @@ function registerActionYourDetails(){
 			}
 		}else{
 			var caseWarning = check[0];
-			var content = warningArray["validate-field"] +" "+ check[0];
-			for(var i =1; i < check.length;i++){
-				content = content+", " + check[i];
+			if(caseWarning == "current-age-equal-zero"){
+				showWarning(warningArray["current-age-equal-zero"]);
+			}else{
+				var content = warningArray["validate-field"] +" "+ check[0];
+				for(var i =1; i < check.length;i++){
+					content = content+", " + check[i];
+				}
+				showWarning(content+"!");
 			}
 			disableTabResult();
-			showWarning(content+"!");
+			return false;
 		}
 	});
 	
@@ -208,12 +213,16 @@ function registerActionYourDetails(){
 			}
 		}else{
 			var caseWarning = check[0];
-			var content = warningArray["validate-field"] +" "+ check[0];
-			for(var i =1; i < check.length;i++){
-				content = content+", " + check[i];
+			if(caseWarning == "current-age-equal-zero"){
+				showWarning(warningArray["current-age-equal-zero"]);
+			}else{
+				var content = warningArray["validate-field"] +" "+ check[0];
+				for(var i =1; i < check.length;i++){
+					content = content+", " + check[i];
+				}
+				showWarning(content+"!");
 			}
 			disableTabResult();
-			showWarning(content+"!");
 			return false;
 		}
 	});
@@ -223,6 +232,11 @@ function registerActionYourDetails(){
 
 function checkDataYourDetail(){
 	var content = new Array();
+	var currentAge = getCurrentAge();
+	if(currentAge == 0 || currentAge < 0){
+		content.push('current-age-equal-zero');
+		return content;
+	}
 	var dob = $('#txt-birthday').val();
 	if(dob == "" || typeof dob === 'undefined' || dob === null){
 		content.push($('#txt-birthday').attr("alert-message"));
