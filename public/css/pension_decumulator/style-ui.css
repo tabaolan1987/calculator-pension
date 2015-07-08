@@ -946,10 +946,10 @@ a:focus{
 	}
 
 	.nav-tabs li.display-results a{
-		background:url(../../images/pension_decumulator/icon-savings-480.png) top left no-repeat;
+		background:url(../../images/pension_decumulator/icon-results-480.png) top left no-repeat;
 	}
 	.nav-tabs li.display-results.active a{
-		background:url(../../images/pension_decumulator/icon-savings-active-480.png) top left no-repeat;
+		background:url(../../images/pension_decumulator/icon-results-active-480.png) top left no-repeat;
 	}
 
 	.nav-tabs li.active a{
@@ -1184,10 +1184,10 @@ a:focus{
 	}
 
 	.nav-tabs li.display-results a{
-		background:url(../../images/pension_decumulator/icon-savings-320.png) top left no-repeat;
+		background:url(../../images/pension_decumulator/icon-results-320.png) top left no-repeat;
 	}
 	.nav-tabs li.display-results.active a{
-		background:url(../../images/pension_decumulator/icon-savings-active-320.png) top left no-repeat;
+		background:url(../../images/pension_decumulator/icon-results-active-320.png) top left no-repeat;
 	}
 
 	.nav-tabs li.active a{
