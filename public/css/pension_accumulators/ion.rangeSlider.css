@@ -97,6 +97,7 @@
         top: 0; left: 0;
         width: 1%; height: 8px;
         background: #000;
+		opacity:0.5;
     }
     .irs-grid-pol.small {
         //height: 4px;
