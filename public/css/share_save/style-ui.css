@@ -131,8 +131,7 @@ a:focus{
 	padding-left:13px;
 }
 
-.nav-tabs li.active,
-.nav-tabs li.parent-active{
+.nav-tabs li.active{
 	background:url(../../images/share_save/tab-bg-left-active.png) top left no-repeat;
 }
 
@@ -141,18 +140,30 @@ a:focus{
 	height:49px;
 }
 
-.nav-tabs li.active .mid,
-.nav-tabs li.parent-active .mid{
+.nav-tabs li.active .mid{
 	background:url(../../images/share_save/tab-bg-mid-active.png) top left repeat-x;
 }
 
 .nav-tabs li .mid div{
-	background:url(../../images/share_save/tab-bg-right.png) top right no-repeat;
+	//background:url(../../images/share_save/tab-bg-right.png) top right no-repeat;
 	height:49px;
+	position: relative;
 }
 
-.nav-tabs li.active  .mid div,
-.nav-tabs li.parent-active  .mid div{
+.nav-tabs li.active  .mid div{
+	//background:url(../../images/share_save/tab-bg-right-active.png) top right no-repeat;
+}
+
+.nav-tabs li .mid div .fix-bg-ie8{
+	background:url(../../images/share_save/tab-bg-right.png) top right no-repeat;
+	height:49px;
+	width: 14px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.nav-tabs li.active  .mid div .fix-bg-ie8{
 	background:url(../../images/share_save/tab-bg-right-active.png) top right no-repeat;
 }
 
@@ -191,8 +202,7 @@ a:focus{
 	width: 90%;
 }
 
-.nav-tabs li.active a,
-.nav-tabs li.parent-active a{
+.nav-tabs li.active a{
 	font-weight:bold;
 	text-decoration:none;
 }
@@ -398,7 +408,7 @@ a:focus{
 #content-tooltip{
 	background:url(../../images/share_save/tooltip-bg.png) left center no-repeat;
 	width:423px;
-	height:305px;
+	height:270px;
 	display:none;
 	z-index:2000;
 	padding-left : 60px;
@@ -409,7 +419,7 @@ a:focus{
 
 #infor-tooltip{
 	z-index : 3000;
-	height:264px;
+	height:229px;
 	overflow-y : auto;
 }
 
@@ -841,14 +851,17 @@ a:focus{
 		padding: 10px 0;
 	}
 
+	.fix-bg-ie8{
+		display: none;
+	}
+
 	.nav-tabs li{
 		background:url(../../images/share_save/tab-bg-left-480.png) top left no-repeat;
 		height:38px;
 		padding-left:11px;
 	}
 
-	.nav-tabs li.active,
-	.nav-tabs li.parent-active{
+	.nav-tabs li.active{
 		background:url(../../images/share_save/tab-bg-left-active-480.png) top left no-repeat;
 	}
 
@@ -857,8 +870,7 @@ a:focus{
 		height:38px;
 	}
 
-	.nav-tabs li.active .mid,
-	.nav-tabs li.parent-active .mid{
+	.nav-tabs li.active .mid{
 		background:url(../../images/share_save/tab-bg-mid-active-480.png) top left repeat-x;
 	}
 
@@ -867,8 +879,7 @@ a:focus{
 		height:38px;
 	}
 
-	.nav-tabs li.active  .mid div,
-	.nav-tabs li.parent-active  .mid div{
+	.nav-tabs li.active  .mid div{
 		background:url(../../images/share_save/tab-bg-right-active-480.png) top right no-repeat;
 	}
 
@@ -905,8 +916,7 @@ a:focus{
 		font-size: 12px;
 	}
 
-	.nav-tabs li.active a,
-	.nav-tabs li.parent-active a{
+	.nav-tabs li.active a{
 		font-weight:bold;
 		text-decoration:none;
 	}
@@ -1084,8 +1094,7 @@ a:focus{
 		padding-left:7px;
 	}
 
-	.nav-tabs li.active,
-	.nav-tabs li.parent-active{
+	.nav-tabs li.active{
 		background:url(../../images/share_save/tab-bg-left-active-320.png) top left no-repeat;
 	}
 
@@ -1094,8 +1103,7 @@ a:focus{
 		height:25px;
 	}
 
-	.nav-tabs li.active .mid,
-	.nav-tabs li.parent-active .mid{
+	.nav-tabs li.active .mid{
 		background:url(../../images/share_save/tab-bg-mid-active-320.png) top left repeat-x;
 	}
 
@@ -1104,8 +1112,7 @@ a:focus{
 		height:25px;
 	}
 
-	.nav-tabs li.active  .mid div,
-	.nav-tabs li.parent-active  .mid div{
+	.nav-tabs li.active  .mid div{
 		background:url(../../images/share_save/tab-bg-right-active-320.png) top right no-repeat;
 	}
 
@@ -1141,8 +1148,7 @@ a:focus{
 		margin:2px 0 0 1px;
 	}
 
-	.nav-tabs li.active a,
-	.nav-tabs li.parent-active a{
+	.nav-tabs li.active a{
 		font-weight:bold;
 		text-decoration:none;
 	}
@@ -1264,6 +1270,19 @@ a:focus{
 	/*icon calendar*/
 	.wrap-img-calendar{
 	    width:16px;
+	}
+
+	.title h3{
+		padding-left: 15px;
+	}
+
+	#important-text,
+	#assump-text{
+		padding: 0 10px;
+	}
+
+	#disclamer-page{
+		padding-left: 15px;
 	}
 
 	/*bootstrap overide*/

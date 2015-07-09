@@ -4,7 +4,25 @@
 <id-element>infor-monthly-savings</id-element>
 <name>infor-monthly-savings</name>
 <message><![CDATA[
-<p>Select the amount that you are contributing to the scheme each month.</p>]]></message>
+<pMonthly savings amount</p>
+<p>Select the amount that you are contributing to the scheme each month.</p>
+<p>Select the amount that you are contributing to the scheme each month.</p>
+<p>Select the amount that you are contributing to the scheme each month.</p>
+<p>Select the amount that you are contributing to the scheme each month.</p>
+<p>Select the amount that you are contributing to the scheme each month.</p>
+<p>Select the amount that you are contributing to the scheme each month.</p>
+<p>Select the amount that you are contributing to the scheme each month.</p>
+<p>Select the amount that you are contributing to the scheme each month.</p>
+<p>Select the amount that you are contributing to the scheme each month.</p>
+<p>Select the amount that you are contributing to the scheme each month.</p>
+<p>Select the amount that you are contributing to the scheme each month.</p>
+<p>Select the amount that you are contributing to the scheme each month.</p>
+<p>Select the amount that you are contributing to the scheme each month.</p>
+<p>Select the amount that you are contributing to the scheme each month.</p>
+<p>Select the amount that you are contributing to the scheme each month.</p>
+<p>Select the amount that you are contributing to the scheme each month.</p>
+<p>Select the amount that you are contributing to the scheme each month.</p>
+]]></message>
 </infor>
 <infor>
 <id-element>infor-duration-time</id-element>
