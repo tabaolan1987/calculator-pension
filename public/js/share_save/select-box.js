@@ -73,6 +73,19 @@
 		}
 	}
 	
+
+	$(document).mouseup(function (e)
+	{
+		var container = $(".selectBoxOptionContainer");
+
+		if (!container.is(e.target) // if the target of the click isn't the container...
+			&& container.has(e.target).length === 0) // ... nor a descendant of the container
+		{
+			container.hide();
+		}
+	});
+
+	
 	function selectOptionValue()
 	{
 		var parentNode = this.parentNode.parentNode.parentNode.parentNode;
@@ -116,7 +129,7 @@
 		parent.insertBefore(div,dest);
 		div.appendChild(dest);	
 		div.className='selectBox';
-		div.style.zIndex = 10000 - selectBoxIds;
+		div.style.zIndex = 99 - selectBoxIds;
 
 		var img = document.createElement('IMG');
 		img.src = arrowImage;

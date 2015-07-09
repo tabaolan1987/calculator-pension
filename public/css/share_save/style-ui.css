@@ -215,20 +215,6 @@ a:focus{
 	background:url(../../images/share_save/icon-return-results-active.png) top left no-repeat;
 }
 
-/*.nav-tabs li:nth-child(2) a:active{
-	background:url(../../images/share_save/icon-about-you-hover.png) top left no-repeat;
-}
-.nav-tabs li:nth-child(4) a:hover{
-	background:url(../../images/share_save/icon-about-you-hover.png) top left no-repeat;
-}
-.nav-tabs li:nth-child(5) a:hover{
-	background:url(../../images/share_save/icon-about-you-hover.png) top left no-repeat;
-}*/
-
-.nav-tabs li.active a{
-	background:url(../../images/share_save/icon-about-you-hover.png) top left no-repeat;
-}
-
 .child{
 	display:none !important;
 }
@@ -943,10 +929,6 @@ a:focus{
 		background:url(../../images/share_save/icon-return-results-active-480.png) top left no-repeat;
 	}
 
-	.nav-tabs li.active a{
-		background:url(../../images/share_save/icon-about-you-hover-480.png) top left no-repeat;
-	}
-
 
 	/*tooltip*/
 	.icon-tooltip{
@@ -1181,10 +1163,6 @@ a:focus{
 	}
 	.nav-tabs li.results.active a{
 		background:url(../../images/share_save/icon-return-results-active-320.png) top left no-repeat;
-	}
-
-	.nav-tabs li.active a{
-		background:url(../../images/share_save/icon-about-you-hover-320.png) top left no-repeat;
 	}
 
 	/*tooltip*/
