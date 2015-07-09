@@ -352,6 +352,12 @@ function updateMessage(yearNeedLast,yearMayLast,shortFallYear){
 	$('.display-result-percent-amount').html(addCommas(fixed2Decimal(taxPercen)));
 	
 	//print div
+	var importantText = $("#important-text").html();
+	var assumptionText = $("#assump-text").html();
+	var disclamerText = $("#disclamer-infor").html();
+	$("#disclamer-print").html(disclamerText);
+	$("#important-print").html(importantText);
+	$("#assump-print").html(assumptionText);
 	$('.print-fund-value').html(addCommas(fundValue));
 	$('.print-grow-rate').html(grow_rate);
 	$('.print-annual-income').html(addCommas(annualIncome));
