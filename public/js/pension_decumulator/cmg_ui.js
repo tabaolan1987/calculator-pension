@@ -160,7 +160,7 @@ function drawCalendar(){
     var cal = Calendar.setup({
 	    inputField : "txt-birthday",
 	    trigger    : "image-calendar-trigger",
-		dateFormat : "%b %e, %Y",
+		dateFormat : "%e %b %Y",
 	    onSelect   : function() { this.hide() ;isUpdate=true;}
 		
 	});
