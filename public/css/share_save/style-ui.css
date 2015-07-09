@@ -638,6 +638,7 @@ a:focus{
 	background-color: #06038d;
 	height:25px;
 	padding:2px 12px;
+	font-weight: bold;
 }
 
 #wrap-tab .btn-print{
@@ -791,7 +792,7 @@ a:focus{
 @media screen and (max-width: 991px) {
 	.left-content{
 		//border-right: none;
-		min-height: auto;
+		min-height: inherit;
 	}
 
 	.right-content{
