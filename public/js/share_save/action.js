@@ -80,7 +80,7 @@ function registerHoverAction(){
 		var n = background.indexOf("480");
 		if(n == -1){
 			var left = $(this).offset().left;
-			var topTool =  top - 153;
+			var topTool =  top - 135;
 			$("#content-tooltip").css({
 				position: 'fixed',
 				top: topTool,
@@ -240,6 +240,13 @@ function updateMessage(durationSave,amountSaved,numOption,optValueSold,estimateP
 	$('.print-amount-saved').html(addCommas(round(amountSaved)));
 	$('.print-estimated-profit').html(addCommas(fixed2Decimal(estimateProfit)));
 	$('.print-percent-increase').html(percentIncrease);
+	
+	var importantText = $("#important-text").html();
+	var assumptionText = $("#assump-text").html();
+	var disclamerText = $("#disclamer-infor").html();
+	$("#disclamer-print").html(disclamerText);
+	$("#important-print").html(importantText);
+	$("#assump-print").html(assumptionText);
 }
 
 
