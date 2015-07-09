@@ -379,6 +379,8 @@ function updateMessage(yearNeedLast,yearMayLast,shortFallYear){
 		$(".result-based-current").css("color","blue");
 		$(".funds-year").css("color","blue");
 		$(".print-show-shortfall-inform").hide();
+		$(".have-shortfall").hide();
+		$(".no-shortfall").show();
 	}
 }
 
