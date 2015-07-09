@@ -65,11 +65,11 @@ function registerHoverAction(){
 		var n = background.indexOf("480");
 		if(n == -1){
 			var left = $(this).offset().left;
-			var topTool =  top - 155;
+			var topTool =  top - 137;
 			$("#content-tooltip").css({
 				position: 'fixed',
 				top: topTool,
-				left: left + $(this).width()
+				left: left + $(this).width()-3
 			});
 		}else{
 			var left = $(this).offset().left;
