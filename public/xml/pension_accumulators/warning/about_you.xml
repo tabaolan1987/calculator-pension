@@ -6,6 +6,6 @@
 </warning-simple>
 <warning-special>
 <name>retireAge-smaller-than-currentAge</name>
-<message><![CDATA[<p>something will be write in here for special</p>]]></message>
+<message><![CDATA[<p>Please select a retirement age that is equal to or greater than your current age.</p>]]></message>
 </warning-special>
 </warning_popups>
