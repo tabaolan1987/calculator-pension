@@ -845,7 +845,7 @@ a:focus{
 
 	.left-content{
 		height: auto;
-		min-height: auto;
+		min-height: inherit;
 	}
 
 	.tab-content .btnNext, .tab-content .btnPrevious, .btn-print{
@@ -1085,9 +1085,21 @@ a:focus{
 		font-size: 14px;
 	}
 
+	.display-result-link{
+		font-size: 10px;
+	}
+
+	.right-content h3{
+		font-size: 18px;
+	}
+
 	/**/
 	.tab-content{
 		margin-top: 10px;	
+	}
+
+	.left-content{
+		padding: 0 5px;
 	}
 
 	.right-content {
