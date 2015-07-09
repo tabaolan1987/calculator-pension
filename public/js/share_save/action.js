@@ -21,10 +21,12 @@ function isNumberKey(evt,e){
    if (charCode != 46 && charCode > 31
     && (charCode < 48 || charCode > 57)){
 		return false;
+	}else  if(evt.keyCode == 46 || evt.keyCode == 8){
+		return true;
 	}
-	var vl = parseFloatCMG($(e).val());
-	var maxlength = $(e).attr("length");
-	if(vl.toString().length >= maxlength){
+	var vl = parseFloatCMG($(e).val()) + "";
+	var maxlength = parseFloatCMG($(e).attr("length"));
+	if(vl.length >= maxlength){
 		return false;
 	}
 	
@@ -86,7 +88,7 @@ function registerHoverAction(){
 			});
 		}else{
 			var left = $(this).offset().left;
-			var topTool =  top - 93;
+			var topTool =  top - 75;
 			$("#content-tooltip").css({
 					position: 'fixed',
 					top: topTool,
@@ -107,10 +109,6 @@ function registerHoverAction(){
 
 
 function registerActionShareDetail(){
-	
-	$('.read-only').on('change',function(){
-		isUpdateField = true;
-	});
 	
 	
 	$('#txt-option-price').on('blur', function() {
