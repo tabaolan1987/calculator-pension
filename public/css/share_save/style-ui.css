@@ -1085,6 +1085,10 @@ a:focus{
 		margin:10px 0;
 	}
 
+	.left-content {
+	    padding: 0 5px;
+	}
+
 	.tab-pane .row-rule{
 		padding: 10px 0;
 	}
