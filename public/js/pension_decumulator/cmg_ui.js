@@ -116,7 +116,7 @@ function updateFundNeedToLast(year){
 }
 
 function updateFundMayToLast(year,yearOfShortFall){
-	$("#year-may-last").html(year);
+	$("#year-may-last").html(getStringYear(year));
 	var coinBlue = $('.coinBlue').length;
 	if(coinBlue == totalCoin){
 		$("#coin-title-right").fadeIn();
