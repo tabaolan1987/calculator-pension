@@ -41,20 +41,18 @@ table.DynarchCalendar-titleCont {
   background-color: #fff;
   border: 1px solid #000;
   padding: 4px 16px;
-  //background-image: url("img/drop-down.gif");
+  background-image: url("../../images/pension_decumulator/drop-down.gif");
   background-repeat: no-repeat;
   background-position: 100% 50%;
-  //display: none;
 }
 .DynarchCalendar-pressed-title div {
   border: 1px solid #000;
   padding: 4px 16px;
   background-color: #777;
   color: #fff;
-  //background-image: url("img/drop-up.gif");
+  background-image: url("../../images/pension_decumulator/drop-up.gif");
   background-repeat: no-repeat;
   background-position: 100% 50%;
-  //display: none;
 }
 
 
