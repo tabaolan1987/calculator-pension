@@ -192,13 +192,11 @@ table.DynarchCalendar-titleCont {
 }
 
 .DynarchCalendar-prevYear div {
-  //background-image: url("img/nav-left-x2.gif");
-  display: none;
+  background-image: url("../../images/pension_decumulator/nav-left-x2.gif");
 }
 
 .DynarchCalendar-nextYear div {
-  //background-image: url("img/nav-right-x2.gif");
-  display: none;
+  background-image: url("../../images/pension_decumulator/nav-right-x2.gif");
 }
 
 .DynarchCalendar-menu {
