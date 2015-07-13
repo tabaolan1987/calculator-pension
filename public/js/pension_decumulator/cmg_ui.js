@@ -123,6 +123,8 @@ function updateFundMayToLast(year,yearOfShortFall){
 	$("#year-may-last").html(getStringYear(year));
 	var coinBlue = $('.coinBlue').length;
 	if(coinBlue == totalCoin){
+		$("#coin-title-right").css("top","6px");
+		$(".top-arrow").css("top","6px");
 		$("#coin-title-right").fadeIn();
 	}else if(coinBlue < totalCoin){
 		var coinForShortFall = totalCoin - coinBlue;
