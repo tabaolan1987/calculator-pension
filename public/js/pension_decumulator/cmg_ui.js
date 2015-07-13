@@ -80,7 +80,7 @@ function fallingCoinBlue(index,year,yearOfShortFall){
 	var heightImage = $(coin).height() / 2 - 5;
 	var moveToBottom = heightContainer - (heightImage * index);
 	var angle = 70 * (index % 2 === 0 ? 1 : -1);
-	$(coin).animateRotate(angle, moveToBottom, 300-heightImage*index, 'linear', function () {
+	$(coin).animateRotate(angle, moveToBottom, 400-heightImage*index, 'linear', function () {
         if (index < coinblue) {
                 index = index + 1;
                 fallingCoinBlue(index,year,yearOfShortFall);
@@ -100,7 +100,7 @@ function animationShortFall(height,shortFall){
 			$(".arrow-mid").css("padding-top",(height/2-22)+"px");
 			eneableButton();
 		});
-	}, 200);
+	}, 1000);
 }
 
 
@@ -117,6 +117,7 @@ function updateFundNeedToLast(year){
 	
 	$("#coin-title-right").css("top",(top - numberAdded)+"px");
 	$(".top-arrow").css("top",(top - numberAdded)+"px");
+	$(".top-arrow").css("position","relative");
 }
 
 function updateFundMayToLast(year,yearOfShortFall){
@@ -128,25 +129,17 @@ function updateFundMayToLast(year,yearOfShortFall){
 		$("#coin-title-right").fadeIn();
 	}else if(coinBlue < totalCoin){
 		var coinForShortFall = totalCoin - coinBlue;
-		console.log(coinForShortFall);
 		if(coinForShortFall > 5){
 			var numberDecimal = 5;
 			if($('.coinBlue').height() == 49){
 				numberDecimal = 4;
 			}
 			var heighAdded = (coinForShortFall*($('.coinBlue').height() / 2 - numberDecimal))-($(".arrow-top").height()*2) ;
-			console.log($('.coinBlue').height());
-			console.log($(".arrow-top").height()*2);
-			
 			$("#coin-title-right").fadeIn(function(){
-				//$(".top-arrow").css("top",6);
-				$(".top-arrow").css("position","relative");
 				animationShortFall(heighAdded,yearOfShortFall);
 			});
 		}else{
 			$("#coin-title-right").fadeIn(function(){
-				//$(".top-arrow").css("top",6);
-				$(".top-arrow").css("position","relative");
 				animationShortFall(42,yearOfShortFall);
 			});
 		}
