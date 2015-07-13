@@ -304,9 +304,18 @@ function registerActionResult(){
 	});
 }
 
+function disableButton(){
+	$('#print-data').attr('disabled','disabled');
+	$('#btn-advanced').attr('disabled','disabled');
+}
 
+function eneableButton(){
+	$('#print-data').removeAttr('disabled');
+	$('#btn-advanced').removeAttr('disabled');
+}
 
 function drawChart(){
+	disableButton();
 	showRightContent();
 	showChartRight();
 	var fundPot = getFundPot();
@@ -349,7 +358,7 @@ function updateMessage(yearNeedLast,yearMayLast,shortFallYear){
 	$('.display-result-pound-fund').html(addCommas(fundValue));
 	$('.display-result-pound-annual').html(addCommas(annualIncome));
 	$('.display-result-pound-amount').html(addCommas(round(taxfreeCash)));
-	$('.display-result-percent-amount').html(addCommas(fixed2Decimal(taxPercen)));
+	$('.display-result-percent-amount').html(addCommas(fixed(taxPercen)));
 	
 	//print div
 	var importantText = $("#important-text").html();
@@ -362,7 +371,7 @@ function updateMessage(yearNeedLast,yearMayLast,shortFallYear){
 	$('.print-grow-rate').html(grow_rate);
 	$('.print-annual-income').html(addCommas(annualIncome));
 	$('.print-tax-free-cash').html(addCommas(round(taxfreeCash)));
-	$('.print-tax-free-percent').html(addCommas(fixed2Decimal(taxPercen)));
+	$('.print-tax-free-percent').html(addCommas(fixed(taxPercen)));
 	$('.print-retirement-age').html(addCommas(currentAge));
 	$(".print-years-need-last").html(getStringYear(yearNeedLast));
 	$(".print-years-may-last").html(getStringYear(yearMayLast));

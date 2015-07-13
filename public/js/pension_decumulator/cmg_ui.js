@@ -98,6 +98,7 @@ function animationShortFall(height,shortFall){
 			$('.pound-shortfall').html(getStringYear(shortFall));
 			$('.shortfall').fadeIn(1000);
 			$(".arrow-mid").css("padding-top",(height/2-22)+"px");
+			eneableButton();
 		});
 	}, 200);
 }
@@ -127,9 +128,14 @@ function updateFundMayToLast(year,yearOfShortFall){
 		var coinForShortFall = totalCoin - coinBlue;
 		console.log(coinForShortFall);
 		if(coinForShortFall > 5){
-			var heighAdded = (coinForShortFall * ($('.coinBlue').height() / 2 - 5)) - ($(".arrow-top").height()*2) ;
+			var numberDecimal = 5;
+			if($('.coinBlue').height() == 49){
+				numberDecimal = 4;
+			}
+			var heighAdded = (coinForShortFall*($('.coinBlue').height() / 2 - numberDecimal))-($(".arrow-top").height()*2) ;
 			console.log($('.coinBlue').height());
 			console.log($(".arrow-top").height()*2);
+			
 			$("#coin-title-right").fadeIn(function(){
 				//$(".top-arrow").css("top",6);
 				$(".top-arrow").css("position","relative");

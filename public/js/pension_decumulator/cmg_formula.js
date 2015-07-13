@@ -56,9 +56,8 @@ function fixed(number){
 	return newnumber;
 }
 
-
 function fixed2Decimal(number){
-	var newnumber = new Number(number).toFixed(3);
+	var newnumber = new Number(number).toFixed(2);
 	return newnumber;
 }
 
