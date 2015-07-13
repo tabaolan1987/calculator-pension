@@ -113,6 +113,9 @@ function updateFundNeedToLast(year){
 	$("#coin-title-left").css("top",(top - numberAdded)+"px");
 	$("#coin-title-left").css("position","relative");
 	$("#coin-title-left").fadeIn();
+	
+	$("#coin-title-right").css("top",(top - numberAdded)+"px");
+	$(".top-arrow").css("top",(top - numberAdded)+"px");
 }
 
 function updateFundMayToLast(year,yearOfShortFall){
@@ -122,16 +125,19 @@ function updateFundMayToLast(year,yearOfShortFall){
 		$("#coin-title-right").fadeIn();
 	}else if(coinBlue < totalCoin){
 		var coinForShortFall = totalCoin - coinBlue;
+		console.log(coinForShortFall);
 		if(coinForShortFall > 5){
-			var heighAdded = coinForShortFall * ($('.coinBlue').height() / 2 - 5) - 54;
+			var heighAdded = (coinForShortFall * ($('.coinBlue').height() / 2 - 5)) - ($(".arrow-top").height()*2) ;
+			console.log($('.coinBlue').height());
+			console.log($(".arrow-top").height()*2);
 			$("#coin-title-right").fadeIn(function(){
-				$(".top-arrow").css("top",6);
+				//$(".top-arrow").css("top",6);
 				$(".top-arrow").css("position","relative");
 				animationShortFall(heighAdded,yearOfShortFall);
 			});
 		}else{
 			$("#coin-title-right").fadeIn(function(){
-				$(".top-arrow").css("top",6);
+				//$(".top-arrow").css("top",6);
 				$(".top-arrow").css("position","relative");
 				animationShortFall(42,yearOfShortFall);
 			});
