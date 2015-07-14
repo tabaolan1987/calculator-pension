@@ -21,7 +21,10 @@
         <script src="js/pension_decumulator/respond.min.js"></script>
       <![endif]-->
       <script src="js/pension_decumulator/bootstrap.min.js"></script>
-	  <script type="text/javascript" src="js/pension_decumulator/analytics.js"></script>
+	  <script src="js/pension_decumulator/analytics.js" type="text/javascript" ></script>
+	   <script src="js/pension_decumulator/inputmask.js" type="text/javascript"></script>
+	 <script src="js/pension_decumulator/jquery.inputmask.js" type="text/javascript"></script>
+	  <script src="js/pension_decumulator/inputmask.date.extensions.js" type="text/javascript"></script>
       <script type="text/javascript" src="js/pension_decumulator/ion.rangeSlider.js"></script>
       <script type="text/javascript" src="js/pension_decumulator/accounting_min.js"></script>
       <!--calendar-->
@@ -90,7 +93,7 @@
                   <div class="tab-pane active" id="tab1">
                      <div class="row row-rule">
                         <div class="col-xs-7 col-sm-9 col-md-8 mobile-padding-left"><span id="date-of-birth" class="icon-tooltip"></span><span class="label-tooltip">What is your date of birth?</span></div>
-                        <div class="col-xs-5 col-sm-3 col-md-4 col-calendar"><div class="calendar-wrap"><input readonly="readonly" alert-message="date of birth" id='txt-birthday' type="text" class="form-control input-birthday" placeholder=""/></div>
+                        <div class="col-xs-5 col-sm-3 col-md-4 col-calendar"><div class="calendar-wrap"><input d="" data-inputmask="'alias': 'date'" alert-message="date of birth" id='txt-birthday' type="text" class="form-control input-birthday"/></div>
 						<div class="wrap-img-calendar"><img src="images/pension_decumulator/calendar-bg.png" id="image-calendar-trigger" class="img-responsive" style="cursor: pointer;" title="Date selector" onmouseover="this.style.background='red';" onmouseout="this.style.background=''"/></div> </div>
                      </div>
                      <div class="row row-rule">
@@ -261,6 +264,7 @@
       <div id='check-ui' class="hidden-sm hidden-xs"></div>
       <script type="text/javascript" >
 			$(document).ready(function(){
+				// $(":input").inputmask();
 				setupDisclammerPage();
 			 });
       </script>

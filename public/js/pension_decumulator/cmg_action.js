@@ -116,6 +116,24 @@ function isNumberKey(evt,e){
 
 function registerActionYourDetails(){
 	
+	$('#txt-birthday').on('focus', function() {
+		$('#txt-birthday').val($('#txt-birthday').attr('d'));
+		$('#txt-birthday').inputmask('dd/mm/yyyy');
+	});
+	$('#txt-birthday').on('blur', function() {
+		var isValid = inputmask.isValid($(this).val(),{alias:"dd/mm/yyyy"});
+		if(isValid == true){
+			$('#txt-birthday').attr('d',$(this).val());
+			var dateChoice  = new Date($(this).val());
+			$('#txt-birthday').inputmask('remove');	
+			var test = Calendar.printDate(dateChoice, "%e %b %Y");
+			$(this).val(test);
+		}else{
+			$('#txt-birthday').val('');
+		}
+		
+	});
+	
 	$('#txt-current-salary').on('blur', function() {
 		currentSalary = parseFloatCMG($(this).val());
 		var number = parseFloatCMG($(this).val());
