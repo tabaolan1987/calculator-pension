@@ -262,7 +262,7 @@ function checkDataYourDetail(){
 		return content;
 	}
 	var dob = $('#txt-birthday').val();
-	if(dob == "" || typeof dob === 'undefined' || dob === null){
+	if(dob == "" || typeof dob === 'undefined' || dob === null || dob === "dd/mm/yyyy"){
 		content.push($('#txt-birthday').attr("alert-message"));
 	}
 	var gender = getGender();
