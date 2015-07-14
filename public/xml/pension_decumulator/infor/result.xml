@@ -3,8 +3,10 @@
 <infor>
 <id-element>estimated_life_expectancy</id-element>
 <name>estimated_life_expectancy</name>
-<message><![CDATA[<p>estimated life expectancy</p>]]></message>
+<message><![CDATA[<p><b><font color='#06038d'>Life expectancy</font></b></p>
+<p>This calculator uses life expectancy based on 2012 population projections developed by the Office for National Statistics.</p>]]></message>
 </infor>
+<!--Info text for Advanced pop up -->
 <infor>
 <id-element>annual-grow-infor-popup</id-element>
 <name>annual grow information</name>
@@ -13,7 +15,7 @@
 <infor>
 <id-element>annual-charge-infor-popup</id-element>
 <name>annual charge information</name>
-<message><![CDATA[<p>Change the percentage to match the charges you are paying on your current pension(s).</p>
-<p>The charges you pay have a direct impact on your fund.</p>]]></message>
+<message><![CDATA[<p>Change the percentage to match the charges you are paying to your provider.</p>
+<p>The charges you pay can have an impact on the length of time your fund will last.</p>]]></message>
 </infor>
 </infor_popups>

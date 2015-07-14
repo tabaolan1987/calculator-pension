@@ -6,6 +6,6 @@
 </warning-simple>
 <warning-simple>
 <name>current-age-equal-zero</name>
-<message><![CDATA[Your current age is now equal zero so please choose another date of birth]]></message>
+<message><![CDATA[You have selected today's date or a date in the future, please select your date of birth.]]></message>
 </warning-simple>
 </warning_popups>

@@ -66,6 +66,7 @@ function fixed3Decimal(number){
 	return newnumber;
 }
 
+
 function getDOB(){
 	var dob = $("#txt-birthday").val();
 	return dob;
@@ -111,10 +112,21 @@ function getInflationAdjust(){
 	return inFlat;
 }
 
+function getAge(dateString) {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
+
 
 function getCurrentAge(){
 	var dob = getDOB();
-	var currentAge = new Date().getFullYear() - new Date(dob).getFullYear();
+	var currentAge = getAge(dob);
 	return currentAge;
 }
 
