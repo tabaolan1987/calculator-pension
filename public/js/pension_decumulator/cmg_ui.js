@@ -124,8 +124,12 @@ function updateFundMayToLast(year,yearOfShortFall){
 	$("#year-may-last").html(getStringYear(year));
 	var coinBlue = $('.coinBlue').length;
 	if(coinBlue == totalCoin){
-		$("#coin-title-right").css("top","6px");
-		$(".top-arrow").css("top","6px");
+		var last = coinBlue -1;
+		var top = ($("#coinBlue"+last).position().top + 15) - $("#coin-title-right").height() ;
+		var paddingTop = $("#coin-title-right").css("padding-top");
+		var numberAdded = accounting.unformat(paddingTop);
+		$("#coin-title-right").css("top",(top - numberAdded)+"px");
+		$(".top-arrow").css("top",(top - numberAdded)+"px");
 		$("#coin-title-right").fadeIn(function(){
 			eneableButton();
 		});

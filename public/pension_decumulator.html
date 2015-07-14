@@ -220,7 +220,7 @@
                </div>
                <div class="modal-body modal-estimated">
                   <div id="modal-grow" class="">
-					<div class="col-xs-12 col-sm-12"><span information-message="annual grow information" id="annual-grow-infor-popup"  class="icon-tooltip"></span><span class="label-tooltip">What growth rate would you like your illustration to be based on??</span></div>
+					<div class="col-xs-12 col-sm-12"><span information-message="annual grow information" id="annual-grow-infor-popup"  class="icon-tooltip"></span><span class="label-tooltip">What growth rate would you like your illustration to be based on?</span></div>
 				  </div>
 				  <div id="modal-slide-grow" class="">
 					<div class="col-xs-12 col-sm-12"><span information-message="annual charge information" id="annual-charge-infor-popup" class="icon-tooltip"></span><span class="label-tooltip">What overall charges would you like to include in your illustration?</span></div>
@@ -259,13 +259,13 @@
             <p>Your chosen annual income is <b>£</b><b class="print-annual-income">35,000</b>.</p>
             <p>Your chosen tax free cash amount is <b>£</b><b class="print-tax-free-cash">35,000</b> (<b class="print-tax-free-percent">17</b><b>%</b>).</p>
             <p>Based on the current values you have entered and a growth rate of <b class="print-grow-rate">5</b><b>%</b>,  your funds may last you: <b class="print-years-may-last">5 years</b></p>
-            <p>According to the Office for National Statistics (ONS) your estimated life expectancy from age <b class="print-retirement-age">55</b> is <b class="print-years-need-last">31 years.</b> <b class="print-show-shortfall-inform">.You have a shortfall of <span class="print-shortfall-year">26 years</span>.</b></p>
+            <p>According to the Office for National Statistics (ONS) your estimated life expectancy from age <b class="print-retirement-age">55</b> is <b class="print-years-need-last">31 years.</b><b class="print-show-shortfall-inform">.You have a shortfall of <span class="print-shortfall-year">26 years</span>.</b></p>
          </div>
       </div>
       <div id='check-ui' class="hidden-sm hidden-xs"></div>
       <script type="text/javascript" >
 			$(document).ready(function(){
-				//$('#txt-birthday').inputmask('dd/mm/yyyy');
+				$('#txt-birthday').val('dd/mm/yyyy');
 				setupDisclammerPage();
 			 });
       </script>
