@@ -31,10 +31,11 @@
       <script type="text/javascript" src="js/pension_decumulator/jscal2.js"></script>
       <script type="text/javascript" src="js/pension_decumulator/en.js"></script>
 
-      <script type="text/javascript" src="js/pension_decumulator/cmg_data.js"></script>
-      <script type="text/javascript" src="js/pension_decumulator/cmg_formula.js"></script>
-      <script type="text/javascript" src="js/pension_decumulator/cmg_action.js"></script>
-      <script type="text/javascript" src="js/pension_decumulator/cmg_ui.js"></script>
+      <script type="text/javascript" src="js/pension_decumulator/cmg_data_min.js"></script>
+      <script type="text/javascript" src="js/pension_decumulator/cmg_formula_min.js"></script>
+	   <script type="text/javascript" src="js/pension_decumulator/cmg_ui_min.js"></script>
+      <script type="text/javascript" src="js/pension_decumulator/cmg_action_min.js"></script>
+    
    </head>
    <body>
       <div class="container-fluid" id="wrapper">
@@ -93,7 +94,7 @@
                   <div class="tab-pane active" id="tab1">
                      <div class="row row-rule">
                         <div class="col-xs-7 col-sm-9 col-md-8 mobile-padding-left"><span id="date-of-birth" class="icon-tooltip"></span><span class="label-tooltip">What is your date of birth?</span></div>
-                        <div class="col-xs-5 col-sm-3 col-md-4 col-calendar"><div class="calendar-wrap"><input d="" data-inputmask="'alias': 'date'" alert-message="date of birth" id='txt-birthday' type="text" class="form-control input-birthday"/></div>
+                        <div class="col-xs-5 col-sm-3 col-md-4 col-calendar"><div class="calendar-wrap"><input data-inputmask="'alias': 'date'" alert-message="date of birth" id='txt-birthday' type="text" class="form-control input-birthday"/></div>
 						<div class="wrap-img-calendar"><img src="images/pension_decumulator/calendar-bg.png" id="image-calendar-trigger" class="img-responsive" style="cursor: pointer;" title="Date selector" onmouseover="this.style.background='red';" onmouseout="this.style.background=''"/></div> </div>
                      </div>
                      <div class="row row-rule">
@@ -258,13 +259,13 @@
             <p>Your chosen annual income is <b>£</b><b class="print-annual-income">35,000</b>.</p>
             <p>Your chosen tax free cash amount is <b>£</b><b class="print-tax-free-cash">35,000</b> (<b class="print-tax-free-percent">17</b><b>%</b>).</p>
             <p>Based on the current values you have entered and a growth rate of <b class="print-grow-rate">5</b><b>%</b>,  your funds may last you: <b class="print-years-may-last">5 years</b></p>
-            <p>According to the Office for National Statistics (ONS) your estimated life expectancy from age <b class="print-retirement-age">55</b> is <b class="print-years-need-last">31  years.</b> <b class="print-show-shortfall-inform">. You have a shortfall of <span class="print-shortfall-year">26 years</span>.</b></p>
+            <p>According to the Office for National Statistics (ONS) your estimated life expectancy from age <b class="print-retirement-age">55</b> is <b class="print-years-need-last">31 years.</b> <b class="print-show-shortfall-inform">.You have a shortfall of <span class="print-shortfall-year">26 years</span>.</b></p>
          </div>
       </div>
       <div id='check-ui' class="hidden-sm hidden-xs"></div>
       <script type="text/javascript" >
 			$(document).ready(function(){
-				// $(":input").inputmask();
+				//$('#txt-birthday').inputmask('dd/mm/yyyy');
 				setupDisclammerPage();
 			 });
       </script>

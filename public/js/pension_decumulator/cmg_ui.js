@@ -126,7 +126,9 @@ function updateFundMayToLast(year,yearOfShortFall){
 	if(coinBlue == totalCoin){
 		$("#coin-title-right").css("top","6px");
 		$(".top-arrow").css("top","6px");
-		$("#coin-title-right").fadeIn();
+		$("#coin-title-right").fadeIn(function(){
+			eneableButton();
+		});
 	}else if(coinBlue < totalCoin){
 		var coinForShortFall = totalCoin - coinBlue;
 		if(coinForShortFall > 5){
@@ -152,33 +154,22 @@ function updateFundMayToLast(year,yearOfShortFall){
 /*------------------------------------------------------*/
 
 function drawCalendar(){
-
-	/*Calendar.setup({
-        inputField     :    "txt-birthday",     // id of the input field
-        ifFormat       :    "%b %e, %Y",      // format of the input field
-        button         :    "image-calendar-trigger",  // trigger for the calendar (button ID)
-        align          :    "Bl",           // alignment (defaults to "Bl") Tl
-        singleClick    :    true,
-		onUpdate : function (){
-			isUpdate = true;
-		}
-    });*/
-
-    var cal = Calendar.setup({
+     var cal = Calendar.setup({
 	    inputField : "txt-birthday",
 	    trigger    : "image-calendar-trigger",
 		dateFormat : "%e %b %Y",
-	    onSelect   : function() { this.hide() ;isUpdate=true;}
-		
+	    onSelect   : function() {
+			var date = cal.selection.print("%Y-%m-%d", "...");
+			if(date.length > 0){
+				date = date.join("\n");
+				date = date.split("-");
+				var format = date[2]+"/"+date[1]+"/"+date[0];
+				$('#txt-birthday').attr('d',format);
+			}
+			isUpdate=true;
+			this.hide();
+		}
 	});
-	
-	//cal.manageFields("image-calendar-trigger", "txt-birthday", "%b %e, %Y");
-	
-	//fix vertical-align mid for ie8
-	/*$("#image-calendar-trigger").click(function(){
-	    $("#txt-birthday").focus();
-	});*/
-
 }
 
 /*------------------------------------------------------*/

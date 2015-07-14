@@ -117,20 +117,24 @@ function isNumberKey(evt,e){
 function registerActionYourDetails(){
 	
 	$('#txt-birthday').on('focus', function() {
-		$('#txt-birthday').val($('#txt-birthday').attr('d'));
 		$('#txt-birthday').inputmask('dd/mm/yyyy');
+		$('#txt-birthday').val($('#txt-birthday').attr('d'));
 	});
+	
 	$('#txt-birthday').on('blur', function() {
 		var isValid = inputmask.isValid($(this).val(),{alias:"dd/mm/yyyy"});
 		if(isValid == true){
 			$('#txt-birthday').attr('d',$(this).val());
-			var dateChoice  = new Date($(this).val());
+			var currentVl = $(this).val();
+			var numbers = currentVl.match(/\d+/g); 
+			var date = new Date(numbers[2], numbers[1]-1, numbers[0]);
 			$('#txt-birthday').inputmask('remove');	
-			var test = Calendar.printDate(dateChoice, "%e %b %Y");
+			var test = Calendar.printDate(date, "%e %b %Y");
 			$(this).val(test);
 		}else{
 			$('#txt-birthday').val('');
 		}
+		isUpdate = true;
 		
 	});
 	
