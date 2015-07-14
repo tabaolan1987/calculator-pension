@@ -132,7 +132,9 @@ function registerActionYourDetails(){
 			var test = Calendar.printDate(date, "%e %b %Y");
 			$(this).val(test);
 		}else{
+			$('#txt-birthday').inputmask('remove');
 			$('#txt-birthday').val('dd/mm/yyyy');
+			$('#txt-birthday').attr('d','');
 		}
 		isUpdate = true;
 		
