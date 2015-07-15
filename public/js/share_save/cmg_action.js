@@ -202,7 +202,7 @@ function registerActionResult(){
 			var optValueSold= getOptionValueIfSold(numOption,estimatedShare);
 			var estimateProfit  = getEstimateProfit(optValueSold,amountSaved);
 			var percentIncrease = getPercentIncrease(optValueSold,amountSaved);
-			if(estimateProfit > amountSaved){
+			if(optValueSold > amountSaved){
 				showWarning(CGT);
 				$('.estimated-return1').show();
 				$('.estimated-return2').hide();
