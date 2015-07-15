@@ -405,12 +405,12 @@ function updateMessage(yearNeedLast,yearMayLast,shortFallYear){
 		$('.print-shortfall-year').html(getStringYear(shortFallYear));
 		$(".have-shortfall").show();
 		$(".no-shortfall").hide();
-		$(".funds-year").css("color","red");
+		$(".funds-year").css("color","#da291c");
 		$(".result-based-current").css("color","#777777");
 		$(".print-show-shortfall-inform").show();
 	}else{
-		$(".result-based-current").css("color","blue");
-		$(".funds-year").css("color","blue");
+		$(".result-based-current").css("color","#06038d");
+		$(".funds-year").css("color","#06038d");
 		$(".print-show-shortfall-inform").hide();
 		$(".have-shortfall").hide();
 		$(".no-shortfall").show();
