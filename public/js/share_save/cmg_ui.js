@@ -14,16 +14,14 @@
 6.Date - 30-03-2015
 
 */
-
-
 function drawMonthly(){
 	var range = "5.00";
-	for(var i = 2 ;i < 101;i++){
+	for(var i = 2;i<101;i++){
 		var temp = i*5;
 		temp = fixed2Decimal(temp);
 		range = range +";" + temp;
 	}
-	range  = String(range);
+	range = String(range);
 	$('#monthlySavings').attr('selectBoxOptions',range);
 	createEditableSelect(document.getElementById("monthlySavings"));
 }
@@ -34,7 +32,6 @@ function drawSaving(){
 
 
 function showWarning(content){
-//will show warning.
 $('#warningModal').find('.modal-body').html(content);
 $('#warningModal').modal('show');
 }
