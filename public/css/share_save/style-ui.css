@@ -124,6 +124,10 @@ a:focus{
 	padding-bottom: 40px;
 }
 
+#tab1{
+	padding-bottom: 13px;
+}
+
 .nav-tabs li{
 	background:url(../../images/share_save/tab-bg-left.png) top left no-repeat;
 	width:50%;
@@ -641,6 +645,11 @@ a:focus{
 	font-weight: bold;
 }
 
+#tab1 .btnNext{
+	position: static;
+	margin-right: -24px;
+}
+
 #wrap-tab .btn-print{
 	position: inherit;
 	color: #fff;
@@ -1006,6 +1015,10 @@ a:focus{
 		right:40px;
 	}
 
+	#tab1 .btnNext{
+		margin-right: -16px;
+	}
+
 	/*popup*/
 	.icon-tooltip-popup{
 		background: url(../../images/share_save/icon-tooltip-hover-480.png) no-repeat scroll left;
@@ -1288,6 +1301,18 @@ a:focus{
 
 	#disclamer-page{
 		padding-left: 15px;
+	}
+
+	.tab-content .btnPrevious {
+	    left: 5px;
+	}
+
+	.tab-content .btn-print {
+	    right: 5px;
+	}
+
+	#tab1 .btnNext{
+		margin-right: 26px;
 	}
 
 	/*bootstrap overide*/
