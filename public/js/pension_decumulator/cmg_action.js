@@ -419,7 +419,7 @@ function updateMessage(yearNeedLast,yearMayLast,shortFallYear){
 
 function Popup(data,font) {
 	var mywindow = window.open('', 'CloseBrothers');
-	mywindow.document.write('<html><head><title>Pension Accumulators</title>');
+	mywindow.document.write('<html><head><title>Pension Decumulator</title>');
 	mywindow.document.write('<style type="text/css">@media print{div{font-family: "'+font+'" !important;}}</style>');
 	mywindow.document.write('<style type="text/css">@media screen{div{font-family:"'+font+'" !important;}}</style>');
 	mywindow.document.write('<style>a {text-decoration : none !important;color : black;}</style>');
