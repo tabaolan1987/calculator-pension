@@ -301,7 +301,15 @@ function disableTabResult(){
 	$('#results').removeAttr('data-toggle');
 }
 
+function eneableTabDetail(){
+	$('#about-you').attr('href','#tab1');
+	$('#about-you').attr('data-toggle','tab');
+}
 
+function disableTabDetail(){
+	$('#about-you').removeAttr('href');
+	$('#about-you').removeAttr('data-toggle');
+}
 
 
 
@@ -339,6 +347,7 @@ function registerActionResult(){
 function disableButton(){
 	$('#print-data').attr('disabled','disabled');
 	$('#btn-advanced').attr('disabled','disabled');
+	disableTabDetail();
 }
 
 function eneableButton(){

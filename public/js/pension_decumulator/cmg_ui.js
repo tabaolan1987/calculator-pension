@@ -99,6 +99,7 @@ function animationShortFall(height,shortFall){
 			$('.shortfall').fadeIn(1000);
 			$(".arrow-mid").css("padding-top",(height/2-22)+"px");
 			eneableButton();
+			eneableTabDetail();
 		});
 	}, 1000);
 }
@@ -132,6 +133,7 @@ function updateFundMayToLast(year,yearOfShortFall){
 		$(".top-arrow").css("top",(top - numberAdded)+"px");
 		$("#coin-title-right").fadeIn(function(){
 			eneableButton();
+			eneableTabDetail();
 		});
 	}else if(coinBlue < totalCoin){
 		var coinForShortFall = totalCoin - coinBlue;
