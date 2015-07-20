@@ -2,47 +2,32 @@
 <print>		
 <disclamer-infor>
 <![CDATA[
-<p>This calculator is designed to reflect your possible retirement income based on the information you provide to us.</p>
-<p>All figures are based on a number of <a href="">important assumptions</a> about the future. The actual pension you receive in retirement could be higher or lower than the results provided in this calculator.</p>
-<p>This tool is not advice and should not be used as the basis for making any retirement decisions.  Before you make any decisions, we strongly recommend you talk to a pension specialist or a financial adviser.</p>
-<p>The value of investments and the income from them may fall as well as rise and is not guaranteed. The performance information set out herein refers to the past. Past performance is not a reliable indicator of future results. </p>
+<p>This calculator is designed to estimate the profit you may receive on your sharesave scheme at maturity, based on the information you input</p>
+<p>The value of investments and the income from them may fall as well as rise and is not guaranteed. Past performance is not a reliable indicator of future results. </p>
+<p>This tool is not advice and should not be used as the basis for making any decisions.  Before you make any decisions, we strongly recommend you talk to a financial adviser.</p>
 ]]>
 </disclamer-infor>
 <disclamer-link>
 <![CDATA[
-<p>For more information about these calculators, please refer to the <a href="">important information</a> and <a href="">assumptions used</a>.</p>
-<p>Before using the calculator, please click here to confirm you have read and understood these terms.</p>
+<p>For more information about this calculator, please refer to the <a href="">important information</a> and <a href="">assumptions used</a>.</p>
+<p>Please select the button below to confirm you have read and understood these terms.</p>
 ]]>
 </disclamer-link>
 <important>
 <![CDATA[
-<h2>Important information</h2>
-<p>This calculator is designed to reflect your possible retirement income based on the information you have provided us with.</p>
+<h4>Important information</h4>
+<p>This calculator is designed to estimate the profit you may receive on your sharesave scheme at maturity, based on the information you input.</p>
  
-<p>All figures are based on a number of <a href="">important assumptions</a> about the future.  The actual pension you receive in retirement could be higher or lower than the results provided in this calculator.</p>
+<p>The value of investments and the income from them may fall as well as rise and is not guaranteed. Past performance is not a reliable indicator of future results.</p>
  
-<p>The figures provide an illustration and are not guaranteed. Your final pension fund and the income available will depend on various factors including the growth of your pension fund, contributions you make prior to retirement, your retirement age, inflation, charges and annuity rates of the annuity product you select.</p>
- 
-<p>The value of investments and the income from them may fall as well as rise and is not guaranteed. The performance information set out herein refers to the past. Past performance is not a reliable indicator of future results.</p>
- 
-<p>This calculator does not include state pension entitlements.</p>
- 
-<p>Your pension may be affected by the lifetime allowance and/or personal allowance limits set out by HMRC.  For further information, please speak to a pension specialist or a financial adviser.</p>
+<p>This tool is not advice and should not be used as the basis for making any decisions.  Before you make any decisions, we strongly recommend you talk to a financial adviser.</p>
 ]]>
 </important>
 <assump>
 <![CDATA[
-<h2>Assumptions used</h2>
+<h4>Assumptions used</h4>
  
-<p>Annuity rates – the rates used are taken from a range of annuity providers (www.moneyfacts.co.uk, March 2015) and are updated on a quarterly basis.  Rates are based on a typical postcode and actual rates will vary depending on certain lifestyle factors.</p>
-<p>Inflation – when calculating how regular contributions might increase, inflation is assumed to be</p>
- <ul>
-<li>0.5% if investment growth is 2%.</li>
-<li>2.5% if investment growth is 5%.</li>
-<li>4.5% if investment growth is 8%.</li>
- </ul>
-<p>This calculator defaults to an investment growth rate of 5% unless otherwise specified in the advanced options. These assumptions are set down by the Financial Conduct Authority for pension projections.</p>
-<p>Regular contributions - are assumed to increase in line with inflation and to be paid monthly in advance.</p>
+<p><b>TBD</b> – Close Brothers to add text required here.</p>
 ]]>
 </assump>
 </print>		
