@@ -227,20 +227,20 @@ function registerActionResult(){
 function updateMessage(durationSave,amountSaved,numOption,optValueSold,estimateProfit,percentIncrease){
 	//update Message for result.
 	$('.chart-title-estimated').find('span').html(addCommas(fixed2Decimal(optValueSold)));
-	$('.chart-title-percentage').find('span').html(percentIncrease);
+	$('.chart-title-percentage').find('span').html(addCommas(percentIncrease));
 	$('#result-duration-time').html(durationSave);
-	$('#result-amount-save').html(addCommas(round(amountSaved)));
+	$('#result-amount-save').html(addCommas(amountSaved));
 	$('#result-numOpt').html(addCommas(round(numOption)));
 	$('#result-estimate-profit').find('span').html(addCommas(fixed2Decimal(estimateProfit)));
-	$('#result-percent-increase').find('span').html(percentIncrease);
+	$('#result-percent-increase').find('span').html(addCommas(percentIncrease));
 	//update Message for print.
 	
 	$('.print-estimate').html(addCommas(fixed2Decimal(optValueSold)));
 	$('.print-duration-save').html(durationSave);
-	$('.print-amount-saved').html(addCommas(round(amountSaved)));
+	$('.print-amount-saved').html(addCommas(amountSaved));
 	$('.print-estimated-profit').html(addCommas(fixed2Decimal(estimateProfit)));
-	$('.print-percent-increase').html(percentIncrease);
-	
+	$('.print-percent-increase').html(addCommas(percentIncrease));
+	$('.print-number-option').html(addCommas(round(numOption)));
 	var importantText = $("#important-text").html();
 	var assumptionText = $("#assump-text").html();
 	var disclamerText = $("#disclamer-infor").html();
