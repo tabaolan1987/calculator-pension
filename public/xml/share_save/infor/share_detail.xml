@@ -4,41 +4,27 @@
 <id-element>infor-monthly-savings</id-element>
 <name>infor-monthly-savings</name>
 <message><![CDATA[
-<pMonthly savings amount</p>
-<p>Select the amount that you are contributing to the scheme each month.</p>
-<p>Select the amount that you are contributing to the scheme each month.</p>
-<p>Select the amount that you are contributing to the scheme each month.</p>
-<p>Select the amount that you are contributing to the scheme each month.</p>
-<p>Select the amount that you are contributing to the scheme each month.</p>
-<p>Select the amount that you are contributing to the scheme each month.</p>
-<p>Select the amount that you are contributing to the scheme each month.</p>
-<p>Select the amount that you are contributing to the scheme each month.</p>
-<p>Select the amount that you are contributing to the scheme each month.</p>
-<p>Select the amount that you are contributing to the scheme each month.</p>
-<p>Select the amount that you are contributing to the scheme each month.</p>
-<p>Select the amount that you are contributing to the scheme each month.</p>
-<p>Select the amount that you are contributing to the scheme each month.</p>
-<p>Select the amount that you are contributing to the scheme each month.</p>
-<p>Select the amount that you are contributing to the scheme each month.</p>
-<p>Select the amount that you are contributing to the scheme each month.</p>
+<p><b><font color='#06038d'>Monthly savings</font></b></p>
 <p>Select the amount that you are contributing to the scheme each month.</p>
 ]]></message>
 </infor>
 <infor>
 <id-element>infor-duration-time</id-element>
 <name>infor-duration-time</name>
-<message><![CDATA[<p>Select the number of years that you are saving for.</p>]]></message>
+<message><![CDATA[<p><b><font color='#06038d'>Duration of savings</font></b></p>
+<p>Select the number of years that you are saving for.</p>]]></message>
 </infor>
 <infor>
 <id-element>infor-option-price</id-element>
 <name>infor-option-price</name>
-<message><![CDATA[<p>Enter the option price that was fixed at the start of your savings period.</p>]]></message>
+<message><![CDATA[<p><b><font color='#06038d'>Option price</font></b></p>
+<p>Enter the option price that was fixed at the start of your savings period.</p>]]></message>
 </infor>
 <infor>
 <id-element>infor-estimated-share</id-element>
 <name>infor-estimated-share</name>
-<message><![CDATA[<p>Enter the current share price for your investment in pence to 2 decimal places.</p>
-<p>The price that you will get at the end of the term could differ considerably.</p>
-]]></message>
+<message><![CDATA[<p><b><font color='#06038d'>Estimated share price at sale</font></b></p>
+<p>Enter the current share price for your investment in pence to 2 decimal places.</p>
+<p>The price that you will get at the end of the term could differ considerably.</p>]]></message>
 </infor>
 </infor_popups>
