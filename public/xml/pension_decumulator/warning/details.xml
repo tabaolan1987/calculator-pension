@@ -6,6 +6,10 @@
 </warning-simple>
 <warning-simple>
 <name>current-age-equal-zero</name>
-<message><![CDATA[You have selected today's date or a date in the future, please select your date of birth.]]></message>
+<message><![CDATA[<p>You have entered today's date or a date in the future, please enter your date of birth.</p>]]></message>
+</warning-simple>
+<warning-simple>
+<name>current-age-bigger-than-100</name>
+<message><![CDATA[<p>You have entered a date that make your current age bigger than 100!</p>]]></message>
 </warning-simple>
 </warning_popups>

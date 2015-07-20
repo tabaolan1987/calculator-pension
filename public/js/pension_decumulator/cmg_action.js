@@ -205,6 +205,8 @@ function registerActionYourDetails(){
 			var caseWarning = check[0];
 			if(caseWarning == "current-age-equal-zero"){
 				showWarning(warningArray["current-age-equal-zero"]);
+			}else if(caseWarning == "current-age-bigger-than-100"){
+				showWarning(warningArray["current-age-bigger-than-100"]);
 			}else{
 				var content = warningArray["validate-field"] +" "+ check[0];
 				for(var i =1; i < check.length;i++){
@@ -241,6 +243,8 @@ function registerActionYourDetails(){
 			var caseWarning = check[0];
 			if(caseWarning == "current-age-equal-zero"){
 				showWarning(warningArray["current-age-equal-zero"]);
+			}else if(caseWarning == "current-age-bigger-than-100"){
+				showWarning(warningArray["current-age-bigger-than-100"]);
 			}else{
 				var content = warningArray["validate-field"] +" "+ check[0];
 				for(var i =1; i < check.length;i++){
@@ -261,6 +265,10 @@ function checkDataYourDetail(){
 	var currentAge = getCurrentAge();
 	if(currentAge == 0 || currentAge < 0){
 		content.push('current-age-equal-zero');
+		return content;
+	}
+	if(currentAge > 100){
+		content.push('current-age-bigger-than-100');
 		return content;
 	}
 	var dob = $('#txt-birthday').val();
