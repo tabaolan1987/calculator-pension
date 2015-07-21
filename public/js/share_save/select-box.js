@@ -69,7 +69,7 @@
 			this.src = arrowImageDown;	
 			if(currentlyOpenedOptionBox && currentlyOpenedOptionBox!=optionDiv)currentlyOpenedOptionBox.style.display='none';	
 			currentlyOpenedOptionBox= optionDiv;
-			$(optionDiv).jScrollPane({showArrows: true});			
+			$(optionDiv).jScrollPane({showArrows: true,autoReinitialise : true});			
 		}
 	}
 	
@@ -84,8 +84,11 @@
 			container.hide();
 			if(navigator.userAgent.indexOf('MSIE')>=0)
 			{
-				document.getElementById('selectBoxIframe0').style.display='none';
-				document.getElementById('selectBoxIframe1').style.display='none';
+				try{
+					document.getElementById('selectBoxIframe0').style.display='none';
+					document.getElementById('selectBoxIframe1').style.display='none';
+				}catch(e){}
+				
 			}
 		}
 	});
@@ -194,5 +197,7 @@
 		}
 		
 		selectBoxIds = selectBoxIds + 1;
-	}	
+	}
+	
+
 	
