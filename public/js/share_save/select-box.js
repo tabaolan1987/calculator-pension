@@ -64,8 +64,6 @@
 			this.src = arrowImageOver;	
 		}else{		
 			//$('.selectBoxOptionContainer').hide();
-			var widthParent = $('#selectBox'+numId).width();
-			$('#selectBoxOptions'+numId).css('width',widthParent);
 			optionDiv.style.display='block';
 			if(navigator.userAgent.indexOf('MSIE')>=0)document.getElementById('selectBoxIframe' + numId).style.display='block';
 			this.src = arrowImageDown;	
@@ -86,8 +84,8 @@
 			container.hide();
 			if(navigator.userAgent.indexOf('MSIE')>=0)
 			{
-				document.getElementById('selectBoxIframe0').style.display='none';
-				document.getElementById('selectBoxIframe1').style.display='none';
+				//document.getElementById('selectBoxIframe0').style.display='none';
+				//document.getElementById('selectBoxIframe1').style.display='none';
 			}
 		}
 	});
@@ -160,7 +158,10 @@
 		div.appendChild(optionDiv);
 		
 		if(navigator.userAgent.indexOf('MSIE')>=0){
-			var iframe = document.createElement('<IFRAME src="about:blank" frameborder=0>');
+			var iframe = document.createElement("iframe");
+			//var iframe = document.createElement('<IFRAME src="about:blank" frameborder=0>');
+			iframe.setAttribute("src", "about:blank");
+			iframe.setAttribute("frameborder", 0);
 			iframe.style.width = optionDiv.style.width;
 			iframe.style.height = optionDiv.offsetHeight + 'px';
 			iframe.style.display='none';
