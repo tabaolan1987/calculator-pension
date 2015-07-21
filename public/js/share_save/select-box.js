@@ -103,8 +103,7 @@
 		document.getElementById('arrowSelectBox' + parentNode.id.replace(/[^\d]/g,'')).src = arrowImageOver;
 		if(navigator.userAgent.indexOf('MSIE')>=0)
 		{
-		alert(parentNode.id.replace(/[^\d]/g,''));
-		document.getElementById('selectBoxIframe' + parentNode.id.replace(/[^\d]/g,'')).style.display='none';
+			document.getElementById('selectBoxIframe' + parentNode.id.replace(/[^\d]/g,'')).style.display='none';
 		}
 		
 	}
