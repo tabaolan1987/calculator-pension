@@ -39,14 +39,15 @@
 	    if(this.resizeTO) clearTimeout(this.resizeTO);
 	    this.resizeTO = setTimeout(function() {
 	        $(this).trigger('resizeEnd');
-	    }, 500);
+	    }, 600);
 	});
 
 	$(window).bind('resizeEnd', function() {
 	    //do something, window hasn't changed size in 500ms
-	    //alert("aaaaaaa");
+	    alert("aaaaaaa");
 	    //createEditableSelect(dest);
-	    $(".selectBox").remove();
+	    $("#contain-monthly").empty();
+	    $("#contain-duration").empty();
 	    $("#contain-monthly").append('<input readonly="readonly" class="read-only" type="text" id="monthlySavings" name="monthlySavings" value="25.00" selectBoxOptions="5.00;10.00;15.00;20.00;25.00;30.00;35.00;40.00;45.00;50.00;55.00;60.00">');
 	    $('#contain-duration').append('<input readonly="readonly" class="read-only" type="text" id="durationTime" name="durationTime" value="3" selectBoxOptions="3;5">');
 	    createEditableSelect(document.getElementById("monthlySavings"));
