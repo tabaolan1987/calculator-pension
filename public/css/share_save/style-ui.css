@@ -647,7 +647,7 @@ a:focus{
 
 #tab1 .btnNext{
 	position: static;
-	margin-right: -24px;
+	margin-right: -37px;
 }
 
 #wrap-tab .btn-print{
@@ -1016,7 +1016,7 @@ a:focus{
 	}
 
 	#tab1 .btnNext{
-		margin-right: -16px;
+		margin-right: -29px;
 	}
 
 	/*popup*/
@@ -1312,7 +1312,7 @@ a:focus{
 	}
 
 	#tab1 .btnNext{
-		margin-right: 26px;
+		margin-right: 10px;
 	}
 
 	/*bootstrap overide*/
