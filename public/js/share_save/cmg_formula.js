@@ -38,6 +38,19 @@ function addCommas(number){
 	return temp;
 }
 
+function addCommasPence(number){
+	number = removeCommas(number);
+	var temp = 0;
+	if(parseInt(number) == number){
+		temp = accounting.formatNumber(number,2,",",".");
+	}else{
+		var length = decimalPlaces(number);
+		temp = accounting.formatNumber(number,length,",",".");
+	}
+	
+	return temp;
+}
+
 function decimalPlaces(num) {
   var match = (''+num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
   if (!match) { return 0; }

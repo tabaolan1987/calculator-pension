@@ -64,6 +64,8 @@
 			this.src = arrowImageOver;	
 		}else{		
 			//$('.selectBoxOptionContainer').hide();
+			var widthParent = $('#selectBox'+numId).width();
+			$('#selectBoxOptions'+numId).css('width',widthParent);
 			optionDiv.style.display='block';
 			if(navigator.userAgent.indexOf('MSIE')>=0)document.getElementById('selectBoxIframe' + numId).style.display='block';
 			this.src = arrowImageDown;	
@@ -77,11 +79,16 @@
 	$(document).mouseup(function (e)
 	{
 		var container = $(".selectBoxOptionContainer");
-
+		
 		if (!container.is(e.target) // if the target of the click isn't the container...
 			&& container.has(e.target).length === 0) // ... nor a descendant of the container
 		{
 			container.hide();
+			if(navigator.userAgent.indexOf('MSIE')>=0)
+			{
+				document.getElementById('selectBoxIframe0').style.display='none';
+				document.getElementById('selectBoxIframe1').style.display='none';
+			}
 		}
 	});
 
@@ -94,7 +101,11 @@
 		textInput.value = this.innerHTML;	
 		this.parentNode.parentNode.parentNode.style.display='none';	
 		document.getElementById('arrowSelectBox' + parentNode.id.replace(/[^\d]/g,'')).src = arrowImageOver;
-		if(navigator.userAgent.indexOf('MSIE')>=0)document.getElementById('selectBoxIframe' + parentNode.id.replace(/[^\d]/g,'')).style.display='none';
+		if(navigator.userAgent.indexOf('MSIE')>=0)
+		{
+		alert(parentNode.id.replace(/[^\d]/g,''));
+		document.getElementById('selectBoxIframe' + parentNode.id.replace(/[^\d]/g,'')).style.display='none';
+		}
 		
 	}
 	var activeOption;

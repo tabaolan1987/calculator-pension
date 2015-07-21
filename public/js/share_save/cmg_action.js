@@ -114,7 +114,7 @@ function registerActionShareDetail(){
 	$('#txt-option-price').on('blur', function() {
 		currentOptionPrice = parseFloatCMG($(this).val());
 		var vl = parseFloatCMG($(this).val());
-		var number = addCommas(fixed2Decimal(vl));
+		var number = addCommasPence(fixed2Decimal(vl));
 		$(this).val(number);
 		checkDataDetail();
 		isUpdateField = true;
@@ -123,7 +123,7 @@ function registerActionShareDetail(){
 	$('#txt-estimated-share').on('blur', function() {
 		currentEstimateShare = parseFloatCMG($(this).val());
 		var vl = parseFloatCMG($(this).val());
-		var number = addCommas(fixed2Decimal(vl));
+		var number = addCommasPence(fixed2Decimal(vl));
 		$(this).val(number);
 		checkDataDetail();
 		isUpdateField = true;
@@ -176,11 +176,11 @@ function disableTabResult(){
 function checkDataDetail(){
 	var content = new Array();
 	var opPrice = $('#txt-option-price').val();
-	if(opPrice == "" || typeof opPrice === 'undefined' || opPrice === null || opPrice == 0){
+	if(opPrice == "" || typeof opPrice === 'undefined' || opPrice === null){
 		content.push("option price");
 	}
 	var esShare = $('#txt-estimated-share').val();
-	if(esShare=="" || esShare == 0 || typeof esShare === 'undefined' || esShare === null ){
+	if(esShare=="" || typeof esShare === 'undefined' || esShare === null ){
 		content.push("share price");
 	}
 	if(content.length > 0){
@@ -229,7 +229,7 @@ function updateMessage(durationSave,amountSaved,numOption,optValueSold,estimateP
 	$('.chart-title-estimated').find('span').html(addCommas(fixed2Decimal(optValueSold)));
 	$('.chart-title-percentage').find('span').html(addCommas(percentIncrease));
 	$('#result-duration-time').html(durationSave);
-	$('#result-amount-save').html(addCommas(amountSaved));
+	$('#span-result-amount-save').html(addCommas(amountSaved));
 	$('#result-numOpt').html(addCommas(round(numOption)));
 	$('#result-estimate-profit').find('span').html(addCommas(fixed2Decimal(estimateProfit)));
 	$('#result-percent-increase').find('span').html(addCommas(percentIncrease));
