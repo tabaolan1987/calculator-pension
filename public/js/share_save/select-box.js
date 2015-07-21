@@ -46,11 +46,13 @@
 	    //do something, window hasn't changed size in 500ms
 	    //alert("aaaaaaa");
 	    //createEditableSelect(dest);
+		var monthlyValue = $('#monthlySavings').val();
+		var duration = $('#durationTime').val();
 	    $(".selectBox").remove();
-	    $("#contain-monthly").append('<input readonly="readonly" class="read-only" type="text" id="monthlySavings" name="monthlySavings" value="25.00" selectBoxOptions="5.00;10.00;15.00;20.00;25.00;30.00;35.00;40.00;45.00;50.00;55.00;60.00">');
-	    $('#contain-duration').append('<input readonly="readonly" class="read-only" type="text" id="durationTime" name="durationTime" value="3" selectBoxOptions="3;5">');
-	    createEditableSelect(document.getElementById("monthlySavings"));
-	    createEditableSelect(document.getElementById("durationTime"));
+	    $("#contain-monthly").append('<input readonly="readonly" class="read-only" type="text" id="monthlySavings" name="monthlySavings" value="'+monthlyValue+'" selectBoxOptions="5.00;10.00;15.00;20.00;25.00;30.00;35.00;40.00;45.00;50.00;55.00;60.00">');
+	    $('#contain-duration').append('<input readonly="readonly" class="read-only" type="text" id="durationTime" name="durationTime" value="'+duration+'" selectBoxOptions="3;5">');
+		drawMonthly();
+		drawSaving();
 	});
 
 	
@@ -64,7 +66,7 @@
 		
 		
 	}
-	var test_a = [];
+	
 	function selectBox_showOptions()
 	{
 		if(editableSelect_activeArrow && editableSelect_activeArrow!=this){
@@ -86,8 +88,7 @@
 			this.src = arrowImageDown;	
 			if(currentlyOpenedOptionBox && currentlyOpenedOptionBox!=optionDiv)currentlyOpenedOptionBox.style.display='none';	
 			currentlyOpenedOptionBox= optionDiv;
-			var pane = $(optionDiv).jScrollPane({showArrows: true,autoReinitialise : true});
-			test_a.push(pane);			
+			var pane = $(optionDiv).jScrollPane({showArrows: true,autoReinitialise : true});	
 		}
 	}
 	
@@ -103,8 +104,9 @@
 			if(navigator.userAgent.indexOf('MSIE')>=0)
 			{
 				try{
-					document.getElementById('selectBoxIframe0').style.display='none';
-					document.getElementById('selectBoxIframe1').style.display='none';
+					//document.getElementById('selectBoxIframe0').style.display='none';
+					//document.getElementById('selectBoxIframe1').style.display='none';
+					$('iframe').hide();
 				}catch(e){}
 				
 			}
