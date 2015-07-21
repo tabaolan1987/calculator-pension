@@ -44,7 +44,7 @@
 
 	$(window).bind('resizeEnd', function() {
 	    //do something, window hasn't changed size in 500ms
-	    alert("aaaaaaa");
+	    //alert("aaaaaaa");
 	    //createEditableSelect(dest);
 		var monthlyValue = $('#monthlySavings').val();
 		var duration = $('#durationTime').val();
