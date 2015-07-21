@@ -47,7 +47,7 @@
 		
 		
 	}
-	
+	var test_a = [];
 	function selectBox_showOptions()
 	{
 		if(editableSelect_activeArrow && editableSelect_activeArrow!=this){
@@ -69,7 +69,8 @@
 			this.src = arrowImageDown;	
 			if(currentlyOpenedOptionBox && currentlyOpenedOptionBox!=optionDiv)currentlyOpenedOptionBox.style.display='none';	
 			currentlyOpenedOptionBox= optionDiv;
-			$(optionDiv).jScrollPane({showArrows: true,autoReinitialise : true});			
+			var pane = $(optionDiv).jScrollPane({showArrows: true,autoReinitialise : true});
+			test_a.push(pane);			
 		}
 	}
 	
