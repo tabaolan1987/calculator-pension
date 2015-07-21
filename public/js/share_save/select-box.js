@@ -84,8 +84,8 @@
 			container.hide();
 			if(navigator.userAgent.indexOf('MSIE')>=0)
 			{
-				//document.getElementById('selectBoxIframe0').style.display='none';
-				//document.getElementById('selectBoxIframe1').style.display='none';
+				document.getElementById('selectBoxIframe0').style.display='none';
+				document.getElementById('selectBoxIframe1').style.display='none';
 			}
 		}
 	});
