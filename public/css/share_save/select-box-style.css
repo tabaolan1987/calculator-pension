@@ -37,7 +37,8 @@
 		overflow:auto;
 		z-index:1000;
 	}
-	#selectBox1 .selectBoxOptionContainer{
+	
+	#contain-duration .selectBoxOptionContainer{
 		height:40px;
 	}
 
