@@ -298,10 +298,22 @@ a:focus{
 	position: absolute;
 	left: 0;
 	width: 100%;
+	text-align: center;
+}
+
+.chart-title-estimated{
+	width: 253px;
+	left: 10px;
 }
 
 .chart-title-percentage{
-	top: 26%;
+	width: 240px;
+	left: inherit;
+	right: 0;
+}
+
+.chart-title-percentage{
+	top: 30%;
 }
 
 .chart-title-estimated{
@@ -1328,4 +1340,24 @@ a:focus{
 		width: 23.667%;
 	}
 
+}
+
+
+
+/*less than 635px for chart*/
+@media screen and (max-width: 635px) {
+	.chart-title-estimated{
+		width: 100%;
+		left: 0px;
+	}
+
+	.chart-title-percentage{
+		width: 72%;
+	}
+}
+
+@media screen and (max-width: 376px) {
+	.chart-title-percentage{
+		width: 85%;
+	}
 }
