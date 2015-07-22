@@ -111,6 +111,19 @@ function registerHoverAction(){
 function registerActionShareDetail(){
 	
 	
+	$('a[id="share-details"]').on('shown.bs.tab', function (e) {
+		 setInterval(function(){ 
+			var monthlyValue = $('#monthlySavings').val();
+			var duration = $('#durationTime').val();
+			$("#contain-monthly").empty();
+			$("#contain-duration").empty();
+			$("#contain-monthly").append('<input readonly="readonly" class="read-only" type="text" id="monthlySavings" name="monthlySavings" value="'+monthlyValue+'" selectBoxOptions="5.00;10.00;15.00;20.00;25.00;30.00;35.00;40.00;45.00;50.00;55.00;60.00">');
+			$('#contain-duration').append('<input readonly="readonly" class="read-only" type="text" id="durationTime" name="durationTime" value="'+duration+'" selectBoxOptions="3;5">');
+			drawMonthly();
+			drawSaving();
+		 }, 200);
+	});
+	
 	$('#txt-option-price').on('blur', function() {
 		currentOptionPrice = parseFloatCMG($(this).val());
 		var vl = parseFloatCMG($(this).val());
