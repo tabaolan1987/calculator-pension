@@ -112,7 +112,6 @@ function registerActionShareDetail(){
 	
 	
 	$('a[id="share-details"]').on('shown.bs.tab', function (e) {
-		
 		 setTimeout(function(){ 
 			var monthlyValue = $('#monthlySavings').val();
 			var duration = $('#durationTime').val();
