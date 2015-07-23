@@ -225,7 +225,7 @@ function registerActionResult(){
 				$('.estimated-return1').hide();
 				$('.estimated-return2').show();
 				$('#special-duration-time').html(durationSave);
-				$('#special-amount-saved').html(addCommas(round(amountSaved)));
+				$('#special-amount-saved').html(addCommasPence(amountSaved));
 			}
 			isUpdateField = false;
 		}
