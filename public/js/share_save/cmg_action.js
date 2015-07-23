@@ -242,7 +242,7 @@ function updateMessage(durationSave,amountSaved,numOption,optValueSold,estimateP
 	$('.chart-title-estimated').find('span').html(addCommasPence(fixed2Decimal(optValueSold)));
 	$('.chart-title-percentage').find('span').html(addCommas(percentIncrease));
 	$('#result-duration-time').html(durationSave);
-	$('#span-result-amount-save').html(addCommas(amountSaved));
+	$('#span-result-amount-save').html(addCommasPence(amountSaved));
 	$('#result-numOpt').html(addCommas(round(numOption)));
 	$('#result-estimate-profit').find('span').html(addCommasPence(fixed2Decimal(estimateProfit)));
 	$('#result-percent-increase').find('span').html(addCommas(percentIncrease));
@@ -250,7 +250,7 @@ function updateMessage(durationSave,amountSaved,numOption,optValueSold,estimateP
 	
 	$('.print-estimate').html(addCommasPence(fixed2Decimal(optValueSold)));
 	$('.print-duration-save').html(durationSave);
-	$('.print-amount-saved').html(addCommas(amountSaved));
+	$('.print-amount-saved').html(addCommasPence(amountSaved));
 	$('.print-estimated-profit').html(addCommasPence(fixed2Decimal(estimateProfit)));
 	$('.print-percent-increase').html(addCommas(percentIncrease));
 	$('.print-number-option').html(addCommas(round(numOption)));
