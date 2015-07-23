@@ -70,7 +70,7 @@
 
 	.selectBox .selectBoxInput{
 		height: 17px !important;
-		padding-right: 23px !important;
+		//padding-right: 23px !important;
 	}
 
 	.selectBoxArrow{
@@ -88,7 +88,7 @@
 	.selectBox .selectBoxInput{
 		height: 13px !important;
 		padding: 0;
-		padding-right: 20px !important;
+		//padding-right: 20px !important;
 		top: 1px;
 	}
 
