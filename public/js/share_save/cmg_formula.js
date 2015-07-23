@@ -47,7 +47,10 @@ function addCommasPence(number){
 		var length = decimalPlaces(number);
 		temp = accounting.formatNumber(number,length,",",".");
 	}
-	
+	var decimal = temp.split(".")[1];
+	if(decimal.length == 1){
+		temp = temp +"0";
+	}
 	return temp;
 }
 

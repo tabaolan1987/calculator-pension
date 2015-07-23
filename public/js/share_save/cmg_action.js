@@ -112,6 +112,7 @@ function registerActionShareDetail(){
 	
 	
 	$('a[id="share-details"]').on('shown.bs.tab', function (e) {
+		
 		 setTimeout(function(){ 
 			var monthlyValue = $('#monthlySavings').val();
 			var duration = $('#durationTime').val();
@@ -121,7 +122,7 @@ function registerActionShareDetail(){
 			$('#contain-duration').append('<input readonly="readonly" class="read-only" type="text" id="durationTime" name="durationTime" value="'+duration+'" selectBoxOptions="3;5">');
 			drawMonthly();
 			drawSaving();
-		 }, 200);
+		 }, 500);
 	});
 	
 	$('#txt-option-price').on('blur', function() {
@@ -239,19 +240,19 @@ function registerActionResult(){
 
 function updateMessage(durationSave,amountSaved,numOption,optValueSold,estimateProfit,percentIncrease){
 	//update Message for result.
-	$('.chart-title-estimated').find('span').html(addCommas(fixed2Decimal(optValueSold)));
+	$('.chart-title-estimated').find('span').html(addCommasPence(fixed2Decimal(optValueSold)));
 	$('.chart-title-percentage').find('span').html(addCommas(percentIncrease));
 	$('#result-duration-time').html(durationSave);
 	$('#span-result-amount-save').html(addCommas(amountSaved));
 	$('#result-numOpt').html(addCommas(round(numOption)));
-	$('#result-estimate-profit').find('span').html(addCommas(fixed2Decimal(estimateProfit)));
+	$('#result-estimate-profit').find('span').html(addCommasPence(fixed2Decimal(estimateProfit)));
 	$('#result-percent-increase').find('span').html(addCommas(percentIncrease));
 	//update Message for print.
 	
-	$('.print-estimate').html(addCommas(fixed2Decimal(optValueSold)));
+	$('.print-estimate').html(addCommasPence(fixed2Decimal(optValueSold)));
 	$('.print-duration-save').html(durationSave);
 	$('.print-amount-saved').html(addCommas(amountSaved));
-	$('.print-estimated-profit').html(addCommas(fixed2Decimal(estimateProfit)));
+	$('.print-estimated-profit').html(addCommasPence(fixed2Decimal(estimateProfit)));
 	$('.print-percent-increase').html(addCommas(percentIncrease));
 	$('.print-number-option').html(addCommas(round(numOption)));
 	var importantText = $("#important-text").html();

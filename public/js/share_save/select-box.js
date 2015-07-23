@@ -34,14 +34,19 @@
 	var selectBoxIds = 0;
 	var currentlyOpenedOptionBox = false;
 	var editableSelect_activeArrow = false;
-
+	var lastWindowHeight = $(window).height();
+    var lastWindowWidth = $(window).width();
 	$(window).resize(function() {
 	    if(this.resizeTO) clearTimeout(this.resizeTO);
-	    this.resizeTO = setTimeout(function() {
-	        $(this).trigger('resizeEnd');
-	    }, 600);
+	    if($(window).height()!=lastWindowHeight || $(window).width()!=lastWindowWidth){
+			lastWindowHeight = $(window).height();
+            lastWindowWidth = $(window).width();
+			this.resizeTO = setTimeout(function() {
+				$(this).trigger('resizeEnd');
+			}, 600);
+	   }
 	});
-
+	
 	$(window).bind('resizeEnd', function() {
 		 if ($('#tab1').is(':visible')) {   
 			var monthlyValue = $('#monthlySavings').val();
