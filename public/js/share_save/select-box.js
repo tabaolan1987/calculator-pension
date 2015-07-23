@@ -37,18 +37,19 @@
 	var lastWindowHeight = $(window).height();
     var lastWindowWidth = $(window).width();
 	$(window).resize(function() {
-	    if(this.resizeTO) clearTimeout(this.resizeTO);
+	   
 	    if($(window).height()!=lastWindowHeight || $(window).width()!=lastWindowWidth){
+			if(this.resizeTO) clearTimeout(this.resizeTO);
 			lastWindowHeight = $(window).height();
             lastWindowWidth = $(window).width();
 			this.resizeTO = setTimeout(function() {
 				$(this).trigger('resizeEnd');
-			}, 600);
+			}, 400);
 	   }
 	});
 	
 	$(window).bind('resizeEnd', function() {
-		 if ($('#tab1').is(':visible')) {   
+		 if ($('#tab1').is(':visible')) {  
 			var monthlyValue = $('#monthlySavings').val();
 			var duration = $('#durationTime').val();
 			$("#contain-monthly").empty();
