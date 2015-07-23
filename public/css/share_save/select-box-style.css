@@ -12,10 +12,10 @@
 		border:0px !important;
 		padding-right: 31px !important;
 		padding-left:1px;
-		height:20px!important;
+		height:18px!important;
 		position:absolute;
 		top:0px;
-		left:2px;
+		left:1px;
 		margin-top: 0 !important;
 	}
 
@@ -73,7 +73,7 @@
 	}
 
 	.selectBox .selectBoxInput{
-		height: 17px !important;
+		height: 16px !important;
 		//padding-right: 23px !important;
 	}
 
@@ -90,7 +90,7 @@
 	}
 
 	.selectBox .selectBoxInput{
-		height: 13px !important;
+		height: 12px !important;
 		padding: 0;
 		//padding-right: 20px !important;
 		top: 1px;
