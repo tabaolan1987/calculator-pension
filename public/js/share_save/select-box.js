@@ -37,8 +37,7 @@
 	var lastWindowHeight = $(window).height();
     var lastWindowWidth = $(window).width();
 	$(window).resize(function() {
-	   
-	    if($(window).height()!=lastWindowHeight || $(window).width()!=lastWindowWidth){
+	   if($(window).height()!=lastWindowHeight || $(window).width()!=lastWindowWidth){
 			if(this.resizeTO) clearTimeout(this.resizeTO);
 			lastWindowHeight = $(window).height();
             lastWindowWidth = $(window).width();
@@ -95,7 +94,7 @@
 			this.src = arrowImageDown;	
 			if(currentlyOpenedOptionBox && currentlyOpenedOptionBox!=optionDiv)currentlyOpenedOptionBox.style.display='none';	
 			currentlyOpenedOptionBox= optionDiv;
-			var pane = $(optionDiv).jScrollPane({showArrows: true,autoReinitialise : true});	
+			var pane = $(optionDiv).jScrollPane({showArrows: true});	
 		}
 	}
 	
