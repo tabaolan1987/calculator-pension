@@ -243,6 +243,16 @@ a:focus{
 .tab-pane .row-return{
 	padding: 15px 0;
 	color: #06038d;
+	margin: 0;
+}
+
+.row-chart{
+	margin: 0;
+}
+
+.row-return div,
+.row-chart div{
+	padding: 0;
 }
 
 .tab-pane .row-rule:first-child{
@@ -1354,6 +1364,6 @@ a:focus{
 
 @media screen and (max-width: 376px) {
 	.chart-title-percentage{
-		width: 85%;
+		width: 94%;
 	}
 }
