@@ -46,6 +46,10 @@
 		height:40px;
 	}
 
+	#contain-duration .jspVerticalBar{
+		display: none;
+	}
+
 	.jspHorizontalBar{
 		display: none;
 	}
