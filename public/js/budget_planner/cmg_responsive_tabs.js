@@ -262,7 +262,10 @@ var fakewaffle = ( function ( $, fakewaffle ) {
 	};
 
 	$( window ).resize( function () {
-		fakewaffle.checkResize();
+		if(this.resizeTO) clearTimeout(this.resizeTO);
+		this.resizeTO = setTimeout(function() {
+				fakewaffle.checkResize();
+		}, 1000);
 	} );
 
 	return fakewaffle;
