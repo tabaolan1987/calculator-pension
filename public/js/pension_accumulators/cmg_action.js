@@ -847,21 +847,69 @@ function updateDataPrint(forceCashIncome,shorFall,targetPension,tax_free_value){
 	var importantText = $("#important-text").html();
 	var assumptionText = $("#assump-text").html();
 	var disclamerText = $("#disclamer-infor").html();
+	
 	$("#disclamer-print").html(disclamerText);
 	$("#important-print").html(importantText);
 	$("#assump-print").html(assumptionText);
 }
 
 function PrintElement(element){
-	Popup($(element).html(),"Helvetica Neue"); 
+	$('.btnPrevious').hide();
+	$('.btnNext').hide();
+	$('.btn-print').hide();
+	$('.row-btn-advanced').hide();
+	var content = $('#content');
+	html2canvas(content,{
+		onrendered: function(canvas) {
+			var resource = canvas.toDataURL("image/png");
+			$('#tab-print').attr('src',resource);
+			//$('#content-print').html("");
+			//$('#content-print').append(canvas);
+			$('.btnPrevious').show();
+			$('.btnNext').show();
+			$('.btn-print').show();
+			$('.row-btn-advanced').show();
+			//window.print();
+			Popup($(element).html(),'Helvetica Neue');
+		}
+	});
+		
 }
 
+(function() {
+    var beforePrint = function() {
+		console.log('before print will show the box-print and hide the wrapper');
+		$('#wrapper').hide();
+		$('#box-print').show();
+		
+    };
+    var afterPrint = function() {
+		console.log('after print will show the wrapper and hide the boxprint');
+        $('#box-print').hide();
+		$('#wrapper').show();
+    };
+
+    if (window.matchMedia) {
+        var mediaQueryList = window.matchMedia('print');
+        mediaQueryList.addListener(function(mql) {
+            if (mql.matches) {
+                beforePrint();
+            } else {
+                afterPrint();
+            }
+        });
+    }
+
+    window.onbeforeprint = beforePrint;
+    window.onafterprint = afterPrint;
+}());
 function Popup(data,font) 
 {
 	var mywindow = window.open('', 'CloseBrothers');
 	mywindow.document.write('<html><head><title>Pension Accumulators</title>');
-	mywindow.document.write('<style type="text/css">@media print{div{font-family: "'+font+'" !important;}}</style>');
-	mywindow.document.write('<style type="text/css">@media screen{div{font-family:"'+font+'" !important;}}</style>');
+	mywindow.document.write('<link rel="stylesheet" href="css/pension_accumulators/style-ui-print.css">');
+	mywindow.document.write('<style type="text/css">@media print{div{font-family: "'+font+'" !important;}.btnNext,.btnPrevious, .btn-print{display:none;}}</style>');
+	mywindow.document.write('<style type="text/css">@media screen{div{font-family:"'+font+'" !important;}.btnNext,.btnPrevious, .btn-print{display:none;}}</style>');
 	mywindow.document.write('<style>a{text-decoration : none !important;color : black;}</style>');
 	mywindow.document.write('</head><body>');
 	mywindow.document.write(data);

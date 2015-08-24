@@ -13,23 +13,25 @@
 	  <link rel="stylesheet" href="css/pension_accumulators/ion.rangeSlider.css" />
       <link rel="stylesheet" href="css/pension_accumulators/ion.rangeSlider.skinHTML5.css" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	   <script type="text/javascript" src="js/pension_accumulators/analytics.js"></script>
+	  <script type="text/javascript" src="js/pension_accumulators/analytics.js"></script>
+	  <script src="js/pension_accumulators/html2canvas.min.js"></script>
 	  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
       <!--[if lt IE 9]>
         <script src="js/pension_accumulators/html5shiv.min.js"></script>
         <script src="js/pension_accumulators/respond.min.js"></script>
+		<script src="js/pension_accumulators/excanvas.min.js"></script>
       <![endif]-->
       <script src="js/pension_accumulators/bootstrap.min.js"></script>
       <script type="text/javascript" src="js/pension_accumulators/ion.rangeSlider.js"></script>
 	  <script type="text/javascript" src="js/pension_accumulators/accounting_min.js"></script>
-      <script type="text/javascript" src="js/pension_accumulators/cmg_data_min.js"></script>
-      <script type="text/javascript" src="js/pension_accumulators/cmg_formula_min.js"></script>
-      <script type="text/javascript" src="js/pension_accumulators/cmg_action_min.js"></script>
-      <script type="text/javascript" src="js/pension_accumulators/cmg_ui_min.js"></script>
+      <script type="text/javascript" src="js/pension_accumulators/cmg_data.js"></script>
+      <script type="text/javascript" src="js/pension_accumulators/cmg_formula.js"></script>
+      <script type="text/javascript" src="js/pension_accumulators/cmg_action.js"></script>
+      <script type="text/javascript" src="js/pension_accumulators/cmg_ui.js"></script>
    </head>
    <body>
-      <div class="container-fluid" id="wrapper">
+      <div class="container-fluid hidden-print" id="wrapper">
          <div class="row title">
             <h3>Pension calculator</h3>
          </div>
@@ -339,23 +341,21 @@
             </div>
          </div>
       </div>
-      <div id="box-print" style="display:none;">
+      <div id="box-print" class="visible-print-block" style="display:none;font-family:Helvetica Neue;">
+		 <div id="title-print">
+            <h3>Pension calculator</h3>
+         </div>
+		 <div id="content-print">
+			<img id="tab-print"></img>
+         </div>	
          <div id="disclamer-print">
-            <p>The aim of this calculator is to give you an indication of how much you need to contribute to a pension and what you might get as a retirement income. The calculator should not be regarded as personal advice. If you are at all unsure, please contact us for advice.</p>
-            <p>The figures are a guide and not guaranteed. Your final pension fund and the income available will depend on factors including the growth your fund achieves, contributions you make in future, charges, inflation, your retirement age, annuity rates at the time and the annuity options you choose.</p>
+           
          </div>
          <div id="important-print">
-            <p>Investment returns are not guaranteed and could be more or less than those used here. Past performance is not a guide to future returns. The value of investments can fall as well as rise, so you may get back less than you invest.</p>
+            
          </div>
 		  <div id="assump-print" >
-            <p>Investment returns are not guaranteed and could be more or less than those used here. Past performance is not a guide to future returns. The value of investments can fall as well as rise, so you may get back less than you invest.</p>
-         </div>
-         <div id="result-box" style="page-break-before:always;border: 2px solid #53565A;padding: 10px;">
-            <h4>Your results:</h4>
-            <p>Your chosen target income is <b>£</b><b class="print-pound-pension">50,000</b> each year when you retire at age <b class="print-retire-age">67</b>.</p>
-            <p>Your chosen tax free cash amount is <b>£</b><b class="print-pound-amount">85,694</b> (<b class="print-percent-amount">25</b>%).</p>
-            <p>Your future pension payments and any existing pensions you have included may provide an income of <b>£</b><b class="print-pound-income">10,200</b> a year from age <b class="print-retire-age">67</b></p>
-            <p id="shortfall-print">You have a shortfall of <b>£</b><b class="print-pound-shortfall">39,800</b> per year.</p>
+            
          </div>
       </div>
       <div id='check-ui' class="hidden-sm hidden-xs"></div>
