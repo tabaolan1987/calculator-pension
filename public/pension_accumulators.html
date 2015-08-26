@@ -14,13 +14,11 @@
       <link rel="stylesheet" href="css/pension_accumulators/ion.rangeSlider.skinHTML5.css" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	  <script type="text/javascript" src="js/pension_accumulators/analytics.js"></script>
-	  <script src="js/pension_accumulators/html2canvas.min.js"></script>
 	  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
       <!--[if lt IE 9]>
         <script src="js/pension_accumulators/html5shiv.min.js"></script>
         <script src="js/pension_accumulators/respond.min.js"></script>
-		<script src="js/pension_accumulators/excanvas.min.js"></script>
       <![endif]-->
       <script src="js/pension_accumulators/bootstrap.min.js"></script>
       <script type="text/javascript" src="js/pension_accumulators/ion.rangeSlider.js"></script>
@@ -67,7 +65,7 @@
 		 </div>
          <!--END .title-->
          <div class="row" id="content">
-            <div class="col-sm-12 col-md-7 left-content">
+            <div id="left-content" class="col-sm-12 col-md-7 left-content">
                <ul class="nav nav-tabs">
                   <li class="active about-you">
                      <div class="mid">
@@ -208,7 +206,7 @@
                            <input id="percent-tax-free-result" class="slider-cash ui-slider"></input>
                         </div>
                      </div>
-                     <div class="row row-rule align-right row-btn-advanced">
+                     <div class="row row-rule align-right row-btn-advanced hidden-print">
                         <span class="btn-note">Click here to change your growth rate and/or charges</span> <span class="btn" id="btn-advanced" data-toggle="modal" data-target="#estimated-annual-modal">advanced</span>
                      </div>
                      
@@ -256,10 +254,10 @@
                   <a id="nextSavings" class="btn btn-primary btnNext" style="display:none;">next</a>
                   <a id="backSavings" class="btn btn-primary btnPrevious" style="display:none;">back</a>
                   <!--next tab3-->
-                  <a id='nextResult' class="btn btn-primary btnNext" style="display:none;">next</a>
-                  <a id='backResult' class="btn btn-primary btnPrevious" style="display:none;">back</a>
+                  <a id='nextResult' class="btn btn-primary btnNext hidden-print" style="display:none;">next</a>
+                  <a id='backResult' class="btn btn-primary btnPrevious hidden-print" style="display:none;">back</a>
                   <!--next tab4-->
-                  <a id="backSummary" class="btn btn-primary btnPrevious" style="display:none;">back</a>
+                  <a id="backSummary" class="btn btn-primary btnPrevious hidden-print" style="display:none;">back</a>
                </div>
             </div>
             <!--END .left-content-->
@@ -276,18 +274,18 @@
                         </div>
                         <div class="col-xs-8">
                            <div style="padding-top : 1px">
-                              <div class="top-arrow">
-                                 <div class="arrow-top"></div>
-                                 <div class="arrow-mid">
-                                    <div class="shortfall" style="display : none;">Shortfall </br> <span style="color:#da291c;">£</span><span class="pound-shortfall">39,800</span></div>
+                              <div id="top-arrow" class="top-arrow">
+                                 <div id="arrow-top" class="arrow-top"></div>
+                                 <div id="arrow-mid" class="arrow-mid">
+                                    <div id="shortfall-div" class="shortfall" style="display : none;">Shortfall </br> <span style="color:#da291c;">£</span><span class="pound-shortfall">39,800</span></div>
                                  </div>
-                                 <div class="arrow-bot"></div>
+                                 <div id="arrow-bot" class="arrow-bot"></div>
                               </div>
                            </div>
-                           <div>
-                              <div class="bot-arrow">
+                           <div id="container-bot-arrow">
+                              <div id="bot-arrow" class="bot-arrow">
                                  <div class="bot-arrow-pension" style="display:none;">Pension <br/> £<span class="pound-income-inform">39,800</span></div>
-                              </div>
+							  </div>
                            </div>
                         </div>
                      </div>
@@ -341,20 +339,25 @@
             </div>
          </div>
       </div>
-      <div id="box-print" class="visible-print-block" style="display:none;font-family:Helvetica Neue;">
-		 <div id="title-print">
+      <div id="box-print" class="container-fluid" style="display:none;margin:0px 10px 20px 30px">
+		 <div class="row" id="title-print">
             <h3>Pension calculator</h3>
          </div>
-		 <div id="content-print">
-			<img id="tab-print"></img>
+		 <div class="row" id="content-print" style="border:3px dotted #ddd">
+			<div id="container-left-print" class="col-sm-12 col-md-7 left-content">
+				
+			</div>
+			<div id="container-right-print" class="col-sm-12 col-md-5 right-content">
+				
+			</div>
          </div>	
-         <div id="disclamer-print">
+         <div class="row" id="disclamer-print">
            
          </div>
          <div id="important-print">
             
          </div>
-		  <div id="assump-print" >
+		 <div class="row" id="assump-print" >
             
          </div>
       </div>

@@ -114,8 +114,8 @@ a:focus{
 ---------------------------------------------------------------------------------------------------------------*/
 
 .left-content{
-	border-right:3px dotted #ddd;
 	//height : 638px;
+	border-right:3px dotted #ddd;
 	min-height: 638px;
 }
 
@@ -521,7 +521,7 @@ a:focus{
 }
 
 /*tab summary*/
-#wrap-tab{
+#wrap-tab,#wrap-tab-print{
 	border: 3px solid #06038d;
 	margin:10px 0;
 	padding:10px;
@@ -688,7 +688,7 @@ a:focus{
 }
 
 .coinRed{
-	background: url(../../images/pension_accumulators/coin_red_horiontal_crop.png) top no-repeat;
+	background: url(../../images/pension_accumulators/coin_red_horiontal_crop.png) left top no-repeat;
 	width: 114px;
 	height: 50px;
 	position:absolute;
@@ -696,7 +696,7 @@ a:focus{
 }
 
 .coinBlue{
-	background: url(../../images/pension_accumulators/coin_blue_horizontal_crop.png) top no-repeat;
+	background: url(../../images/pension_accumulators/coin_blue_horizontal_crop.png) left top no-repeat;
 	width: 114px;
 	height: 50px;
 	position:absolute;
@@ -1296,6 +1296,13 @@ a:focus{
 	#right-content .draw-chart .col-xs-8{
 		width: 58.3333%;
 	}
+	
+	#container-right-print .draw-chart .col-xs-4{
+		width: 41.6667%;
+	}
+	#container-right-print .draw-chart .col-xs-8{
+		width: 58.3333%;
+	}
 
 	.btn-print {
 	    margin-left: 96px;
@@ -1312,7 +1319,6 @@ a:focus{
 	    min-height: 45px;
 	}
 }
-
 
 
 
