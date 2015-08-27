@@ -172,7 +172,9 @@ function drawGrowRate(xml){
 		var checked = $(this).attr('default');
 		var classAttr = "growrate-label";
 		if(checked!="false"){
-			classAttr = "growrate-label selected";
+			classAttr = "growrate-label default selected";
+			$("#apply-growrate").attr("defaultGrowrate",value);
+			$("#apply-growrate").attr("currentGrowrate",value);
 		}
 		if(index == 1){
 			html = html + "<div class='col-xs-2 modal-value'><input type='radio' value='"+value+"' id='"+value+"-percent' "+checked+" name='an-grow-percent'><label class='"+classAttr+"' for='"+value+"-percent'></label></div>";

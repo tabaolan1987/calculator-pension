@@ -71,6 +71,15 @@ function isNumberKey(evt,e){
     && (charCode < 48 || charCode > 57)){
 		return false;
 	}
+	var id = $(e).attr('id');
+	if(id=="txt-current-age"){
+		var vl = parseFloatCMG($(e).val());
+		var maxlength = $(e).attr("length");
+		if(vl.toString().length == 2 ){
+			$(e).val(String.fromCharCode(charCode));
+			return false;
+		}
+	}
 	var vl = parseFloatCMG($(e).val());
 	var maxlength = $(e).attr("length");
 	if(vl.toString().length >= maxlength){
@@ -509,6 +518,7 @@ function registerActionResultTab(){
 	
 	
 	$('#estimated-annual-modal').on("shown.bs.modal",function(e){
+		
 		$(".growrate-label").on('click',function(){
 			$(".growrate-label").each(function(){
 				$(this).removeClass("selected");
@@ -518,12 +528,44 @@ function registerActionResultTab(){
 			var idCheck = $(this).attr("for");
 			$("#"+idCheck).attr("checked","checked");
 			$(this).addClass("selected");
+			var cla = $(this).attr("class");
+			if(cla.indexOf("default") == -1){
+				$('#annual-grow-infor-popup').trigger("mouseover");
+			}
 		});
+		
+		$('#reset-growrate').on("click",function(){
+			var currentGrowrate = $("#apply-growrate").attr("defaultGrow");
+			var slideModal = $("#apply-growrate").attr("defaultSlide");
+			resetGrowrate(currentGrowrate,slideModal);
+		});
+		
+		$("#apply-growrate").on("click",function(){
+			var applyGrow = growthRate[$("input:radio[name='an-grow-percent']:checked").val()];
+			var applySlideModal = parseFloatCMG($('#slider-modal-growrate').val());
+			$("#apply-growrate").attr("currentGrowrate",applyGrow);
+			$("#apply-growrate").attr("currentSlideModal",applySlideModal);
+			onChangeUI();
+		});
+		
 	});
 	$('#estimated-annual-modal').on("hidden.bs.modal",function(e){
 		onChangeUI();
 	});
 	
+}
+function setCurrentGrowrate(){
+	var currentGrowrate = $("#apply-growrate").attr("currentGrowrate");
+	var slideModal = $("#apply-growrate").attr("currentSlideModal");
+	resetGrowrate(currentGrowrate,slideModal);
+}
+function resetGrowrate(growrate,modal){
+    var filter = "label[for='"+growrate+"-percent']";
+	$(filter).trigger('click');
+	$('#slider-modal-growrate').data("ionRangeSlider").update({
+		from: modal
+	});
+	$('#slider-modal-growrate').val(modal);
 }
 
 function eneabledSummary(){
