@@ -235,12 +235,12 @@
                         <p class="p-color">Your current plans:</p>
                         <p>Your chosen target income is <b>£</b><b class="summary-pound-pension">50,000</b> each year when you retire at age <b class="summary-retire-age">67</b>
                         <p>
-                        <p><a  data-toggle="tab" class="summary-link" id="focus-income"  title="Change income required" alt="Change income required">change income required</a> &nbsp;&nbsp;&nbsp;&nbsp; <a class="summary-link"  data-toggle="tab" id="focus-retireAge" title="Change retirement age" alt="Change retirement age">change retirement age</a></p>
+                        <p class="hidden-print"><a  data-toggle="tab" class="summary-link hidden-print" id="focus-income"  title="Change income required" alt="Change income required">change income required</a> &nbsp;&nbsp;&nbsp;&nbsp; <a class="summary-link hidden-print"  data-toggle="tab" id="focus-retireAge" title="Change retirement age" alt="Change retirement age">change retirement age</a></p>
                         <p>Your future pension payments and any existing pensions you have included may provide an income of <b>£</b><b class="summary-pound-income">10,200</b> a year from age <b class="summary-retire-age">67</b></p>
-                        <p><a  data-toggle="tab" class="summary-link" id="focus-contribution"  title="Change contributions" alt="Change contributions">change contributions</a></p>
+                        <p class="hidden-print"><a  data-toggle="tab" class="summary-link hidden-print" id="focus-contribution"  title="Change contributions" alt="Change contributions">change contributions</a></p>
                         <p>Your chosen tax free cash amount is <b>£</b><b class="summary-pound-amount">85,694</b> (<b class="summary-percent-amount">25</b><b>%</b>)</p>
-                        <p><a class="summary-link" id="focus-tax"  title="Change tax free cash" alt="Change tax free cash">change tax free cash</a></p>
-                        <div class="align-right row-btn-advanced">
+                        <p class="hidden-print"><a class="summary-link hidden-print" id="focus-tax"  title="Change tax free cash" alt="Change tax free cash">change tax free cash</a></p>
+                        <div class="align-right row-btn-advanced hidden-print">
                            <span class="btn-note">Click here to change your growth rate and/or charges</span> <span class="btn" id="btn-advanced" data-toggle="modal" data-target="#estimated-annual-modal">advanced</span>
                         </div>
                      </div>
@@ -263,7 +263,7 @@
             <!--END .left-content-->
             <div id='right-content' class="col-sm-12 col-md-5 right-content">
                <!---->
-               <div class="right-content-draw" style="display:none;">
+               <div id="right-content-draw" class="right-content-draw" style="display:none;">
                   <div class="draw-chart" >
                      <div class="row">
                         <h3>Your required annual income <br/><span class="wrapper-pound-income"><b>£</b><b class="pound-annual-income">50,000</b></span></h3>
@@ -339,7 +339,7 @@
             </div>
          </div>
       </div>
-      <div id="box-print" class="container-fluid" style="display:none;margin:0px 10px 20px 30px">
+      <div id="box-print" class="container-fluid" style="display:none;margin:0px 10px 20px 30px;font:Helvetica Neue">
 		 <div class="row" id="title-print">
             <h3>Pension calculator</h3>
          </div>
@@ -354,7 +354,7 @@
          <div class="row" id="disclamer-print">
            
          </div>
-         <div id="important-print">
+         <div class="row" id="important-print">
             
          </div>
 		 <div class="row" id="assump-print" >

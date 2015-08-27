@@ -852,100 +852,124 @@ function updateDataPrint(forceCashIncome,shorFall,targetPension,tax_free_value){
 	$("#important-print").html(importantText);
 	$("#assump-print").html(assumptionText);
 }
+function replaceUrl(url){
+	var src = url.replace('url("','');
+	src = src.replace('url(','');
+	src = src.replace('")','');
+	src = src.replace(')','');
+	return src;
+}
+
+function cloneSummary(){
+	$('#container-left-print').html("");
+	var $tabLeft = $('#wrap-tab').clone();
+	$tabLeft.find("#wrap-tab").attr('id','wrap-tab-print');
+	$('#container-left-print').html($tabLeft);
+}
+function cloneCoinToImage(){
+	$('div#coin-container-print *').each(function(){
+		var $image = $(document.createElement('img'));
+		$image.attr('style',$(this).attr('style'));
+		var src = $(this).css('background-image');
+		src = replaceUrl(src);
+		$image.attr('src',src);
+		$image.css('position','absolute');
+		$image.css('display','block');
+		$(this).replaceWith($image);
+	});
+}
+function cloneArrowToImage(){
+	var $shortFall = "";
+	$('div#top-arrow-print *').each(function(){
+		var $image = $(document.createElement('img'));
+		$image.attr('style',$(this).attr('style'));
+		$image.attr('id', $(this).attr('id')+"-print");
+		var src = $(this).css('background-image');
+		src = replaceUrl(src);
+		$image.attr('src',src);
+		$image.css('display','block');
+		var id = $(this).attr('id');
+		if(id=="arrow-mid"){
+			$shortFall = $(this).find('div').clone();
+			var temp = $shortFall.attr('id') + "-print";
+			$shortFall.attr('id',temp);
+			$shortFall.css('font-size',$(this).css('font-size'));
+			$shortFall.css('font-weight',$(this).css('font-weight'));
+			$shortFall.css('color',$(this).css('color'));
+		}
+		$(this).replaceWith($image);
+	});
+	return $shortFall;
+}
+
+function clonePensionToImage(){
+	var $pension = "";
+	$('div#container-bot-arrow-print *').each(function(){
+		var $image = $(document.createElement('img'));
+		$image.attr('style',$(this).attr('style'));
+		$image.attr('id', $(this).attr('id')+"-print");
+		var src = $(this).css('background-image');
+		src = replaceUrl(src);
+		$image.css('display','block');
+		$image.attr('src',src);
+		var id = $(this).attr('id');
+		if(id=="bot-arrow-print"){
+			$pension = $(this).find('div').clone();
+			var temp = $(this).attr('id') + "-print";
+			$pension.attr('id',temp);
+			$pension.css('font',$(this).css('font'));
+		}
+		$(this).replaceWith($image);
+	});
+	return $pension;
+}
+
+function cloneDivToImage(){
+    $('#container-right-print').html("");
+	var $tabRight = $('.right-content-draw').clone();
+	$tabRight.find("#coin-container").attr('id','coin-container-print');
+	$tabRight.find("#top-arrow").css('text-align','left');
+	$tabRight.find("#top-arrow").attr('id','top-arrow-print');
+	$tabRight.find("#container-bot-arrow").css('position','relative');
+	$tabRight.find("#container-bot-arrow").attr('id','container-bot-arrow-print');
+	$tabRight.find("#bot-arrow").attr('id','bot-arrow-print');
+	$('#container-right-print').html($tabRight);
+	cloneCoinToImage();
+	var $shortFall = cloneArrowToImage();
+	var $pension = clonePensionToImage();
+	$('#box-print').show();	
+	var width = $('#arrow-top-print').css('width');
+	var height = parseInt($('#arrow-mid-print').css("height").replace("px",""));
+	if(height ===0){
+		height = 60;
+	}
+	$('#arrow-mid-print').css('width',width);
+	$('#arrow-mid-print').css('height',height);
+	$shortFall.css({"position": "absolute", "width":width,"text-align":"center","top": height/2});
+	$pension.css({"position": "absolute", "width":$('#bot-arrow').css('width'),"text-align":"center"});
+	$('#top-arrow-print').append($shortFall);
+	$('#container-bot-arrow-print').append($pension);
+	var h1 = $('#container-bot-arrow-print').css('height').replace("px","");
+	var h2 = $pension.css('height').replace("px","");
+	$pension.css({"top":(h1-h2)/2});
+}
+function getActiveTab(){
+	var id = $('li.active').find('a').attr('id');
+	return id;
+}
 
 function PrintElement(element){
-		$('#container-left-print').html("");
-		$('#container-right-print').html("");
-		$('#summary').trigger('click');
-		var $tabLeft = $('#wrap-tab').clone();
-		var $tabRight = $('.right-content-draw').clone();
-		$tabLeft.find("#wrap-tab").attr('id','wrap-tab-print');
-		$tabRight.find("#coin-container").attr('id','coin-container-print');
-		$tabRight.find("#top-arrow").css('text-align','left');
-		$tabRight.find("#top-arrow").attr('id','top-arrow-print');
-		$tabRight.find("#container-bot-arrow").css('position','relative');
-		$tabRight.find("#container-bot-arrow").attr('id','container-bot-arrow-print');
-		$tabRight.find("#bot-arrow").attr('id','bot-arrow-print');
-		$('#container-left-print').html($tabLeft);
-		$('#container-right-print').html($tabRight);
-		$('div#coin-container-print *').each(function(){
-			var $image = $(document.createElement('img'));
-			$image.attr('style',$(this).attr('style'));
-			var src = $(this).css('background-image');
-			src = src.replace('url("','');
-			src = src.replace('url(','');
-			src = src.replace('")','');
-			src = src.replace(')','');
-			$image.attr('src',src);
-			$image.css('position','absolute');
-			$image.css('display','block');
-			$(this).replaceWith($image);
-		});
-		var $shortFall = "";
-		$('div#top-arrow-print *').each(function(){
-			var $image = $(document.createElement('img'));
-			$image.attr('style',$(this).attr('style'));
-			$image.attr('id', $(this).attr('id')+"-print");
-			var src = $(this).css('background-image');
-			src = src.replace('url("','');
-			src = src.replace('")','');
-			src = src.replace('url(','');
-			src = src.replace(')','');
-			$image.attr('src',src);
-			$image.css('display','block');
-			var id = $(this).attr('id');
-			if(id=="arrow-mid"){
-				$shortFall = $(this).find('div').clone();
-				var temp = $shortFall.attr('id') + "-print";
-				$shortFall.attr('id',temp);
-				$shortFall.css('font-size',$(this).css('font-size'));
-				$shortFall.css('font-weight',$(this).css('font-weight'));
-				$shortFall.css('color',$(this).css('color'));
-			}
-			$(this).replaceWith($image);
-		});
-		var $pension
-		$('div#container-bot-arrow-print *').each(function(){
-			var $image = $(document.createElement('img'));
-			$image.attr('style',$(this).attr('style'));
-			$image.attr('id', $(this).attr('id')+"-print");
-			var src = $(this).css('background-image');
-			src = src.replace('url("','');
-			src = src.replace('")','');
-			src = src.replace('url(','');
-			src = src.replace(')','');
-			$image.css('display','block');
-			$image.attr('src',src);
-			var id = $(this).attr('id');
-			if(id=="bot-arrow-print"){
-				$pension = $(this).find('div').clone();
-				var temp = $(this).attr('id') + "-print";
-				$pension.attr('id',temp);
-				$pension.css('font',$(this).css('font'));
-			}
-			$(this).replaceWith($image);
-		});
-		$('#box-print').show();	
-		var width = $('#arrow-top-print').css('width');
-		var height = parseInt($('#arrow-mid-print').css("height").replace("px",""));
-		if(height ===0){
-			height = 60;
-		}
-		$('#arrow-mid-print').css('width',width);
-		$('#arrow-mid-print').css('height',height);
-		$shortFall.css({"position": "absolute", "width":width,"text-align":"center","top": height/2});
-		$pension.css({"position": "absolute", "width":$('#bot-arrow').css('width'),"text-align":"center"});
-		$('#top-arrow-print').append($shortFall);
-		$('#container-bot-arrow-print').append($pension);
-		var h1 = $('#container-bot-arrow-print').css('height').replace("px","");
-		var h2 = $pension.css('height').replace("px","");
-		$pension.css({"top":(h1-h2)/2});
-		$('.row-btn-advanced').show();
-		setTimeout(function(){ 
-			//window.print();
-		}, 2000);
-		$('#box-print').show();	
-		//window.print();
+	var activeID = getActiveTab();
+	$('#box-print').removeClass("visible-print-block");
+	$('#summary').trigger('click');
+	cloneSummary();
+	cloneDivToImage();
+	setTimeout(function(){ 
+		$('#box-print').addClass("visible-print-block");
+		$("#box-print").hide();
+		$("#"+activeID).trigger('click');
+		window.print();
+	}, 500);
 }
 
 function Popup(data,font) 
