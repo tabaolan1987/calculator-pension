@@ -13,7 +13,7 @@
 	  <link rel="stylesheet" href="css/pension_accumulators/ion.rangeSlider.css" />
       <link rel="stylesheet" href="css/pension_accumulators/ion.rangeSlider.skinHTML5.css" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	  <script type="text/javascript" src="js/pension_accumulators/analytics.js"></script>
+	   <script type="text/javascript" src="js/pension_accumulators/analytics.js"></script>
 	  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
       <!--[if lt IE 9]>
@@ -23,13 +23,13 @@
       <script src="js/pension_accumulators/bootstrap.min.js"></script>
       <script type="text/javascript" src="js/pension_accumulators/ion.rangeSlider.js"></script>
 	  <script type="text/javascript" src="js/pension_accumulators/accounting_min.js"></script>
-      <script type="text/javascript" src="js/pension_accumulators/cmg_data.js"></script>
-      <script type="text/javascript" src="js/pension_accumulators/cmg_formula.js"></script>
+      <script type="text/javascript" src="js/pension_accumulators/cmg_data_min.js"></script>
+      <script type="text/javascript" src="js/pension_accumulators/cmg_formula_min.js"></script>
       <script type="text/javascript" src="js/pension_accumulators/cmg_action.js"></script>
-      <script type="text/javascript" src="js/pension_accumulators/cmg_ui.js"></script>
+      <script type="text/javascript" src="js/pension_accumulators/cmg_ui_min.js"></script>
    </head>
    <body>
-      <div class="container hidden-print" id="wrapper">
+      <div class="container-fluid" id="wrapper">
          <div class="row title">
             <h3>Pension calculator</h3>
          </div>
@@ -65,7 +65,7 @@
 		 </div>
          <!--END .title-->
          <div class="row" id="content">
-            <div id="left-content" class="col-sm-12 col-md-7 left-content">
+            <div class="col-sm-12 col-md-7 left-content">
                <ul class="nav nav-tabs">
                   <li class="active about-you">
                      <div class="mid">
@@ -206,7 +206,7 @@
                            <input id="percent-tax-free-result" class="slider-cash ui-slider"></input>
                         </div>
                      </div>
-                     <div class="row row-rule align-right row-btn-advanced hidden-print">
+                     <div class="row row-rule align-right row-btn-advanced">
                         <span class="btn-note">Click here to change your growth rate and/or charges</span> <span class="btn" id="btn-advanced" data-toggle="modal" data-target="#estimated-annual-modal">advanced</span>
                      </div>
                      
@@ -235,12 +235,12 @@
                         <p class="p-color">Your current plans:</p>
                         <p>Your chosen target income is <b>£</b><b class="summary-pound-pension">50,000</b> each year when you retire at age <b class="summary-retire-age">67</b>
                         <p>
-                        <p class="hidden-print"><a  data-toggle="tab" class="summary-link hidden-print" id="focus-income"  title="Change income required" alt="Change income required">change income required</a> &nbsp;&nbsp;&nbsp;&nbsp; <a class="summary-link hidden-print"  data-toggle="tab" id="focus-retireAge" title="Change retirement age" alt="Change retirement age">change retirement age</a></p>
+                        <p><a  data-toggle="tab" class="summary-link" id="focus-income"  title="Change income required" alt="Change income required">change income required</a> &nbsp;&nbsp;&nbsp;&nbsp; <a class="summary-link"  data-toggle="tab" id="focus-retireAge" title="Change retirement age" alt="Change retirement age">change retirement age</a></p>
                         <p>Your future pension payments and any existing pensions you have included may provide an income of <b>£</b><b class="summary-pound-income">10,200</b> a year from age <b class="summary-retire-age">67</b></p>
-                        <p class="hidden-print"><a  data-toggle="tab" class="summary-link hidden-print" id="focus-contribution"  title="Change contributions" alt="Change contributions">change contributions</a></p>
+                        <p><a  data-toggle="tab" class="summary-link" id="focus-contribution"  title="Change contributions" alt="Change contributions">change contributions</a></p>
                         <p>Your chosen tax free cash amount is <b>£</b><b class="summary-pound-amount">85,694</b> (<b class="summary-percent-amount">25</b><b>%</b>)</p>
-                        <p class="hidden-print"><a class="summary-link hidden-print" id="focus-tax"  title="Change tax free cash" alt="Change tax free cash">change tax free cash</a></p>
-                        <div class="align-right row-btn-advanced hidden-print">
+                        <p><a class="summary-link" id="focus-tax"  title="Change tax free cash" alt="Change tax free cash">change tax free cash</a></p>
+                        <div class="align-right row-btn-advanced">
                            <span class="btn-note">Click here to change your growth rate and/or charges</span> <span class="btn" id="btn-advanced" data-toggle="modal" data-target="#estimated-annual-modal">advanced</span>
                         </div>
                      </div>
@@ -254,16 +254,16 @@
                   <a id="nextSavings" class="btn btn-primary btnNext" style="display:none;">next</a>
                   <a id="backSavings" class="btn btn-primary btnPrevious" style="display:none;">back</a>
                   <!--next tab3-->
-                  <a id='nextResult' class="btn btn-primary btnNext hidden-print" style="display:none;">next</a>
-                  <a id='backResult' class="btn btn-primary btnPrevious hidden-print" style="display:none;">back</a>
+                  <a id='nextResult' class="btn btn-primary btnNext" style="display:none;">next</a>
+                  <a id='backResult' class="btn btn-primary btnPrevious" style="display:none;">back</a>
                   <!--next tab4-->
-                  <a id="backSummary" class="btn btn-primary btnPrevious hidden-print" style="display:none;">back</a>
+                  <a id="backSummary" class="btn btn-primary btnPrevious" style="display:none;">back</a>
                </div>
             </div>
             <!--END .left-content-->
             <div id='right-content' class="col-sm-12 col-md-5 right-content">
                <!---->
-               <div id="right-content-draw" class="right-content-draw" style="display:none;">
+               <div class="right-content-draw" style="display:none;">
                   <div class="draw-chart" >
                      <div class="row">
                         <h3>Your required annual income <br/><span class="wrapper-pound-income"><b>£</b><b class="pound-annual-income">50,000</b></span></h3>
@@ -274,18 +274,18 @@
                         </div>
                         <div class="col-xs-8">
                            <div style="padding-top : 1px">
-                              <div id="top-arrow" class="top-arrow">
-                                 <div id="arrow-top" class="arrow-top"></div>
-                                 <div id="arrow-mid" class="arrow-mid">
-                                    <div id="shortfall-div" class="shortfall" style="display : none;">Shortfall </br> <span style="color:#da291c;">£</span><span class="pound-shortfall">39,800</span></div>
+                              <div class="top-arrow">
+                                 <div class="arrow-top"></div>
+                                 <div class="arrow-mid">
+                                    <div class="shortfall" style="display : none;">Shortfall </br> <span style="color:#da291c;">£</span><span class="pound-shortfall">39,800</span></div>
                                  </div>
-                                 <div id="arrow-bot" class="arrow-bot"></div>
+                                 <div class="arrow-bot"></div>
                               </div>
                            </div>
-                           <div id="container-bot-arrow">
-                              <div id="bot-arrow" class="bot-arrow">
+                           <div>
+                              <div class="bot-arrow">
                                  <div class="bot-arrow-pension" style="display:none;">Pension <br/> £<span class="pound-income-inform">39,800</span></div>
-							  </div>
+                              </div>
                            </div>
                         </div>
                      </div>
@@ -339,26 +339,23 @@
             </div>
          </div>
       </div>
-      <div id="box-print" class="container-fluid" style="display:none;margin:0px 10px 20px 30px;font:Helvetica Neue">
-		 <div class="row" id="title-print">
-            <h3>Pension calculator</h3>
+      <div id="box-print" style="display:none;">
+         <div id="disclamer-print">
+            <p>The aim of this calculator is to give you an indication of how much you need to contribute to a pension and what you might get as a retirement income. The calculator should not be regarded as personal advice. If you are at all unsure, please contact us for advice.</p>
+            <p>The figures are a guide and not guaranteed. Your final pension fund and the income available will depend on factors including the growth your fund achieves, contributions you make in future, charges, inflation, your retirement age, annuity rates at the time and the annuity options you choose.</p>
          </div>
-		 <div class="row" id="content-print" style="border:3px dotted #ddd">
-			<div id="container-left-print" class="col-sm-12 col-md-7 left-content">
-				
-			</div>
-			<div id="container-right-print" class="col-sm-12 col-md-5 right-content">
-				
-			</div>
-         </div>	
-         <div class="row" id="disclamer-print">
-           
+         <div id="important-print">
+            <p>Investment returns are not guaranteed and could be more or less than those used here. Past performance is not a guide to future returns. The value of investments can fall as well as rise, so you may get back less than you invest.</p>
          </div>
-         <div class="row" id="important-print">
-            
+		  <div id="assump-print" >
+            <p>Investment returns are not guaranteed and could be more or less than those used here. Past performance is not a guide to future returns. The value of investments can fall as well as rise, so you may get back less than you invest.</p>
          </div>
-		 <div class="row" id="assump-print" >
-            
+         <div id="result-box" style="page-break-before:always;border: 2px solid #53565A;padding: 10px;">
+            <h4>Your results:</h4>
+            <p>Your chosen target income is <b>£</b><b class="print-pound-pension">50,000</b> each year when you retire at age <b class="print-retire-age">67</b>.</p>
+            <p>Your chosen tax free cash amount is <b>£</b><b class="print-pound-amount">85,694</b> (<b class="print-percent-amount">25</b>%).</p>
+            <p>Your future pension payments and any existing pensions you have included may provide an income of <b>£</b><b class="print-pound-income">10,200</b> a year from age <b class="print-retire-age">67</b></p>
+            <p id="shortfall-print">You have a shortfall of <b>£</b><b class="print-pound-shortfall">39,800</b> per year.</p>
          </div>
       </div>
       <div id='check-ui' class="hidden-sm hidden-xs"></div>

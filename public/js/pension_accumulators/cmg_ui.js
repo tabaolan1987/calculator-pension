@@ -64,6 +64,7 @@ function setHeightDiv(forceCashIncome,shortFall,targetPension,coinBlue,coinRed){
 		$('.arrow-mid').css('height',0);
 		var hieghtBlueDiv = ($('#coin-container').height() - 25 - heighTotalRed)/2 - $('.bot-arrow').height()/2;
 		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
+		//$('#print-div').css('margin-top',hieghtBlueDiv + 10.5);
 		animationShortFall(heightMidInform -2,shortFall);
 		animationIncomed();
 		return true;
@@ -79,6 +80,11 @@ function setHeightDiv(forceCashIncome,shortFall,targetPension,coinBlue,coinRed){
 		var heightMidInform =  heighTotalRed - $('.arrow-top').height() - $('.arrow-bot').height();
 		$('.arrow-mid').css('height',0);
 		$('.bot-arrow').css('margin-top','0');
+		if(coinBlue==4){
+			//$('#print-div').css('margin-top',"2px");
+		}else{
+			//$('#print-div').css('margin-top',"22px");
+		}
 		animationShortFall(heightMidInform - 4,shortFall);
 		animationIncomed();
 		return true;
@@ -95,6 +101,7 @@ function setHeightDiv(forceCashIncome,shortFall,targetPension,coinBlue,coinRed){
 		}
 		
 		$('.bot-arrow').css('margin-top','0');
+		//$('#print-div').css('margin-top',"2px");
 		animationIncomed();
 		return true;
 	}else if(coinRed <= 5){
@@ -103,6 +110,7 @@ function setHeightDiv(forceCashIncome,shortFall,targetPension,coinBlue,coinRed){
 		$('.arrow-mid').css('height',60);
 		var hieghtBlueDiv = ($('#coin-container').height() - 25 - $('.top-arrow').height())/2 - $('.bot-arrow').height()/2;
 		$('.bot-arrow').css('margin-top',hieghtBlueDiv);
+		//$('#print-div').css('margin-top',hieghtBlueDiv + 10);
 		animationShortFall(heightMidInform -2,shortFall);
 		animationIncomed();
 		return true;
@@ -262,19 +270,17 @@ function drawSlideModalGrowRate(){
 	$("#slider-modal-growrate").ionRangeSlider({
             hide_min_max: true,
             keyboard: true,
-			min : 0.5,
+			min : 0,
 			max : 3,
 			from : 1.5,
 			postfix : "%",
 			grid_margin : true,
-			grid_num : 5,
+			grid_num : 6,
             type: 'single',
             step: 0.5,
             grid: true
     });
 	$("#slider-modal-growrate").val(1.5);
-	$("#apply-growrate").attr("defaultSlide",1.5);
-	$("#apply-growrate").attr("currentSlideModal",1.5);
 }
 /*--------------------------------------------*/
 function drawSlide(){

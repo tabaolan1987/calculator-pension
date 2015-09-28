@@ -518,7 +518,6 @@ function registerActionResultTab(){
 	
 	
 	$('#estimated-annual-modal').on("shown.bs.modal",function(e){
-		
 		$(".growrate-label").on('click',function(){
 			$(".growrate-label").each(function(){
 				$(this).removeClass("selected");
@@ -528,44 +527,12 @@ function registerActionResultTab(){
 			var idCheck = $(this).attr("for");
 			$("#"+idCheck).attr("checked","checked");
 			$(this).addClass("selected");
-			var cla = $(this).attr("class");
-			if(cla.indexOf("default") == -1){
-				$('#annual-grow-infor-popup').trigger("mouseover");
-			}
 		});
-		
-		$('#reset-growrate').on("click",function(){
-			var currentGrowrate = $("#apply-growrate").attr("defaultGrow");
-			var slideModal = $("#apply-growrate").attr("defaultSlide");
-			resetGrowrate(currentGrowrate,slideModal);
-		});
-		
-		$("#apply-growrate").on("click",function(){
-			var applyGrow = growthRate[$("input:radio[name='an-grow-percent']:checked").val()];
-			var applySlideModal = parseFloatCMG($('#slider-modal-growrate').val());
-			$("#apply-growrate").attr("currentGrowrate",applyGrow);
-			$("#apply-growrate").attr("currentSlideModal",applySlideModal);
-			onChangeUI();
-		});
-		
 	});
 	$('#estimated-annual-modal').on("hidden.bs.modal",function(e){
 		onChangeUI();
 	});
 	
-}
-function setCurrentGrowrate(){
-	var currentGrowrate = $("#apply-growrate").attr("currentGrowrate");
-	var slideModal = $("#apply-growrate").attr("currentSlideModal");
-	resetGrowrate(currentGrowrate,slideModal);
-}
-function resetGrowrate(growrate,modal){
-    var filter = "label[for='"+growrate+"-percent']";
-	$(filter).trigger('click');
-	$('#slider-modal-growrate').data("ionRangeSlider").update({
-		from: modal
-	});
-	$('#slider-modal-growrate').val(modal);
 }
 
 function eneabledSummary(){
@@ -867,7 +834,7 @@ function showExcess(){
 
 /*function print*/
 function updateDataPrint(forceCashIncome,shorFall,targetPension,tax_free_value){
-	var tax_free_percent  = currentTaxPercent*100;//$('#percent-tax-free-result').val();
+	var tax_free_percent  = currentTaxPercent *100;//$('#percent-tax-free-result').val();
 	tax_free_percent = fixed(tax_free_percent);
 	var retire_age = $("#age-to-retirement-result").val();
 	$('.print-pound-pension').html(addCommas(targetPension));
@@ -889,138 +856,21 @@ function updateDataPrint(forceCashIncome,shorFall,targetPension,tax_free_value){
 	var importantText = $("#important-text").html();
 	var assumptionText = $("#assump-text").html();
 	var disclamerText = $("#disclamer-infor").html();
-	
 	$("#disclamer-print").html(disclamerText);
 	$("#important-print").html(importantText);
 	$("#assump-print").html(assumptionText);
 }
-function replaceUrl(url){
-	var src = url.replace('url("','');
-	src = src.replace('url(','');
-	src = src.replace('")','');
-	src = src.replace(')','');
-	return src;
-}
-
-function cloneSummary(){
-	$('#container-left-print').html("");
-	var $tabLeft = $('#wrap-tab').clone();
-	$tabLeft.find("#wrap-tab").attr('id','wrap-tab-print');
-	$('#container-left-print').html($tabLeft);
-}
-function cloneCoinToImage(){
-	$('div#coin-container-print *').each(function(){
-		var $image = $(document.createElement('img'));
-		$image.attr('style',$(this).attr('style'));
-		var src = $(this).css('background-image');
-		src = replaceUrl(src);
-		$image.attr('src',src);
-		$image.css('position','absolute');
-		$image.css('display','block');
-		$(this).replaceWith($image);
-	});
-}
-function cloneArrowToImage(){
-	var $shortFall = "";
-	$('div#top-arrow-print *').each(function(){
-		var $image = $(document.createElement('img'));
-		$image.attr('style',$(this).attr('style'));
-		$image.attr('id', $(this).attr('id')+"-print");
-		var src = $(this).css('background-image');
-		src = replaceUrl(src);
-		$image.attr('src',src);
-		$image.css('display','block');
-		var id = $(this).attr('id');
-		if(id=="arrow-mid"){
-			$shortFall = $(this).find('div').clone();
-			var temp = $shortFall.attr('id') + "-print";
-			$shortFall.attr('id',temp);
-			$shortFall.css('font-size',$(this).css('font-size'));
-			$shortFall.css('font-weight',$(this).css('font-weight'));
-			$shortFall.css('color',$(this).css('color'));
-		}
-		$(this).replaceWith($image);
-	});
-	return $shortFall;
-}
-
-function clonePensionToImage(){
-	var $pension = "";
-	$('div#container-bot-arrow-print *').each(function(){
-		var $image = $(document.createElement('img'));
-		$image.attr('style',$(this).attr('style'));
-		$image.attr('id', $(this).attr('id')+"-print");
-		var src = $(this).css('background-image');
-		src = replaceUrl(src);
-		$image.css('display','block');
-		$image.attr('src',src);
-		var id = $(this).attr('id');
-		if(id=="bot-arrow-print"){
-			$pension = $(this).find('div').clone();
-			var temp = $(this).attr('id') + "-print";
-			$pension.attr('id',temp);
-			$pension.css('font',$(this).css('font'));
-		}
-		$(this).replaceWith($image);
-	});
-	return $pension;
-}
-
-function cloneDivToImage(){
-    $('#container-right-print').html("");
-	var $tabRight = $('.right-content-draw').clone();
-	$tabRight.find("#coin-container").attr('id','coin-container-print');
-	$tabRight.find("#top-arrow").css('text-align','left');
-	$tabRight.find("#top-arrow").attr('id','top-arrow-print');
-	$tabRight.find("#container-bot-arrow").css('position','relative');
-	$tabRight.find("#container-bot-arrow").attr('id','container-bot-arrow-print');
-	$tabRight.find("#bot-arrow").attr('id','bot-arrow-print');
-	$('#container-right-print').html($tabRight);
-	cloneCoinToImage();
-	var $shortFall = cloneArrowToImage();
-	var $pension = clonePensionToImage();
-	$('#box-print').show();	
-	var width = $('#arrow-top-print').css('width');
-	var height = parseInt($('#arrow-mid-print').css("height").replace("px",""));
-	if(height ===0){
-		height = 60;
-	}
-	$('#arrow-mid-print').css('width',width);
-	$('#arrow-mid-print').css('height',height);
-	$shortFall.css({"position": "absolute", "width":width,"text-align":"center","top": height/2});
-	$pension.css({"position": "absolute", "width":$('#bot-arrow').css('width'),"text-align":"center"});
-	$('#top-arrow-print').append($shortFall);
-	$('#container-bot-arrow-print').append($pension);
-	var h1 = $('#container-bot-arrow-print').css('height').replace("px","");
-	var h2 = $pension.css('height').replace("px","");
-	$pension.css({"top":(h1-h2)/2});
-}
-function getActiveTab(){
-	var id = $('li.active').find('a').attr('id');
-	return id;
-}
 
 function PrintElement(element){
-	var activeID = getActiveTab();
-	$('#box-print').removeClass("visible-print-block");
-	$('#summary').trigger('click');
-	cloneSummary();
-	cloneDivToImage();
-	setTimeout(function(){ 
-		$('#box-print').addClass("visible-print-block");
-		$("#box-print").hide();
-		$("#"+activeID).trigger('click');
-		window.print();
-	}, 500);
+	Popup($(element).html(),"Helvetica Neue"); 
 }
 
 function Popup(data,font) 
 {
 	var mywindow = window.open('', 'CloseBrothers');
 	mywindow.document.write('<html><head><title>Pension Accumulators</title>');
-	mywindow.document.write('<link rel="stylesheet" href="css/pension_accumulators/style-ui-print.css">');
-	mywindow.document.write('<style type="text/css">@media print{div{font-family: "'+font+'" !important;}.btnNext,.btnPrevious, .btn-print{display:none;}}</style>');
-	mywindow.document.write('<style type="text/css">@media screen{div{font-family:"'+font+'" !important;}.btnNext,.btnPrevious, .btn-print{display:none;}}</style>');
+	mywindow.document.write('<style type="text/css">@media print{div{font-family: "'+font+'" !important;}}</style>');
+	mywindow.document.write('<style type="text/css">@media screen{div{font-family:"'+font+'" !important;}}</style>');
 	mywindow.document.write('<style>a{text-decoration : none !important;color : black;}</style>');
 	mywindow.document.write('</head><body>');
 	mywindow.document.write(data);
