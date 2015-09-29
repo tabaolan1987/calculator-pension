@@ -181,6 +181,23 @@ function drawCalendar(){
 /*------------------------------------------------------*/
 /* there are functions handle UI of tab About you */
 function drawSlidePercentTaxFreeCash(){
+	$("#retirement-age").ionRangeSlider({
+            hide_min_max: true,
+            keyboard: true,
+			min : 55,
+			max : 75,
+			from :65,
+			grid_margin : true,
+			grid_num : 4,
+            type: 'single',
+            step: 1,
+            grid: true,
+			onFinish: function () {
+				//isUpdate = true;
+				//currentTaxPercent = $("#percent-tax-free").val();
+			}
+    });
+
 	$("#percent-tax-free").ionRangeSlider({
             hide_min_max: true,
             keyboard: true,

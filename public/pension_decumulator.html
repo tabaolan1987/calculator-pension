@@ -32,9 +32,9 @@
       <script type="text/javascript" src="js/pension_decumulator/en.js"></script>
 
       <script type="text/javascript" src="js/pension_decumulator/cmg_data_min.js"></script>
-      <script type="text/javascript" src="js/pension_decumulator/cmg_formula_min.js"></script>
-	   <script type="text/javascript" src="js/pension_decumulator/cmg_ui_min.js"></script>
-      <script type="text/javascript" src="js/pension_decumulator/cmg_action_min.js"></script>
+      <script type="text/javascript" src="js/pension_decumulator/cmg_formula.js"></script>
+	   <script type="text/javascript" src="js/pension_decumulator/cmg_ui.js"></script>
+      <script type="text/javascript" src="js/pension_decumulator/cmg_action.js"></script>
     
    </head>
    <body>
@@ -97,26 +97,38 @@
                         <div class="col-xs-5 col-sm-3 col-md-4 col-calendar"><div class="calendar-wrap"><input data-inputmask="'alias': 'date'" alert-message="date of birth" id='txt-birthday' type="text" class="form-control input-birthday"/></div>
 						<div class="wrap-img-calendar"><img src="images/pension_decumulator/calendar-bg.png" id="image-calendar-trigger" class="img-responsive" style="cursor: pointer;" title="Date selector" onmouseover="this.style.background='red';" onmouseout="this.style.background=''"/></div> </div>
                      </div>
+
+                     <div class="row row-rule">
+                        <div class="col-xs-7 mobile-padding-left"><span id="tax-free-cash" class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider">What is the age at which you plan to start taking your pension benefits?</span></div>
+                        <div class="col-xs-5">
+                           <div id="retirement-age" class="percentTax ui-slider"></div>
+                        </div>
+                     </div>
+
                      <div class="row row-rule">
                         <div class="col-xs-3 mobile-padding-left"><span id="gender" class="icon-tooltip"></span><span class="label-tooltip">Male</span></div>
                         <div class="col-xs-3"><input alert-message="gender" id='male' value='1' type="radio" name="optradio"><label class="radio-gender" for="male"></label></div>
                         <div class="col-xs-3 radio-lable">Female</div>
                         <div class="col-xs-3"><input alert-message="gender" id="female" type="radio" value='2' name="optradio"><label class="radio-gender" for="female"></label></div>
                      </div>
+
                      <div class="row row-rule">
                         <div class="col-xs-7 col-sm-9 col-md-8 mobile-padding-left"><span id="existing-fund-value" class="icon-tooltip"></span><span class="label-tooltip">What is your existing fund value?</span></div>
                         <div class="col-xs-5 col-sm-3 col-md-4"><div class="pound"><input alert-message="existing fund value"  length="9" id='txt-current-salary' type="text" onkeypress="return isNumberKey(event,this)"  class="form-control text-about-you" placeholder=""/></div></div>
                      </div>
+
                      <div class="row row-rule">
                         <div class="col-xs-7 mobile-padding-left"><span id="tax-free-cash" class="icon-tooltip label-slider"></span><span class="label-tooltip label-slider">What percentage would you like to take as tax free cash?</span></div>
                         <div class="col-xs-5">
                            <div id="percent-tax-free" class="percentTax ui-slider"></div>
                         </div>
                      </div>
+
                      <div class="row row-rule">
                         <div class="col-xs-7 col-sm-9 col-md-8 mobile-padding-left"><span id="target-pension" class="icon-tooltip"></span><span class="label-tooltip">How much annual income do you think you will want when you retire?</span></div>
                         <div class="col-xs-5 col-sm-3 col-md-4"><div class="pound"><input alert-message="desired income" length="9"  id="txt-target-pensions" type="text" onkeypress="return isNumberKey(event,this)"  class="form-control text-about-you" placeholder=""/></div></div>
                      </div>
+
                      <a id='nextAboutYou' class="btn btn-primary btnNext">calculate</a>
                   </div><!--END #tab1-->
 
