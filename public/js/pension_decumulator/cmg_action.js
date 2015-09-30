@@ -265,7 +265,7 @@ function registerActionYourDetails(){
 
 function checkDataYourDetail(){
 	var content = new Array();
-	var currentAge = getCurrentAge();
+	var currentAge = getAgeFromDOB();
 	if(currentAge == 0 || currentAge < 0){
 		content.push('current-age-equal-zero');
 		return content;
