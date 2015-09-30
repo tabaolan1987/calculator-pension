@@ -124,8 +124,6 @@ function getAge(dateString) {
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
         age--;
     }
-    return age;
-
     if (age <= 75){
 		return getRetirementAge();
 	}else{

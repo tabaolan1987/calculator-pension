@@ -193,8 +193,8 @@ function drawSlidePercentTaxFreeCash(){
             step: 1,
             grid: true,
 			onFinish: function () {
-				//isUpdate = true;
-				//currentTaxPercent = $("#percent-tax-free").val();
+				isUpdate = true;
+				/*currentTaxPercent = $("#percent-tax-free").val();*/
 			}
     });
 

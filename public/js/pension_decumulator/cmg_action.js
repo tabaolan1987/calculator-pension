@@ -393,9 +393,6 @@ function updateMessage(yearNeedLast,yearMayLast,shortFallYear){
 	var taxPercen = getTaxFreePercent();
 	var taxfreeCash = getTaxFreeCash(fundValue,taxPercen);
 	var currentAge = getCurrentAge();
-	if(currentAge < 55 || currentAge == 0){
-		currentAge = 55;
-	}
 	var grow_rate = getGrowthRate();
 	//results div
 	$('.result-year-retirement').html(addCommas(currentAge));
