@@ -248,6 +248,8 @@ function registerActionYourDetails(){
 				showWarning(warningArray["current-age-equal-zero"]);
 			}else if(caseWarning == "current-age-bigger-than-100"){
 				showWarning(warningArray["current-age-bigger-than-100"]);
+			}else if(caseWarning == "retirement-age-higher-than-current-age"){
+				showWarning(warningArray["retirement-age-higher-than-current-age"]);
 			}else{
 				var content = warningArray["validate-field"] +" "+ check[0];
 				for(var i =1; i < check.length;i++){
@@ -274,7 +276,7 @@ function checkDataYourDetail(){
 		content.push('current-age-bigger-than-100');
 		return content;
 	}
-	if(getRetirementAge() < getAgeFromDOB()){
+	if(getRetirementAge() < getAgeFromDOB() && getAgeFromDOB() <=75){
 		content.push('retirement-age-higher-than-current-age');
 		return content;
 	}
