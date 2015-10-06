@@ -1,35 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <infor_popups>
 <infor>
-<id-element>date-of-birth</id-element>
-<name>date-of-birth</name>
-<message><![CDATA[<p><b><font color='#06038d'>Date of birth</font></b></p>
-<p>The calculation will be based on complete years from the current date to the same date in your retirement year.</p>
-<p>If you are using this modeller when it is close to your next birthday, you may wish to use your current age + 1.</p>]]></message>
+	<id-element>date-of-birth</id-element>
+	<name>date-of-birth</name>
+	<message><![CDATA[<p><b><font color='#06038d'>Date of birth</font></b></p>
+	<p>The calculation will be based on complete years from the current date to the same date in your retirement year.</p>
+	<p>If you are using this modeller when it is close to your next birthday, you may wish to use your current age + 1.</p>]]></message>
 </infor>
+
 <infor>
-<id-element>gender</id-element>
-<name>gender</name>
-<message><![CDATA[<p><b><font color='#06038d'>Gender</font></b></p>
-<p>One of the factors that is used to determine whether or not your funds will last long enough is an estimation of your expected mortality – how long you are likely to live. </p>
-<p>Statistically, women live longer than men and will therefore require an income for longer.</p>]]></message>
+	<id-element>slider-retirement-age</id-element>
+	<name>slider-retirement-age</name>
+	<message><![CDATA[<p><b><font color='#06038d'>Retirement Age</font></b></p>
+	<p>This is the message of retirement age.</p>]]></message>
 </infor>
+
 <infor>
-<id-element>existing-fund-value</id-element>
-<name>existing-fund-value</name>
-<message><![CDATA[<p><b><font color='#06038d'>Existing fund value</font></b></p>
-<p>You will be able to find this on your last annual statement. For a more up-to-date quotation, you can contact your pension provider.</p>]]></message>
+	<id-element>gender</id-element>
+	<name>gender</name>
+	<message><![CDATA[<p><b><font color='#06038d'>Gender</font></b></p>
+	<p>One of the factors that is used to determine whether or not your funds will last long enough is an estimation of your expected mortality – how long you are likely to live. </p>
+	<p>Statistically, women live longer than men and will therefore require an income for longer.</p>]]></message>
 </infor>
+
 <infor>
-<id-element>tax-free-cash</id-element>
-<name>tax-free-cash</name>
-<message><![CDATA[<p><b><font color='#06038d'>Tax free cash</font></b></p>
-<p>This is the amount of your pension fund you have chosen to receive as a tax-free cash lump sum.</p>]]></message>
+	<id-element>existing-fund-value</id-element>
+	<name>existing-fund-value</name>
+	<message><![CDATA[<p><b><font color='#06038d'>Existing fund value</font></b></p>
+	<p>You will be able to find this on your last annual statement. For a more up-to-date quotation, you can contact your pension provider.</p>]]></message>
 </infor>
+
 <infor>
-<id-element>target-pension</id-element>
-<name>target-pension</name>
-<message><![CDATA[<p><b><font color='#06038d'>Target income</font></b></p>
-<p>Enter the annual income amount that you think you will need to maintain your desired lifestyle when you retire.</p>]]></message>
+	<id-element>tax-free-cash</id-element>
+	<name>tax-free-cash</name>
+	<message><![CDATA[<p><b><font color='#06038d'>Tax free cash</font></b></p>
+	<p>This is the amount of your pension fund you have chosen to receive as a tax-free cash lump sum.</p>]]></message>
+</infor>
+
+<infor>
+	<id-element>target-pension</id-element>
+	<name>target-pension</name>
+	<message><![CDATA[<p><b><font color='#06038d'>Target income</font></b></p>
+	<p>Enter the annual income amount that you think you will need to maintain your desired lifestyle when you retire.</p>]]></message>
 </infor>
 </infor_popups>
