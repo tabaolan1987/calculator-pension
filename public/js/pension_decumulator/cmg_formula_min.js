@@ -5,7 +5,7 @@
 
 2.All function in this file manage the Formula in page.
 
-3.Version 1.0.0
+3.Version 2.0.0
 
 4.Company - Claybourne McGregor Consulting Ltd 
 
