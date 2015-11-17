@@ -6,10 +6,11 @@
 </warning-simple>
 <warning-simple>
 <name>current-age-equal-zero</name>
-<message><![CDATA[<p>You have entered today's date or a date in the future, please enter your date of birth.</p>]]></message>
+<message><![CDATA[<p>You have entered today's date or a date in the future. Please enter your date of birth.</p>]]></message>
 </warning-simple>
 <warning-simple>
 <name>current-age-bigger-than-100</name>
-<message><![CDATA[<p>You have entered a date that make your current age bigger than 100!</p>]]></message>
+<message><![CDATA[<p>This calculator does not model expected retirement income over the age of 100.
+Please check the date of birth you entered if you are younger.</p>]]></message>
 </warning-simple>
 </warning_popups>

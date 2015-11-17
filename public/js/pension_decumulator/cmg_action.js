@@ -184,6 +184,7 @@ function registerActionYourDetails(){
 	});
 	
 	$('#nextAboutYou').click(function(){
+		getRetirementAge();
 		var check = checkDataYourDetail();
 		if(check.length == 0){
 			var fundValue = getFundValue();	
@@ -209,6 +210,8 @@ function registerActionYourDetails(){
 				showWarning(warningArray["current-age-equal-zero"]);
 			}else if(caseWarning == "current-age-bigger-than-100"){
 				showWarning(warningArray["current-age-bigger-than-100"]);
+			}else if(caseWarning == "retirement-age-higher-than-current-age"){
+				showWarning(warningArray["retirement-age-higher-than-current-age"]);
 			}else{
 				var content = warningArray["validate-field"] +" "+ check[0];
 				for(var i =1; i < check.length;i++){
@@ -247,6 +250,8 @@ function registerActionYourDetails(){
 				showWarning(warningArray["current-age-equal-zero"]);
 			}else if(caseWarning == "current-age-bigger-than-100"){
 				showWarning(warningArray["current-age-bigger-than-100"]);
+			}else if(caseWarning == "retirement-age-higher-than-current-age"){
+				showWarning(warningArray["retirement-age-higher-than-current-age"]);
 			}else{
 				var content = warningArray["validate-field"] +" "+ check[0];
 				for(var i =1; i < check.length;i++){
@@ -264,13 +269,17 @@ function registerActionYourDetails(){
 
 function checkDataYourDetail(){
 	var content = new Array();
-	var currentAge = getCurrentAge();
+	var currentAge = getAgeFromDOB();
 	if(currentAge == 0 || currentAge < 0){
 		content.push('current-age-equal-zero');
 		return content;
 	}
 	if(currentAge > 100){
 		content.push('current-age-bigger-than-100');
+		return content;
+	}
+	if(getRetirementAge() < getAgeFromDOB() && getAgeFromDOB() <=75){
+		content.push('retirement-age-higher-than-current-age');
 		return content;
 	}
 	var dob = $('#txt-birthday').val();
@@ -388,9 +397,6 @@ function updateMessage(yearNeedLast,yearMayLast,shortFallYear){
 	var taxPercen = getTaxFreePercent();
 	var taxfreeCash = getTaxFreeCash(fundValue,taxPercen);
 	var currentAge = getCurrentAge();
-	if(currentAge < 55 || currentAge == 0){
-		currentAge = 55;
-	}
 	var grow_rate = getGrowthRate();
 	//results div
 	$('.result-year-retirement').html(addCommas(currentAge));
