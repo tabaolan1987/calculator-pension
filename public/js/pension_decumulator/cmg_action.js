@@ -25,16 +25,18 @@ function registerAction(){
 
 /* there are functions handle UI of disclamer */
 function registerLinkActionDisclamer(){
-	$('#disclamer-page').find('a').removeAttr('href');
+	
 	$('#disclamer-page').find('a').click(function(){
 		var text = $(this).text();
 		var parentID = $(this).parent().parent().parent().attr('id');
 		if(text.toLowerCase() == "important assumptions" || text.toLowerCase() == "assumptions used"){
+			$(this).removeAttr('href');
 			$('#'+parentID).hide();
 			$('#assump-div-top').find('a[id="back-assump"]').attr('lastparentID',parentID);
 			$('#assump-div-top').show();
 		}else if(text.toLowerCase() == "important information"){
 			$('#'+parentID).hide();
+			$(this).removeAttr('href');
 			$('#important-div-top').find('a[id="back-important"]').attr('lastparentID',parentID);
 			$('#important-div-top').show();
 		}
